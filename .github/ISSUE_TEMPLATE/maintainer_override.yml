@@ -1,0 +1,60 @@
+name: Maintainer override
+description: Structured escape hatch for emergency or admin-only exceptions.
+title: "override: <short summary>"
+labels: ["maintainer override"]
+body:
+  - type: dropdown
+    id: reason
+    attributes:
+      label: Allowed override reason
+      options:
+        - Emergency fix
+        - Repo or admin change
+        - Operational task
+        - Exceptional case outside normal workflow
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Why is the normal workflow being bypassed?
+      description: Explain why the standard issue → milestone → branch → PR path is not appropriate here.
+      placeholder: |
+        - immediate need:
+        - risk of delay:
+        - normal workflow blocked by:
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and boundaries
+      description: Keep the exception as small and specific as possible.
+      placeholder: |
+        - in scope:
+        - not in scope:
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback or normalization plan
+      description: State how this will be unwound, documented, or normalized afterward.
+      placeholder: |
+        - rollback path:
+        - follow-up issue or PR:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Maintainer confirmation
+      options:
+        - label: This fits one of the allowed override boundaries and is not normal feature delivery
+          required: true
+        - label: A follow-up issue, milestone update, or PR will be created when needed to return to the standard workflow
+          required: true

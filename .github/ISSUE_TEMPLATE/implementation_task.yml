@@ -1,0 +1,114 @@
+name: Implementation task
+description: Internal execution-ready task for agents or maintainers.
+title: "task: <short summary>"
+labels: ["implementation task"]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - core
+        - cli
+        - desktop
+        - compliance
+        - infra
+        - docs
+        - shared
+    validations:
+      required: true
+
+  - type: dropdown
+    id: task_type
+    attributes:
+      label: Task type
+      options:
+        - Implementation
+        - Refactor
+        - Integration
+        - Workflow or tooling
+        - Research follow-through
+        - Release prep
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: source_issue
+    attributes:
+      label: Parent issue or source reference (optional)
+      description: Link the umbrella issue, milestone context, or prior PR if one exists.
+      placeholder: "#1"
+    validations:
+      required: false
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: State the intended outcome in execution terms.
+      placeholder: "Implement the contribution guardrails workflow and the repo-specific issue templates."
+    validations:
+      required: true
+
+  - type: textarea
+    id: in_scope
+    attributes:
+      label: In scope
+      placeholder: |
+        - ...
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      placeholder: |
+        - ...
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and technical rules
+      description: Call out branch, auth, migration, rollout, or architectural constraints.
+      placeholder: |
+        - use the canonical branch format
+        - preserve read-only user-data guarantees
+        - keep GitHub as the live source of truth
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      placeholder: |
+        - fmt
+        - clippy
+        - test
+        - compliance checks
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Notes, links, or prior art (optional)
+      description: Point to files, mockups, docs, incidents, or related issues.
+    validations:
+      required: false
