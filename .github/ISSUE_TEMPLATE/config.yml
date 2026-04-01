@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution workflow
+    url: https://github.com/pcoletsos/storage-strategist/blob/main/CONTRIBUTING.md
+    about: Read the canonical issue, milestone, branch, PR, and merge workflow before opening work.
+  - name: Security report
+    url: https://github.com/pcoletsos/storage-strategist/security/advisories/new
+    about: Please report security issues privately using GitHub Security Advisories.

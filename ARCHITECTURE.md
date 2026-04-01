@@ -127,7 +127,9 @@ UI constraints:
 
 ## CI and Governance
 
-- `.github/workflows/ci.yml`: fmt + clippy (`-D warnings`) + tests + compliance checks + desktop UI smoke tests
+- `CONTRIBUTING.md`: canonical issue-first branch/PR/merge contract
+- `.github/workflows/contribution-guardrails.yml`: PR guardrail check for branch naming, Conventional Commit titles, linked issues, and milestone-backed issues
+- `.github/workflows/ci.yml`: `Contribution guardrails` + fmt + clippy (`-D warnings`) + tests + compliance checks + desktop smoke tests
 - `.github/workflows/bench.yml`: benchmark run + regression threshold check (15%)
 - `.github/workflows/desktop-package.yml`: manual desktop packaging matrix (Windows/macOS/Linux) with optional signing env support
 - Evaluation KPI definitions (`crates/core/src/eval.rs`):

@@ -11,6 +11,11 @@
 This project is licensed under **AGPL-3.0-or-later**.
 See `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `CODE_IMPORT_POLICY.md`.
 
+## Contribution Workflow
+
+Use `CONTRIBUTING.md` for the canonical issue-first, branch, PR, and merge
+workflow. `DEVELOPMENT.md` has the local setup and validation commands.
+
 ## v1 Safety Model
 
 - Read-only scanning and analysis only.
@@ -87,12 +92,13 @@ npm run tauri dev
 ## CI
 
 - `.github/workflows/ci.yml`
+  - `Contribution guardrails`
   - `fmt`
   - `clippy`
   - `test`
   - compliance checks
-  - evaluation KPI gate (`precision@3`, contradiction rate, unsafe recommendations)
-  - desktop UI smoke tests (`apps/desktop`, Playwright)
+  - desktop smoke tests (`apps/desktop`, Playwright)
+- evaluation KPI gate (`precision@3`, contradiction rate, unsafe recommendations)
 - `.github/workflows/bench.yml`
   - benchmark run
   - regression gate via `scripts/check_benchmark_regression.py` (15% threshold)

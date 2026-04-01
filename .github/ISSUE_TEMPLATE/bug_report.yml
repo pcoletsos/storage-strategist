@@ -1,0 +1,142 @@
+name: Bug report
+description: Structured internal bug intake for non-trivial defects.
+title: "fix: <short summary>"
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - core
+        - cli
+        - desktop
+        - compliance
+        - infra
+        - docs
+        - shared
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Blocker (cannot use the app)
+        - High (major feature broken)
+        - Medium (workaround exists)
+        - Low (minor annoyance)
+      default: 3
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: regression
+    attributes:
+      label: Regression check
+      options:
+        - label: This used to work and broke recently
+          required: false
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: One or two sentences is enough.
+      placeholder: "When I export a report, the CLI exits successfully but the output file is empty."
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Keep it simple and numbered. If it is flaky, say how often it happens.
+      placeholder: |
+        1. Go to ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      placeholder: "The command should write a populated report file."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      placeholder: "The file is empty or the command exits before writing it."
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: User or system impact
+      description: Describe why this matters and what is blocked.
+      placeholder: |
+        - user-visible impact:
+        - operational impact:
+        - current workaround:
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, screenshots, or trace (optional)
+      description: Paste logs or link to an artifact. Include a trace if you have one.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Enough detail to reproduce.
+      placeholder: |
+        - OS:
+        - Node version (if relevant):
+        - Python version (if relevant):
+        - Deployment: local dev or CI
+        - Backend: native or pdu_library
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Done looks like
+      description: Use testable acceptance criteria when possible.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for whoever picks this up (optional)
+      description: Suspected file, endpoint, config, linked release, or small theory.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: quick_checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: I searched open issues for duplicates
+          required: false
+        - label: I can reproduce this on the latest main
+          required: false

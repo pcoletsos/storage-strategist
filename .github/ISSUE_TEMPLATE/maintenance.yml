@@ -1,0 +1,96 @@
+name: Maintenance
+description: Internal maintenance, cleanup, test, or tooling work.
+title: "chore: <short summary>"
+labels: ["maintenance"]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - core
+        - cli
+        - desktop
+        - compliance
+        - infra
+        - docs
+        - shared
+      default: 4
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of work is this?
+      options:
+        - Refactor (no behavior change)
+        - Test coverage
+        - CI or tooling
+        - Dependency bump
+        - Docs refresh
+        - Performance or reliability
+        - Cleanup (dead code, lint)
+        - Repo workflow or governance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why are we doing this?
+      description: A few lines is enough.
+      placeholder: "The repo workflow is split across docs and GitHub settings."
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: Suggested approach
+      description: Keep it concrete enough for the assignee to execute.
+      placeholder: |
+        - ...
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks or gotchas (optional)
+      description: Anything that could bite us in review or deploy.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Done looks like
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: What should be run or checked before merge?
+      placeholder: |
+        - fmt
+        - clippy
+        - test
+        - compliance checks
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for whoever picks this up (optional)
+      description: Links to relevant files, PRs, or prior discussions.
+    validations:
+      required: false

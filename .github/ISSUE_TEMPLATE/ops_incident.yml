@@ -1,0 +1,99 @@
+name: Ops incident
+description: Operational issue affecting CI, release flow, or repo admin posture.
+title: "ops: <short summary>"
+labels: ["ops incident"]
+body:
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Outage (service down)
+        - Degraded (slow or partial failures)
+        - Deploy blocked
+        - Incorrect config or drift
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - compliance
+        - infra
+        - core
+        - cli
+        - desktop
+        - docs
+        - shared
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What is broken right now?
+      description: Describe symptoms and user impact.
+      placeholder: "The guardrail workflow is failing on every PR and blocking merges."
+    validations:
+      required: true
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline (optional)
+      description: Rough timestamps help.
+      placeholder: |
+        - First noticed:
+        - Last known good:
+        - Any actions taken:
+    validations:
+      required: false
+
+  - type: textarea
+    id: signals
+    attributes:
+      label: Signals and logs
+      description: Paste command output or links.
+      placeholder: |
+        - GitHub Actions run:
+        - Branch protection:
+        - Label sync:
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Immediate mitigation
+      description: What should happen right now to reduce impact?
+      placeholder: |
+        - rerun the workflow
+        - relax the branch rule temporarily
+        - pin the CI job to a known-good runner
+    validations:
+      required: true
+
+  - type: textarea
+    id: verify
+    attributes:
+      label: How to verify the fix
+      description: What should change once it is fixed?
+      placeholder: |
+        - The GitHub check turns green
+        - Branch protection accepts the configured checks
+        - PRs can merge again
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for whoever picks this up (optional)
+      description: If you have a hunch, include it. If you tried something, mention the result.
+    validations:
+      required: false

@@ -1,0 +1,102 @@
+name: Feature request
+description: Structured internal intake for product or platform work.
+title: "feat: <short summary>"
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Primary scope
+      options:
+        - core
+        - cli
+        - desktop
+        - compliance
+        - infra
+        - docs
+        - shared
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are we solving?
+      description: What is painful, slow, confusing, or missing?
+      placeholder: "Right now the desktop app does not explain why a recommendation is blocked."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the behavior, not the implementation, unless it matters.
+      placeholder: "Add a blocked-reason panel in the results view and expose the trace from the service layer."
+    validations:
+      required: true
+
+  - type: textarea
+    id: in_scope
+    attributes:
+      label: In scope
+      description: Bullet list is fine. Call out what you consider in scope.
+      placeholder: |
+        In scope:
+        - ...
+        - ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: Helps keep PRs tight.
+      placeholder: |
+        Not in scope:
+        - ...
+        - ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: These should be testable.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints or dependencies
+      description: Mention milestone fit, upstream blockers, or technical limits.
+      placeholder: |
+        - depends on ...
+        - should avoid ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes for whoever picks this up (optional)
+      description: Links to code areas, screenshots, or prior art are welcome.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: quick_checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: I checked that this is not already on the roadmap
+          required: false
+        - label: I searched open issues for duplicates
+          required: false
