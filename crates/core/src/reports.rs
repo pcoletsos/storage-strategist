@@ -3,7 +3,7 @@ use std::env;
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use anyhow::{Context, Result};
+use anyhow::{anyhow, Context, Result};
 use serde::{Deserialize, Serialize};
 
 use crate::model::{
@@ -16,6 +16,7 @@ const STORE_DIR_NAME: &str = "report-store";
 const REPORTS_DIR_NAME: &str = "reports";
 const INDEX_FILE_NAME: &str = "index.json";
 const HISTORY_FILE_NAME: &str = "history.json";
+const HASHED_SCAN_ID_PREFIX: &str = "__scan_id_blake3__";
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 struct ReportIndex {
@@ -56,12 +57,12 @@ pub fn history_file_path(custom_dir: Option<&Path>) -> PathBuf {
 }
 
 pub fn report_path_for_scan(scan_id: &str, custom_dir: Option<&Path>) -> PathBuf {
-    reports_dir(custom_dir).join(format!("{scan_id}.json"))
+    reports_dir(custom_dir).join(format!("{}.json", report_file_stem_for_scan(scan_id)))
 }
 
 pub fn list_reports(custom_dir: Option<&Path>) -> Result<Vec<ReportSummary>> {
     let mut index = load_index(custom_dir)?;
-    let changed = cleanup_orphaned_entries(&mut index);
+    let changed = cleanup_orphaned_entries(&mut index, custom_dir)?;
     sort_reports(&mut index.reports);
     if changed {
         save_index(custom_dir, &index)?;
@@ -85,9 +86,15 @@ pub fn store_report(
             stored_report_path.display()
         )
     })?;
+    let stored_report_path = fs::canonicalize(&stored_report_path).with_context(|| {
+        format!(
+            "failed to canonicalize stored report {}",
+            stored_report_path.display()
+        )
+    })?;
 
     let mut index = load_index(custom_dir)?;
-    cleanup_orphaned_entries(&mut index);
+    cleanup_orphaned_entries(&mut index, custom_dir)?;
 
     let summary = build_summary(report, &stored_report_path, source_path, imported);
     index
@@ -114,7 +121,7 @@ pub fn import_report(
 }
 
 pub fn get_report(scan_id: &str, custom_dir: Option<&Path>) -> Result<Report> {
-    let path = report_path_for_scan(scan_id, custom_dir);
+    let path = resolve_existing_report_path(scan_id, custom_dir)?;
     let payload = fs::read_to_string(&path)
         .with_context(|| format!("failed to read stored report {}", path.display()))?;
     let report: Report = serde_json::from_str(&payload)
@@ -373,6 +380,79 @@ fn reports_dir(custom_dir: Option<&Path>) -> PathBuf {
     resolve_report_store_dir(custom_dir).join(REPORTS_DIR_NAME)
 }
 
+fn report_file_stem_for_scan(scan_id: &str) -> String {
+    if can_use_raw_scan_id_stem(scan_id) {
+        scan_id.to_string()
+    } else {
+        format!(
+            "{HASHED_SCAN_ID_PREFIX}{}",
+            blake3::hash(scan_id.as_bytes()).to_hex()
+        )
+    }
+}
+
+fn can_use_raw_scan_id_stem(scan_id: &str) -> bool {
+    !scan_id.is_empty()
+        && scan_id != "."
+        && scan_id != ".."
+        && !scan_id.starts_with(HASHED_SCAN_ID_PREFIX)
+        && scan_id
+            .chars()
+            .all(|ch| ch.is_ascii_alphanumeric() || ch == '-' || ch == '_')
+}
+
+fn legacy_report_path_for_scan(scan_id: &str, custom_dir: Option<&Path>) -> PathBuf {
+    reports_dir(custom_dir).join(format!("{scan_id}.json"))
+}
+
+fn resolve_existing_report_path(scan_id: &str, custom_dir: Option<&Path>) -> Result<PathBuf> {
+    let canonical = report_path_for_scan(scan_id, custom_dir);
+    if let Some(path) = validated_existing_report_path(&canonical, custom_dir)? {
+        return Ok(path);
+    }
+
+    let legacy = legacy_report_path_for_scan(scan_id, custom_dir);
+    if legacy != canonical {
+        if let Some(path) = validated_existing_report_path(&legacy, custom_dir)? {
+            return Ok(path);
+        }
+    }
+
+    Err(anyhow!(
+        "stored report not found for scan_id {}",
+        escape_scan_id_for_error(scan_id)
+    ))
+}
+
+fn validated_existing_report_path(
+    candidate: &Path,
+    custom_dir: Option<&Path>,
+) -> Result<Option<PathBuf>> {
+    if !candidate.exists() {
+        return Ok(None);
+    }
+
+    let reports_root = reports_dir(custom_dir);
+    if !reports_root.exists() {
+        return Ok(None);
+    }
+
+    let canonical_reports_root = fs::canonicalize(&reports_root).with_context(|| {
+        format!(
+            "failed to canonicalize reports directory {}",
+            reports_root.display()
+        )
+    })?;
+    let canonical_candidate = fs::canonicalize(candidate)
+        .with_context(|| format!("failed to canonicalize {}", candidate.display()))?;
+
+    if canonical_candidate.starts_with(&canonical_reports_root) {
+        Ok(Some(canonical_candidate))
+    } else {
+        Ok(None)
+    }
+}
+
 fn index_file_path(custom_dir: Option<&Path>) -> PathBuf {
     resolve_report_store_dir(custom_dir).join(INDEX_FILE_NAME)
 }
@@ -400,12 +480,26 @@ fn save_index(custom_dir: Option<&Path>, index: &ReportIndex) -> Result<()> {
     Ok(())
 }
 
-fn cleanup_orphaned_entries(index: &mut ReportIndex) -> bool {
-    let before = index.reports.len();
-    index
-        .reports
-        .retain(|entry| Path::new(&entry.stored_report_path).exists());
-    before != index.reports.len()
+fn cleanup_orphaned_entries(index: &mut ReportIndex, custom_dir: Option<&Path>) -> Result<bool> {
+    let mut changed = false;
+    let mut retained = Vec::with_capacity(index.reports.len());
+
+    for mut entry in index.reports.drain(..) {
+        match validated_existing_report_path(Path::new(&entry.stored_report_path), custom_dir)? {
+            Some(path) => {
+                let canonical = path.to_string_lossy().to_string();
+                if entry.stored_report_path != canonical {
+                    entry.stored_report_path = canonical;
+                    changed = true;
+                }
+                retained.push(entry);
+            }
+            None => changed = true,
+        }
+    }
+
+    index.reports = retained;
+    Ok(changed)
 }
 
 fn sort_reports(reports: &mut [ReportSummary]) {
@@ -431,9 +525,24 @@ fn signed_delta(left: Option<u64>, right: Option<u64>) -> i64 {
     })
 }
 
+fn escape_scan_id_for_error(scan_id: &str) -> String {
+    let mut escaped = String::new();
+    for ch in scan_id.chars() {
+        match ch {
+            '\n' => escaped.push_str("\\n"),
+            '\r' => escaped.push_str("\\r"),
+            '\t' => escaped.push_str("\\t"),
+            _ => escaped.push(ch),
+        }
+    }
+    escaped
+}
+
 #[cfg(test)]
 mod tests {
-    use super::{build_report_diff, store_report};
+    use std::fs;
+
+    use super::{build_report_diff, get_report, import_report, list_reports, store_report};
     use crate::model::{
         EstimatedImpact, Recommendation, RecommendationEvidence, RecommendationEvidenceKind,
         Report, RiskLevel, ScanBackendKind, ScanMetadata, ScanMetrics,
@@ -462,6 +571,77 @@ mod tests {
         assert_eq!(diff.path_diffs.len(), 1);
         assert_eq!(diff.recommendation_changes.len(), 1);
         assert!(diff.duplicate_wasted_bytes_delta > 0);
+    }
+
+    #[test]
+    fn stores_traversal_like_scan_ids_inside_report_store() {
+        let dir = tempdir().expect("temp dir");
+        let report = sample_report("..\\..\\outside", 100, 1);
+
+        let summary = store_report(&report, Some(dir.path()), None, false).expect("stored report");
+        let stored_path =
+            fs::canonicalize(&summary.stored_report_path).expect("stored report canonicalized");
+        let reports_dir = fs::canonicalize(dir.path().join("reports")).expect("reports dir");
+
+        assert!(stored_path.starts_with(&reports_dir));
+    }
+
+    #[test]
+    fn imported_report_with_traversal_like_scan_id_round_trips_safely() {
+        let dir = tempdir().expect("temp dir");
+        let source = dir.path().join("legacy-report.json");
+        let report = sample_report("../legacy-report", 100, 1);
+        let payload = serde_json::to_string_pretty(&report).expect("serialize report");
+        fs::write(&source, payload).expect("write source report");
+
+        let result = import_report(&source, Some(dir.path())).expect("import report");
+        let loaded = get_report(&report.scan_id, Some(dir.path())).expect("load imported report");
+        let stored_path =
+            fs::canonicalize(&result.summary.stored_report_path).expect("stored report path");
+        let reports_dir = fs::canonicalize(dir.path().join("reports")).expect("reports dir");
+        let expected_source = source.to_string_lossy().to_string();
+
+        assert_eq!(loaded.scan_id, report.scan_id);
+        assert_eq!(loaded.recommendations, report.recommendations);
+        assert!(stored_path.starts_with(&reports_dir));
+        assert_eq!(
+            result.summary.source_path.as_deref(),
+            Some(expected_source.as_str())
+        );
+    }
+
+    #[test]
+    fn list_reports_drops_entries_outside_report_store() {
+        let dir = tempdir().expect("temp dir");
+        fs::create_dir_all(dir.path().join("reports")).expect("create reports dir");
+
+        let outside = dir.path().join("outside-report.json");
+        fs::write(&outside, "{}").expect("write outside report");
+        let malicious_index = serde_json::json!({
+            "reports": [
+                {
+                    "scan_id": "escaped",
+                    "generated_at": "2026-04-10T00:00:00Z",
+                    "report_version": "1.3.0",
+                    "roots": [],
+                    "backend": "native",
+                    "warnings_count": 0,
+                    "recommendation_count": 0,
+                    "stored_report_path": outside,
+                    "source_path": null,
+                    "imported": false
+                }
+            ]
+        });
+        fs::write(
+            dir.path().join("index.json"),
+            serde_json::to_string_pretty(&malicious_index).expect("serialize index"),
+        )
+        .expect("write index");
+
+        let summaries = list_reports(Some(dir.path())).expect("list reports");
+
+        assert!(summaries.is_empty());
     }
 
     fn sample_report(

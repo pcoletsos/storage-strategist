@@ -8,7 +8,6 @@ import {
   exportDiagnosticsBundle,
   exportMarkdownSummary,
   exportReportDiff,
-  generateRecommendations,
   getReport,
   getScanSession,
   importReport,
@@ -129,6 +128,7 @@ function App() {
   const [session, setSession] = useState<ScanSessionSnapshot | null>(null);
   const [events, setEvents] = useState<ScanProgressEvent[]>([]);
   const [report, setReport] = useState<Report | null>(null);
+  const [activeReportPath, setActiveReportPath] = useState<string | null>(null);
   const [reportLibrary, setReportLibrary] = useState<ReportSummary[]>([]);
   const [reportDiff, setReportDiff] = useState<ReportDiff | null>(null);
   const [leftCompareId, setLeftCompareId] = useState<string>("");
@@ -192,16 +192,17 @@ function App() {
         }
 
         if (snapshot.status === "completed") {
-          const loaded =
+          const storedReportPath =
             snapshot.report_path !== undefined && snapshot.report_path !== null
-              ? await loadReport(snapshot.report_path)
-              : await getReport(scanId);
+              ? snapshot.report_path
+              : null;
+          const loaded = storedReportPath ? await loadReport(storedReportPath) : await getReport(scanId);
 
           if (!isActive) {
             return;
           }
 
-          await loadWorkbenchReport(loaded);
+          await loadWorkbenchReport(loaded, storedReportPath);
           await refreshReportLibrary();
           setNotice(null);
         }
@@ -366,21 +367,18 @@ function App() {
     });
   }, [report, recommendationEvidenceFilter, recommendationFilter, recommendationPolicyFilter]);
 
-  const loadWorkbenchReport = async (loaded: Report) => {
-    const bundle = await generateRecommendations(loaded);
-    const nextReport = {
-      ...loaded,
-      recommendations: bundle.recommendations,
-      policy_decisions: bundle.policy_decisions,
-      rule_traces: bundle.rule_traces,
-    };
-    const nextScenarioPlan = await planScenarios(nextReport);
+  const loadWorkbenchReport = async (
+    loaded: Report,
+    reportPath?: string | null
+  ) => {
+    const nextScenarioPlan = await planScenarios(loaded);
 
-    setReport(nextReport);
-    setScanId(nextReport.scan_id);
+    setReport(loaded);
+    setActiveReportPath(reportPath?.trim() || null);
+    setScanId(loaded.scan_id);
     setSession(null);
     setScenarioPlan(nextScenarioPlan);
-    setSelectedRecommendationId(nextReport.recommendations[0]?.id ?? null);
+    setSelectedRecommendationId(loaded.recommendations[0]?.id ?? null);
     setTraceStatusFilter("all");
     setTraceRecommendationFilter("all");
     setRecommendationFilter("");
@@ -393,13 +391,13 @@ function App() {
     setScreen("results");
   };
 
-  const openStoredReport = async (storedScanId: string) => {
+  const openStoredReport = async (summary: ReportSummary) => {
     setError(null);
     setNotice(null);
     try {
-      const storedReport = await getReport(storedScanId);
-      await loadWorkbenchReport(storedReport);
-      setNotice(`Opened saved report ${storedScanId}.`);
+      const storedReport = await loadReport(summary.stored_report_path);
+      await loadWorkbenchReport(storedReport, summary.stored_report_path);
+      setNotice(`Opened saved report ${summary.scan_id}.`);
     } catch (storedReportError) {
       setError(String(storedReportError));
     }
@@ -419,7 +417,7 @@ function App() {
       }
       const result = await importReport(selection);
       await refreshReportLibrary();
-      await openStoredReport(result.summary.scan_id);
+      await openStoredReport(result.summary);
       setNotice(`Imported ${result.summary.scan_id} into the local report library.`);
     } catch (importError) {
       setError(String(importError));
@@ -472,6 +470,7 @@ function App() {
       setEvents([]);
       setSession(null);
       setReport(null);
+      setActiveReportPath(null);
       setScenarioPlan(null);
       const id = await startScan(request);
       setScanId(id);
@@ -507,7 +506,7 @@ function App() {
     setError(null);
     setNotice(null);
     try {
-      const sourcePath = session?.report_path ?? output;
+      const sourcePath = activeReportPath ?? session?.report_path ?? output;
       const outputPath = deriveDiagnosticsOutputPath(sourcePath);
       const bundle = await exportDiagnosticsBundle(report, outputPath, sourcePath);
       setNotice(
@@ -525,7 +524,7 @@ function App() {
     setError(null);
     setNotice(null);
     try {
-      const sourcePath = session?.report_path ?? output;
+      const sourcePath = activeReportPath ?? session?.report_path ?? output;
       const outputPath = deriveMarkdownOutputPath(sourcePath);
       await exportMarkdownSummary(report, outputPath);
       setNotice(`Markdown review summary written to ${outputPath}.`);
@@ -667,7 +666,7 @@ function App() {
                       <p>stored at {item.stored_report_path}</p>
                       <p>source path {item.source_path ?? "library-generated"}</p>
                       <div className="row end">
-                        <button onClick={() => openStoredReport(item.scan_id)}>Open Report</button>
+                        <button onClick={() => openStoredReport(item)}>Open Report</button>
                       </div>
                     </article>
                   ))}

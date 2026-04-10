@@ -1,6 +1,6 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
-const mockReport = {
+const storedReport = {
   scan_id: "scan-e2e-1",
   report_version: "1.3.0",
   generated_at: "2026-02-12T00:00:00Z",
@@ -78,37 +78,68 @@ const mockReport = {
   warnings: [],
 };
 
+const importedReport = {
+  ...storedReport,
+  scan_id: "../legacy-import",
+  generated_at: "2026-02-13T00:00:00Z",
+  recommendations: [
+    {
+      id: "stored-imported-recommendation",
+      title: "Stored imported recommendation",
+      rationale: "Imported reports should reopen exactly as stored.",
+      confidence: 0.33,
+      target_mount: "D:\\",
+      policy_safe: false,
+      policy_rules_applied: ["imported_policy"],
+      policy_rules_blocked: ["blocked_for_review"],
+      estimated_impact: {
+        space_saving_bytes: 1024,
+        performance: "Stored planner note",
+        risk_notes: "Stored imported risk note.",
+      },
+      risk_level: "high",
+      evidence: [
+        {
+          kind: "warning",
+          label: "Stored imported evidence",
+          detail: "This value should survive reopen without recomputation.",
+          mount_point: "D:\\",
+        },
+      ],
+      next_steps: ["Review the stored imported evidence."],
+    },
+  ],
+  policy_decisions: [
+    {
+      policy_id: "imported_policy",
+      recommendation_id: "stored-imported-recommendation",
+      action: "blocked",
+      rationale: "Imported policy decisions must stay intact.",
+    },
+  ],
+  rule_traces: [
+    {
+      rule_id: "imported_rule_trace",
+      status: "rejected",
+      detail: "Stored imported trace detail.",
+      recommendation_id: "stored-imported-recommendation",
+      confidence: 0.21,
+    },
+  ],
+};
+
 const mockDoctor = {
   os: "windows",
   arch: "x86_64",
   read_only_mode: true,
-  disks: mockReport.disks,
+  disks: storedReport.disks,
   notes: [],
-};
-
-const mockScenarioPlan = {
-  generated_at: "2026-02-12T00:00:03Z",
-  scan_id: "scan-e2e-1",
-  assumptions: ["Read-only simulation"],
-  scenarios: [
-    {
-      scenario_id: "conservative",
-      title: "Conservative",
-      strategy: "conservative",
-      recommendation_ids: ["cloud-backed-target-exclusion"],
-      recommendation_count: 1,
-      projected_space_saving_bytes: 0,
-      risk_mix: { low: 1, medium: 0, high: 0 },
-      blocked_recommendation_count: 0,
-      notes: [],
-    },
-  ],
 };
 
 const mockEvents = [
   {
     seq: 1,
-    scan_id: "scan-e2e-1",
+    scan_id: storedReport.scan_id,
     phase: "walking_files",
     current_path: "D:\\Demo",
     scanned_files: 10,
@@ -118,7 +149,7 @@ const mockEvents = [
   },
   {
     seq: 2,
-    scan_id: "scan-e2e-1",
+    scan_id: storedReport.scan_id,
     phase: "done",
     current_path: null,
     scanned_files: 12,
@@ -128,17 +159,30 @@ const mockEvents = [
   },
 ];
 
-const mockReportSummary = {
-  scan_id: mockReport.scan_id,
-  generated_at: mockReport.generated_at,
-  report_version: mockReport.report_version,
+const storedSummary = {
+  scan_id: storedReport.scan_id,
+  generated_at: storedReport.generated_at,
+  report_version: storedReport.report_version,
   roots: ["D:\\Demo"],
   backend: "native",
   warnings_count: 0,
-  recommendation_count: mockReport.recommendations.length,
-  stored_report_path: "mock-report.json",
-  source_path: "mock-report.json",
+  recommendation_count: storedReport.recommendations.length,
+  stored_report_path: "D:\\Library\\stored-report.json",
+  source_path: "D:\\Library\\stored-report.json",
   imported: false,
+};
+
+const importedSummary = {
+  scan_id: importedReport.scan_id,
+  generated_at: importedReport.generated_at,
+  report_version: importedReport.report_version,
+  roots: ["D:\\Demo"],
+  backend: "native",
+  warnings_count: 0,
+  recommendation_count: importedReport.recommendations.length,
+  stored_report_path: "D:\\Library\\imported-legacy-report.json",
+  source_path: "D:\\Imports\\legacy-report.json",
+  imported: true,
 };
 
 const mockReportDiff = {
@@ -152,66 +196,108 @@ const mockReportDiff = {
   recommendation_changes: [],
 };
 
+async function getTauriCalls(page: Page) {
+  return page.evaluate(() => {
+    return (
+      window as unknown as {
+        __mockTauriState__: { calls: Array<{ command: string; payload?: Record<string, unknown> }> };
+      }
+    ).__mockTauriState__.calls;
+  });
+}
+
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(
-    ({ report, doctor, events, scenarioPlan, reportSummary, reportDiff }) => {
-      let sessionCalls = 0;
-      let eventCalls = 0;
-      const scanId = report.scan_id;
+    ({ report, imported, doctor, events, reportSummary, importedReportSummary, reportDiff }) => {
+      const state = {
+        calls: [] as Array<{ command: string; payload?: Record<string, unknown> }>,
+        sessionCalls: 0,
+        eventCalls: 0,
+      };
+
+      const buildScenarioPlan = (activeReport: typeof report) => ({
+        generated_at: "2026-02-12T00:00:03Z",
+        scan_id: activeReport.scan_id,
+        assumptions: ["Read-only simulation"],
+        scenarios: [
+          {
+            scenario_id: "conservative",
+            title: "Conservative",
+            strategy: "conservative",
+            recommendation_ids: activeReport.recommendations.map((entry) => entry.id),
+            recommendation_count: activeReport.recommendations.length,
+            projected_space_saving_bytes:
+              activeReport.recommendations[0]?.estimated_impact?.space_saving_bytes ?? 0,
+            risk_mix: { low: 1, medium: 0, high: 0 },
+            blocked_recommendation_count: activeReport.recommendations.filter(
+              (entry) => !entry.policy_safe
+            ).length,
+            notes: [],
+          },
+        ],
+      });
 
       (
         window as unknown as {
-          __TAURI_INTERNALS__: { invoke: (...args: unknown[]) => Promise<unknown> };
+          __TAURI_INTERNALS__: {
+            invoke: (command: string, payload?: Record<string, unknown>) => Promise<unknown>;
+          };
+          __mockTauriState__: typeof state;
+        }
+      ).__mockTauriState__ = state;
+
+      (
+        window as unknown as {
+          __TAURI_INTERNALS__: {
+            invoke: (command: string, payload?: Record<string, unknown>) => Promise<unknown>;
+          };
         }
       ).__TAURI_INTERNALS__ = {
-        invoke: async (command: string) => {
+        invoke: async (command: string, payload?: Record<string, unknown>) => {
+          state.calls.push({ command, payload });
+
           switch (command) {
             case "start_scan":
-              return scanId;
+              return report.scan_id;
             case "poll_scan_events":
-              eventCalls += 1;
-              return eventCalls === 1 ? events : [];
+              state.eventCalls += 1;
+              return state.eventCalls === 1 ? events : [];
             case "get_scan_session":
-              sessionCalls += 1;
-              if (sessionCalls < 2) {
+              state.sessionCalls += 1;
+              if (state.sessionCalls < 2) {
                 return {
-                  scan_id: scanId,
+                  scan_id: report.scan_id,
                   status: "running",
                   total_events: 0,
                 };
               }
               return {
-                scan_id: scanId,
+                scan_id: report.scan_id,
                 status: "completed",
-                report_path: "mock-report.json",
+                report_path: reportSummary.stored_report_path,
                 total_events: events.length,
               };
             case "load_report":
-              return report;
+              return payload?.path === importedReportSummary.stored_report_path ? imported : report;
             case "list_reports":
-              return [reportSummary];
+              return [reportSummary, importedReportSummary];
             case "get_report":
               return report;
             case "import_report":
-              return { summary: reportSummary };
+              return { summary: importedReportSummary };
             case "compare_reports":
               return reportDiff;
             case "generate_recommendations":
-              return {
-                recommendations: report.recommendations,
-                policy_decisions: report.policy_decisions,
-                rule_traces: report.rule_traces,
-                contradiction_count: 0,
-              };
+              throw new Error("generate_recommendations should not run during reopen/import flows");
             case "plan_scenarios":
-              return scenarioPlan;
+              return buildScenarioPlan((payload?.report as typeof report) ?? report);
             case "doctor":
               return doctor;
             case "export_diagnostics_bundle":
               return {
                 generated_at: "2026-02-12T00:00:04Z",
-                source_report_path: "mock-report.json",
-                report,
+                source_report_path: payload?.sourceReportPath,
+                report: payload?.report,
                 doctor,
                 environment: {
                   os: "windows",
@@ -220,8 +306,12 @@ test.beforeEach(async ({ page }) => {
                   app_version: "0.1.0",
                 },
               };
+            case "export_markdown_summary":
+            case "export_report_diff":
             case "cancel_scan":
               return null;
+            case "plugin:dialog|open":
+              return "D:\\Imports\\legacy-report.json";
             default:
               throw new Error(`Unexpected Tauri command in smoke test: ${command}`);
           }
@@ -229,11 +319,12 @@ test.beforeEach(async ({ page }) => {
       };
     },
     {
-      report: mockReport,
+      report: storedReport,
+      imported: importedReport,
       doctor: mockDoctor,
       events: mockEvents,
-      scenarioPlan: mockScenarioPlan,
-      reportSummary: mockReportSummary,
+      reportSummary: storedSummary,
+      importedReportSummary: importedSummary,
       reportDiff: mockReportDiff,
     }
   );
@@ -265,7 +356,85 @@ test("setup to results to doctor smoke flow", async ({ page }) => {
     })
   ).toBeVisible();
 
+  const commands = (await getTauriCalls(page)).map((entry) => entry.command);
+  expect(commands).not.toContain("generate_recommendations");
+
   await page.getByRole("button", { name: "Doctor" }).click();
   await expect(page.getByRole("heading", { name: "Doctor" })).toBeVisible();
   await expect(page.getByText("Detected disks: 1")).toBeVisible();
+});
+
+test("reopening a saved report keeps the stored recommendations and traces", async ({ page }) => {
+  await page.goto("/");
+
+  await page.getByRole("button", { name: "Open Report" }).first().click();
+
+  await expect(page.getByRole("heading", { name: "Results Workbench" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: "Cloud-backed drives excluded from local placement targets",
+    })
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Open in Rule Trace" }).click();
+  await expect(page.getByText("cloud_exclusion_notice")).toBeVisible();
+
+  const calls = await getTauriCalls(page);
+  expect(calls.filter((entry) => entry.command === "generate_recommendations")).toHaveLength(0);
+  expect(calls.filter((entry) => entry.command === "load_report")).toContainEqual({
+    command: "load_report",
+    payload: { path: storedSummary.stored_report_path },
+  });
+});
+
+test("imported reports reopen from the stored path and exports use stored provenance", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  await page.getByRole("button", { name: "Import Report..." }).click();
+
+  await expect(page.getByRole("heading", { name: "Results Workbench" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: "Stored imported recommendation",
+    })
+  ).toBeVisible();
+  await expect(page.getByText("Imported ../legacy-import into the local report library.")).toBeVisible();
+
+  let calls = await getTauriCalls(page);
+  expect(calls.filter((entry) => entry.command === "generate_recommendations")).toHaveLength(0);
+  expect(calls.filter((entry) => entry.command === "load_report")).toContainEqual({
+    command: "load_report",
+    payload: { path: importedSummary.stored_report_path },
+  });
+
+  await page.getByRole("button", { name: "Export Markdown Summary" }).click();
+  await expect(
+    page.getByText("Markdown review summary written to D:\\Library\\imported-legacy-report.md.")
+  ).toBeVisible();
+
+  await page.getByRole("button", { name: "Export Diagnostics Bundle" }).click();
+  await expect(
+    page.getByText(
+      "Diagnostics bundle written to D:\\Library\\imported-legacy-report.diagnostics.json"
+    )
+  ).toBeVisible();
+
+  calls = await getTauriCalls(page);
+
+  expect(calls).toContainEqual({
+    command: "export_markdown_summary",
+    payload: {
+      report: importedReport,
+      outputPath: "D:\\Library\\imported-legacy-report.md",
+    },
+  });
+  expect(calls).toContainEqual({
+    command: "export_diagnostics_bundle",
+    payload: {
+      report: importedReport,
+      outputPath: "D:\\Library\\imported-legacy-report.diagnostics.json",
+      sourceReportPath: importedSummary.stored_report_path,
+    },
+  });
 });

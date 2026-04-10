@@ -396,12 +396,21 @@ fn lock_sessions() -> Result<std::sync::MutexGuard<'static, HashMap<String, Scan
 
 #[cfg(test)]
 mod tests {
+    use std::fs;
     use std::time::{Duration, Instant};
 
     use super::{
-        cancel_scan, doctor, get_scan_session, poll_scan_events, start_scan, ScanRequest,
-        ScanSessionStatus,
+        cancel_scan, doctor, get_report, get_scan_session, import_report, poll_scan_events,
+        start_scan, ScanRequest, ScanSessionStatus,
     };
+    use storage_strategist_core::model::{ActivitySignals, LargestFiles};
+    use storage_strategist_core::{
+        DiskInfo, DiskKind, DiskRole, DiskRoleHint, DiskStorageType, DuplicateGroup,
+        DuplicateIntent, DuplicateIntentLabel, EstimatedImpact, LocalityClass, PathStats,
+        PerformanceClass, Recommendation, RecommendationEvidence, RecommendationEvidenceKind,
+        Report, RiskLevel, ScanBackendKind, ScanMetadata, ScanMetrics,
+    };
+    use tempfile::tempdir;
 
     #[test]
     fn start_scan_creates_session_and_events() {
@@ -443,5 +452,160 @@ mod tests {
     fn doctor_returns_runtime_snapshot() {
         let info = doctor();
         assert!(info.read_only_mode);
+    }
+
+    #[test]
+    fn imported_reports_round_trip_through_service_without_reanalysis() {
+        let dir = tempdir().expect("temp dir");
+        let source = dir.path().join("legacy-report.json");
+        let report = sample_report("../legacy-report");
+        fs::write(
+            &source,
+            serde_json::to_string_pretty(&report).expect("serialize report"),
+        )
+        .expect("write source report");
+
+        let result = import_report(&source, Some(dir.path())).expect("import report");
+        let loaded = get_report(&report.scan_id, Some(dir.path())).expect("load imported report");
+
+        assert_eq!(loaded.recommendations, report.recommendations);
+        assert_eq!(loaded.policy_decisions, report.policy_decisions);
+        assert_eq!(loaded.rule_traces, report.rule_traces);
+        assert_eq!(
+            loaded.scan_metrics.contradiction_count,
+            report.scan_metrics.contradiction_count
+        );
+        assert!(result.summary.imported);
+    }
+
+    fn sample_report(scan_id: &str) -> Report {
+        Report {
+            report_version: "1.3.0".to_string(),
+            generated_at: "2026-04-10T00:00:00Z".to_string(),
+            scan_id: scan_id.to_string(),
+            scan: ScanMetadata {
+                roots: vec!["D:\\".to_string()],
+                max_depth: None,
+                excludes: Vec::new(),
+                dedupe: false,
+                dedupe_min_size: 0,
+                dry_run: true,
+                backend: ScanBackendKind::Native,
+                progress: false,
+                min_ratio: None,
+                emit_progress_events: false,
+                progress_interval_ms: 250,
+            },
+            scan_metrics: ScanMetrics {
+                contradiction_count: 2,
+                ..ScanMetrics::default()
+            },
+            scan_progress_summary: Default::default(),
+            backend_parity: None,
+            disks: vec![DiskInfo {
+                name: "Disk".to_string(),
+                mount_point: "D:\\".to_string(),
+                total_space_bytes: 1_000,
+                free_space_bytes: 400,
+                disk_kind: DiskKind::Ssd,
+                file_system: Some("ntfs".to_string()),
+                storage_type: DiskStorageType::Ssd,
+                locality_class: LocalityClass::LocalPhysical,
+                locality_confidence: 1.0,
+                locality_rationale: "fixture".to_string(),
+                is_os_drive: false,
+                is_removable: false,
+                vendor: None,
+                model: None,
+                interface: None,
+                rotational: None,
+                hybrid: None,
+                performance_class: PerformanceClass::Balanced,
+                performance_confidence: 1.0,
+                performance_rationale: "fixture".to_string(),
+                eligible_for_local_target: true,
+                ineligible_reasons: Vec::new(),
+                metadata_notes: Vec::new(),
+                role_hint: DiskRoleHint {
+                    role: DiskRole::ActiveWorkload,
+                    confidence: 0.8,
+                    evidence: vec!["fixture".to_string()],
+                },
+                target_role_eligibility: Vec::new(),
+            }],
+            paths: vec![PathStats {
+                root_path: "D:\\Demo".to_string(),
+                disk_mount: Some("D:\\".to_string()),
+                total_size_bytes: 600,
+                file_count: 12,
+                directory_count: 4,
+                largest_files: LargestFiles {
+                    entries: Vec::new(),
+                },
+                largest_directories: Vec::new(),
+                file_type_summary: storage_strategist_core::FileTypeSummary {
+                    top_extensions: Vec::new(),
+                    other_files: 0,
+                    other_bytes: 0,
+                    total_files: 0,
+                    total_bytes: 0,
+                },
+                activity: ActivitySignals {
+                    recent_files: 0,
+                    stale_files: 0,
+                    unknown_modified_files: 0,
+                },
+            }],
+            categories: Vec::new(),
+            duplicates: vec![DuplicateGroup {
+                size_bytes: 10,
+                hash: "hash-1".to_string(),
+                files: Vec::new(),
+                total_wasted_bytes: 5,
+                intent: DuplicateIntent {
+                    label: DuplicateIntentLabel::LikelyRedundant,
+                    rationale: "fixture".to_string(),
+                },
+            }],
+            recommendations: vec![Recommendation {
+                id: "stored-rec".to_string(),
+                title: "Stored recommendation".to_string(),
+                rationale: "Persisted rationale".to_string(),
+                confidence: 0.42,
+                target_mount: Some("D:\\".to_string()),
+                policy_safe: false,
+                policy_rules_applied: vec!["stored_policy".to_string()],
+                policy_rules_blocked: vec!["blocked_policy".to_string()],
+                evidence: vec![RecommendationEvidence {
+                    kind: RecommendationEvidenceKind::Warning,
+                    label: "Stored evidence".to_string(),
+                    detail: "Imported reports should round-trip unchanged.".to_string(),
+                    path: Some("D:\\Demo".to_string()),
+                    mount_point: Some("D:\\".to_string()),
+                    duplicate_hash: None,
+                }],
+                next_steps: vec!["Review stored evidence".to_string()],
+                estimated_impact: EstimatedImpact {
+                    space_saving_bytes: Some(10),
+                    performance: Some("Stored performance note".to_string()),
+                    risk_notes: Some("Stored risk note".to_string()),
+                },
+                risk_level: RiskLevel::High,
+            }],
+            policy_decisions: vec![storage_strategist_core::PolicyDecision {
+                policy_id: "stored_policy".to_string(),
+                recommendation_id: "stored-rec".to_string(),
+                action: storage_strategist_core::PolicyAction::Blocked,
+                rationale: "Stored policy rationale".to_string(),
+            }],
+            rule_traces: vec![storage_strategist_core::RuleTrace {
+                rule_id: "stored_rule".to_string(),
+                status: storage_strategist_core::RuleTraceStatus::Rejected,
+                detail: "Stored trace detail".to_string(),
+                recommendation_id: Some("stored-rec".to_string()),
+                confidence: Some(0.13),
+            }],
+            warnings: vec!["stored warning".to_string()],
+        }
     }
 }
