@@ -1,4 +1,4 @@
-use crate::analyzers::{Analyzer, AnalyzerResult};
+use crate::analyzers::{Analyzer, AnalyzerContext, AnalyzerResult};
 use crate::model::{
     EstimatedImpact, Recommendation, Report, RiskLevel, RuleTrace, RuleTraceStatus,
 };
@@ -21,7 +21,7 @@ impl Analyzer for SystemCachesAnalyzer {
         "system_caches"
     }
 
-    fn analyze(&self, report: &Report) -> AnalyzerResult {
+    fn analyze(&self, report: &Report, _context: &AnalyzerContext) -> AnalyzerResult {
         let mut recommendations = Vec::new();
         let mut traces = Vec::new();
         let cache_targets = get_os_cache_targets();
@@ -73,6 +73,8 @@ impl Analyzer for SystemCachesAnalyzer {
                         policy_safe: true,
                         policy_rules_applied: vec![],
                         policy_rules_blocked: vec![],
+                        evidence: Vec::new(),
+                        next_steps: Vec::new(),
                         estimated_impact: EstimatedImpact {
                             space_saving_bytes: Some(*total_size),
                             performance: None,

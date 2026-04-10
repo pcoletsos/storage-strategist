@@ -3,9 +3,11 @@ use std::path::Path;
 
 use serde::{Deserialize, Serialize};
 
+use crate::analyzers::{run_analyzers, AnalyzerContext};
 use crate::model::{
     Category, DiskInfo, DiskStorageType, DuplicateIntentLabel, EstimatedImpact, LocalityClass,
-    PerformanceClass, Recommendation, Report, RiskLevel, RuleTrace, RuleTraceStatus,
+    PerformanceClass, Recommendation, RecommendationEvidence, RecommendationEvidenceKind, Report,
+    RiskLevel, RuleTrace, RuleTraceStatus,
 };
 use crate::policy::enforce_recommendation_policies;
 
@@ -25,6 +27,13 @@ pub fn generate_recommendations(report: &Report) -> Vec<Recommendation> {
 }
 
 pub fn generate_recommendation_bundle(report: &Report) -> RecommendationBundle {
+    generate_recommendation_bundle_with_context(report, &AnalyzerContext::default())
+}
+
+pub fn generate_recommendation_bundle_with_context(
+    report: &Report,
+    analyzer_context: &AnalyzerContext,
+) -> RecommendationBundle {
     let disk_scores = category_scores_by_disk(report);
     let mut candidates = Vec::new();
     let mut traces = Vec::new();
@@ -71,16 +80,212 @@ pub fn generate_recommendation_bundle(report: &Report) -> RecommendationBundle {
         &mut candidates,
         &mut traces,
     );
+    for result in run_analyzers(report, analyzer_context) {
+        candidates.extend(result.recommendations);
+        traces.extend(result.traces);
+    }
 
     let policy_outcome = enforce_recommendation_policies(report, candidates);
     traces.extend(policy_outcome.rejection_traces);
+    let mut recommendations = policy_outcome.recommendations;
+    enrich_recommendations(report, &mut recommendations);
 
     RecommendationBundle {
-        recommendations: policy_outcome.recommendations,
+        recommendations,
         rule_traces: traces,
         policy_decisions: policy_outcome.decisions,
         contradiction_count: policy_outcome.contradiction_count,
     }
+}
+
+fn enrich_recommendations(report: &Report, recommendations: &mut [Recommendation]) {
+    for recommendation in recommendations {
+        if recommendation.evidence.is_empty() {
+            recommendation.evidence = gather_recommendation_evidence(report, recommendation);
+        }
+        if recommendation.next_steps.is_empty() {
+            recommendation.next_steps = recommendation_next_steps(recommendation);
+        }
+    }
+}
+
+fn gather_recommendation_evidence(
+    report: &Report,
+    recommendation: &Recommendation,
+) -> Vec<RecommendationEvidence> {
+    let mut evidence = Vec::new();
+
+    if let Some(target_mount) = &recommendation.target_mount {
+        if let Some(disk) = report
+            .disks
+            .iter()
+            .find(|disk| &disk.mount_point == target_mount)
+        {
+            evidence.push(RecommendationEvidence {
+                kind: RecommendationEvidenceKind::Disk,
+                label: "Target disk".to_string(),
+                detail: format!(
+                    "{} | role {:?} | locality {:?} | perf {:?}",
+                    disk.name, disk.role_hint.role, disk.locality_class, disk.performance_class
+                ),
+                path: None,
+                mount_point: Some(disk.mount_point.clone()),
+                duplicate_hash: None,
+            });
+        }
+    }
+
+    if recommendation.id.contains("duplicate") {
+        if let Some(group) = report
+            .duplicates
+            .iter()
+            .filter(|group| group.intent.label == DuplicateIntentLabel::LikelyRedundant)
+            .max_by_key(|group| group.total_wasted_bytes)
+        {
+            evidence.push(RecommendationEvidence {
+                kind: RecommendationEvidenceKind::DuplicateGroup,
+                label: "Largest redundant duplicate group".to_string(),
+                detail: format!(
+                    "{} file(s), wasted {} bytes",
+                    group.files.len(),
+                    group.total_wasted_bytes
+                ),
+                path: group.files.first().map(|file| file.path.clone()),
+                mount_point: group.files.first().and_then(|file| file.disk_mount.clone()),
+                duplicate_hash: Some(group.hash.clone()),
+            });
+        }
+    }
+
+    if recommendation.id.starts_with("cleanup-") {
+        if let Some(directory) = report
+            .paths
+            .iter()
+            .flat_map(|path| path.largest_directories.iter())
+            .max_by_key(|directory| directory.size_bytes)
+        {
+            evidence.push(RecommendationEvidence {
+                kind: RecommendationEvidenceKind::Directory,
+                label: "Largest matching directory".to_string(),
+                detail: format!("{} bytes", directory.size_bytes),
+                path: Some(directory.path.clone()),
+                mount_point: None,
+                duplicate_hash: None,
+            });
+        }
+    }
+
+    if recommendation.id.starts_with("disk-growth-")
+        || recommendation.id.starts_with("path-growth-")
+    {
+        evidence.push(RecommendationEvidence {
+            kind: RecommendationEvidenceKind::HistoryDelta,
+            label: "Historical change".to_string(),
+            detail: recommendation.rationale.clone(),
+            path: None,
+            mount_point: recommendation.target_mount.clone(),
+            duplicate_hash: None,
+        });
+    }
+
+    if recommendation.id.contains("cloud") {
+        for disk in report
+            .disks
+            .iter()
+            .filter(|disk| !disk.eligible_for_local_target)
+            .take(2)
+        {
+            evidence.push(RecommendationEvidence {
+                kind: RecommendationEvidenceKind::Disk,
+                label: "Excluded destination".to_string(),
+                detail: disk.ineligible_reasons.join(" | "),
+                path: None,
+                mount_point: Some(disk.mount_point.clone()),
+                duplicate_hash: None,
+            });
+        }
+    }
+
+    if let Some(path_stats) = report
+        .paths
+        .iter()
+        .find(|path| recommendation.target_mount.as_ref() == path.disk_mount.as_ref())
+    {
+        if let Some(directory) = path_stats.largest_directories.first() {
+            evidence.push(RecommendationEvidence {
+                kind: RecommendationEvidenceKind::Directory,
+                label: "Largest scanned directory on related root".to_string(),
+                detail: format!("{} bytes", directory.size_bytes),
+                path: Some(directory.path.clone()),
+                mount_point: path_stats.disk_mount.clone(),
+                duplicate_hash: None,
+            });
+        }
+    }
+
+    for warning in report.warnings.iter().take(1) {
+        evidence.push(RecommendationEvidence {
+            kind: RecommendationEvidenceKind::Warning,
+            label: "Scan warning".to_string(),
+            detail: warning.clone(),
+            path: None,
+            mount_point: None,
+            duplicate_hash: None,
+        });
+    }
+
+    if evidence.is_empty() {
+        evidence.push(RecommendationEvidence {
+            kind: RecommendationEvidenceKind::Other,
+            label: "Rule rationale".to_string(),
+            detail: recommendation.rationale.clone(),
+            path: None,
+            mount_point: recommendation.target_mount.clone(),
+            duplicate_hash: None,
+        });
+    }
+
+    evidence
+}
+
+fn recommendation_next_steps(recommendation: &Recommendation) -> Vec<String> {
+    if recommendation.id == "active-workload-placement" {
+        return vec![
+            "Confirm the target disk has enough free space for active workloads.".to_string(),
+            "Review the suggested move manually before changing any library paths.".to_string(),
+        ];
+    }
+
+    if recommendation.id == "backup-gap" {
+        return vec![
+            "Verify there is a second local or offline copy of the library.".to_string(),
+            "Prefer backup/archive targets over active-use disks when adding redundancy."
+                .to_string(),
+        ];
+    }
+
+    if recommendation.id.contains("duplicate") {
+        return vec![
+            "Inspect the duplicate group and keep the authoritative copy first.".to_string(),
+            "Use the diagnostics bundle if you need to review the full context before cleanup."
+                .to_string(),
+        ];
+    }
+
+    if recommendation.id.starts_with("cleanup-") {
+        return vec![
+            "Inspect the evidence paths and estimate the reclaimable space before cleanup."
+                .to_string(),
+            "Use tool-native cleanup commands where possible instead of manual deletion."
+                .to_string(),
+        ];
+    }
+
+    vec![
+        "Review the linked evidence before taking action.".to_string(),
+        "Export diagnostics if you want to compare or share the recommendation context."
+            .to_string(),
+    ]
 }
 
 fn emit_optional(
@@ -191,6 +396,8 @@ fn active_workload_placement_rule(
         policy_safe: true,
         policy_rules_applied: vec!["safe_target_policy".to_string()],
         policy_rules_blocked: Vec::new(),
+        evidence: Vec::new(),
+        next_steps: Vec::new(),
         estimated_impact: EstimatedImpact {
             space_saving_bytes: None,
             performance: Some(
@@ -285,6 +492,8 @@ fn consolidation_rule(report: &Report) -> Option<Recommendation> {
         policy_safe: true,
         policy_rules_applied: vec!["safe_target_policy".to_string()],
         policy_rules_blocked: Vec::new(),
+        evidence: Vec::new(),
+        next_steps: Vec::new(),
         estimated_impact: EstimatedImpact {
             space_saving_bytes: Some(source_used),
             performance: Some("Potentially fewer active local disks to manage.".to_string()),
@@ -336,6 +545,8 @@ fn risky_disk_rule(
             policy_safe: true,
             policy_rules_applied: vec!["safe_target_policy".to_string()],
             policy_rules_blocked: Vec::new(),
+            evidence: Vec::new(),
+            next_steps: Vec::new(),
             estimated_impact: EstimatedImpact {
                 space_saving_bytes: None,
                 performance: Some(
@@ -394,6 +605,8 @@ fn backup_gap_rule(
             policy_safe: true,
             policy_rules_applied: vec!["safe_target_policy".to_string()],
             policy_rules_blocked: Vec::new(),
+            evidence: Vec::new(),
+            next_steps: Vec::new(),
             estimated_impact: EstimatedImpact {
                 space_saving_bytes: None,
                 performance: None,
@@ -445,6 +658,8 @@ fn duplicate_cleanup_rule(report: &Report) -> Option<Recommendation> {
         policy_safe: true,
         policy_rules_applied: vec!["safe_target_policy".to_string()],
         policy_rules_blocked: Vec::new(),
+        evidence: Vec::new(),
+        next_steps: Vec::new(),
         estimated_impact: EstimatedImpact {
             space_saving_bytes: Some(total_wasted),
             performance: Some("Potential capacity relief and reduced indexing load.".to_string()),
@@ -484,6 +699,8 @@ fn os_headroom_rule(
         policy_safe: true,
         policy_rules_applied: vec!["safe_target_policy".to_string()],
         policy_rules_blocked: Vec::new(),
+        evidence: Vec::new(),
+        next_steps: Vec::new(),
         estimated_impact: EstimatedImpact {
             space_saving_bytes: None,
             performance: Some(
@@ -525,6 +742,8 @@ fn cloud_exclusion_notice_rule(report: &Report) -> Option<Recommendation> {
         policy_safe: true,
         policy_rules_applied: vec!["safe_target_policy".to_string()],
         policy_rules_blocked: Vec::new(),
+        evidence: Vec::new(),
+        next_steps: Vec::new(),
         estimated_impact: EstimatedImpact {
             space_saving_bytes: None,
             performance: None,

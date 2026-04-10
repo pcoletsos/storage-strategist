@@ -7,7 +7,9 @@ use clap::{Args, Parser, Subcommand, ValueEnum};
 use serde::Serialize;
 use storage_strategist_core::{
     build_diagnostics_bundle, build_scenario_plan, collect_doctor_info, compare_backends,
-    evaluate_suite_file, generate_recommendation_bundle, render_markdown_summary, run_scan, Report,
+    compare_reports as compare_saved_reports, evaluate_suite_file, generate_recommendation_bundle,
+    get_report as load_saved_report, import_report as import_saved_report,
+    list_reports as list_saved_reports, render_markdown_summary, run_scan, store_report, Report,
     ScanBackendKind, ScanOptions,
 };
 use tracing_subscriber::EnvFilter;
@@ -41,6 +43,8 @@ enum Commands {
     Plan(PlanArgs),
     /// Export diagnostics bundle (report + doctor + environment metadata).
     Diagnostics(DiagnosticsArgs),
+    /// Work with saved reports in the local report store.
+    Reports(ReportsArgs),
 }
 
 #[derive(Debug, Copy, Clone, ValueEnum)]
@@ -112,6 +116,14 @@ struct ScanArgs {
     /// Cache time-to-live in seconds when incremental cache is enabled.
     #[arg(long, default_value_t = 900, value_name = "SECONDS")]
     cache_ttl_seconds: u64,
+
+    /// Persist scan history metadata for trend analysis.
+    #[arg(long, action = ArgAction::Set, default_value_t = true)]
+    record_history: bool,
+
+    /// Optional local report store root directory.
+    #[arg(long, value_name = "DIR")]
+    report_store_dir: Option<PathBuf>,
 
     /// Forward-compatible no-op in v1 (read-only is always active).
     #[arg(long)]
@@ -204,6 +216,50 @@ struct DiagnosticsArgs {
     output: PathBuf,
 }
 
+#[derive(Debug, Args)]
+struct ReportsArgs {
+    /// Optional local report store root directory.
+    #[arg(long, value_name = "DIR")]
+    store_dir: Option<PathBuf>,
+
+    #[command(subcommand)]
+    command: ReportsCommand,
+}
+
+#[derive(Debug, Subcommand)]
+enum ReportsCommand {
+    /// List indexed reports from the local report store.
+    List,
+    /// Import an existing report JSON into the local report store.
+    Import(ReportsImportArgs),
+    /// Show a stored report by scan id.
+    Show(ReportsShowArgs),
+    /// Compare two stored reports by scan id.
+    Diff(ReportsDiffArgs),
+}
+
+#[derive(Debug, Args)]
+struct ReportsImportArgs {
+    #[arg(long, value_name = "FILE")]
+    path: PathBuf,
+}
+
+#[derive(Debug, Args)]
+struct ReportsShowArgs {
+    #[arg(long, value_name = "SCAN_ID")]
+    scan_id: String,
+}
+
+#[derive(Debug, Args)]
+struct ReportsDiffArgs {
+    #[arg(long, value_name = "LEFT_SCAN_ID")]
+    left: String,
+    #[arg(long, value_name = "RIGHT_SCAN_ID")]
+    right: String,
+    #[arg(long, value_name = "FILE")]
+    output: Option<PathBuf>,
+}
+
 #[derive(Debug, Serialize)]
 struct BenchmarkResult {
     iterations: usize,
@@ -230,6 +286,7 @@ fn main() -> Result<()> {
         Commands::Parity(args) => run_parity_command(args),
         Commands::Plan(args) => run_plan_command(args),
         Commands::Diagnostics(args) => run_diagnostics_command(args),
+        Commands::Reports(args) => run_reports_command(args),
     }
 }
 
@@ -247,6 +304,8 @@ fn run_scan_command(args: ScanArgs) -> Result<()> {
         incremental_cache,
         cache_dir,
         cache_ttl_seconds,
+        record_history,
+        report_store_dir,
         dry_run,
     } = args;
 
@@ -262,6 +321,8 @@ fn run_scan_command(args: ScanArgs) -> Result<()> {
         incremental_cache,
         cache_dir,
         cache_ttl_seconds,
+        record_history,
+        report_store_dir: report_store_dir.clone(),
         dry_run: true,
         ..ScanOptions::default()
     };
@@ -270,8 +331,13 @@ fn run_scan_command(args: ScanArgs) -> Result<()> {
     let payload = serde_json::to_string_pretty(&report).context("failed to serialize report")?;
     fs::write(&output, payload)
         .with_context(|| format!("failed to write report to {}", output.display()))?;
+    let stored_summary = store_report(&report, report_store_dir.as_deref(), Some(&output), false)?;
 
     println!("Report written to {}", output.display());
+    println!(
+        "Stored report indexed at {}",
+        stored_summary.stored_report_path
+    );
     println!(
         "Scanned {} root(s), {} disk(s), {} file(s), {} warning(s).",
         report.scan.roots.len(),
@@ -390,6 +456,7 @@ fn run_benchmark_command(args: BenchmarkArgs) -> Result<()> {
             progress: false,
             min_ratio: None,
             dry_run: true,
+            record_history: false,
             ..ScanOptions::default()
         };
         let report = run_scan(&options)?;
@@ -447,6 +514,7 @@ fn run_parity_command(args: ParityArgs) -> Result<()> {
         progress: false,
         min_ratio: None,
         dry_run: true,
+        record_history: false,
         ..ScanOptions::default()
     };
 
@@ -538,6 +606,72 @@ fn run_diagnostics_command(args: DiagnosticsArgs) -> Result<()> {
     );
 
     Ok(())
+}
+
+fn run_reports_command(args: ReportsArgs) -> Result<()> {
+    match args.command {
+        ReportsCommand::List => {
+            let reports = list_saved_reports(args.store_dir.as_deref())?;
+            if reports.is_empty() {
+                println!("No stored reports found.");
+                return Ok(());
+            }
+
+            for report in reports {
+                println!(
+                    "- {} | {} | roots={} | backend={:?} | warnings={} | recommendations={} | imported={} | path={}",
+                    report.scan_id,
+                    report.generated_at,
+                    report.roots.join(", "),
+                    report.backend,
+                    report.warnings_count,
+                    report.recommendation_count,
+                    report.imported,
+                    report.stored_report_path
+                );
+            }
+            Ok(())
+        }
+        ReportsCommand::Import(import_args) => {
+            let result = import_saved_report(&import_args.path, args.store_dir.as_deref())?;
+            println!(
+                "Imported report {} into {}",
+                result.summary.scan_id, result.summary.stored_report_path
+            );
+            Ok(())
+        }
+        ReportsCommand::Show(show_args) => {
+            let report = load_saved_report(&show_args.scan_id, args.store_dir.as_deref())?;
+            let payload =
+                serde_json::to_string_pretty(&report).context("failed to serialize report")?;
+            println!("{payload}");
+            Ok(())
+        }
+        ReportsCommand::Diff(diff_args) => {
+            let diff = compare_saved_reports(
+                &diff_args.left,
+                &diff_args.right,
+                args.store_dir.as_deref(),
+            )?;
+            println!(
+                "Diff {} -> {} | disk_changes={} path_changes={} duplicate_waste_delta={} recommendation_changes={}",
+                diff.left_scan_id,
+                diff.right_scan_id,
+                diff.disk_diffs.len(),
+                diff.path_diffs.len(),
+                diff.duplicate_wasted_bytes_delta,
+                diff.recommendation_changes.len()
+            );
+            if let Some(output) = diff_args.output {
+                let payload = serde_json::to_string_pretty(&diff)
+                    .context("failed to serialize report diff")?;
+                fs::write(&output, payload)
+                    .with_context(|| format!("failed to write diff output {}", output.display()))?;
+                println!("Diff JSON written to {}", output.display());
+            }
+            Ok(())
+        }
+    }
 }
 
 fn run_doctor_command() {

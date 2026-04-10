@@ -1,4 +1,4 @@
-use crate::analyzers::{Analyzer, AnalyzerResult};
+use crate::analyzers::{Analyzer, AnalyzerContext, AnalyzerResult};
 use crate::history;
 use crate::model::{
     EstimatedImpact, Recommendation, Report, RiskLevel, RuleTrace, RuleTraceStatus,
@@ -16,9 +16,9 @@ impl Analyzer for TrendAnalyzer {
         "trend_analyzer"
     }
 
-    fn analyze(&self, _report: &Report) -> AnalyzerResult {
+    fn analyze(&self, _report: &Report, context: &AnalyzerContext) -> AnalyzerResult {
         let mut result = AnalyzerResult::default();
-        let history = match history::load_history() {
+        let history = match history::load_history(context.report_store_dir.as_deref()) {
             Ok(h) => h,
             Err(e) => {
                 result.traces.push(RuleTrace {
@@ -113,6 +113,8 @@ fn analyze_disk_trends(
                     policy_safe: true,
                     policy_rules_applied: vec![],
                     policy_rules_blocked: vec![],
+                    evidence: Vec::new(),
+                    next_steps: Vec::new(),
                     estimated_impact: EstimatedImpact {
                         space_saving_bytes: None,
                         performance: None,
@@ -158,6 +160,8 @@ fn analyze_path_trends(
                         policy_safe: true,
                         policy_rules_applied: vec![],
                         policy_rules_blocked: vec![],
+                        evidence: Vec::new(),
+                        next_steps: Vec::new(),
                         estimated_impact: EstimatedImpact {
                             space_saving_bytes: None,
                             performance: None,

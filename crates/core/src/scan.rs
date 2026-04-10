@@ -16,7 +16,7 @@ use tracing::info;
 use uuid::Uuid;
 use walkdir::WalkDir;
 
-use crate::analyzers;
+use crate::analyzers::AnalyzerContext;
 use crate::categorize::{aggregate_categories_by_disk, categorize_disks, categorize_paths};
 use crate::dedupe::{find_duplicates, FileRecord};
 use crate::device::{enrich_disks, DiskProbe};
@@ -26,7 +26,7 @@ use crate::model::{
     FileTypeSummary, LargestFiles, PathStats, Report, ScanBackendKind, ScanMetadata, ScanMetrics,
     ScanPhase, ScanPhaseCount, ScanProgressEvent, ScanProgressSummary, REPORT_VERSION,
 };
-use crate::recommend::generate_recommendation_bundle;
+use crate::recommend::generate_recommendation_bundle_with_context;
 use crate::role::infer_disk_roles;
 
 #[cfg(feature = "pdu-backend")]
@@ -66,6 +66,8 @@ pub struct ScanOptions {
     pub incremental_cache: bool,
     pub cache_dir: Option<PathBuf>,
     pub cache_ttl_seconds: u64,
+    pub record_history: bool,
+    pub report_store_dir: Option<PathBuf>,
     pub cancel_flag: Option<Arc<AtomicBool>>,
 }
 
@@ -90,6 +92,8 @@ impl Default for ScanOptions {
             incremental_cache: false,
             cache_dir: None,
             cache_ttl_seconds: DEFAULT_CACHE_TTL_SECONDS,
+            record_history: true,
+            report_store_dir: None,
             cancel_flag: None,
         }
     }
@@ -577,18 +581,16 @@ where
     };
 
     // Run general recommendations
-    let recommendation_bundle = generate_recommendation_bundle(&report);
+    let recommendation_bundle = generate_recommendation_bundle_with_context(
+        &report,
+        &AnalyzerContext {
+            report_store_dir: options.report_store_dir.clone(),
+        },
+    );
     report.recommendations = recommendation_bundle.recommendations;
     report.policy_decisions = recommendation_bundle.policy_decisions;
     report.rule_traces = recommendation_bundle.rule_traces;
     report.scan_metrics.contradiction_count = recommendation_bundle.contradiction_count;
-
-    // Run specific analyzers
-    let analyzer_results = analyzers::run_analyzers(&report);
-    for result in analyzer_results {
-        report.recommendations.extend(result.recommendations);
-        report.rule_traces.extend(result.traces);
-    }
 
     report.scan_metrics.permission_denied_warnings = report
         .warnings
@@ -623,8 +625,8 @@ where
 
     persist_cached_report(options, &roots, &mut report);
 
-    if !options.dry_run {
-        if let Err(err) = append_scan_to_history(&report) {
+    if options.record_history {
+        if let Err(err) = append_scan_to_history(&report, options.report_store_dir.as_deref()) {
             append_warning_once(
                 &mut report.warnings,
                 format!("Failed to append scan to history: {}", err),
@@ -635,8 +637,8 @@ where
     Ok(report)
 }
 
-fn append_scan_to_history(report: &Report) -> Result<()> {
-    let mut history = history::load_history()?;
+fn append_scan_to_history(report: &Report, report_store_dir: Option<&Path>) -> Result<()> {
+    let mut history = history::load_history(report_store_dir)?;
 
     let snapshot = crate::model::ScanSnapshot {
         scan_id: report.scan_id.clone(),
@@ -662,7 +664,7 @@ fn append_scan_to_history(report: &Report) -> Result<()> {
     };
 
     history.snapshots.push(snapshot);
-    history::save_history(&history)?;
+    history::save_history(&history, report_store_dir)?;
     Ok(())
 }
 
@@ -702,10 +704,12 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
     let mut native = options.clone();
     native.backend = ScanBackendKind::Native;
     native.emit_progress_events = false;
+    native.record_history = false;
 
     let mut pdu = options.clone();
     pdu.backend = ScanBackendKind::PduLibrary;
     pdu.emit_progress_events = false;
+    pdu.record_history = false;
 
     let native_report = run_scan(&native)?;
     let pdu_report = run_scan(&pdu)?;
@@ -1518,6 +1522,7 @@ mod tests {
     fn validates_min_ratio_bounds() {
         let options = ScanOptions {
             min_ratio: Some(1.2),
+            record_history: false,
             ..ScanOptions::default()
         };
         assert!(validate_scan_options(&options).is_err());
@@ -1528,6 +1533,7 @@ mod tests {
         let options = ScanOptions {
             incremental_cache: true,
             cache_ttl_seconds: 0,
+            record_history: false,
             ..ScanOptions::default()
         };
         assert!(validate_scan_options(&options).is_err());
@@ -1545,6 +1551,7 @@ mod tests {
             incremental_cache: true,
             cache_dir: Some(cache_dir.path().to_path_buf()),
             cache_ttl_seconds: 900,
+            record_history: false,
             ..ScanOptions::default()
         };
 
@@ -1577,6 +1584,7 @@ mod tests {
             incremental_cache: true,
             cache_dir: Some(cache_dir.path().to_path_buf()),
             cache_ttl_seconds: 900,
+            record_history: false,
             ..ScanOptions::default()
         };
 
