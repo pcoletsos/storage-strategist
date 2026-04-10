@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::analyzers::{Analyzer, AnalyzerResult};
+use crate::analyzers::{Analyzer, AnalyzerContext, AnalyzerResult};
 use crate::model::{
     EstimatedImpact, Recommendation, Report, RiskLevel, RuleTrace, RuleTraceStatus,
 };
@@ -15,7 +15,7 @@ impl Analyzer for DevArtifactsAnalyzer {
         "dev_artifacts"
     }
 
-    fn analyze(&self, report: &Report) -> AnalyzerResult {
+    fn analyze(&self, report: &Report, _context: &AnalyzerContext) -> AnalyzerResult {
         let mut findings: HashMap<&str, (u64, Vec<String>)> = HashMap::new();
         let mut traces = Vec::new();
 
@@ -53,6 +53,8 @@ impl Analyzer for DevArtifactsAnalyzer {
                     policy_safe: true,
                     policy_rules_applied: vec![],
                     policy_rules_blocked: vec![],
+                    evidence: Vec::new(),
+                    next_steps: Vec::new(),
                     estimated_impact: EstimatedImpact {
                         space_saving_bytes: Some(*total_size),
                         performance: None,
@@ -79,6 +81,8 @@ impl Analyzer for DevArtifactsAnalyzer {
                     policy_safe: true,
                     policy_rules_applied: vec![],
                     policy_rules_blocked: vec![],
+                    evidence: Vec::new(),
+                    next_steps: Vec::new(),
                     estimated_impact: EstimatedImpact {
                         space_saving_bytes: Some(*total_size),
                         performance: None,

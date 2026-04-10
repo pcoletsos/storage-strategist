@@ -3,10 +3,16 @@ import { open } from "@tauri-apps/plugin-dialog";
 
 import {
   cancelScan,
+  compareReports,
   doctor,
   exportDiagnosticsBundle,
+  exportMarkdownSummary,
+  exportReportDiff,
   generateRecommendations,
+  getReport,
   getScanSession,
+  importReport,
+  listReports,
   loadReport,
   planScenarios,
   pollScanEvents,
@@ -16,6 +22,8 @@ import type {
   DoctorInfo,
   PolicyDecision,
   Report,
+  ReportDiff,
+  ReportSummary,
   RuleTrace,
   ScenarioPlan,
   ScanProgressEvent,
@@ -23,7 +31,7 @@ import type {
   ScanSessionSnapshot,
 } from "./types";
 
-type Screen = "setup" | "scanning" | "results" | "doctor";
+type Screen = "setup" | "scanning" | "results" | "compare" | "doctor";
 type ResultTab =
   | "disks"
   | "usage"
@@ -36,6 +44,15 @@ type ResultTab =
 const DEFAULT_OUTPUT = "storage-strategist-report.json";
 
 type RuleTraceFilterStatus = "all" | "emitted" | "rejected" | "skipped";
+type RecommendationPolicyFilter = "all" | "safe" | "blocked";
+type RecommendationEvidenceFilter =
+  | "all"
+  | "disk"
+  | "directory"
+  | "duplicate_group"
+  | "history_delta"
+  | "warning"
+  | "other";
 
 const RULE_TRACE_STATUS_OPTIONS: RuleTraceFilterStatus[] = [
   "all",
@@ -65,12 +82,34 @@ function formatConfidence(confidence: number | null | undefined): string {
   return `${(confidence * 100).toFixed(1)}%`;
 }
 
+function formatSignedBytes(bytes: number | null | undefined): string {
+  if (bytes === null || bytes === undefined) {
+    return "n/a";
+  }
+  const sign = bytes < 0 ? "-" : "+";
+  return `${sign}${formatBytes(Math.abs(bytes))}`;
+}
+
 function deriveDiagnosticsOutputPath(sourcePath?: string): string {
   const base = sourcePath?.trim() || DEFAULT_OUTPUT;
   if (base.toLowerCase().endsWith(".json")) {
     return `${base.slice(0, -5)}.diagnostics.json`;
   }
   return `${base}.diagnostics.json`;
+}
+
+function deriveMarkdownOutputPath(sourcePath?: string): string {
+  const base = sourcePath?.trim() || DEFAULT_OUTPUT;
+  if (base.toLowerCase().endsWith(".json")) {
+    return `${base.slice(0, -5)}.md`;
+  }
+  return `${base}.md`;
+}
+
+function deriveDiffOutputPath(leftScanId?: string, rightScanId?: string): string {
+  const left = leftScanId?.trim() || "left";
+  const right = rightScanId?.trim() || "right";
+  return `${left}-to-${right}.diff.json`;
 }
 
 function App() {
@@ -90,6 +129,10 @@ function App() {
   const [session, setSession] = useState<ScanSessionSnapshot | null>(null);
   const [events, setEvents] = useState<ScanProgressEvent[]>([]);
   const [report, setReport] = useState<Report | null>(null);
+  const [reportLibrary, setReportLibrary] = useState<ReportSummary[]>([]);
+  const [reportDiff, setReportDiff] = useState<ReportDiff | null>(null);
+  const [leftCompareId, setLeftCompareId] = useState<string>("");
+  const [rightCompareId, setRightCompareId] = useState<string>("");
   const [scenarioPlan, setScenarioPlan] = useState<ScenarioPlan | null>(null);
   const [doctorInfo, setDoctorInfo] = useState<DoctorInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -97,6 +140,30 @@ function App() {
   const [selectedRecommendationId, setSelectedRecommendationId] = useState<string | null>(null);
   const [traceStatusFilter, setTraceStatusFilter] = useState<RuleTraceFilterStatus>("all");
   const [traceRecommendationFilter, setTraceRecommendationFilter] = useState<string>("all");
+  const [usageFilter, setUsageFilter] = useState("");
+  const [duplicateFilter, setDuplicateFilter] = useState("");
+  const [recommendationFilter, setRecommendationFilter] = useState("");
+  const [recommendationPolicyFilter, setRecommendationPolicyFilter] =
+    useState<RecommendationPolicyFilter>("all");
+  const [recommendationEvidenceFilter, setRecommendationEvidenceFilter] =
+    useState<RecommendationEvidenceFilter>("all");
+
+  const refreshReportLibrary = async () => {
+    const reports = await listReports();
+    setReportLibrary(reports);
+    if (!leftCompareId && reports[0]) {
+      setLeftCompareId(reports[0].scan_id);
+    }
+    if (!rightCompareId && reports[1]) {
+      setRightCompareId(reports[1].scan_id);
+    }
+  };
+
+  useEffect(() => {
+    void refreshReportLibrary().catch((libraryError) => {
+      setError(String(libraryError));
+    });
+  }, []);
 
   useEffect(() => {
     if (screen !== "scanning" || !scanId) {
@@ -125,24 +192,18 @@ function App() {
         }
 
         if (snapshot.status === "completed") {
-          const reportPath = snapshot.report_path ?? output;
-          const loaded = await loadReport(reportPath);
-          const bundle = await generateRecommendations(loaded);
-          const nextReport = { ...loaded, recommendations: bundle.recommendations };
-          const nextScenarioPlan = await planScenarios(nextReport);
+          const loaded =
+            snapshot.report_path !== undefined && snapshot.report_path !== null
+              ? await loadReport(snapshot.report_path)
+              : await getReport(scanId);
 
           if (!isActive) {
             return;
           }
 
-          setReport(nextReport);
-          setScenarioPlan(nextScenarioPlan);
-          setSelectedRecommendationId(nextReport.recommendations[0]?.id ?? null);
-          setTraceStatusFilter("all");
-          setTraceRecommendationFilter("all");
+          await loadWorkbenchReport(loaded);
+          await refreshReportLibrary();
           setNotice(null);
-          setTab("recommendations");
-          setScreen("results");
         }
 
         if (snapshot.status === "failed") {
@@ -258,6 +319,130 @@ function App() {
     });
   }, [report, traceStatusFilter, traceRecommendationFilter]);
 
+  const filteredUsage = useMemo(() => {
+    const query = usageFilter.trim().toLowerCase();
+    const paths = report?.paths ?? [];
+    if (!query) {
+      return paths;
+    }
+    return paths.filter((path) => path.root_path.toLowerCase().includes(query));
+  }, [report, usageFilter]);
+
+  const filteredDuplicates = useMemo(() => {
+    const query = duplicateFilter.trim().toLowerCase();
+    const duplicates = report?.duplicates ?? [];
+    if (!query) {
+      return duplicates;
+    }
+    return duplicates.filter((duplicate) => {
+      const label = duplicate.intent?.label?.toLowerCase() ?? "";
+      return (
+        label.includes(query) ||
+        duplicate.hash.toLowerCase().includes(query) ||
+        duplicate.files.some((file) => file.path.toLowerCase().includes(query))
+      );
+    });
+  }, [report, duplicateFilter]);
+
+  const filteredRecommendations = useMemo(() => {
+    const query = recommendationFilter.trim().toLowerCase();
+    const recommendations = report?.recommendations ?? [];
+    return recommendations.filter((recommendation) => {
+      const queryMatches =
+        !query ||
+        recommendation.title.toLowerCase().includes(query) ||
+        recommendation.rationale.toLowerCase().includes(query) ||
+        recommendation.id.toLowerCase().includes(query);
+      const policyMatches =
+        recommendationPolicyFilter === "all" ||
+        (recommendationPolicyFilter === "safe" && recommendation.policy_safe) ||
+        (recommendationPolicyFilter === "blocked" && !recommendation.policy_safe);
+      const evidenceMatches =
+        recommendationEvidenceFilter === "all" ||
+        recommendation.evidence.some(
+          (evidence) => evidence.kind === recommendationEvidenceFilter
+        );
+      return queryMatches && policyMatches && evidenceMatches;
+    });
+  }, [report, recommendationEvidenceFilter, recommendationFilter, recommendationPolicyFilter]);
+
+  const loadWorkbenchReport = async (loaded: Report) => {
+    const bundle = await generateRecommendations(loaded);
+    const nextReport = {
+      ...loaded,
+      recommendations: bundle.recommendations,
+      policy_decisions: bundle.policy_decisions,
+      rule_traces: bundle.rule_traces,
+    };
+    const nextScenarioPlan = await planScenarios(nextReport);
+
+    setReport(nextReport);
+    setScanId(nextReport.scan_id);
+    setSession(null);
+    setScenarioPlan(nextScenarioPlan);
+    setSelectedRecommendationId(nextReport.recommendations[0]?.id ?? null);
+    setTraceStatusFilter("all");
+    setTraceRecommendationFilter("all");
+    setRecommendationFilter("");
+    setRecommendationPolicyFilter("all");
+    setRecommendationEvidenceFilter("all");
+    setUsageFilter("");
+    setDuplicateFilter("");
+    setReportDiff(null);
+    setTab("recommendations");
+    setScreen("results");
+  };
+
+  const openStoredReport = async (storedScanId: string) => {
+    setError(null);
+    setNotice(null);
+    try {
+      const storedReport = await getReport(storedScanId);
+      await loadWorkbenchReport(storedReport);
+      setNotice(`Opened saved report ${storedScanId}.`);
+    } catch (storedReportError) {
+      setError(String(storedReportError));
+    }
+  };
+
+  const importExistingReport = async () => {
+    setError(null);
+    setNotice(null);
+    try {
+      const selection = await open({
+        directory: false,
+        multiple: false,
+        filters: [{ name: "JSON Reports", extensions: ["json"] }],
+      });
+      if (!selection || Array.isArray(selection)) {
+        return;
+      }
+      const result = await importReport(selection);
+      await refreshReportLibrary();
+      await openStoredReport(result.summary.scan_id);
+      setNotice(`Imported ${result.summary.scan_id} into the local report library.`);
+    } catch (importError) {
+      setError(String(importError));
+    }
+  };
+
+  const runCompare = async () => {
+    if (!leftCompareId || !rightCompareId || leftCompareId === rightCompareId) {
+      setError("Select two different stored reports to compare.");
+      return;
+    }
+
+    setError(null);
+    setNotice(null);
+    try {
+      const diff = await compareReports(leftCompareId, rightCompareId);
+      setReportDiff(diff);
+      setScreen("compare");
+    } catch (compareError) {
+      setError(String(compareError));
+    }
+  };
+
   const start = async () => {
     setError(null);
     setNotice(null);
@@ -280,6 +465,7 @@ function App() {
       progress_interval_ms: 250,
       incremental_cache: true,
       cache_ttl_seconds: 900,
+      record_history: true,
     };
 
     try {
@@ -329,6 +515,40 @@ function App() {
       );
     } catch (bundleError) {
       setError(String(bundleError));
+    }
+  };
+
+  const exportMarkdown = async () => {
+    if (!report) {
+      return;
+    }
+    setError(null);
+    setNotice(null);
+    try {
+      const sourcePath = session?.report_path ?? output;
+      const outputPath = deriveMarkdownOutputPath(sourcePath);
+      await exportMarkdownSummary(report, outputPath);
+      setNotice(`Markdown review summary written to ${outputPath}.`);
+    } catch (markdownError) {
+      setError(String(markdownError));
+    }
+  };
+
+  const exportCompareJson = async () => {
+    if (!reportDiff) {
+      return;
+    }
+    setError(null);
+    setNotice(null);
+    try {
+      const outputPath = deriveDiffOutputPath(
+        reportDiff.left_scan_id,
+        reportDiff.right_scan_id
+      );
+      await exportReportDiff(reportDiff, outputPath);
+      setNotice(`Compare JSON written to ${outputPath}.`);
+    } catch (diffError) {
+      setError(String(diffError));
     }
   };
 
@@ -382,7 +602,81 @@ function App() {
 
       {screen === "setup" ? (
         <section className="panel">
-          <h2>Guided Path Selection</h2>
+          <h2>Home And Guided Path Selection</h2>
+          <p>Select local paths first, or reopen/import a stored report from the local library.</p>
+
+          <article className="card">
+            <div className="title-row">
+              <h3>Report Library</h3>
+              <button onClick={importExistingReport}>Import Report...</button>
+            </div>
+            <p className="muted">
+              Reopen saved scans, compare two reports, or import an exported JSON report into the local workbench.
+            </p>
+            {reportLibrary.length === 0 ? (
+              <p className="muted">No saved reports yet.</p>
+            ) : (
+              <>
+                <div className="row two-col">
+                  <label>
+                    Compare left
+                    <select
+                      value={leftCompareId}
+                      onChange={(event) => setLeftCompareId(event.target.value)}
+                    >
+                      <option value="">select report</option>
+                      {reportLibrary.map((item) => (
+                        <option key={`left-${item.scan_id}`} value={item.scan_id}>
+                          {item.scan_id} - {item.generated_at}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
+                    Compare right
+                    <select
+                      value={rightCompareId}
+                      onChange={(event) => setRightCompareId(event.target.value)}
+                    >
+                      <option value="">select report</option>
+                      {reportLibrary.map((item) => (
+                        <option key={`right-${item.scan_id}`} value={item.scan_id}>
+                          {item.scan_id} - {item.generated_at}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+                <div className="row end">
+                  <button onClick={runCompare} disabled={!leftCompareId || !rightCompareId}>
+                    Compare Stored Reports
+                  </button>
+                </div>
+                <div className="scroll-block">
+                  {reportLibrary.map((item) => (
+                    <article key={item.scan_id} className="card">
+                      <div className="title-row">
+                        <h3>{item.scan_id}</h3>
+                        <span className="badge">{item.backend}</span>
+                      </div>
+                      <p>{item.generated_at}</p>
+                      <p>
+                        roots {item.roots.join(", ")} | warnings {item.warnings_count} | recommendations{" "}
+                        {item.recommendation_count}
+                      </p>
+                      <p>stored at {item.stored_report_path}</p>
+                      <p>source path {item.source_path ?? "library-generated"}</p>
+                      <div className="row end">
+                        <button onClick={() => openStoredReport(item.scan_id)}>Open Report</button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </>
+            )}
+          </article>
+
+          <h3>New Scan</h3>
           <p>Select local paths first. Cloud/network/virtual targets are excluded from placement recommendations.</p>
 
           <div className="row">
@@ -516,7 +810,10 @@ function App() {
         <section className="panel">
           <div className="title-row">
             <h2>Results Workbench</h2>
-            <button onClick={exportDiagnostics}>Export Diagnostics Bundle</button>
+            <div className="row">
+              <button onClick={exportMarkdown}>Export Markdown Summary</button>
+              <button onClick={exportDiagnostics}>Export Diagnostics Bundle</button>
+            </div>
           </div>
           <p>
             Report {report.report_version} generated at {report.generated_at}
@@ -576,7 +873,14 @@ function App() {
 
           {tab === "usage" ? (
             <div className="scroll-block">
-              {(report.paths ?? []).map((path) => (
+              <div className="row">
+                <input
+                  value={usageFilter}
+                  onChange={(event) => setUsageFilter(event.target.value)}
+                  placeholder="Filter roots or paths"
+                />
+              </div>
+              {filteredUsage.map((path) => (
                 <article key={path.root_path} className="card">
                   <h3>{path.root_path}</h3>
                   <p>
@@ -602,7 +906,14 @@ function App() {
 
           {tab === "duplicates" ? (
             <div className="scroll-block">
-              {(report.duplicates ?? []).map((dup) => (
+              <div className="row">
+                <input
+                  value={duplicateFilter}
+                  onChange={(event) => setDuplicateFilter(event.target.value)}
+                  placeholder="Filter by hash, label, or file path"
+                />
+              </div>
+              {filteredDuplicates.map((dup) => (
                 <article key={`${dup.hash}-${dup.size_bytes}`} className="card">
                   <h3>{dup.intent?.label ?? "duplicate"}</h3>
                   <p>
@@ -659,12 +970,55 @@ function App() {
           {tab === "recommendations" ? (
             <div className="split-pane">
               <div className="list-pane">
-                <h3>Recommendations ({report.recommendations.length})</h3>
+                <h3>Recommendations ({filteredRecommendations.length})</h3>
+                <div className="row">
+                  <input
+                    value={recommendationFilter}
+                    onChange={(event) => setRecommendationFilter(event.target.value)}
+                    placeholder="Search recommendation title, id, or rationale"
+                  />
+                </div>
+                <div className="row two-col">
+                  <label>
+                    Policy
+                    <select
+                      value={recommendationPolicyFilter}
+                      onChange={(event) =>
+                        setRecommendationPolicyFilter(
+                          event.target.value as RecommendationPolicyFilter
+                        )
+                      }
+                    >
+                      <option value="all">all</option>
+                      <option value="safe">safe</option>
+                      <option value="blocked">blocked</option>
+                    </select>
+                  </label>
+                  <label>
+                    Evidence
+                    <select
+                      value={recommendationEvidenceFilter}
+                      onChange={(event) =>
+                        setRecommendationEvidenceFilter(
+                          event.target.value as RecommendationEvidenceFilter
+                        )
+                      }
+                    >
+                      <option value="all">all</option>
+                      <option value="disk">disk</option>
+                      <option value="directory">directory</option>
+                      <option value="duplicate_group">duplicate group</option>
+                      <option value="history_delta">history delta</option>
+                      <option value="warning">warning</option>
+                      <option value="other">other</option>
+                    </select>
+                  </label>
+                </div>
                 <div className="scroll-block">
-                  {report.recommendations.length === 0 ? (
+                  {filteredRecommendations.length === 0 ? (
                     <p className="muted">No recommendations were produced for this report.</p>
                   ) : null}
-                  {report.recommendations.map((recommendation) => {
+                  {filteredRecommendations.map((recommendation) => {
                     const isActive = recommendation.id === selectedRecommendationId;
                     return (
                       <button
@@ -736,6 +1090,35 @@ function App() {
                         performance note {selectedRecommendation.estimated_impact.performance ?? "none"}
                       </p>
                       <p>risk notes {selectedRecommendation.estimated_impact.risk_notes ?? "none"}</p>
+                    </article>
+
+                    <article className="card">
+                      <h3>Evidence ({selectedRecommendation.evidence.length})</h3>
+                      {selectedRecommendation.evidence.length === 0 ? (
+                        <p className="muted">No structured evidence attached.</p>
+                      ) : null}
+                      {selectedRecommendation.evidence.map((evidence, index) => (
+                        <div key={`${evidence.label}-${index}`} className="detail-block">
+                          <p>
+                            <strong>{evidence.label}</strong>{" "}
+                            <span className="badge">{evidence.kind}</span>
+                          </p>
+                          <p>{evidence.detail}</p>
+                          {evidence.mount_point ? <p>mount {evidence.mount_point}</p> : null}
+                          {evidence.path ? <p>path {evidence.path}</p> : null}
+                          {evidence.duplicate_hash ? <p>duplicate {evidence.duplicate_hash}</p> : null}
+                        </div>
+                      ))}
+                    </article>
+
+                    <article className="card">
+                      <h3>Review Steps</h3>
+                      {selectedRecommendation.next_steps.length === 0 ? (
+                        <p className="muted">No follow-up guidance recorded.</p>
+                      ) : null}
+                      {selectedRecommendation.next_steps.map((step, index) => (
+                        <p key={`${selectedRecommendation.id}-step-${index}`}>{step}</p>
+                      ))}
                     </article>
 
                     <article className="card">
@@ -920,6 +1303,96 @@ function App() {
               </ul>
             </>
           ) : null}
+        </section>
+      ) : null}
+
+      {screen === "compare" && reportDiff ? (
+        <section className="panel">
+          <div className="title-row">
+            <h2>Report Compare</h2>
+            <div className="row">
+              <button onClick={exportCompareJson}>Export Compare JSON</button>
+              <button onClick={() => setScreen("setup")}>Back To Library</button>
+            </div>
+          </div>
+          <p>
+            {reportDiff.left_scan_id} ({reportDiff.left_generated_at}) {"->"} {reportDiff.right_scan_id} (
+            {reportDiff.right_generated_at})
+          </p>
+          <article className="card">
+            <h3>Overview</h3>
+            <p>duplicate waste delta {formatSignedBytes(reportDiff.duplicate_wasted_bytes_delta)}</p>
+            <p>
+              disk changes {reportDiff.disk_diffs.length} | path changes {reportDiff.path_diffs.length} |
+              recommendation changes {reportDiff.recommendation_changes.length}
+            </p>
+          </article>
+
+          <div className="split-pane">
+            <div className="list-pane">
+              <article className="card">
+                <h3>Disk Changes</h3>
+                {reportDiff.disk_diffs.length === 0 ? (
+                  <p className="muted">No disk free-space changes detected.</p>
+                ) : null}
+                {reportDiff.disk_diffs.map((disk) => (
+                  <div key={disk.mount_point} className="detail-block">
+                    <p>
+                      <strong>{disk.mount_point}</strong> {disk.name ?? ""}
+                    </p>
+                    <p>
+                      left {formatBytes(disk.left_free_space_bytes)} | right{" "}
+                      {formatBytes(disk.right_free_space_bytes)}
+                    </p>
+                    <p>delta {formatSignedBytes(disk.free_space_delta_bytes)}</p>
+                  </div>
+                ))}
+              </article>
+            </div>
+
+            <div className="inspector-pane">
+              <article className="card">
+                <h3>Path Growth</h3>
+                {reportDiff.path_diffs.length === 0 ? (
+                  <p className="muted">No path growth or shrinkage detected.</p>
+                ) : null}
+                {reportDiff.path_diffs.map((path) => (
+                  <div key={path.root_path} className="detail-block">
+                    <p>
+                      <strong>{path.root_path}</strong>
+                    </p>
+                    <p>
+                      left {formatBytes(path.left_total_size_bytes)} | right{" "}
+                      {formatBytes(path.right_total_size_bytes)}
+                    </p>
+                    <p>delta {formatSignedBytes(path.total_size_delta_bytes)}</p>
+                  </div>
+                ))}
+              </article>
+
+              <article className="card">
+                <h3>Recommendation Changes</h3>
+                {reportDiff.recommendation_changes.length === 0 ? (
+                  <p className="muted">No recommendation changes detected.</p>
+                ) : null}
+                {reportDiff.recommendation_changes.map((change, index) => (
+                  <div key={`${change.id}-${change.change}-${index}`} className="detail-block">
+                    <p>
+                      <strong>{change.id}</strong> <span className="badge">{change.change}</span>
+                    </p>
+                    <p>
+                      confidence {formatConfidence(change.left_confidence)} {"->"}{" "}
+                      {formatConfidence(change.right_confidence)}
+                    </p>
+                    <p>
+                      target {change.left_target_mount ?? "none"} {"->"}{" "}
+                      {change.right_target_mount ?? "none"}
+                    </p>
+                  </div>
+                ))}
+              </article>
+            </div>
+          </div>
         </section>
       ) : null}
     </main>

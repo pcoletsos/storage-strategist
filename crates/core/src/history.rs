@@ -1,21 +1,11 @@
 use crate::model::ScanHistory;
+use crate::reports::history_file_path;
 use anyhow::Result;
 use std::fs;
-use std::path::PathBuf;
+use std::path::Path;
 
-const CACHE_DIR_NAME: &str = "storage-strategist-cache";
-const HISTORY_FILE_NAME: &str = "history.json";
-
-fn history_cache_dir() -> PathBuf {
-    std::env::temp_dir().join(CACHE_DIR_NAME)
-}
-
-fn history_file_path() -> PathBuf {
-    history_cache_dir().join(HISTORY_FILE_NAME)
-}
-
-pub fn load_history() -> Result<ScanHistory> {
-    let path = history_file_path();
+pub fn load_history(custom_dir: Option<&Path>) -> Result<ScanHistory> {
+    let path = history_file_path(custom_dir);
     if !path.exists() {
         return Ok(ScanHistory::default());
     }
@@ -25,8 +15,8 @@ pub fn load_history() -> Result<ScanHistory> {
     Ok(history)
 }
 
-pub fn save_history(history: &ScanHistory) -> Result<()> {
-    let path = history_file_path();
+pub fn save_history(history: &ScanHistory, custom_dir: Option<&Path>) -> Result<()> {
+    let path = history_file_path(custom_dir);
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)?;
     }

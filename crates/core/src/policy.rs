@@ -265,6 +265,8 @@ mod tests {
             policy_safe: true,
             policy_rules_applied: Vec::new(),
             policy_rules_blocked: Vec::new(),
+            evidence: Vec::new(),
+            next_steps: Vec::new(),
             estimated_impact: EstimatedImpact {
                 space_saving_bytes: None,
                 performance: None,
@@ -351,6 +353,8 @@ mod tests {
             policy_safe: true,
             policy_rules_applied: Vec::new(),
             policy_rules_blocked: Vec::new(),
+            evidence: Vec::new(),
+            next_steps: Vec::new(),
             estimated_impact: EstimatedImpact {
                 space_saving_bytes: None,
                 performance: None,

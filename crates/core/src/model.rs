@@ -382,8 +382,38 @@ pub struct Recommendation {
     pub policy_rules_applied: Vec<String>,
     #[serde(default)]
     pub policy_rules_blocked: Vec<String>,
+    #[serde(default)]
+    pub evidence: Vec<RecommendationEvidence>,
+    #[serde(default)]
+    pub next_steps: Vec<String>,
     pub estimated_impact: EstimatedImpact,
     pub risk_level: RiskLevel,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct RecommendationEvidence {
+    #[serde(default)]
+    pub kind: RecommendationEvidenceKind,
+    pub label: String,
+    pub detail: String,
+    #[serde(default)]
+    pub path: Option<String>,
+    #[serde(default)]
+    pub mount_point: Option<String>,
+    #[serde(default)]
+    pub duplicate_hash: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum RecommendationEvidenceKind {
+    Disk,
+    Directory,
+    DuplicateGroup,
+    HistoryDelta,
+    Warning,
+    #[default]
+    Other,
 }
 
 fn default_recommendation_confidence() -> f32 {
@@ -472,4 +502,101 @@ pub struct PathSnapshot {
     pub root_path: String,
     pub total_size_bytes: u64,
     pub file_count: u64,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct ReportSummary {
+    pub scan_id: String,
+    pub generated_at: String,
+    pub report_version: String,
+    #[serde(default)]
+    pub roots: Vec<String>,
+    #[serde(default)]
+    pub backend: ScanBackendKind,
+    #[serde(default)]
+    pub warnings_count: u64,
+    #[serde(default)]
+    pub recommendation_count: u64,
+    pub stored_report_path: String,
+    #[serde(default)]
+    pub source_path: Option<String>,
+    #[serde(default)]
+    pub imported: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct ReportImportResult {
+    pub summary: ReportSummary,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct ReportDiff {
+    pub left_scan_id: String,
+    pub right_scan_id: String,
+    pub left_generated_at: String,
+    pub right_generated_at: String,
+    #[serde(default)]
+    pub duplicate_wasted_bytes_delta: i64,
+    #[serde(default)]
+    pub disk_diffs: Vec<DiskDiff>,
+    #[serde(default)]
+    pub path_diffs: Vec<PathDiff>,
+    #[serde(default)]
+    pub recommendation_changes: Vec<RecommendationChange>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct DiskDiff {
+    pub mount_point: String,
+    #[serde(default)]
+    pub name: Option<String>,
+    #[serde(default)]
+    pub left_free_space_bytes: Option<u64>,
+    #[serde(default)]
+    pub right_free_space_bytes: Option<u64>,
+    pub free_space_delta_bytes: i64,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct PathDiff {
+    pub root_path: String,
+    #[serde(default)]
+    pub left_total_size_bytes: Option<u64>,
+    #[serde(default)]
+    pub right_total_size_bytes: Option<u64>,
+    pub total_size_delta_bytes: i64,
+    #[serde(default)]
+    pub left_file_count: Option<u64>,
+    #[serde(default)]
+    pub right_file_count: Option<u64>,
+    pub file_count_delta: i64,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub enum RecommendationChangeKind {
+    Added,
+    Removed,
+    ConfidenceChanged,
+    TargetChanged,
+    RiskChanged,
+    RationaleChanged,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct RecommendationChange {
+    pub id: String,
+    pub change: RecommendationChangeKind,
+    #[serde(default)]
+    pub left_confidence: Option<f32>,
+    #[serde(default)]
+    pub right_confidence: Option<f32>,
+    #[serde(default)]
+    pub left_target_mount: Option<String>,
+    #[serde(default)]
+    pub right_target_mount: Option<String>,
+    #[serde(default)]
+    pub left_risk_level: Option<RiskLevel>,
+    #[serde(default)]
+    pub right_risk_level: Option<RiskLevel>,
 }

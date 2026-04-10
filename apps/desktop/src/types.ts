@@ -16,6 +16,8 @@ export interface ScanRequest {
   incremental_cache?: boolean;
   cache_dir?: string;
   cache_ttl_seconds?: number;
+  record_history?: boolean;
+  report_store_dir?: string;
 }
 
 export interface ScanProgressEvent {
@@ -54,8 +56,19 @@ export interface Recommendation {
   policy_safe: boolean;
   policy_rules_applied: string[];
   policy_rules_blocked: string[];
+  evidence: RecommendationEvidence[];
+  next_steps: string[];
   estimated_impact: EstimatedImpact;
   risk_level: RiskLevel;
+}
+
+export interface RecommendationEvidence {
+  kind: "disk" | "directory" | "duplicate_group" | "history_delta" | "warning" | "other";
+  label: string;
+  detail: string;
+  path?: string | null;
+  mount_point?: string | null;
+  duplicate_hash?: string | null;
 }
 
 export interface EstimatedImpact {
@@ -132,6 +145,69 @@ export interface Report {
   warnings: string[];
 }
 
+export interface ReportSummary {
+  scan_id: string;
+  generated_at: string;
+  report_version: string;
+  roots: string[];
+  backend: "native" | "pdu_library";
+  warnings_count: number;
+  recommendation_count: number;
+  stored_report_path: string;
+  source_path?: string | null;
+  imported: boolean;
+}
+
+export interface ReportImportResult {
+  summary: ReportSummary;
+}
+
+export interface DiskDiff {
+  mount_point: string;
+  name?: string | null;
+  left_free_space_bytes?: number | null;
+  right_free_space_bytes?: number | null;
+  free_space_delta_bytes: number;
+}
+
+export interface PathDiff {
+  root_path: string;
+  left_total_size_bytes?: number | null;
+  right_total_size_bytes?: number | null;
+  total_size_delta_bytes: number;
+  left_file_count?: number | null;
+  right_file_count?: number | null;
+  file_count_delta: number;
+}
+
+export interface RecommendationChange {
+  id: string;
+  change:
+    | "added"
+    | "removed"
+    | "confidence_changed"
+    | "target_changed"
+    | "risk_changed"
+    | "rationale_changed";
+  left_confidence?: number | null;
+  right_confidence?: number | null;
+  left_target_mount?: string | null;
+  right_target_mount?: string | null;
+  left_risk_level?: RiskLevel | null;
+  right_risk_level?: RiskLevel | null;
+}
+
+export interface ReportDiff {
+  left_scan_id: string;
+  right_scan_id: string;
+  left_generated_at: string;
+  right_generated_at: string;
+  duplicate_wasted_bytes_delta: number;
+  disk_diffs: DiskDiff[];
+  path_diffs: PathDiff[];
+  recommendation_changes: RecommendationChange[];
+}
+
 export interface DoctorInfo {
   os: string;
   arch: string;
@@ -144,6 +220,9 @@ export interface DoctorInfo {
 
 export interface RecommendationBundle {
   recommendations: Recommendation[];
+  policy_decisions?: PolicyDecision[];
+  rule_traces?: RuleTrace[];
+  contradiction_count?: number;
 }
 
 export interface ScenarioRiskMix {

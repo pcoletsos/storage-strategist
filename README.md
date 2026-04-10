@@ -52,6 +52,10 @@ cargo run -p storage-strategist -- benchmark --paths fixtures --max-depth 3 --it
 cargo run -p storage-strategist -- parity --paths fixtures --max-depth 3
 cargo run -p storage-strategist -- plan --report storage-strategist-report.json --output scenario-plan.json
 cargo run -p storage-strategist -- diagnostics --report storage-strategist-report.json --output storage-strategist-diagnostics.json
+cargo run -p storage-strategist -- reports list
+cargo run -p storage-strategist -- reports import --path storage-strategist-report.json
+cargo run -p storage-strategist -- reports show --scan-id <scan-id>
+cargo run -p storage-strategist -- reports diff --left <scan-id> --right <scan-id> --output report-diff.json
 ```
 
 Backend values:
@@ -129,6 +133,10 @@ npm run tauri dev
   - projections sum `estimated_impact.space_saving_bytes` for included policy-safe recommendations
 - Diagnostics bundle:
   - `diagnostics` command exports report + doctor snapshot + environment metadata for support workflows
+- Local report store:
+  - completed scans are also indexed into a local report library keyed by `scan_id`
+  - `reports list|import|show|diff` expose saved-report and compare workflows for CLI users
+  - desktop uses the same store for reopen/import/compare flows
 
 ## Notes on `parallel-disk-usage` Inspiration
 

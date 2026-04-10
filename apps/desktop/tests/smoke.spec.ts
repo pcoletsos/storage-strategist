@@ -47,6 +47,15 @@ const mockReport = {
         risk_notes: "Avoids non-local target suggestions.",
       },
       risk_level: "low",
+      evidence: [
+        {
+          kind: "disk",
+          label: "Excluded destination",
+          detail: "Fixture evidence",
+          mount_point: "D:\\",
+        },
+      ],
+      next_steps: ["Review the linked evidence before taking action."],
     },
   ],
   policy_decisions: [
@@ -119,9 +128,33 @@ const mockEvents = [
   },
 ];
 
+const mockReportSummary = {
+  scan_id: mockReport.scan_id,
+  generated_at: mockReport.generated_at,
+  report_version: mockReport.report_version,
+  roots: ["D:\\Demo"],
+  backend: "native",
+  warnings_count: 0,
+  recommendation_count: mockReport.recommendations.length,
+  stored_report_path: "mock-report.json",
+  source_path: "mock-report.json",
+  imported: false,
+};
+
+const mockReportDiff = {
+  left_scan_id: "scan-left",
+  right_scan_id: "scan-right",
+  left_generated_at: "2026-02-11T00:00:00Z",
+  right_generated_at: "2026-02-12T00:00:00Z",
+  duplicate_wasted_bytes_delta: 1024,
+  disk_diffs: [],
+  path_diffs: [],
+  recommendation_changes: [],
+};
+
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(
-    ({ report, doctor, events, scenarioPlan }) => {
+    ({ report, doctor, events, scenarioPlan, reportSummary, reportDiff }) => {
       let sessionCalls = 0;
       let eventCalls = 0;
       const scanId = report.scan_id;
@@ -155,8 +188,21 @@ test.beforeEach(async ({ page }) => {
               };
             case "load_report":
               return report;
+            case "list_reports":
+              return [reportSummary];
+            case "get_report":
+              return report;
+            case "import_report":
+              return { summary: reportSummary };
+            case "compare_reports":
+              return reportDiff;
             case "generate_recommendations":
-              return { recommendations: report.recommendations };
+              return {
+                recommendations: report.recommendations,
+                policy_decisions: report.policy_decisions,
+                rule_traces: report.rule_traces,
+                contradiction_count: 0,
+              };
             case "plan_scenarios":
               return scenarioPlan;
             case "doctor":
@@ -182,14 +228,21 @@ test.beforeEach(async ({ page }) => {
         },
       };
     },
-    { report: mockReport, doctor: mockDoctor, events: mockEvents, scenarioPlan: mockScenarioPlan }
+    {
+      report: mockReport,
+      doctor: mockDoctor,
+      events: mockEvents,
+      scenarioPlan: mockScenarioPlan,
+      reportSummary: mockReportSummary,
+      reportDiff: mockReportDiff,
+    }
   );
 });
 
 test("setup to results to doctor smoke flow", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { name: "Guided Path Selection" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Home And Guided Path Selection" })).toBeVisible();
 
   await page.getByPlaceholder(/Add path/).fill("D:\\Demo");
   await page.getByRole("button", { name: "Add Path" }).click();

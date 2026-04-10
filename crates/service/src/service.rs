@@ -12,8 +12,11 @@ use once_cell::sync::Lazy;
 use serde::{Deserialize, Serialize};
 use storage_strategist_core::{
     build_diagnostics_bundle, build_scenario_plan, collect_doctor_info,
-    generate_recommendation_bundle, run_scan_with_callback, write_diagnostics_bundle,
-    DiagnosticsBundle, DoctorInfo, RecommendationBundle, Report, ScanBackendKind, ScanOptions,
+    compare_reports as compare_saved_reports, generate_recommendation_bundle,
+    get_report as load_saved_report, import_report as import_saved_report,
+    list_reports as list_saved_reports, render_markdown_summary, run_scan_with_callback,
+    store_report, write_diagnostics_bundle, DiagnosticsBundle, DoctorInfo, RecommendationBundle,
+    Report, ReportDiff, ReportImportResult, ReportSummary, ScanBackendKind, ScanOptions,
     ScanProgressEvent, ScenarioPlan,
 };
 use uuid::Uuid;
@@ -50,6 +53,10 @@ pub struct ScanRequest {
     pub cache_dir: Option<PathBuf>,
     #[serde(default = "default_cache_ttl_seconds")]
     pub cache_ttl_seconds: u64,
+    #[serde(default = "default_record_history")]
+    pub record_history: bool,
+    #[serde(default)]
+    pub report_store_dir: Option<PathBuf>,
 }
 
 fn default_dedupe_min_size() -> u64 {
@@ -66,6 +73,10 @@ fn default_incremental_cache() -> bool {
 
 fn default_cache_ttl_seconds() -> u64 {
     900
+}
+
+fn default_record_history() -> bool {
+    true
 }
 
 impl Default for ScanRequest {
@@ -86,6 +97,8 @@ impl Default for ScanRequest {
             incremental_cache: default_incremental_cache(),
             cache_dir: None,
             cache_ttl_seconds: default_cache_ttl_seconds(),
+            record_history: default_record_history(),
+            report_store_dir: None,
         }
     }
 }
@@ -151,6 +164,8 @@ pub fn start_scan(request: ScanRequest) -> Result<String> {
 
     let thread_scan_id = scan_id.clone();
     thread::spawn(move || {
+        let output_path = request.output.clone();
+        let report_store_dir = request.report_store_dir.clone();
         let options = ScanOptions {
             paths: request.paths,
             max_depth: request.max_depth,
@@ -167,6 +182,8 @@ pub fn start_scan(request: ScanRequest) -> Result<String> {
             incremental_cache: request.incremental_cache,
             cache_dir: request.cache_dir,
             cache_ttl_seconds: request.cache_ttl_seconds,
+            record_history: request.record_history,
+            report_store_dir: report_store_dir.clone(),
             cancel_flag: Some(Arc::clone(&cancel_flag)),
             ..ScanOptions::default()
         };
@@ -181,7 +198,7 @@ pub fn start_scan(request: ScanRequest) -> Result<String> {
 
         match run_result {
             Ok(report) => {
-                if let Some(path) = &request.output {
+                if let Some(path) = &output_path {
                     let write_result = serde_json::to_string_pretty(&report)
                         .context("failed to serialize report payload")
                         .and_then(|payload| {
@@ -201,9 +218,30 @@ pub fn start_scan(request: ScanRequest) -> Result<String> {
                     }
                 }
 
+                let store_result = store_report(
+                    &report,
+                    report_store_dir.as_deref(),
+                    output_path.as_deref(),
+                    false,
+                );
+                let stored_summary = match store_result {
+                    Ok(summary) => summary,
+                    Err(err) => {
+                        if let Ok(mut sessions) = lock_sessions() {
+                            if let Some(session) = sessions.get_mut(&thread_scan_id) {
+                                session.status = ScanSessionStatus::Failed;
+                                session.error = Some(err.to_string());
+                            }
+                        }
+                        return;
+                    }
+                };
+
                 if let Ok(mut sessions) = lock_sessions() {
                     if let Some(session) = sessions.get_mut(&thread_scan_id) {
                         session.report = Some(report);
+                        session.report_path =
+                            Some(PathBuf::from(&stored_summary.stored_report_path));
                         session.status = if cancel_flag.load(Ordering::Relaxed) {
                             ScanSessionStatus::Cancelled
                         } else {
@@ -267,6 +305,29 @@ pub fn load_report(path: impl AsRef<Path>) -> Result<Report> {
     Ok(report)
 }
 
+pub fn list_reports(report_store_dir: Option<&Path>) -> Result<Vec<ReportSummary>> {
+    list_saved_reports(report_store_dir)
+}
+
+pub fn get_report(scan_id: &str, report_store_dir: Option<&Path>) -> Result<Report> {
+    load_saved_report(scan_id, report_store_dir)
+}
+
+pub fn import_report(
+    path: impl AsRef<Path>,
+    report_store_dir: Option<&Path>,
+) -> Result<ReportImportResult> {
+    import_saved_report(path, report_store_dir)
+}
+
+pub fn compare_reports(
+    left_scan_id: &str,
+    right_scan_id: &str,
+    report_store_dir: Option<&Path>,
+) -> Result<ReportDiff> {
+    compare_saved_reports(left_scan_id, right_scan_id, report_store_dir)
+}
+
 pub fn generate_recommendations_from_report(report: &Report) -> RecommendationBundle {
     generate_recommendation_bundle(report)
 }
@@ -283,6 +344,29 @@ pub fn export_diagnostics_bundle(
     let bundle = build_diagnostics_bundle(report, source_report_path.as_deref());
     write_diagnostics_bundle(&bundle, output)?;
     Ok(bundle)
+}
+
+pub fn export_markdown_summary(report: &Report, output: impl AsRef<Path>) -> Result<()> {
+    let markdown = render_markdown_summary(report, &report.recommendations);
+    fs::write(output.as_ref(), markdown).with_context(|| {
+        format!(
+            "failed to write markdown summary to {}",
+            output.as_ref().display()
+        )
+    })?;
+    Ok(())
+}
+
+pub fn export_report_diff(diff: &ReportDiff, output: impl AsRef<Path>) -> Result<()> {
+    let payload =
+        serde_json::to_string_pretty(diff).context("failed to serialize report diff payload")?;
+    fs::write(output.as_ref(), payload).with_context(|| {
+        format!(
+            "failed to write report diff to {}",
+            output.as_ref().display()
+        )
+    })?;
+    Ok(())
 }
 
 pub fn doctor() -> DoctorInfo {
@@ -325,6 +409,7 @@ mod tests {
             paths: vec![std::env::current_dir().expect("cwd")],
             max_depth: Some(1),
             emit_progress_events: true,
+            record_history: false,
             ..ScanRequest::default()
         };
         let scan_id = start_scan(request).expect("scan succeeds");

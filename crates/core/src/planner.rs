@@ -240,6 +240,8 @@ mod tests {
             policy_safe,
             policy_rules_applied: Vec::new(),
             policy_rules_blocked: Vec::new(),
+            evidence: Vec::new(),
+            next_steps: Vec::new(),
             estimated_impact: EstimatedImpact {
                 space_saving_bytes,
                 performance: None,

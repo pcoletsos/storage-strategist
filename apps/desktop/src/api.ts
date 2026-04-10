@@ -5,6 +5,9 @@ import type {
   DoctorInfo,
   RecommendationBundle,
   Report,
+  ReportDiff,
+  ReportImportResult,
+  ReportSummary,
   ScenarioPlan,
   ScanProgressEvent,
   ScanRequest,
@@ -39,6 +42,25 @@ export async function loadReport(path: string): Promise<Report> {
   return invoke<Report>("load_report", { path });
 }
 
+export async function listReports(): Promise<ReportSummary[]> {
+  return invoke<ReportSummary[]>("list_reports");
+}
+
+export async function getReport(scanId: string): Promise<Report> {
+  return invoke<Report>("get_report", { scanId });
+}
+
+export async function importReport(path: string): Promise<ReportImportResult> {
+  return invoke<ReportImportResult>("import_report", { path });
+}
+
+export async function compareReports(
+  leftScanId: string,
+  rightScanId: string
+): Promise<ReportDiff> {
+  return invoke<ReportDiff>("compare_reports", { leftScanId, rightScanId });
+}
+
 export async function generateRecommendations(
   report: Report
 ): Promise<RecommendationBundle> {
@@ -58,6 +80,26 @@ export async function exportDiagnosticsBundle(
     report,
     outputPath,
     sourceReportPath,
+  });
+}
+
+export async function exportMarkdownSummary(
+  report: Report,
+  outputPath: string
+): Promise<void> {
+  await invoke("export_markdown_summary", {
+    report,
+    outputPath,
+  });
+}
+
+export async function exportReportDiff(
+  diff: ReportDiff,
+  outputPath: string
+): Promise<void> {
+  await invoke("export_report_diff", {
+    diff,
+    outputPath,
   });
 }
 
