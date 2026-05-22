@@ -478,6 +478,24 @@ mod tests {
         assert!(result.summary.imported);
     }
 
+    #[test]
+    fn stored_report_preserves_original_fields_on_round_trip() {
+        let dir = tempdir().expect("temp dir");
+        let report = sample_report("stored-round-trip");
+
+        storage_strategist_core::store_report(&report, Some(dir.path()), None, false)
+            .expect("store report");
+        let loaded = get_report(&report.scan_id, Some(dir.path())).expect("load stored report");
+
+        assert_eq!(loaded.recommendations, report.recommendations);
+        assert_eq!(loaded.policy_decisions, report.policy_decisions);
+        assert_eq!(loaded.rule_traces, report.rule_traces);
+        assert_eq!(
+            loaded.scan_metrics.contradiction_count,
+            report.scan_metrics.contradiction_count
+        );
+    }
+
     fn sample_report(scan_id: &str) -> Report {
         Report {
             report_version: "1.3.0".to_string(),
