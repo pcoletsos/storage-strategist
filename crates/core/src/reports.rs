@@ -407,34 +407,53 @@ fn legacy_report_path_for_scan(scan_id: &str, custom_dir: Option<&Path>) -> Path
 
 fn resolve_existing_report_path(scan_id: &str, custom_dir: Option<&Path>) -> Result<PathBuf> {
     let canonical = report_path_for_scan(scan_id, custom_dir);
-    if let Some(path) = validated_existing_report_path(&canonical, custom_dir)? {
-        return Ok(path);
+    let mut rejected_outside_boundary = false;
+
+    match validated_existing_report_path(&canonical, custom_dir)? {
+        ValidatedPath::Inside(path) => return Ok(path),
+        ValidatedPath::OutsideBoundary => rejected_outside_boundary = true,
+        ValidatedPath::NotFound => {}
     }
 
     let legacy = legacy_report_path_for_scan(scan_id, custom_dir);
     if legacy != canonical {
-        if let Some(path) = validated_existing_report_path(&legacy, custom_dir)? {
-            return Ok(path);
+        match validated_existing_report_path(&legacy, custom_dir)? {
+            ValidatedPath::Inside(path) => return Ok(path),
+            ValidatedPath::OutsideBoundary => rejected_outside_boundary = true,
+            ValidatedPath::NotFound => {}
         }
     }
 
-    Err(anyhow!(
-        "stored report not found for scan_id {}",
-        escape_scan_id_for_error(scan_id)
-    ))
+    if rejected_outside_boundary {
+        Err(anyhow!(
+            "stored report for scan_id {} was rejected because its resolved path falls outside the report store boundary",
+            escape_scan_id_for_error(scan_id)
+        ))
+    } else {
+        Err(anyhow!(
+            "stored report not found for scan_id {}",
+            escape_scan_id_for_error(scan_id)
+        ))
+    }
+}
+
+enum ValidatedPath {
+    Inside(PathBuf),
+    OutsideBoundary,
+    NotFound,
 }
 
 fn validated_existing_report_path(
     candidate: &Path,
     custom_dir: Option<&Path>,
-) -> Result<Option<PathBuf>> {
+) -> Result<ValidatedPath> {
     if !candidate.exists() {
-        return Ok(None);
+        return Ok(ValidatedPath::NotFound);
     }
 
     let reports_root = reports_dir(custom_dir);
     if !reports_root.exists() {
-        return Ok(None);
+        return Ok(ValidatedPath::NotFound);
     }
 
     let canonical_reports_root = fs::canonicalize(&reports_root).with_context(|| {
@@ -447,9 +466,14 @@ fn validated_existing_report_path(
         .with_context(|| format!("failed to canonicalize {}", candidate.display()))?;
 
     if canonical_candidate.starts_with(&canonical_reports_root) {
-        Ok(Some(canonical_candidate))
+        Ok(ValidatedPath::Inside(canonical_candidate))
     } else {
-        Ok(None)
+        eprintln!(
+            "warning: report path {} resolves outside the report store boundary {}, rejecting",
+            canonical_candidate.display(),
+            canonical_reports_root.display()
+        );
+        Ok(ValidatedPath::OutsideBoundary)
     }
 }
 
@@ -486,7 +510,7 @@ fn cleanup_orphaned_entries(index: &mut ReportIndex, custom_dir: Option<&Path>) 
 
     for mut entry in index.reports.drain(..) {
         match validated_existing_report_path(Path::new(&entry.stored_report_path), custom_dir)? {
-            Some(path) => {
+            ValidatedPath::Inside(path) => {
                 let canonical = path.to_string_lossy().to_string();
                 if entry.stored_report_path != canonical {
                     entry.stored_report_path = canonical;
@@ -494,7 +518,7 @@ fn cleanup_orphaned_entries(index: &mut ReportIndex, custom_dir: Option<&Path>) 
                 }
                 retained.push(entry);
             }
-            None => changed = true,
+            ValidatedPath::OutsideBoundary | ValidatedPath::NotFound => changed = true,
         }
     }
 
@@ -542,7 +566,10 @@ fn escape_scan_id_for_error(scan_id: &str) -> String {
 mod tests {
     use std::fs;
 
-    use super::{build_report_diff, get_report, import_report, list_reports, store_report};
+    use super::{
+        build_report_diff, can_use_raw_scan_id_stem, get_report, import_report, list_reports,
+        report_file_stem_for_scan, store_report,
+    };
     use crate::model::{
         EstimatedImpact, Recommendation, RecommendationEvidence, RecommendationEvidenceKind,
         Report, RiskLevel, ScanBackendKind, ScanMetadata, ScanMetrics,
@@ -759,5 +786,70 @@ mod tests {
             rule_traces: Vec::new(),
             warnings: Vec::new(),
         }
+    }
+
+    #[test]
+    fn report_file_stem_hashes_known_traversal_patterns() {
+        let traversal_ids = [
+            "../outside",
+            "..\\outside",
+            ".",
+            "..",
+            "scan/../../etc",
+            "scan/../../../passwd",
+            "valid/../escape",
+            "__scan_id_blake3__fake",
+            "has spaces",
+            "has.dots.in.name",
+        ];
+
+        for id in &traversal_ids {
+            assert!(
+                !can_use_raw_scan_id_stem(id),
+                "expected can_use_raw_scan_id_stem to reject {:?}",
+                id
+            );
+            let stem = report_file_stem_for_scan(id);
+            assert!(
+                stem.starts_with("__scan_id_blake3__"),
+                "expected hashed stem for {:?}, got {:?}",
+                id,
+                stem
+            );
+            assert!(
+                !stem.contains('/') && !stem.contains('\\') && !stem.contains(".."),
+                "hashed stem for {:?} must not contain path separators or traversal, got {:?}",
+                id,
+                stem
+            );
+        }
+    }
+
+    #[test]
+    fn legacy_path_with_traversal_scan_id_stays_bounded() {
+        let dir = tempdir().expect("temp dir");
+
+        // Store a report using a traversal-like scan_id. The store function
+        // sanitizes the id, so the file lands safely inside the reports dir.
+        let report = sample_report("../escape-attempt", 100, 1);
+        let summary = store_report(&report, Some(dir.path()), None, false).expect("store report");
+        let stored_path =
+            fs::canonicalize(&summary.stored_report_path).expect("canonicalize stored path");
+        let reports_dir =
+            fs::canonicalize(dir.path().join("reports")).expect("canonicalize reports dir");
+
+        // The stored file must be inside the reports directory.
+        assert!(
+            stored_path.starts_with(&reports_dir),
+            "stored path {:?} should be inside {:?}",
+            stored_path,
+            reports_dir
+        );
+
+        // Loading the report by the original traversal scan_id must succeed
+        // because the store function mapped it to a safe hashed filename.
+        let loaded = get_report(&report.scan_id, Some(dir.path())).expect("load stored report");
+        assert_eq!(loaded.scan_id, report.scan_id);
+        assert_eq!(loaded.recommendations, report.recommendations);
     }
 }

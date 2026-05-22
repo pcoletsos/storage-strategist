@@ -506,7 +506,10 @@ function App() {
     setError(null);
     setNotice(null);
     try {
-      const sourcePath = activeReportPath ?? session?.report_path ?? output;
+      // Path provenance: activeReportPath holds the canonical report-store
+      // path set by loadWorkbenchReport (from scan completion, library open,
+      // or import). Falls back to the setup output field for naming only.
+      const sourcePath = activeReportPath ?? output;
       const outputPath = deriveDiagnosticsOutputPath(sourcePath);
       const bundle = await exportDiagnosticsBundle(report, outputPath, sourcePath);
       setNotice(
@@ -524,7 +527,8 @@ function App() {
     setError(null);
     setNotice(null);
     try {
-      const sourcePath = activeReportPath ?? session?.report_path ?? output;
+      // Path provenance: same contract as exportDiagnostics above.
+      const sourcePath = activeReportPath ?? output;
       const outputPath = deriveMarkdownOutputPath(sourcePath);
       await exportMarkdownSummary(report, outputPath);
       setNotice(`Markdown review summary written to ${outputPath}.`);
