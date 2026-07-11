@@ -8,3 +8,5 @@ Read `CONTRIBUTING.md` first, then follow `AGENTS.md` for the repo map.
 - Repo scopes are `core`, `cli`, `desktop`, `compliance`, `infra`, `docs`, and `shared`.
 - Normal validation is `cargo fmt --all`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo test --workspace`, and `python scripts/check_compliance.py`.
 - Run desktop smoke verification when changes touch `apps/desktop`.
+
+Shared agent execution protocol: see the `Agent execution protocol` section in `AGENTS.md`.
