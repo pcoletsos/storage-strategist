@@ -13,8 +13,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+        include:
+          - os: ubuntu-latest
+            runner: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
+          - os: macos-latest
+            runner: ${{ fromJSON(vars.CI_RUNNER_MAC_JSON || '["macos-latest"]') }}
+          - os: windows-latest
+            runner: ${{ fromJSON(vars.CI_RUNNER_WIN_JSON || '["windows-latest"]') }}
+    runs-on: ${{ matrix.runner }}
     defaults:
       run:
         working-directory: apps/desktop

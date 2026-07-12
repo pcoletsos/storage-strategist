@@ -8,7 +8,7 @@ on:
 jobs:
   fmt:
     name: fmt
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -23,7 +23,7 @@ jobs:
 
   clippy:
     name: clippy
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -38,7 +38,7 @@ jobs:
 
   test:
     name: test
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -51,7 +51,7 @@ jobs:
 
   compliance_checks:
     name: compliance checks
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -61,7 +61,7 @@ jobs:
 
   desktop_smoke:
     name: desktop smoke
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     defaults:
       run:
         working-directory: apps/desktop
@@ -85,7 +85,7 @@ jobs:
 
   backend_parity:
     name: backend parity
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -98,7 +98,7 @@ jobs:
 
   evaluation_kpi:
     name: evaluation kpi
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_JSON || '["ubuntu-latest"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
