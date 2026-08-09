@@ -23,7 +23,7 @@ They differ in how a root's total size and directory rollup are computed:
 | Aspect | `native` | `pdu_library` |
 |---|---|---|
 | File records | walkdir | walkdir (same code path) |
-| `total_size_bytes` | sum of regular file sizes | `parallel-disk-usage` tree total, minus the root directory entry |
+| `total_size_bytes` | sum of regular file sizes, bounded by `max_depth` | apparent size of every `parallel-disk-usage` tree entry within `max_depth`, excluding the root entry |
 | `largest_directories` | walkdir rollup by first path component | `parallel-disk-usage` tree children |
 | Exclude patterns | applied | not supported, falls back to `native` |
 
@@ -238,10 +238,10 @@ default.
 |---|---|---|
 | Directory-entry accounting difference | Open | Normalized in the gate; must be fixed at the source before promotion |
 | Symlink-entry accounting difference | Open | Same as above |
-| `largest_directories` rollup membership | Open | Different entries and different sizes per backend; not covered by the gate |
+| `largest_directories` rollup membership | Open | Issue #23. Different entries and different sizes per backend; not covered by the gate |
 | `max_depth` does not bound the pdu total | Resolved | Issue #18. Bound applied to the built tree; guarded by the `depth-limited` shape |
 | Exclude-pattern support in `pdu_library` | Open | Currently falls back to `native` |
-| Parity on the full OS matrix | Open | CI runs Linux only today |
+| Parity on the full OS matrix | Open | CI runs Linux only today; build coverage tracked as issue #24 |
 | Multi-run performance baseline | Open | Tracked as ROADMAP P3 item 14 |
 | Threshold tightening to 10% | Open | Blocked on the variance baseline |
 
