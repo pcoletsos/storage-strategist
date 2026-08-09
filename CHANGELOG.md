@@ -51,6 +51,15 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Desktop UI updates:
   - `Scenarios` results tab
   - diagnostics bundle export action
+- Backend parity suite (`crates/core/src/parity.rs`) covering flat, deep, wide, empty,
+  mixed-size, unicode, hidden, and symlink tree shapes.
+- `parity --suite` CLI mode with declared tolerances and a JSON artifact.
+- Backend parity CI gate (`scripts/check_parity_thresholds.py`) that fails on
+  file-count or residual byte drift and uploads `parity-result.json` on failure.
+- Default backend promotion checkpoint (`docs/backend-promotion-checkpoint.md`).
+- `BackendParity` additive fields: absolute per-backend counters,
+  `pdu_summary_applied`, `directory_entry_bytes`, `symlink_entry_bytes`, and
+  `normalized_scanned_bytes_delta`.
 
 ### Changed
 - Repository license migrated to `AGPL-3.0-or-later`.

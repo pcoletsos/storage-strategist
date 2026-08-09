@@ -8,6 +8,7 @@ pub mod eval;
 pub mod history;
 pub mod markdown;
 pub mod model;
+pub mod parity;
 pub mod planner;
 pub mod policy;
 pub mod recommend;
@@ -33,6 +34,10 @@ pub use model::{
     ReportDiff, ReportImportResult, ReportSummary, RiskLevel, RuleTrace, RuleTraceStatus,
     ScanBackendKind, ScanMetadata, ScanMetrics, ScanPhase, ScanPhaseCount, ScanProgressEvent,
     ScanProgressSummary, REPORT_VERSION,
+};
+pub use parity::{
+    materialize_parity_shapes, run_parity_suite, ParityShapeReport, ParityShapeSpec,
+    ParitySuiteReport, ParityTolerances, PARITY_SUITE_SCHEMA_VERSION,
 };
 pub use planner::{
     build_scenario_plan, ScenarioPlan, ScenarioProjection, ScenarioRiskMix, ScenarioStrategy,

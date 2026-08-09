@@ -138,6 +138,33 @@ pub struct BackendParity {
     pub tolerance_ratio: f32,
     #[serde(default)]
     pub within_tolerance: bool,
+    /// Absolute counters behind the deltas, kept so parity artifacts can be
+    /// triaged without re-running the comparison locally.
+    #[serde(default)]
+    pub native_scanned_files: u64,
+    #[serde(default)]
+    pub native_scanned_bytes: u64,
+    #[serde(default)]
+    pub pdu_library_scanned_files: u64,
+    #[serde(default)]
+    pub pdu_library_scanned_bytes: u64,
+    /// True when the `pdu_library` run actually used `parallel-disk-usage`
+    /// tree summaries instead of silently falling back to the native walker.
+    #[serde(default)]
+    pub pdu_summary_applied: bool,
+    /// Apparent size of non-root directory entries. The pdu tree summary counts
+    /// these, the native file-size sum does not, so this is a known accounting
+    /// difference rather than a traversal disagreement.
+    #[serde(default)]
+    pub directory_entry_bytes: u64,
+    /// Apparent size of symlink entries, which the pdu tree summary counts and
+    /// the native walker skips. The second known accounting difference.
+    #[serde(default)]
+    pub symlink_entry_bytes: u64,
+    /// `scanned_bytes_delta` with both known accounting terms removed. This is
+    /// the residual that signals a real traversal divergence.
+    #[serde(default)]
+    pub normalized_scanned_bytes_delta: i64,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]

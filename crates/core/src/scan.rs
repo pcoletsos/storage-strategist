@@ -42,6 +42,11 @@ use parallel_disk_usage::{
 const PDU_INSPIRED_BANNED_AUTO_ROOTS: &[&str] = &[
     "/dev", "/proc", "/sys", "/run", "/mnt", "/media", "/cdrom", "/Volumes", "/System",
 ];
+/// Marker text shared by every warning that means "the pdu_library backend did
+/// not actually drive this scan". Parity comparisons key off these markers so a
+/// silent fallback is never mistaken for genuine backend agreement.
+const PDU_BACKEND_FALLBACK_MARKER: &str = "falling back to native backend";
+const PDU_SUMMARY_FALLBACK_MARKER: &str = "using native root summary";
 const CACHE_SCHEMA_VERSION: u32 = 1;
 const CACHE_DIR_NAME: &str = "storage-strategist-cache";
 const DEFAULT_CACHE_TTL_SECONDS: u64 = 900;
@@ -251,20 +256,18 @@ impl ScanBackend for PduLibraryBackend {
         on_progress: &mut dyn FnMut(BackendProgress),
     ) -> Result<BackendScanOutput> {
         if !options.excludes.is_empty() {
-            warnings.push(
-                "pdu_library backend does not currently apply exclude patterns; falling back to native backend for correctness."
-                    .to_string(),
-            );
+            warnings.push(format!(
+                "pdu_library backend does not currently apply exclude patterns; {PDU_BACKEND_FALLBACK_MARKER} for correctness."
+            ));
             let native = NativeBackend;
             return native.scan(roots, disks, excludes, options, warnings, on_progress);
         }
 
         #[cfg(not(feature = "pdu-backend"))]
         {
-            warnings.push(
-                "pdu_library backend unavailable in this build; falling back to native backend."
-                    .to_string(),
-            );
+            warnings.push(format!(
+                "pdu_library backend unavailable in this build; {PDU_BACKEND_FALLBACK_MARKER}."
+            ));
             let native = NativeBackend;
             return native.scan(roots, disks, excludes, options, warnings, on_progress);
         }
@@ -287,7 +290,7 @@ impl ScanBackend for PduLibraryBackend {
                     Ok(v) => v,
                     Err(err) => {
                         warnings.push(format!(
-                            "pdu_library scan summary failed for {}: {}; using native root summary",
+                            "pdu_library scan summary failed for {}: {}; {PDU_SUMMARY_FALLBACK_MARKER}",
                             root.display(),
                             err
                         ));
@@ -723,6 +726,21 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
     let ratio = (scanned_bytes_delta.unsigned_abs() as f64 / denom) as f32;
     let tolerance_ratio = 0.05;
 
+    let pdu_summary_applied = !pdu_report.warnings.iter().any(|warning| {
+        warning.contains(PDU_BACKEND_FALLBACK_MARKER)
+            || warning.contains(PDU_SUMMARY_FALLBACK_MARKER)
+    });
+    let (directory_entry_bytes, symlink_entry_bytes) = if pdu_summary_applied {
+        let mut warnings = Vec::new();
+        let disks = enumerate_disks();
+        let roots = resolve_roots(&native, &disks, &mut warnings)?;
+        let excludes = ExcludeMatcher::new(&native.excludes, &mut warnings);
+        sum_non_file_entry_bytes(&roots, &excludes, &native)
+    } else {
+        (0, 0)
+    };
+    let non_file_entry_bytes = directory_entry_bytes.saturating_add(symlink_entry_bytes);
+
     Ok(BackendParity {
         native_elapsed_ms: native_report.scan_metrics.elapsed_ms,
         pdu_library_elapsed_ms: pdu_report.scan_metrics.elapsed_ms,
@@ -730,7 +748,65 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
         scanned_bytes_delta,
         tolerance_ratio,
         within_tolerance: ratio <= tolerance_ratio,
+        native_scanned_files: native_report.scan_metrics.scanned_files,
+        native_scanned_bytes: native_report.scan_metrics.scanned_bytes,
+        pdu_library_scanned_files: pdu_report.scan_metrics.scanned_files,
+        pdu_library_scanned_bytes: pdu_report.scan_metrics.scanned_bytes,
+        pdu_summary_applied,
+        directory_entry_bytes,
+        symlink_entry_bytes,
+        normalized_scanned_bytes_delta: scanned_bytes_delta - non_file_entry_bytes as i64,
     })
+}
+
+/// Sum the apparent size of every entry the pdu tree summary counts but the
+/// native file-size sum does not, split into `(directories, symlinks)`.
+///
+/// The native walker only adds regular files to `scanned_bytes`, while the pdu
+/// tree totals every entry it visits. `build_pdu_tree_summary` already subtracts
+/// the root directory's own size, so what remains is the non-root directory
+/// entries plus the symlink entries. Measuring both separately keeps known,
+/// explainable differences from masquerading as traversal regressions.
+fn sum_non_file_entry_bytes(
+    roots: &[PathBuf],
+    excludes: &ExcludeMatcher,
+    options: &ScanOptions,
+) -> (u64, u64) {
+    let mut directory_bytes = 0_u64;
+    let mut symlink_bytes = 0_u64;
+    for root in roots {
+        let mut walker = WalkDir::new(root).follow_links(false);
+        if let Some(depth) = options.max_depth {
+            walker = walker.max_depth(depth);
+        }
+        let iter = walker.into_iter().filter_entry(|entry| {
+            if entry.depth() == 0 {
+                return true;
+            }
+            !excludes.is_excluded(entry.path())
+        });
+
+        for entry in iter.flatten() {
+            if entry.depth() == 0 {
+                continue;
+            }
+            let file_type = entry.file_type();
+            if !file_type.is_dir() && !file_type.is_symlink() {
+                continue;
+            }
+            // The walker does not follow links, so `metadata()` reports the
+            // symlink itself rather than its target.
+            let Ok(metadata) = entry.metadata() else {
+                continue;
+            };
+            if file_type.is_dir() {
+                directory_bytes = directory_bytes.saturating_add(metadata.len());
+            } else {
+                symlink_bytes = symlink_bytes.saturating_add(metadata.len());
+            }
+        }
+    }
+    (directory_bytes, symlink_bytes)
 }
 
 fn resolve_roots(

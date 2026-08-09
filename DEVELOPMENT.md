@@ -35,6 +35,8 @@ cargo run -p storage-strategist -- doctor
 cargo run -p storage-strategist -- eval --suite fixtures/eval-suite.json --output eval-result.json
 cargo run -p storage-strategist -- benchmark --paths fixtures --max-depth 3 --iterations 2 --output benchmark-result.json
 cargo run -p storage-strategist -- parity --paths fixtures --max-depth 3
+cargo run -p storage-strategist -- parity --suite --output parity-result.json
+python scripts/check_parity_thresholds.py --input parity-result.json --require-pdu-backend
 cargo run -p storage-strategist -- plan --report storage-strategist-report.json --output scenario-plan.json
 cargo run -p storage-strategist -- diagnostics --report storage-strategist-report.json --output storage-strategist-diagnostics.json
 ```

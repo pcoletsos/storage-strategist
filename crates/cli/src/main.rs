@@ -9,10 +9,11 @@ use storage_strategist_core::{
     build_diagnostics_bundle, build_scenario_plan, collect_doctor_info, compare_backends,
     compare_reports as compare_saved_reports, evaluate_suite_file, generate_recommendation_bundle,
     get_report as load_saved_report, import_report as import_saved_report,
-    list_reports as list_saved_reports, render_markdown_summary, run_scan, store_report, Report,
-    ScanBackendKind, ScanOptions,
+    list_reports as list_saved_reports, render_markdown_summary, run_parity_suite, run_scan,
+    store_report, ParityTolerances, Report, ScanBackendKind, ScanOptions,
 };
 use tracing_subscriber::EnvFilter;
+use uuid::Uuid;
 
 #[derive(Debug, Parser)]
 #[command(
@@ -188,6 +189,33 @@ struct ParityArgs {
     /// Optional JSON output file for parity result.
     #[arg(long, value_name = "FILE")]
     output: Option<PathBuf>,
+
+    /// Run the synthetic tree-shape parity suite instead of scanning `--paths`.
+    #[arg(long, conflicts_with_all = ["paths", "max_depth"])]
+    suite: bool,
+
+    /// Directory for synthetic suite fixtures. Must be empty or absent.
+    /// Defaults to a temporary directory that is removed afterwards.
+    #[arg(long, value_name = "DIR", requires = "suite")]
+    workspace: Option<PathBuf>,
+
+    /// Maximum allowed absolute scanned-file delta per shape.
+    #[arg(long, default_value_t = 0, value_name = "COUNT", requires = "suite")]
+    max_files_delta: i64,
+
+    /// Maximum allowed absolute byte delta per shape after removing the known
+    /// directory and symlink entry accounting terms.
+    #[arg(long, default_value_t = 0, value_name = "BYTES", requires = "suite")]
+    max_normalized_bytes_delta: i64,
+
+    /// Maximum allowed residual byte delta as a ratio of the native total.
+    #[arg(
+        long,
+        default_value_t = 0.005,
+        value_name = "RATIO",
+        requires = "suite"
+    )]
+    max_residual_bytes_delta_ratio: f32,
 }
 
 #[derive(Debug, Args)]
@@ -504,6 +532,10 @@ fn run_benchmark_command(args: BenchmarkArgs) -> Result<()> {
 }
 
 fn run_parity_command(args: ParityArgs) -> Result<()> {
+    if args.suite {
+        return run_parity_suite_command(args);
+    }
+
     let options = ScanOptions {
         paths: args.paths,
         max_depth: args.max_depth,
@@ -537,6 +569,85 @@ fn run_parity_command(args: ParityArgs) -> Result<()> {
         fs::write(&output, payload)
             .with_context(|| format!("failed to write parity output {}", output.display()))?;
         println!("Parity JSON written to {}", output.display());
+    }
+
+    Ok(())
+}
+
+fn run_parity_suite_command(args: ParityArgs) -> Result<()> {
+    let tolerances = ParityTolerances {
+        max_scanned_files_delta: args.max_files_delta,
+        max_normalized_bytes_delta: args.max_normalized_bytes_delta,
+        max_residual_bytes_delta_ratio: args.max_residual_bytes_delta_ratio,
+        require_pdu_summary: true,
+    };
+
+    // A caller-supplied workspace belongs to the caller, so it is never removed
+    // here. Only the temporary directory this command creates is cleaned up.
+    let (workspace, owned) = match args.workspace {
+        Some(path) => (path, false),
+        None => (
+            std::env::temp_dir().join(format!("storage-strategist-parity-{}", Uuid::new_v4())),
+            true,
+        ),
+    };
+
+    let outcome = run_parity_suite(&workspace, &tolerances);
+    if owned {
+        if let Err(err) = fs::remove_dir_all(&workspace) {
+            eprintln!(
+                "warning: failed to clean parity workspace {}: {}",
+                workspace.display(),
+                err
+            );
+        }
+    }
+    let report = outcome?;
+
+    println!(
+        "Parity suite on {}: {}/{} shape(s) passed (pdu-backend feature {})",
+        report.platform,
+        report.passed_shapes,
+        report.total_shapes,
+        if report.pdu_backend_feature_enabled {
+            "enabled"
+        } else {
+            "disabled"
+        }
+    );
+
+    for shape in &report.shapes {
+        println!(
+            "- [{}] {} | files delta {} | bytes delta {} (dirs {}, symlinks {}, residual {}) | native {}ms vs pdu_library {}ms",
+            if shape.passed { "PASS" } else { "FAIL" },
+            shape.name,
+            shape.parity.scanned_files_delta,
+            shape.parity.scanned_bytes_delta,
+            shape.parity.directory_entry_bytes,
+            shape.parity.symlink_entry_bytes,
+            shape.parity.normalized_scanned_bytes_delta,
+            shape.parity.native_elapsed_ms,
+            shape.parity.pdu_library_elapsed_ms
+        );
+        for failure in &shape.failures {
+            println!("    {failure}");
+        }
+    }
+
+    if let Some(output) = &args.output {
+        let payload = serde_json::to_string_pretty(&report)
+            .context("failed to serialize parity suite result")?;
+        fs::write(output, payload)
+            .with_context(|| format!("failed to write parity output {}", output.display()))?;
+        println!("Parity suite JSON written to {}", output.display());
+    }
+
+    if !report.passed {
+        anyhow::bail!(
+            "backend parity suite failed for {} of {} shape(s)",
+            report.failed_shapes,
+            report.total_shapes
+        );
     }
 
     Ok(())

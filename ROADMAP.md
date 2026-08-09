@@ -60,7 +60,8 @@ Key external findings from `parallel-disk-usage`:
 
 ## Known Limitations
 
-- `pdu_library` currently powers tree/summary integration and backend parity checks; full parity/perf validation still required before making it default.
+- `pdu_library` currently powers tree/summary integration and backend parity checks; full parity/perf validation still required before making it default. Promotion criteria live in `docs/backend-promotion-checkpoint.md`.
+- Two known backend accounting differences remain open: `parallel-disk-usage` counts directory and symlink entry sizes that the native file-size sum omits. The parity gate measures both explicitly; they must be fixed at the source before promotion.
 - UI scaffold is intentionally read-only and focuses on review/explainability.
 - Hardware metadata remains best-effort on platform APIs that do not expose low-level fields.
 
@@ -147,9 +148,11 @@ Implemented:
 - scenario planner projection tests (risk-filtered conservative/balanced/aggressive sets)
 - diagnostics bundle generation test (report + source-path embedding)
 
+- backend parity fixture assertions (`native` vs `pdu_library`) across flat, deep, wide, empty, mixed-size, unicode, hidden, and symlink tree shapes
+
 Planned next:
-- backend parity fixture assertions (`native` vs `pdu_library`)
 - permission continuation stress fixtures
+- parity suite execution on the full OS matrix (currently Linux only in CI)
 
 ## Assumptions and Defaults
 
@@ -163,13 +166,15 @@ Planned next:
 
 ### P3 (Weeks 13-16)
 
-13. [ ] **Backend parity CI gate**
-    - add fixture-based parity workflow for representative trees
-    - fail CI when summary deltas exceed agreed tolerances
+13. [x] **Backend parity CI gate**
+    - fixture-based parity suite over representative tree shapes (`parity --suite`)
+    - CI fails when file-count or residual byte deltas exceed the agreed tolerances
+    - `parity-result.json` uploads on failure for triage
 14. [ ] **Performance promotion criteria**
     - collect multi-run baseline for `native` and `pdu_library`
     - tighten regression threshold from 15% to 10% after variance stabilizes
 15. [ ] **Default backend decision checkpoint**
+    - criteria documented in `docs/backend-promotion-checkpoint.md`
     - switch default to `pdu_library` only after parity + perf criteria pass on supported OS matrix
     - keep explicit `native` override as fallback through the next minor release
 
@@ -210,8 +215,8 @@ Planned next:
 
 ## Immediate Next Sprint (Weeks 13-14)
 
-1. [ ] Add parity fixture assertions for `native` vs `pdu_library`.
-2. [ ] Add CI parity/eval artifact jobs with fail thresholds.
+1. [x] Add parity fixture assertions for `native` vs `pdu_library`.
+2. [x] Add CI parity/eval artifact jobs with fail thresholds.
 3. [x] Implement results-tab recommendation inspector detail panes.
 4. [x] Add desktop e2e smoke tests for `setup -> scanning -> results -> doctor`.
 5. [x] Update `README.md` and `ARCHITECTURE.md` with parity gate/KPI definitions.

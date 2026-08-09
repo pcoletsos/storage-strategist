@@ -62,6 +62,7 @@ The canonical shorthand prompt vocabulary lives in `CONTRIBUTING.md`.
 - `crates/service/`: application facade for UI-style consumers
 - `apps/desktop/`: Tauri + React read-only review UI scaffold
 - `fixtures/`: synthetic report, eval, and benchmark fixtures
+- `docs/`: decision records and gate definitions (see `backend-promotion-checkpoint.md`)
 - `scripts/`: validation and benchmark helpers
 - `provenance/` and `THIRD_PARTY_NOTICES.md`: imported-code tracking
 - `.github/`: workflow, template, ownership, and guardrail surfaces
