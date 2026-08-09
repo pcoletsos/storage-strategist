@@ -114,7 +114,7 @@ jobs:
             --max-files-delta 0 \
             --max-normalized-bytes-delta 0 \
             --max-residual-bytes-delta-ratio 0.005 \
-            --min-shapes 7 \
+            --min-shapes 8 \
             --require-pdu-backend
 
       - name: Upload backend parity artifact

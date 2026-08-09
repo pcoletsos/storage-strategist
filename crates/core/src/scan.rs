@@ -709,10 +709,15 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
     native.emit_progress_events = false;
     native.record_history = false;
 
+    // A cached report would be compared against a freshly walked tree, so the
+    // cache is forced off regardless of what the caller asked for.
+    native.incremental_cache = false;
+
     let mut pdu = options.clone();
     pdu.backend = ScanBackendKind::PduLibrary;
     pdu.emit_progress_events = false;
     pdu.record_history = false;
+    pdu.incremental_cache = false;
 
     let native_report = run_scan(&native)?;
     let pdu_report = run_scan(&pdu)?;
@@ -735,7 +740,7 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
         let disks = enumerate_disks();
         let roots = resolve_roots(&native, &disks, &mut warnings)?;
         let excludes = ExcludeMatcher::new(&native.excludes, &mut warnings);
-        sum_non_file_entry_bytes(&roots, &excludes, &native)
+        sum_non_file_entry_bytes(&roots, &excludes)
     } else {
         (0, 0)
     };
@@ -767,24 +772,31 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
 /// the root directory's own size, so what remains is the non-root directory
 /// entries plus the symlink entries. Measuring both separately keeps known,
 /// explainable differences from masquerading as traversal regressions.
-fn sum_non_file_entry_bytes(
-    roots: &[PathBuf],
-    excludes: &ExcludeMatcher,
-    options: &ScanOptions,
-) -> (u64, u64) {
+///
+/// Two upstream rules have to be mirrored exactly, or the normalization trades
+/// one false residual for another:
+///
+/// 1. `max_depth` bounds what the pdu tree *displays*, not what it totals, so
+///    this walk is deliberately unbounded. Depth-limited scans still leave a
+///    real residual from out-of-depth file bytes, which is the backend bug
+///    tracked separately, not something to normalize away here.
+/// 2. When `read_dir` on a directory fails, pdu's `get_info` returns
+///    `Info::default()` and discards the size it had already computed, so an
+///    unreadable directory contributes nothing to the pdu total. Counting it
+///    here would over-subtract and turn a permission error into a gate failure.
+fn sum_non_file_entry_bytes(roots: &[PathBuf], excludes: &ExcludeMatcher) -> (u64, u64) {
     let mut directory_bytes = 0_u64;
     let mut symlink_bytes = 0_u64;
     for root in roots {
-        let mut walker = WalkDir::new(root).follow_links(false);
-        if let Some(depth) = options.max_depth {
-            walker = walker.max_depth(depth);
-        }
-        let iter = walker.into_iter().filter_entry(|entry| {
-            if entry.depth() == 0 {
-                return true;
-            }
-            !excludes.is_excluded(entry.path())
-        });
+        let iter = WalkDir::new(root)
+            .follow_links(false)
+            .into_iter()
+            .filter_entry(|entry| {
+                if entry.depth() == 0 {
+                    return true;
+                }
+                !excludes.is_excluded(entry.path())
+            });
 
         for entry in iter.flatten() {
             if entry.depth() == 0 {
@@ -800,6 +812,11 @@ fn sum_non_file_entry_bytes(
                 continue;
             };
             if file_type.is_dir() {
+                // Mirrors rule 2 above: pdu drops the size of a directory it
+                // cannot read.
+                if fs::read_dir(entry.path()).is_err() {
+                    continue;
+                }
                 directory_bytes = directory_bytes.saturating_add(metadata.len());
             } else {
                 symlink_bytes = symlink_bytes.saturating_add(metadata.len());
