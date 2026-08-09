@@ -31,6 +31,7 @@ use crate::role::infer_disk_roles;
 
 #[cfg(feature = "pdu-backend")]
 use parallel_disk_usage::{
+    data_tree::DataTree,
     fs_tree_builder::FsTreeBuilder,
     get_size::GetApparentSize,
     hardlink::HardlinkIgnorant,
@@ -38,6 +39,11 @@ use parallel_disk_usage::{
     reporter::{ErrorOnlyReporter, ErrorReport},
     size::Bytes,
 };
+
+/// The `parallel-disk-usage` tree as this crate builds it: filesystem names,
+/// apparent sizes.
+#[cfg(feature = "pdu-backend")]
+type PduTree = DataTree<OsStringDisplay, Bytes>;
 
 const PDU_INSPIRED_BANNED_AUTO_ROOTS: &[&str] = &[
     "/dev", "/proc", "/sys", "/run", "/mnt", "/media", "/cdrom", "/Volumes", "/System",
@@ -740,7 +746,7 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
         let disks = enumerate_disks();
         let roots = resolve_roots(&native, &disks, &mut warnings)?;
         let excludes = ExcludeMatcher::new(&native.excludes, &mut warnings);
-        sum_non_file_entry_bytes(&roots, &excludes)
+        sum_non_file_entry_bytes(&roots, &excludes, native.max_depth)
     } else {
         (0, 0)
     };
@@ -773,30 +779,35 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
 /// entries plus the symlink entries. Measuring both separately keeps known,
 /// explainable differences from masquerading as traversal regressions.
 ///
-/// Two upstream rules have to be mirrored exactly, or the normalization trades
-/// one false residual for another:
+/// Two rules have to be mirrored exactly, or the normalization trades one false
+/// residual for another:
 ///
-/// 1. `max_depth` bounds what the pdu tree *displays*, not what it totals, so
-///    this walk is deliberately unbounded. Depth-limited scans still leave a
-///    real residual from out-of-depth file bytes, which is the backend bug
-///    tracked separately, not something to normalize away here.
+/// 1. `max_depth` bounds both totals, so this walk carries the same bound.
+///    `build_pdu_tree_summary` counts only the entries inside the bound, so
+///    subtracting an out-of-depth directory here would under-report the pdu
+///    total and turn a correct depth-limited scan into a gate failure.
 /// 2. When `read_dir` on a directory fails, pdu's `get_info` returns
 ///    `Info::default()` and discards the size it had already computed, so an
 ///    unreadable directory contributes nothing to the pdu total. Counting it
 ///    here would over-subtract and turn a permission error into a gate failure.
-fn sum_non_file_entry_bytes(roots: &[PathBuf], excludes: &ExcludeMatcher) -> (u64, u64) {
+fn sum_non_file_entry_bytes(
+    roots: &[PathBuf],
+    excludes: &ExcludeMatcher,
+    max_depth: Option<usize>,
+) -> (u64, u64) {
     let mut directory_bytes = 0_u64;
     let mut symlink_bytes = 0_u64;
     for root in roots {
-        let iter = WalkDir::new(root)
-            .follow_links(false)
-            .into_iter()
-            .filter_entry(|entry| {
-                if entry.depth() == 0 {
-                    return true;
-                }
-                !excludes.is_excluded(entry.path())
-            });
+        let mut walker = WalkDir::new(root).follow_links(false);
+        if let Some(depth) = max_depth {
+            walker = walker.max_depth(depth);
+        }
+        let iter = walker.into_iter().filter_entry(|entry| {
+            if entry.depth() == 0 {
+                return true;
+            }
+            !excludes.is_excluded(entry.path())
+        });
 
         for entry in iter.flatten() {
             if entry.depth() == 0 {
@@ -1047,15 +1058,19 @@ fn build_pdu_tree_summary(
     options: &ScanOptions,
 ) -> Result<(Option<u64>, Option<Vec<DirectoryUsage>>)> {
     let reporter = ErrorOnlyReporter::new(ErrorReport::SILENT);
-    let tree: parallel_disk_usage::data_tree::DataTree<OsStringDisplay, Bytes> = FsTreeBuilder {
+    let tree: PduTree = FsTreeBuilder {
         root: root.to_path_buf(),
         size_getter: GetApparentSize,
         hardlinks_recorder: &HardlinkIgnorant,
         reporter: &reporter,
-        max_depth: options
-            .max_depth
-            .map(|depth| depth as u64)
-            .unwrap_or(u64::MAX),
+        // Deliberately unbounded. In `parallel-disk-usage`, `max_depth` bounds
+        // what the tree retains, not what it totals: out-of-depth sizes are
+        // folded back into the deepest retained node, and a bound of 1 collapses
+        // the entire tree into the root. Passing `options.max_depth` through
+        // here made a depth-limited scan report the size of the whole tree while
+        // reporting only the in-depth file count. The bound is applied to the
+        // built tree instead, by `depth_bounded_entry_bytes`.
+        max_depth: u64::MAX,
     }
     .into();
 
@@ -1077,18 +1092,54 @@ fn build_pdu_tree_summary(
     });
     largest_directories.truncate(options.largest_directories_limit);
 
-    // The native walker reports the sum of file sizes only. The PDU tree summary
-    // includes the root directory entry size on some platforms, which creates a
-    // stable one-directory delta (commonly 4096 bytes on Linux) in parity checks.
-    let root_directory_size = fs::metadata(root)
-        .ok()
-        .filter(|metadata| metadata.is_dir())
-        .map(|metadata| metadata.len())
-        .unwrap_or(0);
-    let total_size: u64 = tree.size().into();
-    let normalized_total_size = total_size.saturating_sub(root_directory_size);
+    Ok((
+        Some(depth_bounded_entry_bytes(&tree, options.max_depth)),
+        Some(largest_directories),
+    ))
+}
 
-    Ok((Some(normalized_total_size), Some(largest_directories)))
+/// Sum the apparent size of every entry within `max_depth` of the tree's root,
+/// excluding the root entry itself.
+///
+/// `DataTree::size` is inclusive of descendants, so an entry's own size is its
+/// size minus the sum of its children's. Adding up own sizes across the nodes
+/// inside the bound is what makes a depth-limited scan report the same total
+/// under both backends: the root sits at depth 0, its direct children at depth
+/// 1, and `None` means unbounded, which is exactly `WalkDir::max_depth` as
+/// `scan_root` applies it.
+///
+/// Excluding the root's own size preserves the older normalization this
+/// replaces. The native walker sums regular file sizes only, so it never
+/// includes the root directory entry, whose apparent size is commonly 4096 bytes
+/// on Linux and would otherwise show up as a stable one-directory delta.
+///
+/// A directory that could not be read contributes nothing, because pdu's
+/// `get_info` returns `Info::default()` in that case, which leaves the node with
+/// no size and no children.
+#[cfg(feature = "pdu-backend")]
+fn depth_bounded_entry_bytes(tree: &PduTree, max_depth: Option<usize>) -> u64 {
+    fn own_size(node: &PduTree) -> u64 {
+        let total: u64 = node.size().into();
+        let children = node
+            .children()
+            .iter()
+            .fold(0_u64, |sum, child| sum.saturating_add(child.size().into()));
+        total.saturating_sub(children)
+    }
+
+    fn accumulate(node: &PduTree, depth: usize, max_depth: Option<usize>) -> u64 {
+        // Depth 0 is the root, which is descended into but never counted.
+        let mut total = if depth == 0 { 0 } else { own_size(node) };
+        if max_depth.is_some_and(|bound| depth >= bound) {
+            return total;
+        }
+        for child in node.children() {
+            total = total.saturating_add(accumulate(child, depth + 1, max_depth));
+        }
+        total
+    }
+
+    accumulate(tree, 0, max_depth)
 }
 
 #[cfg(not(feature = "pdu-backend"))]
@@ -1602,6 +1653,62 @@ mod tests {
         assert!(matcher.is_excluded(Path::new("C:/repo/node_modules/pkg/index.js")));
         assert!(!matcher.is_excluded(Path::new("C:/repo/src/main.rs")));
         assert!(!warnings.is_empty());
+    }
+
+    /// `max_depth` must bound what the pdu summary totals, not just what the
+    /// tree retains. The shape mirrors the reproduction in issue #18, where a
+    /// depth-1 scan reported the whole 500 KB subtree.
+    #[cfg(feature = "pdu-backend")]
+    #[test]
+    fn depth_bound_excludes_out_of_depth_entry_bytes() {
+        use super::depth_bounded_entry_bytes;
+        use parallel_disk_usage::{
+            data_tree::DataTree, os_string_display::OsStringDisplay, size::Bytes,
+        };
+
+        fn dir(
+            name: &str,
+            children: Vec<DataTree<OsStringDisplay, Bytes>>,
+        ) -> DataTree<OsStringDisplay, Bytes> {
+            DataTree::dir(
+                OsStringDisplay::os_string_from(name),
+                Bytes::from(4096_u64),
+                children,
+            )
+        }
+        fn file(name: &str, size: u64) -> DataTree<OsStringDisplay, Bytes> {
+            DataTree::file(OsStringDisplay::os_string_from(name), Bytes::from(size))
+        }
+
+        let tree = dir(
+            "tree",
+            vec![
+                file("small.bin", 1000),
+                dir(
+                    "a",
+                    vec![
+                        file("mid.bin", 2000),
+                        dir("b", vec![file("deep.bin", 500_000)]),
+                    ],
+                ),
+            ],
+        );
+
+        // The root's own 4096 bytes are never counted, at any bound.
+        assert_eq!(depth_bounded_entry_bytes(&tree, Some(1)), 1000 + 4096);
+        assert_eq!(
+            depth_bounded_entry_bytes(&tree, Some(2)),
+            1000 + 4096 + 2000 + 4096
+        );
+        assert_eq!(
+            depth_bounded_entry_bytes(&tree, Some(3)),
+            1000 + 4096 + 2000 + 4096 + 500_000
+        );
+        assert_eq!(
+            depth_bounded_entry_bytes(&tree, None),
+            depth_bounded_entry_bytes(&tree, Some(3)),
+            "an unbounded scan and a bound past the deepest entry must agree"
+        );
     }
 
     #[test]

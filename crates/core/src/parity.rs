@@ -29,9 +29,9 @@ pub const PARITY_SUITE_SCHEMA_VERSION: u32 = 1;
 /// here rather than sliding under a minimum-count floor in CI. Update this
 /// deliberately when adding or removing a shape.
 #[cfg(unix)]
-pub const EXPECTED_SHAPE_COUNT: usize = 8;
+pub const EXPECTED_SHAPE_COUNT: usize = 9;
 #[cfg(not(unix))]
-pub const EXPECTED_SHAPE_COUNT: usize = 7;
+pub const EXPECTED_SHAPE_COUNT: usize = 8;
 
 /// Tolerances applied to every shape in the suite.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -70,6 +70,12 @@ pub struct ParityShapeSpec {
     pub name: String,
     pub description: String,
     pub root: PathBuf,
+    /// Depth bound to scan this shape with. `None` scans the whole tree.
+    ///
+    /// The suite owns this rather than the CLI, which forbids `--max-depth`
+    /// alongside `--suite`. A depth bound changes what both backends are
+    /// supposed to count, so it belongs to the shape being tested.
+    pub max_depth: Option<usize>,
 }
 
 /// Parity outcome for a single shape.
@@ -113,6 +119,7 @@ pub fn run_parity_suite(
     for shape in &shapes {
         let options = ScanOptions {
             paths: vec![shape.root.clone()],
+            max_depth: shape.max_depth,
             excludes: Vec::new(),
             dedupe: false,
             incremental_cache: false,
@@ -213,6 +220,7 @@ pub fn materialize_parity_shapes(workspace: &Path) -> Result<Vec<ParityShapeSpec
         build_mixed_sizes(workspace)?,
         build_unicode_and_spaces(workspace)?,
         build_hidden_entries(workspace)?,
+        build_depth_limited(workspace)?,
     ];
     #[cfg(unix)]
     shapes.push(build_symlinks(workspace)?);
@@ -261,6 +269,7 @@ fn build_flat_files(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "flat-files".to_string(),
         description: "single directory holding many small files".to_string(),
         root,
+        max_depth: None,
     })
 }
 
@@ -277,6 +286,7 @@ fn build_deep_chain(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "deep-chain".to_string(),
         description: "single deeply nested chain of directories".to_string(),
         root,
+        max_depth: None,
     })
 }
 
@@ -293,6 +303,7 @@ fn build_wide_fanout(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "wide-fanout".to_string(),
         description: "wide sibling fan-out with uniform child directories".to_string(),
         root,
+        max_depth: None,
     })
 }
 
@@ -310,6 +321,7 @@ fn build_empty_and_zero_byte(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "empty-and-zero-byte".to_string(),
         description: "empty directories mixed with zero-length files".to_string(),
         root,
+        max_depth: None,
     })
 }
 
@@ -334,6 +346,7 @@ fn build_mixed_sizes(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "mixed-sizes".to_string(),
         description: "large, medium, and tiny files in one tree".to_string(),
         root,
+        max_depth: None,
     })
 }
 
@@ -350,6 +363,7 @@ fn build_unicode_and_spaces(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "unicode-and-spaces".to_string(),
         description: "non-ASCII and space-bearing file and directory names".to_string(),
         root,
+        max_depth: None,
     })
 }
 
@@ -366,6 +380,41 @@ fn build_hidden_entries(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "hidden-entries".to_string(),
         description: "dot-prefixed files and directories".to_string(),
         root,
+        max_depth: None,
+    })
+}
+
+/// The only shape scanned with a depth bound.
+///
+/// Most of the bytes sit below the bound, so a backend that treats `max_depth`
+/// as a display bound rather than a counting bound fails loudly here instead of
+/// drifting by a few directory entries. This is the shape that would have caught
+/// issue #18: before the fix, `pdu_library` reported the whole tree while
+/// reporting only the in-depth file count.
+fn build_depth_limited(workspace: &Path) -> Result<ParityShapeSpec> {
+    let root = shape_root(workspace, "depth-limited")?;
+    write_file(&root.join("in-depth.bin"), 1024)?;
+
+    let inner = root.join("nested");
+    fs::create_dir_all(&inner).with_context(|| format!("failed to create {}", inner.display()))?;
+    write_file(&inner.join("still-in-depth.bin"), 2048)?;
+
+    // Everything below here is out of depth and must not reach either total.
+    let buried = inner.join("buried");
+    fs::create_dir_all(&buried)
+        .with_context(|| format!("failed to create {}", buried.display()))?;
+    write_file(&buried.join("bulk.bin"), 512 * 1024)?;
+    let deeper = buried.join("deeper");
+    fs::create_dir_all(&deeper)
+        .with_context(|| format!("failed to create {}", deeper.display()))?;
+    write_file(&deeper.join("more-bulk.bin"), 256 * 1024)?;
+
+    Ok(ParityShapeSpec {
+        name: "depth-limited".to_string(),
+        description: "depth-bounded scan (max-depth 2) over a tree whose bulk sits below the bound"
+            .to_string(),
+        root,
+        max_depth: Some(2),
     })
 }
 
@@ -389,6 +438,7 @@ fn build_symlinks(workspace: &Path) -> Result<ParityShapeSpec> {
         name: "symlinks".to_string(),
         description: "file, directory, and broken symlinks that must not be followed".to_string(),
         root,
+        max_depth: None,
     })
 }
 

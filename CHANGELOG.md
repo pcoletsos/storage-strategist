@@ -72,6 +72,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Tauri bundle config enabled for packaging builds.
 
 ### Fixed
+- `pdu_library` no longer reports the size of the whole tree for a depth-limited
+  scan. `max_depth` bounds what a `parallel-disk-usage` tree retains rather than
+  what it totals, so the bound is now applied to the built tree instead of being
+  passed through, and `total_size_bytes` keeps its `native` meaning under both
+  backends. The `depth-limited` parity shape guards it. A depth-limited
+  `pdu_library` scan also reports a `largest_directories` rollup again, where it
+  previously reported none; the rollup itself is still unbounded, which is
+  recorded as an open item in `docs/backend-promotion-checkpoint.md`.
 - Backend parity gate no longer reports an unreadable directory as backend drift.
   `parallel-disk-usage` discards such a directory's size, so the normalization
   now discards it too instead of over-subtracting and failing on a permission error.

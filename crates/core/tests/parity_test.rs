@@ -134,6 +134,70 @@ fn an_unreadable_directory_is_not_reported_as_drift() -> Result<()> {
     Ok(())
 }
 
+/// A depth-limited scan must not report bytes from below the bound.
+///
+/// This is the exact reproduction from issue #18: `pdu_library` reported 503,224
+/// bytes where `native` reported 1,000, because `max_depth` bounds what the pdu
+/// tree retains rather than what it totals. `file_count` stayed honest, so
+/// nothing inside the report contradicted the wrong number.
+///
+/// The assertion is written against `PathStats::total_size_bytes`, the field a
+/// user actually reads, and allows exactly one directory entry of difference:
+/// `pdu_library` counts the in-depth directory `a` and `native` counts regular
+/// files only. That is the known accounting difference recorded in
+/// `docs/backend-promotion-checkpoint.md`, not the defect under test.
+#[test]
+fn a_depth_limited_scan_excludes_out_of_depth_bytes() -> Result<()> {
+    use std::fs;
+    use storage_strategist_core::model::ScanBackendKind;
+    use storage_strategist_core::scan::run_scan;
+
+    let workspace = tempdir()?;
+    let root = workspace.path().join("tree");
+    let nested = root.join("a");
+    let deep = nested.join("b");
+    fs::create_dir_all(&deep)?;
+    fs::write(root.join("small.bin"), vec![0_u8; 1_000])?;
+    fs::write(nested.join("mid.bin"), vec![0_u8; 2_000])?;
+    fs::write(deep.join("deep.bin"), vec![0_u8; 500_000])?;
+
+    let scan_with = |backend| -> Result<(u64, u64)> {
+        let report = run_scan(&ScanOptions {
+            paths: vec![root.clone()],
+            max_depth: Some(1),
+            backend,
+            incremental_cache: false,
+            record_history: false,
+            ..Default::default()
+        })?;
+        let stats = report
+            .paths
+            .first()
+            .expect("a scan of one root produces one PathStats");
+        Ok((stats.total_size_bytes, stats.file_count))
+    };
+
+    let (native_bytes, native_files) = scan_with(ScanBackendKind::Native)?;
+    let (pdu_bytes, pdu_files) = scan_with(ScanBackendKind::PduLibrary)?;
+    println!("depth-limited totals: native={native_bytes} pdu_library={pdu_bytes}");
+
+    assert_eq!(native_bytes, 1_000, "native must count only small.bin");
+    assert_eq!(native_files, 1);
+    assert_eq!(
+        pdu_files, 1,
+        "both backends walk files with the same walker"
+    );
+
+    let in_depth_directory_bytes = fs::metadata(&nested)?.len();
+    assert_eq!(
+        pdu_bytes,
+        native_bytes + in_depth_directory_bytes,
+        "the only allowed difference is the in-depth directory entry"
+    );
+
+    Ok(())
+}
+
 /// The checked-in report fixtures are a flat directory of JSON files, so the two
 /// backends must match on them byte for byte with no normalization at all.
 #[test]
