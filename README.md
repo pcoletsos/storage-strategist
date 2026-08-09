@@ -50,6 +50,7 @@ cargo run -p storage-strategist -- doctor
 cargo run -p storage-strategist -- eval --suite fixtures/eval-suite.json --output eval-result.json
 cargo run -p storage-strategist -- benchmark --paths fixtures --max-depth 3 --iterations 2 --output benchmark-result.json
 cargo run -p storage-strategist -- parity --paths fixtures --max-depth 3
+cargo run -p storage-strategist -- parity --suite --output parity-result.json
 cargo run -p storage-strategist -- plan --report storage-strategist-report.json --output scenario-plan.json
 cargo run -p storage-strategist -- diagnostics --report storage-strategist-report.json --output storage-strategist-diagnostics.json
 cargo run -p storage-strategist -- reports list
@@ -102,6 +103,7 @@ npm run tauri dev
   - `test`
   - compliance checks
   - desktop smoke tests (`apps/desktop`, Playwright)
+- backend parity gate (`native` vs `pdu_library` on synthetic tree shapes, artifact uploaded on failure)
 - evaluation KPI gate (`precision@3`, contradiction rate, unsafe recommendations)
 - `.github/workflows/bench.yml`
   - benchmark run
@@ -112,9 +114,13 @@ npm run tauri dev
 
 ## Parity and KPI Gate Definitions
 
-- Backend parity gate (tracked for CI hardening):
-  - source: `compare_backends(...)` parity metadata (`scanned_files_delta`, `scanned_bytes_delta`, `tolerance_ratio`, `within_tolerance`)
-  - intent: fail when backend output drift exceeds configured tolerance on fixture scans
+- Backend parity gate (enforced in CI):
+  - source: `parity --suite` over a fixed catalogue of synthetic tree shapes, backed by `compare_backends(...)`
+  - signal: `normalized_scanned_bytes_delta`, the byte delta left after removing the known directory-entry and symlink-entry accounting terms
+  - tolerances: `--max-files-delta 0`, `--max-normalized-bytes-delta 0`, `--max-residual-bytes-delta-ratio 0.005`
+  - a `pdu_library` run that silently fell back to `native` fails the gate rather than passing it
+  - CI gate script: `scripts/check_parity_thresholds.py`; `parity-result.json` uploads on failure for triage
+  - promotion rules: `docs/backend-promotion-checkpoint.md`
 - Evaluation KPI gates (tracked for CI hardening):
   - `precision_at_3`: per-case hit ratio among top 3 recommendation IDs against `expected_top_ids`, averaged across suite cases
   - `contradiction_rate`: fraction of suite cases where `contradiction_count > 0`

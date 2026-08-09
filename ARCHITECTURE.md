@@ -40,13 +40,22 @@
   - cache IO failures are downgraded to warnings and never fail the scan
 
 Backend parity support:
-- `compare_backends(options)` returns timing and delta metrics in `BackendParity`.
-- Used by CLI `parity` command and future CI fixture parity gates.
+- `compare_backends(options)` returns timing, absolute counters, and delta metrics in `BackendParity`.
+- `crates/core/src/parity.rs` materializes a fixed catalogue of synthetic tree shapes into a caller-supplied scratch workspace and compares both backends on each shape.
+- Used by CLI `parity` / `parity --suite`, the `parity_test` integration test, and the `backend parity` CI job.
 
-Parity gate definition (for CI hardening):
-- evaluate `BackendParity.within_tolerance` on fixture scans
-- tolerance derived from `BackendParity.tolerance_ratio`
-- key drift signals: `scanned_files_delta`, `scanned_bytes_delta`
+Known accounting differences between the backends:
+- `parallel-disk-usage` totals every entry it visits; the native sum counts regular files only.
+- `directory_entry_bytes`: apparent size of non-root directory entries (the root is already subtracted in `build_pdu_tree_summary`).
+- `symlink_entry_bytes`: apparent size of symlink entries, which the native walker skips.
+- Both are measured explicitly so a known difference cannot masquerade as a traversal regression.
+
+Parity gate definition (enforced in CI):
+- primary signal: `normalized_scanned_bytes_delta`, the residual after removing both accounting terms
+- hard limits: `scanned_files_delta == 0`, `normalized_scanned_bytes_delta == 0`, residual ratio at most `0.005`
+- `pdu_summary_applied` must be true, so a silent fallback to the native walker fails instead of passing
+- gate script: `scripts/check_parity_thresholds.py`; artifact uploads on failure
+- promotion criteria: `docs/backend-promotion-checkpoint.md`
 
 ## Event and Session Model
 
@@ -103,6 +112,12 @@ OS-specific enrichment providers:
   - `backend_parity`
   - disk role fields
   - recommendation policy rule fields
+- `BackendParity` additive fields for the parity gate (all serde-defaulted):
+  - `native_scanned_files`, `native_scanned_bytes`
+  - `pdu_library_scanned_files`, `pdu_library_scanned_bytes`
+  - `pdu_summary_applied`
+  - `directory_entry_bytes`, `symlink_entry_bytes`
+  - `normalized_scanned_bytes_delta`
 
 ## UI Architecture (Read-Only)
 

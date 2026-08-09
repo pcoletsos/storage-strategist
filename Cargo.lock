@@ -1138,6 +1138,7 @@ dependencies = [
  "storage-strategist-core",
  "tracing",
  "tracing-subscriber",
+ "uuid",
 ]
 
 [[package]]

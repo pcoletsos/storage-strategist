@@ -96,6 +96,35 @@ jobs:
       - name: Run backend parity tests
         run: cargo test --test parity_test -- --nocapture
 
+      # Tolerances are declared here as well as in the Rust defaults so the
+      # agreed gate is visible without reading the source.
+      - name: Run backend parity suite
+        run: |
+          cargo run -p storage-strategist -- parity --suite \
+            --output parity-result.json \
+            --max-files-delta 0 \
+            --max-normalized-bytes-delta 0 \
+            --max-residual-bytes-delta-ratio 0.005
+
+      - name: Enforce backend parity tolerances
+        if: always()
+        run: |
+          python3 scripts/check_parity_thresholds.py \
+            --input parity-result.json \
+            --max-files-delta 0 \
+            --max-normalized-bytes-delta 0 \
+            --max-residual-bytes-delta-ratio 0.005 \
+            --min-shapes 7 \
+            --require-pdu-backend
+
+      - name: Upload backend parity artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-parity-result
+          path: parity-result.json
+          if-no-files-found: warn
+
   evaluation_kpi:
     name: evaluation kpi
     runs-on: ubuntu-latest
