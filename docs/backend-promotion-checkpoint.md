@@ -72,27 +72,61 @@ report. That is acceptable while `native` is the default and `pdu_library` is
 opt-in. It is not acceptable after promotion, because the same scan would report
 different totals before and after the switch.
 
-A third difference is a defect rather than an accounting rule, so it is not
-normalized away:
+A third difference in `largest_directories` is recorded but not normalized,
+because the gate measures totals and file counts rather than rollup contents:
 
-3. **`max_depth` does not bound the pdu total.** In `parallel-disk-usage`,
-   `max_depth` bounds what the tree *displays*, not what it totals: sizes beyond
-   the depth are folded back into the parent. `build_pdu_tree_summary` passes
-   `max_depth` through and uses `tree.size()`, so a depth-limited scan on
-   `pdu_library` reports the size of the entire tree while reporting only the
-   in-depth file count. Tracked as issue #18. The parity gate cannot currently
-   observe it, because `parity --suite` forbids `--max-depth` and every shape
-   runs unbounded. Adding a depth-limited shape is part of that fix.
+3. **Rollup membership.** `native` buckets file bytes by first path component
+   and skips files sitting directly in the root, so its rollup contains
+   directories only. `pdu_library` uses the pdu tree's children, which include
+   the root's files as well, and reports each child's full recursive size even
+   when the scan is depth-limited. The two rollups therefore do not agree entry
+   for entry. This must be resolved before promotion, since `largest_directories`
+   is user-facing.
 
-Two upstream rules the normalization mirrors deliberately, because getting
-either wrong trades one false residual for another:
+   Bounding the total made this more visible rather than less. A depth-1
+   `pdu_library` scan of the issue #18 reproduction now reports
+   `total_size_bytes: 1128` alongside a `largest_directories` entry of 502,224
+   bytes for the same tree, because the rollup is still unbounded. Before the
+   fix the same scan reported an empty rollup and a whole-tree total, so the two
+   fields were wrong in the same direction and did not visibly contradict each
+   other. The reported total is now correct and the rollup is the remaining
+   defect.
 
-- The directory-entry walk is unbounded by `max_depth`, matching the rule above.
-  A depth-limited comparison therefore still shows a real residual from
-  out-of-depth file bytes, which is the defect and not something to hide.
+Two rules the normalization mirrors deliberately, because getting either wrong
+trades one false residual for another:
+
+- The directory-entry walk carries the same `max_depth` bound as the scan.
+  `build_pdu_tree_summary` counts only entries inside the bound, so subtracting
+  an out-of-depth directory would under-report the pdu total and fail a correct
+  depth-limited scan.
 - A directory whose `read_dir` fails contributes nothing. pdu's `get_info`
   returns `Info::default()` in that case and discards the size it had already
   computed, so counting it would turn a permission error into a gate failure.
+
+## Resolved: `max_depth` and the pdu total
+
+In `parallel-disk-usage`, `max_depth` bounds what the tree *retains*, not what it
+totals: out-of-depth sizes are folded back into the deepest retained node, and a
+bound of 1 collapses the whole tree into the root. `build_pdu_tree_summary`
+passed `max_depth` straight through and then used `tree.size()`, so a
+depth-limited scan reported the size of the entire tree while reporting only the
+in-depth file count. On the reproduction in issue #18 that was 503,224 bytes
+against a true 1,000.
+
+Resolved in issue #18 by keeping the pdu traversal and applying the bound
+ourselves: the tree is built unbounded and `depth_bounded_entry_bytes` sums each
+entry's own size (its size minus its children's) across the nodes within
+`max_depth`, excluding the root entry. That reproduces `WalkDir::max_depth` as
+`scan_root` applies it, so `total_size_bytes` keeps the meaning it already had
+under `native` and no `report_version` bump was needed.
+
+Two consequences worth knowing:
+
+- The full tree is retained in memory even for a depth-limited scan. Traversal
+  was always full, so this costs node retention rather than IO.
+- The `depth-limited` shape in the parity suite is the regression guard. Most of
+  its bytes sit below the bound, so the pre-fix backend fails it by 786,432
+  bytes rather than by a few directory entries.
 
 ## Parity gate
 
@@ -118,7 +152,13 @@ Shapes covered:
 | `mixed-sizes` | large, medium, and tiny files together |
 | `unicode-and-spaces` | non-ASCII and space-bearing names |
 | `hidden-entries` | dot-prefixed files and directories |
+| `depth-limited` | `max_depth` bounds the total, not just the retained tree |
 | `symlinks` (Unix) | file, directory, and broken symlinks |
+
+Every shape scans its whole tree except `depth-limited`, which carries
+`max_depth: 2` on its own spec. `parity --suite` still forbids `--max-depth` on
+the command line: a depth bound changes what both backends are supposed to
+count, so it belongs to the shape rather than to the run.
 
 Tolerances enforced in CI (`backend parity` job) and by
 `scripts/check_parity_thresholds.py`:
@@ -128,7 +168,7 @@ Tolerances enforced in CI (`backend parity` job) and by
 | `--max-files-delta` | `0` | Both backends walk the same tree with the same walker. Any file-count difference is a defect. |
 | `--max-normalized-bytes-delta` | `0` | On synthetic fixtures every byte must be explained. |
 | `--max-residual-bytes-delta-ratio` | `0.005` | Proportional companion for large or live trees where an exact match is unrealistic. |
-| `--min-shapes` | `8` on Unix | Backstop against the catalogue silently shrinking. The primary guard is `EXPECTED_SHAPE_COUNT`, which fails the suite at the source when a shape is added or dropped. |
+| `--min-shapes` | `9` on Unix | Backstop against the catalogue silently shrinking. The primary guard is `EXPECTED_SHAPE_COUNT`, which fails the suite at the source when a shape is added or dropped. |
 | `--require-pdu-backend` | on | A run without the feature proves nothing. |
 | `pdu_summary_applied` | must be true per shape | Catches a silent fallback to `native`. |
 
@@ -198,7 +238,8 @@ default.
 |---|---|---|
 | Directory-entry accounting difference | Open | Normalized in the gate; must be fixed at the source before promotion |
 | Symlink-entry accounting difference | Open | Same as above |
-| `max_depth` does not bound the pdu total | Open | Issue #18. A report-correctness defect, not an accounting rule; not normalized |
+| `largest_directories` rollup membership | Open | Different entries and different sizes per backend; not covered by the gate |
+| `max_depth` does not bound the pdu total | Resolved | Issue #18. Bound applied to the built tree; guarded by the `depth-limited` shape |
 | Exclude-pattern support in `pdu_library` | Open | Currently falls back to `native` |
 | Parity on the full OS matrix | Open | CI runs Linux only today |
 | Multi-run performance baseline | Open | Tracked as ROADMAP P3 item 14 |
