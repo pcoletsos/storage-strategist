@@ -1,7 +1,9 @@
 use std::collections::HashMap;
+#[cfg(any(target_os = "windows", target_os = "linux"))]
 use std::process::Command;
 
 use crate::model::{DiskInfo, DiskKind, DiskStorageType, LocalityClass, PerformanceClass};
+#[cfg(any(target_os = "windows", target_os = "linux"))]
 use serde::Deserialize;
 
 #[cfg(windows)]
@@ -473,6 +475,7 @@ fn parse_rotational_hint(value: Option<&serde_json::Value>) -> Option<bool> {
     }
 }
 
+#[cfg(any(target_os = "windows", target_os = "linux"))]
 fn upsert_platform_hint(
     hints: &mut HashMap<String, PlatformDiskHint>,
     mount_point: &str,
