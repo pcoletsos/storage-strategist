@@ -6,7 +6,7 @@
 
 use anyhow::Result;
 use std::path::PathBuf;
-use storage_strategist_core::parity::{run_parity_suite, ParityTolerances};
+use storage_strategist_core::parity::{run_parity_suite, ParityTolerances, EXPECTED_SHAPE_COUNT};
 use storage_strategist_core::scan::{compare_backends, ScanOptions};
 use tempfile::tempdir;
 
@@ -36,10 +36,9 @@ fn backends_agree_on_every_representative_tree_shape() -> Result<()> {
         report.pdu_backend_feature_enabled,
         "the parity gate is meaningless without the pdu-backend feature"
     );
-    assert!(
-        report.total_shapes >= 7,
-        "expected the full shape catalogue, got {}",
-        report.total_shapes
+    assert_eq!(
+        report.total_shapes, EXPECTED_SHAPE_COUNT,
+        "the shape catalogue changed size; a dropped shape must not slide past the gate"
     );
 
     let failed = report
@@ -79,6 +78,58 @@ fn tolerated_deltas_are_fully_explained_by_known_accounting_terms() -> Result<()
             shape.name
         );
     }
+
+    Ok(())
+}
+
+/// A directory that stats but cannot be read must not register as backend drift.
+///
+/// pdu's `get_info` discards the size it computed for such a directory, so the
+/// normalization has to discard it too. Counting it would over-subtract and turn
+/// a permission error into a gate failure, which contradicts the repo rule that
+/// permission and IO failures degrade to warnings.
+#[cfg(unix)]
+#[test]
+fn an_unreadable_directory_is_not_reported_as_drift() -> Result<()> {
+    use std::fs;
+    use std::os::unix::fs::PermissionsExt;
+
+    let workspace = tempdir()?;
+    let root = workspace.path().join("tree");
+    let open = root.join("open");
+    let locked = root.join("locked");
+    fs::create_dir_all(&open)?;
+    fs::create_dir_all(&locked)?;
+    fs::write(open.join("a.bin"), vec![0_u8; 4096])?;
+    fs::write(locked.join("hidden.bin"), vec![0_u8; 8192])?;
+    fs::set_permissions(&locked, fs::Permissions::from_mode(0o000))?;
+
+    // Root can read through mode 000, which would make the assertion vacuous.
+    let enforced = fs::read_dir(&locked).is_err();
+
+    let options = ScanOptions {
+        paths: vec![root.clone()],
+        incremental_cache: false,
+        record_history: false,
+        ..Default::default()
+    };
+    let parity = compare_backends(&options);
+
+    // Restore permissions before any early return so cleanup can succeed.
+    fs::set_permissions(&locked, fs::Permissions::from_mode(0o755))?;
+    let parity = parity?;
+
+    if !enforced {
+        eprintln!("skipping: this process can read a mode-000 directory");
+        return Ok(());
+    }
+
+    println!("unreadable-directory parity: {parity:?}");
+    assert_eq!(
+        parity.normalized_scanned_bytes_delta, 0,
+        "a permission error must not surface as unexplained drift"
+    );
+    assert_eq!(parity.scanned_files_delta, 0);
 
     Ok(())
 }

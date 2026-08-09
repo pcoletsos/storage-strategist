@@ -72,6 +72,28 @@ report. That is acceptable while `native` is the default and `pdu_library` is
 opt-in. It is not acceptable after promotion, because the same scan would report
 different totals before and after the switch.
 
+A third difference is a defect rather than an accounting rule, so it is not
+normalized away:
+
+3. **`max_depth` does not bound the pdu total.** In `parallel-disk-usage`,
+   `max_depth` bounds what the tree *displays*, not what it totals: sizes beyond
+   the depth are folded back into the parent. `build_pdu_tree_summary` passes
+   `max_depth` through and uses `tree.size()`, so a depth-limited scan on
+   `pdu_library` reports the size of the entire tree while reporting only the
+   in-depth file count. Tracked as issue #18. The parity gate cannot currently
+   observe it, because `parity --suite` forbids `--max-depth` and every shape
+   runs unbounded. Adding a depth-limited shape is part of that fix.
+
+Two upstream rules the normalization mirrors deliberately, because getting
+either wrong trades one false residual for another:
+
+- The directory-entry walk is unbounded by `max_depth`, matching the rule above.
+  A depth-limited comparison therefore still shows a real residual from
+  out-of-depth file bytes, which is the defect and not something to hide.
+- A directory whose `read_dir` fails contributes nothing. pdu's `get_info`
+  returns `Info::default()` in that case and discards the size it had already
+  computed, so counting it would turn a permission error into a gate failure.
+
 ## Parity gate
 
 Run locally:
@@ -106,7 +128,7 @@ Tolerances enforced in CI (`backend parity` job) and by
 | `--max-files-delta` | `0` | Both backends walk the same tree with the same walker. Any file-count difference is a defect. |
 | `--max-normalized-bytes-delta` | `0` | On synthetic fixtures every byte must be explained. |
 | `--max-residual-bytes-delta-ratio` | `0.005` | Proportional companion for large or live trees where an exact match is unrealistic. |
-| `--min-shapes` | `7` | Guards against the catalogue silently shrinking. |
+| `--min-shapes` | `8` on Unix | Backstop against the catalogue silently shrinking. The primary guard is `EXPECTED_SHAPE_COUNT`, which fails the suite at the source when a shape is added or dropped. |
 | `--require-pdu-backend` | on | A run without the feature proves nothing. |
 | `pdu_summary_applied` | must be true per shape | Catches a silent fallback to `native`. |
 
@@ -176,6 +198,7 @@ default.
 |---|---|---|
 | Directory-entry accounting difference | Open | Normalized in the gate; must be fixed at the source before promotion |
 | Symlink-entry accounting difference | Open | Same as above |
+| `max_depth` does not bound the pdu total | Open | Issue #18. A report-correctness defect, not an accounting rule; not normalized |
 | Exclude-pattern support in `pdu_library` | Open | Currently falls back to `native` |
 | Parity on the full OS matrix | Open | CI runs Linux only today |
 | Multi-run performance baseline | Open | Tracked as ROADMAP P3 item 14 |

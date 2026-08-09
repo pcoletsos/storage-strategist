@@ -23,6 +23,16 @@ use crate::scan::{compare_backends, ScanOptions};
 /// changes in a way that breaks `scripts/check_parity_thresholds.py`.
 pub const PARITY_SUITE_SCHEMA_VERSION: u32 = 1;
 
+/// Number of shapes the catalogue is expected to produce on this platform.
+///
+/// Checked at build time so a shape that silently stops being generated fails
+/// here rather than sliding under a minimum-count floor in CI. Update this
+/// deliberately when adding or removing a shape.
+#[cfg(unix)]
+pub const EXPECTED_SHAPE_COUNT: usize = 8;
+#[cfg(not(unix))]
+pub const EXPECTED_SHAPE_COUNT: usize = 7;
+
 /// Tolerances applied to every shape in the suite.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct ParityTolerances {
@@ -206,6 +216,15 @@ pub fn materialize_parity_shapes(workspace: &Path) -> Result<Vec<ParityShapeSpec
     ];
     #[cfg(unix)]
     shapes.push(build_symlinks(workspace)?);
+
+    if shapes.len() != EXPECTED_SHAPE_COUNT {
+        return Err(anyhow!(
+            "parity catalogue produced {} shape(s), expected {}; \
+             a shape was added or dropped without updating EXPECTED_SHAPE_COUNT",
+            shapes.len(),
+            EXPECTED_SHAPE_COUNT
+        ));
+    }
 
     Ok(shapes)
 }

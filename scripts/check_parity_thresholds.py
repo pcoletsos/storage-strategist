@@ -18,6 +18,20 @@ from pathlib import Path
 
 SUPPORTED_SCHEMA_VERSION = 1
 
+# Every per-shape metric the gate reads. These are required rather than
+# defaulted: a missing field would otherwise read as perfect parity and the gate
+# would pass while measuring nothing.
+REQUIRED_SHAPE_FIELDS = (
+    "name",
+    "scanned_files_delta",
+    "scanned_bytes_delta",
+    "directory_entry_bytes",
+    "symlink_entry_bytes",
+    "normalized_scanned_bytes_delta",
+    "native_scanned_bytes",
+    "pdu_summary_applied",
+)
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate backend parity tolerances")
@@ -96,6 +110,15 @@ def main() -> int:
         print("ERROR: parity artifact has no 'shapes' list", file=sys.stderr)
         return 1
 
+    declared_total = payload.get("total_shapes")
+    if declared_total is not None and int(declared_total) != len(shapes):
+        print(
+            f"ERROR: artifact declares {declared_total} shape(s) but carries "
+            f"{len(shapes)}; it is truncated or malformed",
+            file=sys.stderr,
+        )
+        return 1
+
     platform = payload.get("platform", "unknown")
     pdu_enabled = bool(payload.get("pdu_backend_feature_enabled", False))
     print(
@@ -114,15 +137,37 @@ def main() -> int:
             f"suite ran {len(shapes)} shape(s), below the minimum {args.min_shapes}"
         )
 
-    for shape in shapes:
-        name = shape.get("name", "<unnamed>")
-        files_delta = int(shape.get("scanned_files_delta", 0))
-        bytes_delta = int(shape.get("scanned_bytes_delta", 0))
-        directory_bytes = int(shape.get("directory_entry_bytes", 0))
-        symlink_bytes = int(shape.get("symlink_entry_bytes", 0))
-        residual = int(shape.get("normalized_scanned_bytes_delta", 0))
-        native_bytes = max(int(shape.get("native_scanned_bytes", 0)), 1)
-        summary_applied = bool(shape.get("pdu_summary_applied", False))
+    for index, shape in enumerate(shapes):
+        if not isinstance(shape, dict):
+            print(f"ERROR: shapes[{index}] is not an object", file=sys.stderr)
+            return 1
+
+        missing = [field for field in REQUIRED_SHAPE_FIELDS if field not in shape]
+        if missing:
+            print(
+                f"ERROR: shapes[{index}] is missing required field(s): "
+                f"{', '.join(missing)}. The artifact does not match schema version "
+                f"{SUPPORTED_SCHEMA_VERSION}; the gate cannot verify parity from it.",
+                file=sys.stderr,
+            )
+            return 1
+
+        name = shape["name"]
+        try:
+            files_delta = int(shape["scanned_files_delta"])
+            bytes_delta = int(shape["scanned_bytes_delta"])
+            directory_bytes = int(shape["directory_entry_bytes"])
+            symlink_bytes = int(shape["symlink_entry_bytes"])
+            residual = int(shape["normalized_scanned_bytes_delta"])
+            native_bytes = max(int(shape["native_scanned_bytes"]), 1)
+        except (TypeError, ValueError) as exc:
+            print(
+                f"ERROR: shapes[{index}] ({name}) has a non-numeric metric: {exc}",
+                file=sys.stderr,
+            )
+            return 1
+
+        summary_applied = bool(shape["pdu_summary_applied"])
         residual_ratio = abs(residual) / native_bytes
 
         print(

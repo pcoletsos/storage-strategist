@@ -72,5 +72,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Tauri bundle config enabled for packaging builds.
 
 ### Fixed
+- Backend parity gate no longer reports an unreadable directory as backend drift.
+  `parallel-disk-usage` discards such a directory's size, so the normalization
+  now discards it too instead of over-subtracting and failing on a permission error.
+- Parity threshold script requires its per-shape metric fields rather than
+  defaulting missing ones to passing values, and rejects a truncated artifact.
+- Parity shape catalogue size is pinned by `EXPECTED_SHAPE_COUNT`, so a dropped
+  shape fails the suite instead of sliding under the CI minimum.
+- `compare_backends` forces the incremental cache off, so a parity verdict cannot
+  be drawn from cached reports compared against a freshly walked tree.
 - Recommendation dedup/contradiction handling now blocks duplicate recommendation IDs.
 - Cloud-backed target safety enforcement is now explicit in policy decisions.
