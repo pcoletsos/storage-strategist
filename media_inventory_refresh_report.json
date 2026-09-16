@@ -1,0 +1,78 @@
+{
+  "execution_time_seconds": 14.72,
+  "target_directory": "F:\\Aloha",
+  "database_path": "media_inventory.db",
+  "dry_run": false,
+  "path_realignment": {
+    "total": 35656,
+    "direct": 2,
+    "undo": 29361,
+    "undo+dir": 6097,
+    "dir": 196,
+    "unresolved": 0,
+    "updated": 35654
+  },
+  "visual_enrichment": {
+    "total_cache_entries": 903,
+    "matched_assets": 903,
+    "studio_updated": 263,
+    "metadata_updated": 82
+  },
+  "container_tags": {
+    "mp4_files_scanned": 6581,
+    "tagged_files_found": 6561,
+    "database_records_updated": 6561
+  },
+  "filesystem_reconciliation": {
+    "total_db_records": 35656,
+    "fs_videos": 12187,
+    "fs_images": 23469,
+    "fs_total_media": 35656,
+    "untracked_discovered": 0,
+    "stale_records_found": 0,
+    "stale_records_purged": 0
+  },
+  "validation": {
+    "total_records": 35656,
+    "legacy_path_records": 0,
+    "studio_enriched_records": 263,
+    "tagged_mp4_records": 6561,
+    "root_distribution": [
+      {
+        "root_folder": "Games",
+        "asset_count": 29253,
+        "size_gb": 36.95
+      },
+      {
+        "root_folder": "Photos & Sets",
+        "asset_count": 2782,
+        "size_gb": 0.59
+      },
+      {
+        "root_folder": "Celebrities",
+        "asset_count": 1484,
+        "size_gb": 34.98
+      },
+      {
+        "root_folder": "Collections & Siterips",
+        "asset_count": 889,
+        "size_gb": 75.71
+      },
+      {
+        "root_folder": "Studios",
+        "asset_count": 688,
+        "size_gb": 227.25
+      },
+      {
+        "root_folder": "Movies",
+        "asset_count": 289,
+        "size_gb": 75.08
+      },
+      {
+        "root_folder": "Magazines & Docs",
+        "asset_count": 271,
+        "size_gb": 0.05
+      }
+    ]
+  }
+}
