@@ -142,6 +142,25 @@ ffmpeg -y -i "{source_path}" \
 
 ---
 
+## 5.1 Mission Execution & Final Results (Completed)
+
+All phases of the mission have completed with production verification:
+- **Pipeline Implementation**: Delivered via `scripts/optimize_av1_corpus.py` and tested in `tests/test_optimize_av1_corpus.py`. Merged via PR [#34](https://github.com/pcoletsos/storage-strategist/pull/34) (closing Issue [#33](https://github.com/pcoletsos/storage-strategist/issues/33)).
+- **Tier A (`Studios`)**: 162 files completed, 44 negative delta preserved, 1 duration divergence preserved, 26.74 GB saved.
+- **Tier B (`Movies`)**: 27 files completed, 1 negative delta preserved, 4 duration/res preserved, 23.20 GB saved.
+- **Tier C (`Collections & Siterips`)**: 210 files completed, 26 negative delta preserved, 7 duration divergence preserved, 11.48 GB saved.
+- **Grand Campaign Totals**:
+  - Total Candidates Evaluated: 482 files (285.86 GB)
+  - Successfully Transcoded to AV1: 400 files (83.0%)
+  - Preserved by Negative Delta Guardrail: 71 files
+  - Preserved by Probe/Verification Guardrail: 12 files
+  - Pure Payload Saved (Ledger): 61.42 GB
+  - Starting Free Space on F:\Aloha: 569.89 GB free
+  - Final Free Space on F:\Aloha: 681.59 GB free (+111.70 GB net recovered)
+  - Safety & Integrity: Zero data loss, zero game assets touched, QuickTime tags preserved, timestamps restored, full audit ledger in `av1_transcode_ledger.db`, and live catalog updated in `media_inventory.db`.
+
+---
+
 ## 6. Hard Constraints
 
 - **Strict Prohibition on Em Dashes**: Never use em dashes in code comments, CLI messages, logs, or markdown documentation. Use commas, colons, parentheses, or separate sentences.
