@@ -148,7 +148,7 @@ Implemented:
 - scenario planner projection tests (risk-filtered conservative/balanced/aggressive sets)
 - diagnostics bundle generation test (report + source-path embedding)
 
-- backend parity fixture assertions (`native` vs `pdu_library`) across flat, deep, wide, empty, mixed-size, unicode, hidden, and symlink tree shapes
+- backend parity fixture assertions (`native` vs `pdu_library`) across flat, deep, wide, empty, mixed-size, unicode, hidden, depth-limited, and symlink tree shapes
 
 Planned next:
 - permission continuation stress fixtures
