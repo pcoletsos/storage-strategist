@@ -10,9 +10,12 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 def tag_mp4_file(file_path: str, tags: Dict[str, Any]) -> bool:
-    """Losslessly writes MP4 tags using mutagen without remuxing stream payloads."""
+    """Losslessly writes MP4 tags using mutagen without remuxing stream payloads, preserving timestamps."""
     try:
         from mutagen.mp4 import MP4
+        stat = os.stat(file_path)
+        orig_atime, orig_mtime = stat.st_atime, stat.st_mtime
+
         mp4 = MP4(file_path)
         
         if tags.get("title"):
@@ -33,6 +36,7 @@ def tag_mp4_file(file_path: str, tags: Dict[str, Any]) -> bool:
                 mp4["\xa9cmt"] = [str(cmt)]
                 
         mp4.save()
+        os.utime(file_path, (orig_atime, orig_mtime))
         return True
     except Exception as e:
         print(f"[!] Warning: mutagen tag failed for {file_path}: {e}")
