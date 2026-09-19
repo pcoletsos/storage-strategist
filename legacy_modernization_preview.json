@@ -1,0 +1,239 @@
+{
+  "summary": {
+    "total_candidates": 12,
+    "total_size_gb": 5.7,
+    "tier1_remux_count": 5,
+    "tier2_audio_enc_count": 2,
+    "tier3_transcode_count": 5
+  },
+  "candidates": [
+    {
+      "id": 35098,
+      "file_path": "F:\\Aloha\\Movies\\Night Shift Nurses\\01 Temporada\\Night Shift Nurses 09.avi",
+      "dest_path": "F:\\Aloha\\Movies\\Night Shift Nurses\\01 Temporada\\Night Shift Nurses 09.mp4",
+      "extension": ".avi",
+      "file_size": 160463914,
+      "mtime": 1727936824.498727,
+      "v_codec": null,
+      "a_codec": null,
+      "duration": 0.0,
+      "tier": "tier3_full_transcode",
+      "tier_desc": "Full transcode ( to H.264,  to AAC)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": null
+      }
+    },
+    {
+      "id": 35113,
+      "file_path": "F:\\Aloha\\Collections & Siterips\\Night Shift Nurses Karte Ep01 10 Extras [eng Sub] [uncen]\\Night Shift Nurses Karte Ep03 [eng Subs] [uncen].avi",
+      "dest_path": "F:\\Aloha\\Collections & Siterips\\Night Shift Nurses Karte Ep01 10 Extras [eng Sub] [uncen]\\Night Shift Nurses Karte Ep03 [eng Subs] [uncen].mp4",
+      "extension": ".avi",
+      "file_size": 228288512,
+      "mtime": 1727558004.2285714,
+      "v_codec": null,
+      "a_codec": null,
+      "duration": 0.0,
+      "tier": "tier3_full_transcode",
+      "tier_desc": "Full transcode ( to H.264,  to AAC)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": null
+      }
+    },
+    {
+      "id": 35114,
+      "file_path": "F:\\Aloha\\Collections & Siterips\\Night Shift Nurses Karte Ep01 10 Extras [eng Sub] [uncen]\\Night Shift Nurses Karte Ep09 [eng Subs] [uncen].avi",
+      "dest_path": "F:\\Aloha\\Collections & Siterips\\Night Shift Nurses Karte Ep01 10 Extras [eng Sub] [uncen]\\Night Shift Nurses Karte Ep09 [eng Subs] [uncen].mp4",
+      "extension": ".avi",
+      "file_size": 259528704,
+      "mtime": 1746384788.3028708,
+      "v_codec": null,
+      "a_codec": null,
+      "duration": 0.0,
+      "tier": "tier3_full_transcode",
+      "tier_desc": "Full transcode ( to H.264,  to AAC)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": null
+      }
+    },
+    {
+      "id": 35360,
+      "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\O Isovitis Tou Arka [MPEG-4 VISUAL].avi",
+      "dest_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\O Isovitis Tou Arka [MPEG-4 VISUAL].mp4",
+      "extension": ".avi",
+      "file_size": 1225174740,
+      "mtime": 1326894893.3981068,
+      "v_codec": "mpeg-4 visual",
+      "a_codec": null,
+      "duration": 0.0,
+      "tier": "tier3_full_transcode",
+      "tier_desc": "Full transcode (mpeg-4 visual to H.264,  to AAC)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": "Backroom Casting Couch"
+      }
+    },
+    {
+      "id": 443,
+      "file_path": "F:\\Aloha\\Celebrities\\New Folder\\[candice-michelle-roommate-wanted] Video Dailymotion [480p H264].FLV",
+      "dest_path": "F:\\Aloha\\Celebrities\\New Folder\\[candice-michelle-roommate-wanted] Video Dailymotion [480p H264].mp4",
+      "extension": ".flv",
+      "file_size": 31933355,
+      "mtime": 1509482400.9493072,
+      "v_codec": "h264",
+      "a_codec": "aac",
+      "duration": 305.04,
+      "tier": "tier1_remux",
+      "tier_desc": "Lossless remux (copy video, copy audio)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": null
+      }
+    },
+    {
+      "id": 35127,
+      "file_path": "F:\\Aloha\\Collections & Siterips\\OnlyFans Mix\\Luna Okko Onlyfans Com Hotel Quickie [1080p H264].m4v",
+      "dest_path": "F:\\Aloha\\Collections & Siterips\\OnlyFans Mix\\Luna Okko Onlyfans Com Hotel Quickie [1080p H264].mp4",
+      "extension": ".m4v",
+      "file_size": 372801188,
+      "mtime": 1762303497.459937,
+      "v_codec": "h264",
+      "a_codec": "aac",
+      "duration": 491.16,
+      "tier": "tier1_remux",
+      "tier_desc": "Lossless remux (copy video, copy audio)",
+      "metadata": {
+        "title": "Luna Okko Onlyfans Com Hotel Quickie",
+        "artist": null,
+        "date": null,
+        "studio": null
+      }
+    },
+    {
+      "id": 33867,
+      "file_path": "F:\\Aloha\\Movies\\[Orgasms.xxx] Beautiful Body - Kitty Jane [1080p H264].mov",
+      "dest_path": "F:\\Aloha\\Movies\\[Orgasms.xxx] Beautiful Body - Kitty Jane [1080p H264].mp4",
+      "extension": ".mov",
+      "file_size": 827909090,
+      "mtime": 1327064136.468102,
+      "v_codec": "h264",
+      "a_codec": "aac",
+      "duration": 1341.04,
+      "tier": "tier1_remux",
+      "tier_desc": "Lossless remux (copy video, copy audio)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": null
+      }
+    },
+    {
+      "id": 34451,
+      "file_path": "F:\\Aloha\\Studios\\X-Art\\X Art Eufrat After Party Hd [1080p H264].mov",
+      "dest_path": "F:\\Aloha\\Studios\\X-Art\\X Art Eufrat After Party Hd [1080p H264].mp4",
+      "extension": ".mov",
+      "file_size": 371384522,
+      "mtime": 1353227550.4843404,
+      "v_codec": "h264",
+      "a_codec": "pcm_s16le",
+      "duration": 319.97,
+      "tier": "tier2_audio_transcode",
+      "tier_desc": "Lossless video pass-through, transcode pcm_s16le to AAC",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": "X-Art"
+      }
+    },
+    {
+      "id": 34459,
+      "file_path": "F:\\Aloha\\Studios\\X-Art\\X Art Emma Private Tutor Hd [1080p H264].mov",
+      "dest_path": "F:\\Aloha\\Studios\\X-Art\\X Art Emma Private Tutor Hd [1080p H264].mp4",
+      "extension": ".mov",
+      "file_size": 588744750,
+      "mtime": 1353227723.3802295,
+      "v_codec": "h264",
+      "a_codec": "aac",
+      "duration": 509.91,
+      "tier": "tier1_remux",
+      "tier_desc": "Lossless remux (copy video, copy audio)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": "X-Art"
+      }
+    },
+    {
+      "id": 34462,
+      "file_path": "F:\\Aloha\\Studios\\X-Art\\X Art Carlie Big Toy Orgasm Hd [1080p H264].mov",
+      "dest_path": "F:\\Aloha\\Studios\\X-Art\\X Art Carlie Big Toy Orgasm Hd [1080p H264].mp4",
+      "extension": ".mov",
+      "file_size": 630556058,
+      "mtime": 1353645355.2799447,
+      "v_codec": "h264",
+      "a_codec": "aac",
+      "duration": 794.23,
+      "tier": "tier1_remux",
+      "tier_desc": "Lossless remux (copy video, copy audio)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": "X-Art"
+      }
+    },
+    {
+      "id": 34467,
+      "file_path": "F:\\Aloha\\Studios\\X-Art\\X Art Tori Torrid Love Hd [1080p H264].mov",
+      "dest_path": "F:\\Aloha\\Studios\\X-Art\\X Art Tori Torrid Love Hd [1080p H264].mp4",
+      "extension": ".mov",
+      "file_size": 1180515432,
+      "mtime": 1352999972.1273425,
+      "v_codec": "h264",
+      "a_codec": "pcm_s16be",
+      "duration": 973.01,
+      "tier": "tier2_audio_transcode",
+      "tier_desc": "Lossless video pass-through, transcode pcm_s16be to AAC",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": "X-Art"
+      }
+    },
+    {
+      "id": 34261,
+      "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\Makali Brcc.wmv",
+      "dest_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\Makali Brcc.mp4",
+      "extension": ".wmv",
+      "file_size": 239939053,
+      "mtime": 1359189019.2017827,
+      "v_codec": null,
+      "a_codec": null,
+      "duration": 0.0,
+      "tier": "tier3_full_transcode",
+      "tier_desc": "Full transcode ( to H.264,  to AAC)",
+      "metadata": {
+        "title": null,
+        "artist": null,
+        "date": null,
+        "studio": "Backroom Casting Couch"
+      }
+    }
+  ]
+}
