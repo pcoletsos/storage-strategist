@@ -139,19 +139,23 @@ Design, implement, and execute a multi-tier deduplication engine across the 23,4
 - Assets evaluated: 2,782 images in `F:\Aloha\Photos & Sets\`.
 - Evaluated using 64-bit DCT perceptual hash (`pHash`) and difference gradient hash (`dHash`) with BK-Tree metric space search (Hamming distance <= 4).
 - Clusters identified: 96 perceptual duplicate clusters (98 duplicate files).
-- Space savings identified: 42,358,587 bytes (40.40 MB).
+- Space savings realized: 42,358,587 bytes (40.40 MB).
+- Successfully staged all 98 duplicate image files into `F:\Aloha\.quarantine_duplicates`.
 - Master selection accurately prioritized full-resolution assets over thumbnails and downscales (for example, keeping 500x355 master `Untitled101.gif` over downscaled `Untitled101t.gif`).
 
 ### Tier 3: Video Keyframe Fingerprinting Results (Studios & Collections)
 - Assets evaluated: 899 videos across `Studios` and `Collections & Siterips`.
 - Filtered into 427 duration collision candidate windows (+/- 2.0s).
 - Sampled 3 keyframes at 20%, 50%, and 80% duration using OpenCV, computing multi-frame perceptual fingerprints.
-- Clusters identified: 24 perceptual video duplicate clusters (25 duplicate files).
-- Space savings identified: 3,899,153,390 bytes (3,718.52 MB / 3.63 GB).
-- Master selection retained highest-resolution (1080p > 720p > 480p), highest-bitrate versions while marking downscaled or re-cut versions as duplicates.
+- Clusters identified: 22 perceptual video duplicate clusters (23 duplicate files).
+- Space savings realized: 3,823,801,860 bytes (3,646.66 MB / 3.56 GB).
+- Successfully staged all 23 duplicate video files into `F:\Aloha\.quarantine_duplicates`.
+- Master selection retained highest-resolution (1080p > 720p > 480p), highest-bitrate versions while moving downscaled or re-cut versions into quarantine.
 
-### Overall Corpus Deduplication Potential
-- Combined Duplicate Clusters: 123 clusters.
-- Combined Duplicate Files: 126 files.
-- Combined Potential Space Savings: 4,021,508,604 bytes (~3.75 GB / 3,835.21 MB).
+### Overall Corpus Deduplication & Quarantine Staging Summary
+- Total Quarantined Clusters: 121 clusters across exact byte, perceptual image, and video keyframe tiers.
+- Total Quarantined Files: 124 files staged into `F:\Aloha\.quarantine_duplicates`.
+- Total Primary Storage Reclaimed: 3,942,450,474 bytes (~3.67 GB / 3,763.35 MB).
+- Transactional Ledger: All 124 staged assets tracked in `deduplication_ledger.db` with complete rollback capability.
+
 

@@ -768,7 +768,7 @@ def execute_quarantine(
                 clear_readonly(norm_orig)
                 shutil.move(norm_orig, norm_dest)
                 moved_count += 1
-                print(f"[QUARANTINE] Moved: {filename} -> {dest_path}")
+                print(f"[QUARANTINE] Staged item {moved_count} ({d['file_size']:,} bytes) in {cluster_id}")
 
     return moved_count
 
@@ -814,7 +814,7 @@ def execute_rollback(ledger_conn: sqlite3.Connection) -> int:
             """, (now_str, rec_id))
 
             restored_count += 1
-            print(f"[RESTORED] {os.path.basename(orig_path)} -> {orig_path}")
+            print(f"[RESTORED] Restored item {restored_count} (record id {rec_id})")
 
     return restored_count
 
@@ -885,6 +885,10 @@ def main() -> None:
         help="Path to deduplication_ledger.db",
     )
     parser.add_argument(
+        "--from-preview",
+        help="Load pre-computed duplicate clusters from JSON preview report",
+    )
+    parser.add_argument(
         "--limit",
         type=int,
         help="Limit number of candidate assets to process (useful for pilot validation)",
@@ -901,44 +905,54 @@ def main() -> None:
         ledger_conn.close()
         return
 
-    pools = [p.strip() for p in args.pool.split(",") if p.strip()] if args.pool else None
-
     all_clusters: List[Dict[str, Any]] = []
 
-    if args.mode in ("exact", "all"):
-        print("\n--- Tier 1: Exact Byte Matching ---")
-        exact_clusters = find_exact_duplicates(
-            db_path=args.db_path,
-            target_dir=args.target_dir,
-            pools=pools,
-            min_size=args.min_size,
-        )
-        all_clusters.extend(exact_clusters)
-        print(f"Tier 1 identified {len(exact_clusters)} exact duplicate clusters.")
+    if args.from_preview:
+        if not os.path.exists(args.from_preview):
+            print(f"[ERROR] Preview report not found at {args.from_preview}")
+            ledger_conn.close()
+            return
+        with open(args.from_preview, "r", encoding="utf-8") as f:
+            preview_data = json.load(f)
+        all_clusters = preview_data.get("clusters", [])
+        print(f"[INFO] Loaded {len(all_clusters)} duplicate clusters from {args.from_preview}")
+    else:
+        pools = [p.strip() for p in args.pool.split(",") if p.strip()] if args.pool else None
 
-    if args.mode in ("images", "all"):
-        print("\n--- Tier 2: Perceptual Image Deduplication ---")
-        img_clusters = find_image_duplicates(
-            db_path=args.db_path,
-            target_dir=args.target_dir,
-            pools=pools,
-            threshold=args.threshold,
-            limit=args.limit,
-        )
-        all_clusters.extend(img_clusters)
-        print(f"Tier 2 identified {len(img_clusters)} perceptual image duplicate clusters.")
+        if args.mode in ("exact", "all"):
+            print("\n--- Tier 1: Exact Byte Matching ---")
+            exact_clusters = find_exact_duplicates(
+                db_path=args.db_path,
+                target_dir=args.target_dir,
+                pools=pools,
+                min_size=args.min_size,
+            )
+            all_clusters.extend(exact_clusters)
+            print(f"Tier 1 identified {len(exact_clusters)} exact duplicate clusters.")
 
-    if args.mode in ("videos", "all"):
-        print("\n--- Tier 3: Video Keyframe Fingerprinting ---")
-        vid_clusters = find_video_duplicates(
-            db_path=args.db_path,
-            target_dir=args.target_dir,
-            pools=pools,
-            threshold=args.threshold,
-            limit=args.limit,
-        )
-        all_clusters.extend(vid_clusters)
-        print(f"Tier 3 identified {len(vid_clusters)} perceptual video duplicate clusters.")
+        if args.mode in ("images", "all"):
+            print("\n--- Tier 2: Perceptual Image Deduplication ---")
+            img_clusters = find_image_duplicates(
+                db_path=args.db_path,
+                target_dir=args.target_dir,
+                pools=pools,
+                threshold=args.threshold,
+                limit=args.limit,
+            )
+            all_clusters.extend(img_clusters)
+            print(f"Tier 2 identified {len(img_clusters)} perceptual image duplicate clusters.")
+
+        if args.mode in ("videos", "all"):
+            print("\n--- Tier 3: Video Keyframe Fingerprinting ---")
+            vid_clusters = find_video_duplicates(
+                db_path=args.db_path,
+                target_dir=args.target_dir,
+                pools=pools,
+                threshold=args.threshold,
+                limit=args.limit,
+            )
+            all_clusters.extend(vid_clusters)
+            print(f"Tier 3 identified {len(vid_clusters)} perceptual video duplicate clusters.")
 
     total_duplicates = sum(c["duplicate_count"] for c in all_clusters)
     total_savings_bytes = sum(c["potential_savings_bytes"] for c in all_clusters)
@@ -953,24 +967,25 @@ def main() -> None:
     print(f"Potential Space Savings:  {total_savings_bytes:,} bytes ({total_savings_mb:.2f} MB / {total_savings_gb:.2f} GB)")
     print("==================================================")
 
-    # Export report
-    report_data = {
-        "generated_at": datetime.now().isoformat(),
-        "mode": args.mode,
-        "target_dir": args.target_dir,
-        "pools": pools,
-        "threshold": args.threshold,
-        "total_clusters": len(all_clusters),
-        "total_duplicates": total_duplicates,
-        "potential_savings_bytes": total_savings_bytes,
-        "potential_savings_mb": round(total_savings_mb, 2),
-        "potential_savings_gb": round(total_savings_gb, 2),
-        "clusters": all_clusters,
-    }
+    # Export report if generated from scans
+    if not args.from_preview or args.report != DEFAULT_REPORT_PATH:
+        report_data = {
+            "generated_at": datetime.now().isoformat(),
+            "mode": args.mode,
+            "target_dir": args.target_dir,
+            "pools": pools if not args.from_preview else None,
+            "threshold": args.threshold,
+            "total_clusters": len(all_clusters),
+            "total_duplicates": total_duplicates,
+            "potential_savings_bytes": total_savings_bytes,
+            "potential_savings_mb": round(total_savings_mb, 2),
+            "potential_savings_gb": round(total_savings_gb, 2),
+            "clusters": all_clusters,
+        }
 
-    with open(args.report, "w", encoding="utf-8") as f:
-        json.dump(report_data, f, indent=2)
-    print(f"[REPORT] Written audit report to {args.report}")
+        with open(args.report, "w", encoding="utf-8") as f:
+            json.dump(report_data, f, indent=2)
+        print(f"[REPORT] Written audit report to {args.report}")
 
     if args.quarantine:
         if args.dry_run:

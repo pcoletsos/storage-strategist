@@ -1,105 +1,275 @@
 {
-  "generated_at": "2026-09-20T10:04:23.558411",
-  "mode": "exact",
+  "generated_at": "2026-09-20T11:28:12.375871",
+  "mode": "videos",
   "target_dir": "F:\\Aloha",
-  "pools": null,
+  "pools": [
+    "Studios"
+  ],
   "threshold": 4,
-  "total_clusters": 3,
-  "total_duplicates": 3,
-  "potential_savings_bytes": 79996627,
-  "potential_savings_mb": 76.29,
-  "potential_savings_gb": 0.07,
+  "total_clusters": 9,
+  "total_duplicates": 9,
+  "potential_savings_bytes": 2214097124,
+  "potential_savings_mb": 2111.53,
+  "potential_savings_gb": 2.06,
   "clusters": [
     {
-      "cluster_id": "cluster_exact_38f790f92a7c",
-      "detection_type": "exact_byte",
-      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\Veronica2030 Wasko2 Hi [H264].mp4",
+      "cluster_id": "cluster_vid_35236",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[YouPorn] She S Not Buying my Lie Fucks Me Anyhow [AV1].mkv",
       "master_record": {
-        "id": 952,
-        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\Veronica2030 Wasko2 Hi [H264].mp4",
-        "file_size": 4645097,
-        "width": 480,
+        "id": 35236,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[YouPorn] She S Not Buying my Lie Fucks Me Anyhow [AV1].mkv",
+        "file_size": 35368876,
+        "width": 640,
         "height": 360,
-        "duration": 44.99,
-        "bitrate": 825941,
+        "duration": 536.47,
+        "bitrate": 527432,
         "resolution_tier": "SD",
-        "existing_title": "Veronica2030 Wasko2 Hi",
-        "studio": null,
-        "mtime": 1509479876.863722,
-        "partial_hash": "2cef1b92fe95843fa55222e2cc0a3e3aa6a43b22b0422b83ec05b6c7c000a6aa",
-        "full_hash": "38f790f92a7c544d71c8ae114589b742edfc914a50871ea95bf454b24cc29272"
+        "existing_title": null,
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301203.2898395
       },
       "duplicate_count": 1,
-      "potential_savings_bytes": 4645097,
+      "potential_savings_bytes": 25085322,
       "duplicates": [
         {
-          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Veronica2030 Wasko2 Hi [H264].mp4",
-          "file_size": 4645097,
-          "hash_signature": "38f790f92a7c544d71c8ae114589b742edfc914a50871ea95bf454b24cc29272",
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[YouPorn] She S Not Buying my Lie Fucks Me Anyhow [H264].mp4",
+          "file_size": 25085322,
+          "hash_signature": "vid_fp_35542",
           "hamming_distance": 0,
-          "original_mtime": 1509479847.9704
+          "original_mtime": 1304439103.1654313
         }
       ]
     },
     {
-      "cluster_id": "cluster_exact_d25308a69b44",
-      "detection_type": "exact_byte",
-      "master_path": "F:\\Aloha\\Collections & Siterips\\Clips\\Amateur Couple Amazing Girl with Just 19 Yo [H264].mp4",
+      "cluster_id": "cluster_vid_35255",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Backroomcastingcouch Com [AV1].mkv",
       "master_record": {
-        "id": 35130,
-        "file_path": "F:\\Aloha\\Collections & Siterips\\Clips\\Amateur Couple Amazing Girl with Just 19 Yo [H264].mp4",
-        "file_size": 67174509,
-        "width": 320,
-        "height": 240,
-        "duration": 1974.27,
-        "bitrate": 272199,
+        "id": 35255,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Backroomcastingcouch Com [AV1].mkv",
+        "file_size": 58007535,
+        "width": 576,
+        "height": 324,
+        "duration": 1003.91,
+        "bitrate": 462250,
         "resolution_tier": "SD",
-        "existing_title": null,
-        "studio": null,
-        "mtime": 1294754604.3798354,
-        "partial_hash": "4a32996f4f1d9ae6bd92e9224ca212651a5a63fc055a6e7f656711e0c396eaa8",
-        "full_hash": "d25308a69b4425ffe7032ca4c2b60ac86fe96d2a4476694e2a76a42bf1b41348"
+        "existing_title": "BACKROOMCASTINGCOUCH.COM",
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301246.7329793
       },
       "duplicate_count": 1,
-      "potential_savings_bytes": 67174509,
+      "potential_savings_bytes": 58007535,
       "duplicates": [
         {
-          "original_path": "F:\\Aloha\\Collections & Siterips\\Hard\\Amateur Couple Amazing Girl with Just 19 Yo [H264].mp4",
-          "file_size": 67174509,
-          "hash_signature": "d25308a69b4425ffe7032ca4c2b60ac86fe96d2a4476694e2a76a42bf1b41348",
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[amia] Backroom Casting Couch [AV1].mkv",
+          "file_size": 58007535,
+          "hash_signature": "vid_fp_34029",
           "hamming_distance": 0,
-          "original_mtime": 1294754604.3798354
+          "original_mtime": 1788297739.4706678
         }
       ]
     },
     {
-      "cluster_id": "cluster_exact_af7cac135d3f",
-      "detection_type": "exact_byte",
-      "master_path": "F:\\Aloha\\Collections & Siterips\\Clips\\Sexy Dancing [H264].mp4",
+      "cluster_id": "cluster_vid_35655",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Kyler Quinn [720p H264] (2).mp4",
       "master_record": {
-        "id": 35152,
-        "file_path": "F:\\Aloha\\Collections & Siterips\\Clips\\Sexy Dancing [H264].mp4",
-        "file_size": 8177021,
-        "width": 320,
-        "height": 240,
-        "duration": 202.9,
-        "bitrate": 322413,
-        "resolution_tier": "SD",
-        "existing_title": null,
-        "studio": null,
-        "mtime": 1295834176.7169192,
-        "partial_hash": "d73ac7acd1860d6b9f43282fd97b805d2b4b4ca08d5aba59be18201b4d57d5aa",
-        "full_hash": "af7cac135d3fc95b0c155da7aa8a1836bb71a6671a91c6bf25678058eca7f993"
+        "id": 35655,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Kyler Quinn [720p H264] (2).mp4",
+        "file_size": 384072346,
+        "width": 1280,
+        "height": 720,
+        "duration": 2053.42,
+        "bitrate": 1496324,
+        "resolution_tier": "720p",
+        "existing_title": "Kyler Quinn",
+        "studio": "Vixen",
+        "mtime": 1580754214.4175317
       },
       "duplicate_count": 1,
-      "potential_savings_bytes": 8177021,
+      "potential_savings_bytes": 384072346,
       "duplicates": [
         {
-          "original_path": "F:\\Aloha\\Collections & Siterips\\Teasers\\Sexy Dancing [H264].mp4",
-          "file_size": 8177021,
-          "hash_signature": "af7cac135d3fc95b0c155da7aa8a1836bb71a6671a91c6bf25678058eca7f993",
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Kyler Quinn [720p H264].mp4",
+          "file_size": 384072346,
+          "hash_signature": "vid_fp_35034",
           "hamming_distance": 0,
-          "original_mtime": 1290015862.6405156
+          "original_mtime": 1580754216.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35269",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Ktr Bcc E195 Hanna [AV1] (2).mkv",
+      "master_record": {
+        "id": 35269,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Ktr Bcc E195 Hanna [AV1] (2).mkv",
+        "file_size": 169309462,
+        "width": 640,
+        "height": 360,
+        "duration": 2352.62,
+        "bitrate": 575730,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301683.8773026
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 169309462,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Ktr Bcc E195 Hanna [AV1].mkv",
+          "file_size": 169309462,
+          "hash_signature": "vid_fp_35264",
+          "hamming_distance": 0,
+          "original_mtime": 1788301638.144845
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35654",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] [2019-12-25] Emily Willis Little Caprice and Apolonia Lapiedra [480p H264] (2).mp4",
+      "master_record": {
+        "id": 35654,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] [2019-12-25] Emily Willis Little Caprice and Apolonia Lapiedra [480p H264] (2).mp4",
+        "file_size": 297786119,
+        "width": 854,
+        "height": 480,
+        "duration": 2439.68,
+        "bitrate": 976475,
+        "resolution_tier": "480p",
+        "existing_title": "Emily Willis Little Caprice and Apolonia Lapiedra",
+        "studio": "Vixen",
+        "mtime": 1580752484.068808
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 297786119,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] [2019-12-25] Emily Willis Little Caprice and Apolonia Lapiedra [480p H264].mp4",
+          "file_size": 297786119,
+          "hash_signature": "vid_fp_35066",
+          "hamming_distance": 0,
+          "original_mtime": 1580752486.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35651",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Gabbie Carter - Take a Chance [480p H264] (2).mp4",
+      "master_record": {
+        "id": 35651,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Gabbie Carter - Take a Chance [480p H264] (2).mp4",
+        "file_size": 293800978,
+        "width": 854,
+        "height": 480,
+        "duration": 2506.37,
+        "bitrate": 937774,
+        "resolution_tier": "480p",
+        "existing_title": "Take a Chance",
+        "studio": "Vixen",
+        "mtime": 1580752503.9585655
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 293800978,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Gabbie Carter - Take a Chance [480p H264].mp4",
+          "file_size": 293800978,
+          "hash_signature": "vid_fp_35099",
+          "hamming_distance": 0,
+          "original_mtime": 1580752504.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35265",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Kendall Brcc [AV1] (2).mkv",
+      "master_record": {
+        "id": 35265,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Kendall Brcc [AV1] (2).mkv",
+        "file_size": 168016071,
+        "width": 640,
+        "height": 360,
+        "duration": 2553.62,
+        "bitrate": 526362,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301819.105725
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 168016071,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Kendall Brcc [AV1].mkv",
+          "file_size": 168016071,
+          "hash_signature": "vid_fp_35263",
+          "hamming_distance": 0,
+          "original_mtime": 1788301767.811011
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35530",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\FuckedHard18\\Teen Fucked [480p AV1] (2).mkv",
+      "master_record": {
+        "id": 35530,
+        "file_path": "F:\\Aloha\\Studios\\FuckedHard18\\Teen Fucked [480p AV1] (2).mkv",
+        "file_size": 341021229,
+        "width": 640,
+        "height": 480,
+        "duration": 3349.91,
+        "bitrate": 814400,
+        "resolution_tier": "480p",
+        "existing_title": null,
+        "studio": "FuckedHard18",
+        "mtime": 1788305812.790946
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 341021229,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\FuckedHard18\\Teen Fucked [480p AV1].mkv",
+          "file_size": 341021229,
+          "hash_signature": "vid_fp_35142",
+          "hamming_distance": 0,
+          "original_mtime": 1788300043.618352
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35642",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Ellie Eilish - Treat Me Right [480p H264] (2).mp4",
+      "master_record": {
+        "id": 35642,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Ellie Eilish - Treat Me Right [480p H264] (2).mp4",
+        "file_size": 476998062,
+        "width": 854,
+        "height": 480,
+        "duration": 4030.31,
+        "bitrate": 946820,
+        "resolution_tier": "480p",
+        "existing_title": "Treat Me Right",
+        "studio": "Vixen",
+        "mtime": 1580752505.6952715
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 476998062,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Ellie Eilish - Treat Me Right [480p H264].mp4",
+          "file_size": 476998062,
+          "hash_signature": "vid_fp_35032",
+          "hamming_distance": 0,
+          "original_mtime": 1580752506.0
         }
       ]
     }
