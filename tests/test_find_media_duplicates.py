@@ -247,3 +247,59 @@ def test_find_exact_duplicates_mock_db(tmp_path):
     assert len(clusters) == 1
     assert clusters[0]["duplicate_count"] == 1
     assert clusters[0]["duplicates"][0]["original_path"] == str(file_2)
+
+
+def test_quarantine_from_preview_json(tmp_path):
+    """Verifies loading pre-computed clusters from JSON preview and staging into quarantine."""
+    import json
+
+    target_dir = tmp_path / "Aloha"
+    studios_dir = target_dir / "Studios"
+    studios_dir.mkdir(parents=True)
+
+    master_file = studios_dir / "Video_Master.mp4"
+    dupe_file = studios_dir / "Video_Dupe.mp4"
+    master_file.write_bytes(b"MASTER_DATA_123")
+    dupe_file.write_bytes(b"DUPE_DATA_123")
+
+    preview_json = tmp_path / "preview.json"
+    preview_data = {
+        "generated_at": "2026-09-20T10:00:00",
+        "clusters": [
+            {
+                "cluster_id": "cluster_prev_001",
+                "detection_type": "video_keyframe",
+                "master_path": str(master_file),
+                "duplicate_count": 1,
+                "potential_savings_bytes": dupe_file.stat().st_size,
+                "duplicates": [
+                    {
+                        "original_path": str(dupe_file),
+                        "file_size": dupe_file.stat().st_size,
+                        "hash_signature": "sig_prev",
+                        "hamming_distance": 2,
+                        "original_mtime": dupe_file.stat().st_mtime,
+                    }
+                ],
+            }
+        ],
+    }
+    preview_json.write_text(json.dumps(preview_data), encoding="utf-8")
+
+    ledger_path = tmp_path / "ledger.db"
+    conn = init_ledger(str(ledger_path))
+
+    with open(str(preview_json), "r", encoding="utf-8") as f:
+        loaded = json.load(f)
+    clusters = loaded["clusters"]
+
+    moved = execute_quarantine(clusters, conn, target_dir=str(target_dir))
+    assert moved == 1
+    assert not dupe_file.exists()
+    assert master_file.exists()
+
+    quar_dest = target_dir / ".quarantine_duplicates" / "cluster_prev_001" / "Video_Dupe.mp4"
+    assert quar_dest.exists()
+
+    conn.close()
+

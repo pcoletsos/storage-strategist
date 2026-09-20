@@ -1,0 +1,2526 @@
+{
+  "generated_at": "2026-09-20T10:45:13.227138",
+  "mode": "images",
+  "target_dir": "F:\\Aloha",
+  "pools": [
+    "Photos & Sets"
+  ],
+  "threshold": 4,
+  "total_clusters": 96,
+  "total_duplicates": 98,
+  "potential_savings_bytes": 42358587,
+  "potential_savings_mb": 40.4,
+  "potential_savings_gb": 0.04,
+  "clusters": [
+    {
+      "cluster_id": "cluster_img_a9a453d95e30897d",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled101.gif",
+      "master_record": {
+        "id": 30727,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled101.gif",
+        "file_size": 1744013,
+        "width": 500,
+        "height": 355,
+        "mtime": 1358268178.0,
+        "p_hash": 12223987481643616637,
+        "d_hash": 15259237562965023723
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1015457,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled101t.gif",
+          "file_size": 1015457,
+          "hash_signature": "a9a453d95e30897d",
+          "hamming_distance": 0,
+          "original_mtime": 1358268213.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c22f34519d6897ce",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled100.gif",
+      "master_record": {
+        "id": 30729,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled100.gif",
+        "file_size": 1632330,
+        "width": 669,
+        "height": 465,
+        "mtime": 1357910446.0,
+        "p_hash": 13992460092401293262,
+        "d_hash": 10921211314198644172
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 943745,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled100t.gif",
+          "file_size": 943745,
+          "hash_signature": "c22f34519d6897ce",
+          "hamming_distance": 0,
+          "original_mtime": 1357910463.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d8c83c0fcd74b5c1",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled117.gif",
+      "master_record": {
+        "id": 30803,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled117.gif",
+        "file_size": 2106031,
+        "width": 600,
+        "height": 400,
+        "mtime": 1361300023.0,
+        "p_hash": 15620801346103719361,
+        "d_hash": 17506007357722233910
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 971643,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled117t.gif",
+          "file_size": 971643,
+          "hash_signature": "d8c83c0fcd74b5c2",
+          "hamming_distance": 2,
+          "original_mtime": 1361300153.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8c793dc267d0cbc1",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled113.gif",
+      "master_record": {
+        "id": 30748,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled113.gif",
+        "file_size": 1742918,
+        "width": 500,
+        "height": 351,
+        "mtime": 1359809639.0,
+        "p_hash": 10122189542666587073,
+        "d_hash": 10526867968483239270
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 929402,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled113t.gif",
+          "file_size": 929402,
+          "hash_signature": "8c793dc267d0cbc1",
+          "hamming_distance": 0,
+          "original_mtime": 1359925454.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c60819d76ba7526b",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled142.gif",
+      "master_record": {
+        "id": 30773,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled142.gif",
+        "file_size": 1022997,
+        "width": 500,
+        "height": 333,
+        "mtime": 1366835863.0,
+        "p_hash": 14269683832338207339,
+        "d_hash": 17992071716516152861
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 987115,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled143.gif",
+          "file_size": 987115,
+          "hash_signature": "c60819d76ba7526b",
+          "hamming_distance": 0,
+          "original_mtime": 1366920652.1250808
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_956bb66c31609d4b",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled137.gif",
+      "master_record": {
+        "id": 30793,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled137.gif",
+        "file_size": 1697072,
+        "width": 720,
+        "height": 442,
+        "mtime": 1365797178.0,
+        "p_hash": 10766899909960441163,
+        "d_hash": 16206468039044293884
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 879402,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled137t.gif",
+          "file_size": 879402,
+          "hash_signature": "956bb66c31609d4b",
+          "hamming_distance": 0,
+          "original_mtime": 1365797195.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_94db4a8d66a5e0ce",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled133.gif",
+      "master_record": {
+        "id": 30789,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled133.gif",
+        "file_size": 1501733,
+        "width": 650,
+        "height": 433,
+        "mtime": 1364801636.0,
+        "p_hash": 10726248908685959374,
+        "d_hash": 17327842373508986596
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 941520,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled133t.gif",
+          "file_size": 941520,
+          "hash_signature": "94db4acd66a5e0cc",
+          "hamming_distance": 2,
+          "original_mtime": 1364801656.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d33119df89313666",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled22.gif",
+      "master_record": {
+        "id": 30867,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled22.gif",
+        "file_size": 4490919,
+        "width": 640,
+        "height": 360,
+        "mtime": 1347907400.0,
+        "p_hash": 15217973063731721830,
+        "d_hash": 11140389080996276344
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 2848292,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled222.gif",
+          "file_size": 2848292,
+          "hash_signature": "d33119df89313666",
+          "hamming_distance": 0,
+          "original_mtime": 1347907953.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_ce643b8b6ce09339",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled3.gif",
+      "master_record": {
+        "id": 30805,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled3.gif",
+        "file_size": 3118961,
+        "width": 1000,
+        "height": 563,
+        "mtime": 1359494984.0,
+        "p_hash": 14872077339497370425,
+        "d_hash": 16170359888175229113
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 2524896,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled2.gif",
+          "file_size": 2524896,
+          "hash_signature": "ce643b8b6ce09339",
+          "hamming_distance": 0,
+          "original_mtime": 1359494904.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_ce0d79c0b738e04f",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled54.gif",
+      "master_record": {
+        "id": 30832,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled54.gif",
+        "file_size": 1741832,
+        "width": 720,
+        "height": 449,
+        "mtime": 1354465918.0,
+        "p_hash": 14847657415125033039,
+        "d_hash": 3472891474709129480
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 912416,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled54t.gif",
+          "file_size": 912416,
+          "hash_signature": "ce0d79c0b738e04f",
+          "hamming_distance": 0,
+          "original_mtime": 1354468794.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c96aca69a59b5a92",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled55.gif",
+      "master_record": {
+        "id": 30866,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled55.gif",
+        "file_size": 3058695,
+        "width": 659,
+        "height": 462,
+        "mtime": 1354481745.0,
+        "p_hash": 14513635304253643410,
+        "d_hash": 216736840202488552
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 985234,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled55t.gif",
+          "file_size": 985234,
+          "hash_signature": "c96aca69a59b5a92",
+          "hamming_distance": 0,
+          "original_mtime": 1354482289.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_81a530782f3dcccf",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled57.gif",
+      "master_record": {
+        "id": 30939,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled57.gif",
+        "file_size": 2272246,
+        "width": 720,
+        "height": 456,
+        "mtime": 1354546700.0,
+        "p_hash": 9341926294796750031,
+        "d_hash": 10923167409790621840
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 987085,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled57t.gif",
+          "file_size": 987085,
+          "hash_signature": "81a530782f3dcccf",
+          "hamming_distance": 0,
+          "original_mtime": 1354546741.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d36e27001866fdd3",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled58.gif",
+      "master_record": {
+        "id": 30902,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled58.gif",
+        "file_size": 2171234,
+        "width": 680,
+        "height": 431,
+        "mtime": 1354572172.0,
+        "p_hash": 15235157470803852755,
+        "d_hash": 11693666958389661000
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 931298,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled58t.gif",
+          "file_size": 931298,
+          "hash_signature": "d36e27001866fdd3",
+          "hamming_distance": 0,
+          "original_mtime": 1354572201.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d0163be1c44e1dfc",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled59.gif",
+      "master_record": {
+        "id": 30848,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled59.gif",
+        "file_size": 1993104,
+        "width": 720,
+        "height": 466,
+        "mtime": 1354658760.0,
+        "p_hash": 14994237850223779324,
+        "d_hash": 331068331455957040
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 966724,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled59t.gif",
+          "file_size": 966724,
+          "hash_signature": "d0163be1c44e1dfc",
+          "hamming_distance": 0,
+          "original_mtime": 1354658752.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_a7584cc67bac44e9",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled60gif.gif",
+      "master_record": {
+        "id": 30901,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled60gif.gif",
+        "file_size": 2107027,
+        "width": 720,
+        "height": 422,
+        "mtime": 1354739064.0,
+        "p_hash": 12058472417646626025,
+        "d_hash": 2604969946333865498
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1018429,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled60tgif.gif",
+          "file_size": 1018429,
+          "hash_signature": "a7584cc67bac44e9",
+          "hamming_distance": 0,
+          "original_mtime": 1354803124.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d6233c7f6932489c",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled64gif.gif",
+      "master_record": {
+        "id": 30900,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled64gif.gif",
+        "file_size": 2365746,
+        "width": 662,
+        "height": 470,
+        "mtime": 1354887063.0,
+        "p_hash": 15430243266224867484,
+        "d_hash": 13599983329602448420
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 890030,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled64t.gif",
+          "file_size": 890030,
+          "hash_signature": "d6233c7f6932489c",
+          "hamming_distance": 0,
+          "original_mtime": 1354887128.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_b47be9ecdb910405",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled67.gif",
+      "master_record": {
+        "id": 30850,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled67.gif",
+        "file_size": 1929307,
+        "width": 400,
+        "height": 480,
+        "mtime": 1355058854.0,
+        "p_hash": 13005245552467706885,
+        "d_hash": 216890317413330424
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 895078,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled67t.gif",
+          "file_size": 895078,
+          "hash_signature": "b47be9ecdb910405",
+          "hamming_distance": 0,
+          "original_mtime": 1355058892.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_ce26c4783fc73838",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled68.gif",
+      "master_record": {
+        "id": 30899,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled68.gif",
+        "file_size": 3098189,
+        "width": 600,
+        "height": 400,
+        "mtime": 1355085332.0,
+        "p_hash": 14854776441673300024,
+        "d_hash": 7306471822293828049
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1024787,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled68t.gif",
+          "file_size": 1024787,
+          "hash_signature": "ce26c4783fc73838",
+          "hamming_distance": 0,
+          "original_mtime": 1355172242.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_853166c6993ce3dc",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled71.gif",
+      "master_record": {
+        "id": 30883,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled71.gif",
+        "file_size": 2312160,
+        "width": 565,
+        "height": 368,
+        "mtime": 1355275447.0,
+        "p_hash": 9597565284063699932,
+        "d_hash": 17063251239487857137
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1021559,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled71t.gif",
+          "file_size": 1021559,
+          "hash_signature": "853166c6993ce3dc",
+          "hamming_distance": 0,
+          "original_mtime": 1355275496.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_919926cd596c6ce6",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled73.gif",
+      "master_record": {
+        "id": 30869,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled73.gif",
+        "file_size": 1376902,
+        "width": 586,
+        "height": 425,
+        "mtime": 1355444109.0,
+        "p_hash": 10491459470346710246,
+        "d_hash": 17498899701983265996
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1019082,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled73t.gif",
+          "file_size": 1019082,
+          "hash_signature": "919926cd596c6ce6",
+          "hamming_distance": 0,
+          "original_mtime": 1355521470.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c70e7823277a9cd1",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled78.gif",
+      "master_record": {
+        "id": 30936,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled78.gif",
+        "file_size": 1069749,
+        "width": 592,
+        "height": 480,
+        "mtime": 1355863749.0,
+        "p_hash": 14343533955603143889,
+        "d_hash": 16564768169006487692
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 808673,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled78t.gif",
+          "file_size": 808673,
+          "hash_signature": "c70e7823277a9cd1",
+          "hamming_distance": 0,
+          "original_mtime": 1355863765.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c1133d3e1ee664e4",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled74.gif",
+      "master_record": {
+        "id": 30905,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled74.gif",
+        "file_size": 2866718,
+        "width": 621,
+        "height": 444,
+        "mtime": 1355490903.0,
+        "p_hash": 13912531010893276388,
+        "d_hash": 4096829581679610498
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1021075,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled74t.gif",
+          "file_size": 1021075,
+          "hash_signature": "c1133d3e1ee664e4",
+          "hamming_distance": 0,
+          "original_mtime": 1355490956.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_81a56d3b9a0cbd66",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled72.gif",
+      "master_record": {
+        "id": 30904,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled72.gif",
+        "file_size": 2353586,
+        "width": 677,
+        "height": 452,
+        "mtime": 1355361549.0,
+        "p_hash": 9341993104804986214,
+        "d_hash": 12020889132077937520
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1024094,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled72t.gif",
+          "file_size": 1024094,
+          "hash_signature": "81a56d3b9a0cbd66",
+          "hamming_distance": 0,
+          "original_mtime": 1355521224.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8b6e36198193eecc",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled75.gif",
+      "master_record": {
+        "id": 30898,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled75.gif",
+        "file_size": 1419523,
+        "width": 681,
+        "height": 462,
+        "mtime": 1355520636.0,
+        "p_hash": 10047027301886193356,
+        "d_hash": 4640226942398421364
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 843479,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled75t.gif",
+          "file_size": 843479,
+          "hash_signature": "8b6e36198193eecc",
+          "hamming_distance": 0,
+          "original_mtime": 1356013082.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c40eb11ffd30e136",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled79.gif",
+      "master_record": {
+        "id": 30877,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled79.gif",
+        "file_size": 949352,
+        "width": 633,
+        "height": 458,
+        "mtime": 1355864200.0,
+        "p_hash": 14127423832057766198,
+        "d_hash": 7342421695648597142
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 638204,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled79t.gif",
+          "file_size": 638204,
+          "hash_signature": "c40eb11ffd30e136",
+          "hamming_distance": 0,
+          "original_mtime": 1355864219.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_be86c1d8603be696",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled76.gif",
+      "master_record": {
+        "id": 30895,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled76.gif",
+        "file_size": 1900885,
+        "width": 664,
+        "height": 469,
+        "mtime": 1355593038.0,
+        "p_hash": 13728873649157170838,
+        "d_hash": 18369179228147489554
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 881530,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled76t.gif",
+          "file_size": 881530,
+          "hash_signature": "be86c1d8603be696",
+          "hamming_distance": 0,
+          "original_mtime": 1355593064.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_fdf46a8963b218c8",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled80.gif",
+      "master_record": {
+        "id": 30897,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled80.gif",
+        "file_size": 1171733,
+        "width": 684,
+        "height": 448,
+        "mtime": 1355962022.0,
+        "p_hash": 18299368324228847816,
+        "d_hash": 1597155100536607811
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 634962,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled80t.gif",
+          "file_size": 634962,
+          "hash_signature": "fdf46a8963b218c8",
+          "hamming_distance": 0,
+          "original_mtime": 1356267729.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8fd3041c9a9b6b74",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled81.gif",
+      "master_record": {
+        "id": 30903,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled81.gif",
+        "file_size": 3096639,
+        "width": 666,
+        "height": 468,
+        "mtime": 1356090407.0,
+        "p_hash": 10363631688409115508,
+        "d_hash": 8675844294081602663
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1014852,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled81t.gif",
+          "file_size": 1014852,
+          "hash_signature": "8fd3041c9a9b6b74",
+          "hamming_distance": 0,
+          "original_mtime": 1356090503.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d4ec3b1761c58c99",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled83.gif",
+      "master_record": {
+        "id": 30891,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled83.gif",
+        "file_size": 1364905,
+        "width": 720,
+        "height": 377,
+        "mtime": 1356361371.0,
+        "p_hash": 15342703002155060377,
+        "d_hash": 4772040739119225046
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 799526,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled83t.gif",
+          "file_size": 799526,
+          "hash_signature": "d4ec3b1761c58c99",
+          "hamming_distance": 0,
+          "original_mtime": 1356361393.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_95323ae4cb29bbd0",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled77.gif",
+      "master_record": {
+        "id": 30906,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled77.gif",
+        "file_size": 2428117,
+        "width": 638,
+        "height": 456,
+        "mtime": 1355668611.0,
+        "p_hash": 10750720014822259664,
+        "d_hash": 9001808155063539450
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 729936,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled77t.gif",
+          "file_size": 729936,
+          "hash_signature": "95323ae4cb29bbd0",
+          "hamming_distance": 0,
+          "original_mtime": 1355668639.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d26e2d61369678cc",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled84.gif",
+      "master_record": {
+        "id": 30890,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled84.gif",
+        "file_size": 1824861,
+        "width": 661,
+        "height": 432,
+        "mtime": 1356368636.0,
+        "p_hash": 15163106890953947340,
+        "d_hash": 104058231300085876
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 947061,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled84t.gif",
+          "file_size": 947061,
+          "hash_signature": "d26e2d61369678cc",
+          "hamming_distance": 0,
+          "original_mtime": 1356368730.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c1256f9eb83163ca",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled85.gif",
+      "master_record": {
+        "id": 30910,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled85.gif",
+        "file_size": 2591290,
+        "width": 720,
+        "height": 409,
+        "mtime": 1356390321.0,
+        "p_hash": 13917652950944146378,
+        "d_hash": 17780994836932907200
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 833015,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled85t.gif",
+          "file_size": 833015,
+          "hash_signature": "c1256f9ebc3163c8",
+          "hamming_distance": 2,
+          "original_mtime": 1356390345.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_cc66339949649b6d",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled87.gif",
+      "master_record": {
+        "id": 30893,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled87.gif",
+        "file_size": 1458157,
+        "width": 674,
+        "height": 438,
+        "mtime": 1356435838.0,
+        "p_hash": 14728516364816128877,
+        "d_hash": 11955056882788373712
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 826624,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled87t.gif",
+          "file_size": 826624,
+          "hash_signature": "cc66339949649b6d",
+          "hamming_distance": 0,
+          "original_mtime": 1356435865.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_f2720b279f8043f9",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled88.gif",
+      "master_record": {
+        "id": 30945,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled88.gif",
+        "file_size": 2448419,
+        "width": 668,
+        "height": 471,
+        "mtime": 1356619094.0,
+        "p_hash": 17470038169331188729,
+        "d_hash": 9919622949265269856
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 780391,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled88t.gif",
+          "file_size": 780391,
+          "hash_signature": "f2720b279f8043f9",
+          "hamming_distance": 0,
+          "original_mtime": 1356619118.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_89aa6ecad3c569b0",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled89.gif",
+      "master_record": {
+        "id": 30908,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled89.gif",
+        "file_size": 2200594,
+        "width": 720,
+        "height": 448,
+        "mtime": 1356619559.0,
+        "p_hash": 9919862946652318128,
+        "d_hash": 7166303784865559668
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 1023546,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled89t.gif",
+          "file_size": 1023546,
+          "hash_signature": "89aa6ecad3c569b0",
+          "hamming_distance": 0,
+          "original_mtime": 1356619669.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c608392734e2be7e",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled99.gif",
+      "master_record": {
+        "id": 30911,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled99.gif",
+        "file_size": 1681586,
+        "width": 720,
+        "height": 424,
+        "mtime": 1357910128.0,
+        "p_hash": 14269718259877199486,
+        "d_hash": 7201433808630499792
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 836109,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled99t.gif",
+          "file_size": 836109,
+          "hash_signature": "c608392734e2be7e",
+          "hamming_distance": 0,
+          "original_mtime": 1357910111.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_9d5b62529da5aa94",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled93.gif",
+      "master_record": {
+        "id": 30912,
+        "file_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled93.gif",
+        "file_size": 1192422,
+        "width": 620,
+        "height": 452,
+        "mtime": 1357234458.0,
+        "p_hash": 11338764593807075988,
+        "d_hash": 7600240203251803694
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 817240,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\GIFs\\Untitled93t.gif",
+          "file_size": 817240,
+          "hash_signature": "9d5b72529da5aa90",
+          "hamming_distance": 2,
+          "original_mtime": 1357234484.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_b4f463666f8cda20",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image06.jpg",
+      "master_record": {
+        "id": 31199,
+        "file_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image06.jpg",
+        "file_size": 43521,
+        "width": 583,
+        "height": 504,
+        "mtime": 1102522650.0,
+        "p_hash": 13039156112753744416,
+        "d_hash": 14167396674886735062
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 43521,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image56.jpg",
+          "file_size": 43521,
+          "hash_signature": "b4f463666f8cda20",
+          "hamming_distance": 0,
+          "original_mtime": 1102522650.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8f996533c36819da",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image28.jpg",
+      "master_record": {
+        "id": 31205,
+        "file_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image28.jpg",
+        "file_size": 13040,
+        "width": 500,
+        "height": 375,
+        "mtime": 1102522650.0,
+        "p_hash": 10347412891856542170,
+        "d_hash": 17937961461458987241
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 13040,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image53.jpg",
+          "file_size": 13040,
+          "hash_signature": "8f996533c36819da",
+          "hamming_distance": 0,
+          "original_mtime": 1102522650.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_9ec967d4d231c49a",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image26.jpg",
+      "master_record": {
+        "id": 31229,
+        "file_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image26.jpg",
+        "file_size": 22372,
+        "width": 512,
+        "height": 384,
+        "mtime": 1102522650.0,
+        "p_hash": 11441790492068660378,
+        "d_hash": 8174589650606025964
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 22372,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\My Love\\My Love - Image52.jpg",
+          "file_size": 22372,
+          "hash_signature": "9ec967d4d231c49a",
+          "hamming_distance": 0,
+          "original_mtime": 1102522650.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_f864ab2765b08573",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Ass Amateur\\Ass Amateur - 003.jpg",
+      "master_record": {
+        "id": 31350,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Ass Amateur\\Ass Amateur - 003.jpg",
+        "file_size": 12361,
+        "width": 558,
+        "height": 374,
+        "mtime": 1103564874.0,
+        "p_hash": 17898619004775335283,
+        "d_hash": 10059692622037522745
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 12361,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 003.jpg",
+          "file_size": 12361,
+          "hash_signature": "f864ab2765b08573",
+          "hamming_distance": 0,
+          "original_mtime": 1103564874.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c94cb233e60edc1b",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Brook Burke\\Brook Burke - Brooke Burke Full Nude.jpg",
+      "master_record": {
+        "id": 31400,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Brook Burke\\Brook Burke - Brooke Burke Full Nude.jpg",
+        "file_size": 273635,
+        "width": 768,
+        "height": 1081,
+        "mtime": 1060377808.0,
+        "p_hash": 14505164435826334747,
+        "d_hash": 14381035274041448713
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 41684,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Brook Burke\\Brook Burke - Brooke Burke 001.jpg",
+          "file_size": 41684,
+          "hash_signature": "e94cb233660edc1b",
+          "hamming_distance": 2,
+          "original_mtime": 1064367618.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_db583a89c5b06ae3",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Gold Underwear.jpg",
+      "master_record": {
+        "id": 31451,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Gold Underwear.jpg",
+        "file_size": 360548,
+        "width": 864,
+        "height": 1332,
+        "mtime": 1092624540.0,
+        "p_hash": 15805447255658359523,
+        "d_hash": 1234313275404163399
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 360548,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert 2.jpg",
+          "file_size": 360548,
+          "hash_signature": "db583a89c5b06ae3",
+          "hamming_distance": 0,
+          "original_mtime": 1093175788.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_f14e1f394d276099",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Wallpaper (2).jpg",
+      "master_record": {
+        "id": 31461,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Wallpaper (2).jpg",
+        "file_size": 147756,
+        "width": 1024,
+        "height": 768,
+        "mtime": 1092623832.0,
+        "p_hash": 17387869542292086937,
+        "d_hash": 8226539709436189901
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 147756,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Wallpaper.jpg",
+          "file_size": 147756,
+          "hash_signature": "f14e1f394d276099",
+          "hamming_distance": 0,
+          "original_mtime": 1093175234.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_f2ea111d7a912ed1",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert 16.jpg",
+      "master_record": {
+        "id": 31430,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert 16.jpg",
+        "file_size": 112835,
+        "width": 750,
+        "height": 1000,
+        "mtime": 1093174702.0,
+        "p_hash": 17503821720036912849,
+        "d_hash": 11357391130899307736
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 52743,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Nude 011.jpg",
+          "file_size": 52743,
+          "hash_signature": "f3ea111d7a812ed1",
+          "hamming_distance": 2,
+          "original_mtime": 1093174162.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c1cf7e46a0b4c33a",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert 1.jpg",
+      "master_record": {
+        "id": 31442,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert 1.jpg",
+        "file_size": 53711,
+        "width": 400,
+        "height": 500,
+        "mtime": 1060181602.0,
+        "p_hash": 13965519811308208954,
+        "d_hash": 7125217753787053967
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 53711,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Maxim.jpg",
+          "file_size": 53711,
+          "hash_signature": "c1cf7e46a0b4c33a",
+          "hamming_distance": 0,
+          "original_mtime": 1092623576.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_eeca62a18d1eb8e2",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\[2002-09-14] Sexy Avatars - Fjy98014.jpg",
+      "master_record": {
+        "id": 33306,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\[2002-09-14] Sexy Avatars - Fjy98014.jpg",
+        "file_size": 471325,
+        "width": 1820,
+        "height": 1300,
+        "mtime": 1147741086.390625,
+        "p_hash": 17206673772319258850,
+        "d_hash": 14196807770180291879
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 266637,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Elisha Cuthbert\\Elisha Cuthbert - Elisha Cuthbert Photo 023.jpg",
+          "file_size": 266637,
+          "hash_signature": "eeca62a18d1eb8e2",
+          "hamming_distance": 0,
+          "original_mtime": 1093175820.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8a7e36c69262eb52",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - Valentina Vaughn10.jpg",
+      "master_record": {
+        "id": 31711,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - Valentina Vaughn10.jpg",
+        "file_size": 157336,
+        "width": 799,
+        "height": 1200,
+        "mtime": 1156358612.96875,
+        "p_hash": 9979474050786978642,
+        "d_hash": 16839930777346239472
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 54996,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - 013.jpg",
+          "file_size": 54996,
+          "hash_signature": "8a7e36c69262eb52",
+          "hamming_distance": 0,
+          "original_mtime": 1156457964.546875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e7f232669ce49388",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - The Pussycat Dolls Nicole Scherzinger.jpg",
+      "master_record": {
+        "id": 31671,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - The Pussycat Dolls Nicole Scherzinger.jpg",
+        "file_size": 469452,
+        "width": 1200,
+        "height": 1681,
+        "mtime": 1157020646.390625,
+        "p_hash": 16713476583425610632,
+        "d_hash": 10235920292208578327
+      },
+      "duplicate_count": 2,
+      "potential_savings_bytes": 290183,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - The Pussycat Dolls Nicole Scherzinger 056 (4).jpg",
+          "file_size": 187195,
+          "hash_signature": "e7f232669ce49388",
+          "hamming_distance": 0,
+          "original_mtime": 1157021537.15625
+        },
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - The Pussycat Dolls Nicole Scherzinger 056 (5).jpg",
+          "file_size": 102988,
+          "hash_signature": "e7f232669ca4938c",
+          "hamming_distance": 2,
+          "original_mtime": 1157021105.921875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_ca898593b5b2769c",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - Valentina Vaughn (6).jpg",
+      "master_record": {
+        "id": 31688,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - Valentina Vaughn (6).jpg",
+        "file_size": 43161,
+        "width": 1000,
+        "height": 652,
+        "mtime": 1156415909.03125,
+        "p_hash": 14594342936925861532,
+        "d_hash": 15777012519763796006
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 41465,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Exotic\\Exotic - Valentina Vaughn 12.jpg",
+          "file_size": 41465,
+          "hash_signature": "ca898593b5b2769c",
+          "hamming_distance": 0,
+          "original_mtime": 1156415302.75
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e6ae188d8db19395",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kate Beckinsale\\Kate Beckinsale - Kate Beckinsale Maxim Gf 1.jpg",
+      "master_record": {
+        "id": 32024,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kate Beckinsale\\Kate Beckinsale - Kate Beckinsale Maxim Gf 1.jpg",
+        "file_size": 60162,
+        "width": 400,
+        "height": 500,
+        "mtime": 1084401950.0,
+        "p_hash": 16622250270917759893,
+        "d_hash": 2821448598737948172
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 60162,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kate Beckinsale\\Kate Beckinsale - Kate Beckinsale 001.jpg",
+          "file_size": 60162,
+          "hash_signature": "e6ae188d8db19395",
+          "hamming_distance": 0,
+          "original_mtime": 1106844798.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_972b208797baca8d",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley 6.jpg",
+      "master_record": {
+        "id": 32120,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley 6.jpg",
+        "file_size": 37606,
+        "width": 277,
+        "height": 400,
+        "mtime": 1079054906.0,
+        "p_hash": 10892835890463951501,
+        "d_hash": 7956287674753021172
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 24820,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley (1) (2).jpg",
+          "file_size": 24820,
+          "hash_signature": "972b208797baca8d",
+          "hamming_distance": 0,
+          "original_mtime": 1079055714.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e997c6e83c00e7b8",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Pic Keira Knightley Maxim2.jpg",
+      "master_record": {
+        "id": 32140,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Pic Keira Knightley Maxim2.jpg",
+        "file_size": 53952,
+        "width": 400,
+        "height": 500,
+        "mtime": 1079054784.0,
+        "p_hash": 16832140833061922744,
+        "d_hash": 14905676832796029209
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 53952,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley Maxim2.jpg",
+          "file_size": 53952,
+          "hash_signature": "e997c6e83c00e7b8",
+          "hamming_distance": 0,
+          "original_mtime": 1106441506.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_9e50fc295a932bd8",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley 05.jpg",
+      "master_record": {
+        "id": 32113,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley 05.jpg",
+        "file_size": 33489,
+        "width": 514,
+        "height": 691,
+        "mtime": 1079055792.0,
+        "p_hash": 11407895110672919512,
+        "d_hash": 17362758548450668068
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 33489,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley16.jpg",
+          "file_size": 33489,
+          "hash_signature": "9e50fc295a932bd8",
+          "hamming_distance": 0,
+          "original_mtime": 1106844840.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_dcfc2d869696a630",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley (2) (1).jpg",
+      "master_record": {
+        "id": 32126,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley (2) (1).jpg",
+        "file_size": 88723,
+        "width": 684,
+        "height": 1050,
+        "mtime": 1079055402.0,
+        "p_hash": 15923652438550554160,
+        "d_hash": 8508092344949600332
+      },
+      "duplicate_count": 2,
+      "potential_savings_bytes": 111589,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley Pirates Premiere.jpg",
+          "file_size": 74720,
+          "hash_signature": "defc2d869696a620",
+          "hamming_distance": 2,
+          "original_mtime": 1079055782.0
+        },
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Keira Knightley\\Keira Knightley - Keira Knightley 07.jpg",
+          "file_size": 36869,
+          "hash_signature": "defc2d869696a620",
+          "hamming_distance": 2,
+          "original_mtime": 1079054874.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c4335b721e9199a7",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 45292.jpg",
+      "master_record": {
+        "id": 32153,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 45292.jpg",
+        "file_size": 112850,
+        "width": 598,
+        "height": 900,
+        "mtime": 1146093726.171875,
+        "p_hash": 14137744200943376807,
+        "d_hash": 4046724741040883298
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 112850,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 002.jpg",
+          "file_size": 112850,
+          "hash_signature": "c4335b721e9199a7",
+          "hamming_distance": 0,
+          "original_mtime": 1147567920.5625
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8db8d2c5b0c2d59b",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-03-03] Kocicky Babes - 011.jpg",
+      "master_record": {
+        "id": 32159,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-03-03] Kocicky Babes - 011.jpg",
+        "file_size": 85583,
+        "width": 852,
+        "height": 1280,
+        "mtime": 1146042668.921875,
+        "p_hash": 10212143901578548635,
+        "d_hash": 1421998059410342345
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 85583,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-03-03] Kocicky Babes - Ff011.jpg",
+          "file_size": 85583,
+          "hash_signature": "8db8d2c5b0c2d59b",
+          "hamming_distance": 0,
+          "original_mtime": 1146420030.0625
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_86e93c749f98509b",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2006-02-27] Kocicky Babes - 5556.jpg",
+      "master_record": {
+        "id": 32160,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2006-02-27] Kocicky Babes - 5556.jpg",
+        "file_size": 138480,
+        "width": 1280,
+        "height": 960,
+        "mtime": 1146042255.015625,
+        "p_hash": 9721367742247358619,
+        "d_hash": 10864909780387670265
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 138480,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2006-02-27] Kocicky Babes - Rr06.jpg",
+          "file_size": 138480,
+          "hash_signature": "86e93c749f98509b",
+          "hamming_distance": 0,
+          "original_mtime": 1146165465.265625
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c4cbc16fa0cf3136",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 785.jpg",
+      "master_record": {
+        "id": 32168,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 785.jpg",
+        "file_size": 165207,
+        "width": 853,
+        "height": 1280,
+        "mtime": 1146042738.4375,
+        "p_hash": 14180640536889602358,
+        "d_hash": 14042488483746050188
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 165207,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 007.jpg",
+          "file_size": 165207,
+          "hash_signature": "c4cbc16fa0cf3136",
+          "hamming_distance": 0,
+          "original_mtime": 1146330181.5
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_f8b0e3a391c16b93",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 012.jpg",
+      "master_record": {
+        "id": 32181,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 012.jpg",
+        "file_size": 58032,
+        "width": 600,
+        "height": 900,
+        "mtime": 1146042047.296875,
+        "p_hash": 17920073208971750291,
+        "d_hash": 11248876687758451939
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 58032,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 12fg.jpg",
+          "file_size": 58032,
+          "hash_signature": "f8b0e3a391c16b93",
+          "hamming_distance": 0,
+          "original_mtime": 1146165734.265625
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_fcbf0ca092cc9aca",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 011.jpg",
+      "master_record": {
+        "id": 32211,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 011.jpg",
+        "file_size": 71881,
+        "width": 567,
+        "height": 850,
+        "mtime": 1146042112.546875,
+        "p_hash": 18212289301906758346,
+        "d_hash": 8364927554344625776
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 71881,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 1t1.jpg",
+          "file_size": 71881,
+          "hash_signature": "fcbf0ca092cc9aca",
+          "hamming_distance": 0,
+          "original_mtime": 1146165740.5625
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c40dbd7bd426c16c",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 1143066876 Kimberly Holland 16.jpg",
+      "master_record": {
+        "id": 32213,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 1143066876 Kimberly Holland 16.jpg",
+        "file_size": 125689,
+        "width": 680,
+        "height": 1024,
+        "mtime": 1146042454.6875,
+        "p_hash": 14127155945669050732,
+        "d_hash": 7093982933610466360
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 125689,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 1143066876 Kimberly Holland 16.jpg",
+          "file_size": 125689,
+          "hash_signature": "c40dbd7bd426c16c",
+          "hamming_distance": 0,
+          "original_mtime": 1147257334.109375
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_b073c7c63c9847b8",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2006-02-27] Kocicky Babes - 1660.jpg",
+      "master_record": {
+        "id": 32252,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2006-02-27] Kocicky Babes - 1660.jpg",
+        "file_size": 110328,
+        "width": 960,
+        "height": 1280,
+        "mtime": 1146042380.203125,
+        "p_hash": 12714725827231107000,
+        "d_hash": 14756777109693321692
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 110328,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2006-02-27] Kocicky Babes - Rr10.jpg",
+          "file_size": 110328,
+          "hash_signature": "b073c7c63c9847b8",
+          "hamming_distance": 0,
+          "original_mtime": 1146165472.53125
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e592c99a66b96199",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-08-26] Kocicky Babes - 5fbb224645484a97b312a41b4268b4d9.jpg",
+      "master_record": {
+        "id": 32286,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-08-26] Kocicky Babes - 5fbb224645484a97b312a41b4268b4d9.jpg",
+        "file_size": 242210,
+        "width": 853,
+        "height": 1280,
+        "mtime": 1146042564.40625,
+        "p_hash": 16542506046270824857,
+        "d_hash": 12397308124913867271
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 242210,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\[2005-08-26] New Folder - 5fbb224645484a97b312a41b4268b4d9.jpg",
+          "file_size": 242210,
+          "hash_signature": "e592c99a66b96199",
+          "hamming_distance": 0,
+          "original_mtime": 1147257347.9375
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d5c6cb9118add4aa",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2003-10-21] Kocicky Babes - 079.jpg",
+      "master_record": {
+        "id": 32298,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2003-10-21] Kocicky Babes - 079.jpg",
+        "file_size": 113101,
+        "width": 531,
+        "height": 800,
+        "mtime": 1146042519.84375,
+        "p_hash": 15404223399512102058,
+        "d_hash": 16774869121230588769
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 113101,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2003-10-21] Kocicky Babes - Cxcx9.jpg",
+          "file_size": 113101,
+          "hash_signature": "d5c6cb9118add4aa",
+          "hamming_distance": 0,
+          "original_mtime": 1146165598.875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_b3e38cb073cb8c31",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-08-26] Kocicky Babes - 890d423f291cd9bbcd8bfa6e14fed0ff.jpg",
+      "master_record": {
+        "id": 32316,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\[2005-08-26] Kocicky Babes - 890d423f291cd9bbcd8bfa6e14fed0ff.jpg",
+        "file_size": 254258,
+        "width": 853,
+        "height": 1280,
+        "mtime": 1146042571.171875,
+        "p_hash": 12962358841987271729,
+        "d_hash": 5480400593278683750
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 254258,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\[2005-08-26] New Folder - 890d423f291cd9bbcd8bfa6e14fed0ff.jpg",
+          "file_size": 254258,
+          "hash_signature": "b3e38cb073cb8c31",
+          "hamming_distance": 0,
+          "original_mtime": 1147257352.453125
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_b4e3db756006c393",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 57c6820cd98d87952987c3f0e9edf880.jpg",
+      "master_record": {
+        "id": 32324,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 57c6820cd98d87952987c3f0e9edf880.jpg",
+        "file_size": 415448,
+        "width": 1372,
+        "height": 2058,
+        "mtime": 1146096770.90625,
+        "p_hash": 13034503043709059987,
+        "d_hash": 11354890387689191070
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 41175,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Models Pornstars\\Models Pornstars - Babe3.gif",
+          "file_size": 41175,
+          "hash_signature": "b4e3db756006c393",
+          "hamming_distance": 0,
+          "original_mtime": 1105895336.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e4a686c616da7297",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 9fdd64be2310de2d89b91a08f6f5f186.jpg",
+      "master_record": {
+        "id": 32326,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 9fdd64be2310de2d89b91a08f6f5f186.jpg",
+        "file_size": 395010,
+        "width": 1440,
+        "height": 2160,
+        "mtime": 1146167457.046875,
+        "p_hash": 16476004472126599831,
+        "d_hash": 3244426323071250468
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 395010,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 9fdd64be2310de2d89b91a08f6f5f186.jpg",
+          "file_size": 395010,
+          "hash_signature": "e4a686c616da7297",
+          "hamming_distance": 0,
+          "original_mtime": 1147257646.203125
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_9811656e4bde4b63",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 8e218b847eb6887cb074b3e1f4c47327.jpg",
+      "master_record": {
+        "id": 32327,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - 8e218b847eb6887cb074b3e1f4c47327.jpg",
+        "file_size": 353914,
+        "width": 1440,
+        "height": 2160,
+        "mtime": 1146096777.546875,
+        "p_hash": 10957650892762794851,
+        "d_hash": 3357143499037811734
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 37006,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Models Pornstars\\Models Pornstars - Babe2.gif",
+          "file_size": 37006,
+          "hash_signature": "9811656e5bde4a63",
+          "hamming_distance": 2,
+          "original_mtime": 1105895346.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c483b498cbd5ec59",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - Jelena 009.jpg",
+      "master_record": {
+        "id": 32402,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - Jelena 009.jpg",
+        "file_size": 80068,
+        "width": 640,
+        "height": 420,
+        "mtime": 1146042650.859375,
+        "p_hash": 14160360221730794585,
+        "d_hash": 16783864955684305058
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 80068,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - Jelena 009.jpg",
+          "file_size": 80068,
+          "hash_signature": "c483b498cbd5ec59",
+          "hamming_distance": 0,
+          "original_mtime": 1147257357.578125
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8d6b2ad2d1c4716d",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - Jelena 013.jpg",
+      "master_record": {
+        "id": 32403,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kocicky Babes\\Kocicky Babes - Jelena 013.jpg",
+        "file_size": 79255,
+        "width": 640,
+        "height": 420,
+        "mtime": 1146042659.96875,
+        "p_hash": 10190285666806690157,
+        "d_hash": 8174933713859440818
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 79255,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - Jelena 013.jpg",
+          "file_size": 79255,
+          "hash_signature": "8d6b2ad2d1c4716d",
+          "hamming_distance": 0,
+          "original_mtime": 1147257373.859375
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c1e43621bed6849f",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 030.jpg",
+      "master_record": {
+        "id": 32472,
+        "file_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 030.jpg",
+        "file_size": 55899,
+        "width": 600,
+        "height": 600,
+        "mtime": 1146247509.0,
+        "p_hash": 13971351462573671583,
+        "d_hash": 14164896506193238489
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 55899,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 45630.jpg",
+          "file_size": 55899,
+          "hash_signature": "c1e43621bed6849f",
+          "hamming_distance": 0,
+          "original_mtime": 1147257960.71875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c7197029969aa5db",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 026.jpg",
+      "master_record": {
+        "id": 32492,
+        "file_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 026.jpg",
+        "file_size": 77724,
+        "width": 600,
+        "height": 900,
+        "mtime": 1146247504.34375,
+        "p_hash": 14346621411888113115,
+        "d_hash": 3229733374441015628
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 77724,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - 24656.jpg",
+          "file_size": 77724,
+          "hash_signature": "c7197029969aa5db",
+          "hamming_distance": 0,
+          "original_mtime": 1147257966.4375
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d06d298bb4e63596",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Krista Allen (emannuelle)\\Krista_allen.jpg",
+      "master_record": {
+        "id": 32637,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Krista Allen (emannuelle)\\Krista_allen.jpg",
+        "file_size": 97567,
+        "width": 637,
+        "height": 876,
+        "mtime": 1088726892.0,
+        "p_hash": 15018706012362651030,
+        "d_hash": 1626807463650905220
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 69255,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Krista Allen (emannuelle)\\Krista Allen (emannuelle) - Krista Allen 006.jpg",
+          "file_size": 69255,
+          "hash_signature": "d06d2d8bb4e63592",
+          "hamming_distance": 2,
+          "original_mtime": 1088727524.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_ba71e955c208b5f2",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Kristin Kreyk\\Kristin Kreyk - Kristin Kreuk Smallville 08 Nackt Playboy Fhm Maxim Wallpaper Nude World Sex Pussy Free Porn Star Adult Lesbian Girl Teen Woman Boob Sexy Mo.jpg",
+      "master_record": {
+        "id": 32639,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Kristin Kreyk\\Kristin Kreyk - Kristin Kreuk Smallville 08 Nackt Playboy Fhm Maxim Wallpaper Nude World Sex Pussy Free Porn Star Adult Lesbian Girl Teen Woman Boob Sexy Mo.jpg",
+        "file_size": 180443,
+        "width": 1020,
+        "height": 1007,
+        "mtime": 1106148354.0,
+        "p_hash": 13434775717959742962,
+        "d_hash": 11176258524594222065
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 180443,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Kristin Kreuk Smallville 08 Nackt Playboy Fhm Maxim Wallpaper Nude World Sex Pussy Free Porn Star Adult Lesbian Girl Teen Woman Boob Sexy Mo.jpg",
+          "file_size": 180443,
+          "hash_signature": "ba71e955c208b5f2",
+          "hamming_distance": 0,
+          "original_mtime": 1133919188.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d55c0a87ef9fc060",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Lesbians\\Lesbians - 101234.jpg",
+      "master_record": {
+        "id": 32648,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Lesbians\\Lesbians - 101234.jpg",
+        "file_size": 35138,
+        "width": 470,
+        "height": 279,
+        "mtime": 1103796992.0,
+        "p_hash": 15374174806893117536,
+        "d_hash": 7301621657688791137
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 35138,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Lesbians\\Lesbians - 10q345.jpg",
+          "file_size": 35138,
+          "hash_signature": "d55c0a87ef9fc060",
+          "hamming_distance": 0,
+          "original_mtime": 1103797278.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_db21704c6e3bb474",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 002.jpg",
+      "master_record": {
+        "id": 32823,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 002.jpg",
+        "file_size": 92432,
+        "width": 776,
+        "height": 617,
+        "mtime": 1103565916.0,
+        "p_hash": 15790025242106901620,
+        "d_hash": 3382652382104074507
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 92432,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Lesbians\\Lesbians - 002.jpg",
+          "file_size": 92432,
+          "hash_signature": "db21704c6e3bb474",
+          "hamming_distance": 0,
+          "original_mtime": 1103565916.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_a831534c7c98ded6",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 003 (2).jpg",
+      "master_record": {
+        "id": 32827,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 003 (2).jpg",
+        "file_size": 68477,
+        "width": 888,
+        "height": 580,
+        "mtime": 1103565824.0,
+        "p_hash": 12119559660203728598,
+        "d_hash": 1630194450315997625
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 68477,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Lesbians\\Lesbians - 003.jpg",
+          "file_size": 68477,
+          "hash_signature": "a831534c7c98ded6",
+          "hamming_distance": 0,
+          "original_mtime": 1103565824.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_913a6b4768357467",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 1255.jpg",
+      "master_record": {
+        "id": 32857,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 1255.jpg",
+        "file_size": 45699,
+        "width": 426,
+        "height": 640,
+        "mtime": 1103642566.0,
+        "p_hash": 10464794638583952487,
+        "d_hash": 15706788254114699987
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 45699,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Models Pornstars\\Models Pornstars - 1255.jpg",
+          "file_size": 45699,
+          "hash_signature": "913a6b4768357467",
+          "hamming_distance": 0,
+          "original_mtime": 1103642566.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8d15f648a9d17cb4",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 020.jpg",
+      "master_record": {
+        "id": 32856,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 020.jpg",
+        "file_size": 38179,
+        "width": 422,
+        "height": 640,
+        "mtime": 1103642440.0,
+        "p_hash": 10166302525805919412,
+        "d_hash": 16784602260128751631
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 38179,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Models Pornstars\\Models Pornstars - 020.jpg",
+          "file_size": 38179,
+          "hash_signature": "8d15f648a9d17cb4",
+          "hamming_distance": 0,
+          "original_mtime": 1103642440.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_9c1cfaf0dcd88187",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Models Pornstars\\Models Pornstars - Als I091 Joanne Beautiful Thin Young Blonde with Nice Ass Small Tits Nipples Great Body and Fat Tight Pussy Lesbian Dildo.jpg",
+      "master_record": {
+        "id": 32721,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Models Pornstars\\Models Pornstars - Als I091 Joanne Beautiful Thin Young Blonde with Nice Ass Small Tits Nipples Great Body and Fat Tight Pussy Lesbian Dildo.jpg",
+        "file_size": 146461,
+        "width": 950,
+        "height": 631,
+        "mtime": 1106070750.0,
+        "p_hash": 11249141881668927879,
+        "d_hash": 3492391094404490083
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 146461,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - Als I091 Joanne Beautiful Thin Young Blonde with Nice Ass Small Tits Nipples Great Body and Fat Tight Pussy Lesbian Dildo.jpg",
+          "file_size": 146461,
+          "hash_signature": "9c1cfaf0dcd88187",
+          "hamming_distance": 0,
+          "original_mtime": 1106148440.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_d2428f1fca19f15a",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - Jessica Alba Com Candid Jessica Alba Walks Her Pug Apr21 2006 Lq12.jpg",
+      "master_record": {
+        "id": 32746,
+        "file_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - Jessica Alba Com Candid Jessica Alba Walks Her Pug Apr21 2006 Lq12.jpg",
+        "file_size": 18453,
+        "width": 405,
+        "height": 281,
+        "mtime": 1145907024.625,
+        "p_hash": 15150829463125225818,
+        "d_hash": 8789229379612720676
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 18150,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder\\New Folder - Jessica Alba Com Candid Jessica Alba Walks Her Pug Apr21 2006 Lq13.jpg",
+          "file_size": 18150,
+          "hash_signature": "92428f1fca19f17a",
+          "hamming_distance": 2,
+          "original_mtime": 1145907020.171875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8017e09ffbd01d6a",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med 67q81026.jpg",
+      "master_record": {
+        "id": 33400,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med 67q81026.jpg",
+        "file_size": 61590,
+        "width": 500,
+        "height": 630,
+        "mtime": 1148182109.203125,
+        "p_hash": 9230092939048263018,
+        "d_hash": 15915207441444410775
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 61590,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder (2)\\New Folder (2) - Med 67q81026.jpg",
+          "file_size": 61590,
+          "hash_signature": "8017e09ffbd01d6a",
+          "hamming_distance": 0,
+          "original_mtime": 1148866621.84375
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_95e26c196c2dac5b",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Vby93876.jpg",
+      "master_record": {
+        "id": 33543,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Vby93876.jpg",
+        "file_size": 42124,
+        "width": 500,
+        "height": 689,
+        "mtime": 1147739633.890625,
+        "p_hash": 10800313712832785499,
+        "d_hash": 363960459757230614
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 42124,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder (2)\\New Folder (2) - Med Vby93876.jpg",
+          "file_size": 42124,
+          "hash_signature": "95e26c196c2dac5b",
+          "hamming_distance": 0,
+          "original_mtime": 1148866643.953125
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_bd4f823c2cb447c3",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Ji081026.jpg",
+      "master_record": {
+        "id": 33464,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Ji081026.jpg",
+        "file_size": 60563,
+        "width": 500,
+        "height": 653,
+        "mtime": 1148182137.59375,
+        "p_hash": 13641264991288182723,
+        "d_hash": 7166179417051869878
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 60563,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder (2)\\New Folder (2) - Med Ji081026.jpg",
+          "file_size": 60563,
+          "hash_signature": "bd4f823c2cb447c3",
+          "hamming_distance": 0,
+          "original_mtime": 1148866627.21875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_b3c040bff58e9e48",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 008.jpg",
+      "master_record": {
+        "id": 32848,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 008.jpg",
+        "file_size": 61235,
+        "width": 320,
+        "height": 398,
+        "mtime": 1103563558.0,
+        "p_hash": 12952423721520242248,
+        "d_hash": 11303147200980082590
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 61235,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder3\\New Folder3 - 008.jpg",
+          "file_size": 61235,
+          "hash_signature": "b3c040bff58e9e48",
+          "hamming_distance": 0,
+          "original_mtime": 1103563558.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_bf66153bf9201a61",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 012.jpg",
+      "master_record": {
+        "id": 32859,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 012.jpg",
+        "file_size": 30718,
+        "width": 352,
+        "height": 531,
+        "mtime": 1103565166.0,
+        "p_hash": 13791734256195607137,
+        "d_hash": 2262462560080870970
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 30718,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\New Folder3\\New Folder3 - 012.jpg",
+          "file_size": 30718,
+          "hash_signature": "bf66153bf9201a61",
+          "hamming_distance": 0,
+          "original_mtime": 1103565166.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_f2806a2f9f1e1077",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 10016 950.jpg",
+      "master_record": {
+        "id": 32850,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Best\\Best - 10016 950.jpg",
+        "file_size": 47885,
+        "width": 400,
+        "height": 600,
+        "mtime": 1103642590.0,
+        "p_hash": 17474083306963079287,
+        "d_hash": 2415786721776305413
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 47885,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Tawnee Stone\\Tawnee Stone - 10016 950.jpg",
+          "file_size": 47885,
+          "hash_signature": "f2806a2f9f1e1077",
+          "hamming_distance": 0,
+          "original_mtime": 1103642590.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c6b46fb32896d292",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Scarlet\\Scarlet - Scarlett Johansson 458 17.jpg",
+      "master_record": {
+        "id": 33177,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Scarlet\\Scarlet - Scarlett Johansson 458 17.jpg",
+        "file_size": 80808,
+        "width": 640,
+        "height": 873,
+        "mtime": 1125104124.0,
+        "p_hash": 14318191930588451474,
+        "d_hash": 5712434342404868449
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 42904,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Scarlet\\Scarlet - Scarlet006.jpg",
+          "file_size": 42904,
+          "hash_signature": "c6a46fb32896d29a",
+          "hamming_distance": 2,
+          "original_mtime": 1125107322.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_828587673fb1bcc8",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Kt379215.jpg",
+      "master_record": {
+        "id": 33321,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Kt379215.jpg",
+        "file_size": 88976,
+        "width": 600,
+        "height": 820,
+        "mtime": 1147740679.59375,
+        "p_hash": 9405072274353142984,
+        "d_hash": 17062125292942626157
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 44631,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Kt379215.jpg",
+          "file_size": 44631,
+          "hash_signature": "828587673fb1bcc8",
+          "hamming_distance": 0,
+          "original_mtime": 1147740665.203125
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e1fb328292b64bc6",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Iif79210.jpg",
+      "master_record": {
+        "id": 33332,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Iif79210.jpg",
+        "file_size": 60219,
+        "width": 1000,
+        "height": 672,
+        "mtime": 1147740549.140625,
+        "p_hash": 16283664414076718022,
+        "d_hash": 14725173275978272396
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 14005,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Iif79210.jpg",
+          "file_size": 14005,
+          "hash_signature": "e1fb328292b64bc6",
+          "hamming_distance": 0,
+          "original_mtime": 1147740534.34375
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c2ae392d6c192be6",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Hiq70784.jpg",
+      "master_record": {
+        "id": 33343,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Hiq70784.jpg",
+        "file_size": 556926,
+        "width": 1934,
+        "height": 1233,
+        "mtime": 1147740092.703125,
+        "p_hash": 14028212756555574246,
+        "d_hash": 6149047150046714264
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 35670,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Hiq70784.jpg",
+          "file_size": 35670,
+          "hash_signature": "c2ae392d6c192be6",
+          "hamming_distance": 0,
+          "original_mtime": 1147740062.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e047ceb8cc1ccba3",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Jpe98070.jpg",
+      "master_record": {
+        "id": 33476,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Jpe98070.jpg",
+        "file_size": 30107,
+        "width": 500,
+        "height": 619,
+        "mtime": 1147817772.796875,
+        "p_hash": 16161113080936057763,
+        "d_hash": 14323353454588530567
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 30107,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med W1d93478.jpg",
+          "file_size": 30107,
+          "hash_signature": "e047ceb8cc1ccba3",
+          "hamming_distance": 0,
+          "original_mtime": 1147817777.140625
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_e7869698c379c3c8",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Nly60731.jpg",
+      "master_record": {
+        "id": 33584,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Nly60731.jpg",
+        "file_size": 776981,
+        "width": 2041,
+        "height": 3000,
+        "mtime": 1147989867.2780993,
+        "p_hash": 16683187452499313608,
+        "d_hash": 3181246795676065550
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 38569,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Nly60731.jpg",
+          "file_size": 38569,
+          "hash_signature": "e7869698c379c3c8",
+          "hamming_distance": 0,
+          "original_mtime": 1147989779.9655993
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_efe58c9cd8319292",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - R2x04539.jpg",
+      "master_record": {
+        "id": 33608,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - R2x04539.jpg",
+        "file_size": 637735,
+        "width": 1801,
+        "height": 2100,
+        "mtime": 1147739861.78125,
+        "p_hash": 17286377350001431186,
+        "d_hash": 442279769450307387
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 30349,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med R2x04539.jpg",
+          "file_size": 30349,
+          "hash_signature": "efe58c9cd8319292",
+          "hamming_distance": 0,
+          "original_mtime": 1147739835.1875
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_c8331ff817d12aaa",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Wyd93877.jpg",
+      "master_record": {
+        "id": 33606,
+        "file_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Wyd93877.jpg",
+        "file_size": 63309,
+        "width": 610,
+        "height": 610,
+        "mtime": 1147739545.1875,
+        "p_hash": 14425909181809765034,
+        "d_hash": 10992664171704987749
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 41707,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Photos & Sets\\Sexy Avatars\\Sexy Avatars - Med Wyd93877.jpg",
+          "file_size": 41707,
+          "hash_signature": "c8331ff817d12aaa",
+          "hamming_distance": 0,
+          "original_mtime": 1147739521.125
+        }
+      ]
+    }
+  ]
+}

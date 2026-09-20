@@ -1,0 +1,662 @@
+{
+  "generated_at": "2026-09-20T12:03:16.501396",
+  "mode": "videos",
+  "target_dir": "F:\\Aloha",
+  "pools": [
+    "Studios",
+    "Collections & Siterips"
+  ],
+  "threshold": 4,
+  "total_clusters": 22,
+  "total_duplicates": 23,
+  "potential_savings_bytes": 3823801860,
+  "potential_savings_mb": 3646.66,
+  "potential_savings_gb": 3.56,
+  "clusters": [
+    {
+      "cluster_id": "cluster_vid_34513",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 142 [1080p H264].mp4",
+      "master_record": {
+        "id": 34513,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 142 [1080p H264].mp4",
+        "file_size": 13641750,
+        "width": 1080,
+        "height": 1920,
+        "duration": 23.11,
+        "bitrate": 4723103,
+        "resolution_tier": "1080p",
+        "existing_title": "Onf Izzygreen 142",
+        "studio": null,
+        "mtime": 1706825611.3491716
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 4186886,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 177 [480p H264].mp4",
+          "file_size": 4186886,
+          "hash_signature": "vid_fp_34548",
+          "hamming_distance": 0,
+          "original_mtime": 1706825224.3971446
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34684",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 54 [720p AV1].mkv",
+      "master_record": {
+        "id": 34684,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 54 [720p AV1].mkv",
+        "file_size": 37854416,
+        "width": 1280,
+        "height": 720,
+        "duration": 119.19,
+        "bitrate": 2540692,
+        "resolution_tier": "720p",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788332450.525692
+      },
+      "duplicate_count": 2,
+      "potential_savings_bytes": 45635959,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 114 [720p H264].mp4",
+          "file_size": 24714816,
+          "hash_signature": "vid_fp_34490",
+          "hamming_distance": 1,
+          "original_mtime": 1706825618.618459
+        },
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 132 [720p H264].mp4",
+          "file_size": 20921143,
+          "hash_signature": "vid_fp_34518",
+          "hamming_distance": 2,
+          "original_mtime": 1706825624.450663
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35236",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[YouPorn] She S Not Buying my Lie Fucks Me Anyhow [AV1].mkv",
+      "master_record": {
+        "id": 35236,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[YouPorn] She S Not Buying my Lie Fucks Me Anyhow [AV1].mkv",
+        "file_size": 35368876,
+        "width": 640,
+        "height": 360,
+        "duration": 536.47,
+        "bitrate": 527432,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301203.2898395
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 25085322,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[YouPorn] She S Not Buying my Lie Fucks Me Anyhow [H264].mp4",
+          "file_size": 25085322,
+          "hash_signature": "vid_fp_35542",
+          "hamming_distance": 0,
+          "original_mtime": 1304439103.1654313
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34625",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 22 [1080p H264].mp4",
+      "master_record": {
+        "id": 34625,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 22 [1080p H264].mp4",
+        "file_size": 276548286,
+        "width": 1920,
+        "height": 1080,
+        "duration": 579.37,
+        "bitrate": 3818603,
+        "resolution_tier": "1080p",
+        "existing_title": "Onf Izzygreen 22",
+        "studio": null,
+        "mtime": 1706824905.9344385
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 244680256,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 25 [1080p H264].mp4",
+          "file_size": 244680256,
+          "hash_signature": "vid_fp_34642",
+          "hamming_distance": 1,
+          "original_mtime": 1706825623.515373
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34721",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 49 [720p H264].mp4",
+      "master_record": {
+        "id": 34721,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 49 [720p H264].mp4",
+        "file_size": 112208541,
+        "width": 1280,
+        "height": 720,
+        "duration": 749.2,
+        "bitrate": 1198169,
+        "resolution_tier": "720p",
+        "existing_title": "Onf Izzygreen 49",
+        "studio": null,
+        "mtime": 1706825626.833289
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 111927724,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 50 [720p H264].mp4",
+          "file_size": 111927724,
+          "hash_signature": "vid_fp_34705",
+          "hamming_distance": 0,
+          "original_mtime": 1706825589.8046074
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34563",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 16 [1080p H264].mp4",
+      "master_record": {
+        "id": 34563,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 16 [1080p H264].mp4",
+        "file_size": 520208709,
+        "width": 1920,
+        "height": 1080,
+        "duration": 864.86,
+        "bitrate": 4811935,
+        "resolution_tier": "1080p",
+        "existing_title": "Onf Izzygreen 16",
+        "studio": null,
+        "mtime": 1706825118.4058988
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 182690827,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 34 [1080p H264].mp4",
+          "file_size": 182690827,
+          "hash_signature": "vid_fp_34682",
+          "hamming_distance": 0,
+          "original_mtime": 1706825059.6429007
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34694",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 39 [720p H264].mp4",
+      "master_record": {
+        "id": 34694,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 39 [720p H264].mp4",
+        "file_size": 150841150,
+        "width": 1280,
+        "height": 720,
+        "duration": 936.1,
+        "bitrate": 1289104,
+        "resolution_tier": "720p",
+        "existing_title": "Onf Izzygreen 39",
+        "studio": null,
+        "mtime": 1706825046.5929637
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 150609362,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 40 [720p H264].mp4",
+          "file_size": 150609362,
+          "hash_signature": "vid_fp_34708",
+          "hamming_distance": 2,
+          "original_mtime": 1706825160.0992725
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34532",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 13 [1080p AV1].mkv",
+      "master_record": {
+        "id": 34532,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 13 [1080p AV1].mkv",
+        "file_size": 628809669,
+        "width": 1920,
+        "height": 1032,
+        "duration": 969.58,
+        "bitrate": 5188289,
+        "resolution_tier": "1080p",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788331710.9172087
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 204746777,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 29 [1080p H264].mp4",
+          "file_size": 204746777,
+          "hash_signature": "vid_fp_34667",
+          "hamming_distance": 1,
+          "original_mtime": 1706825622.7545671
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35255",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Backroomcastingcouch Com [AV1].mkv",
+      "master_record": {
+        "id": 35255,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Backroomcastingcouch Com [AV1].mkv",
+        "file_size": 58007535,
+        "width": 576,
+        "height": 324,
+        "duration": 1003.91,
+        "bitrate": 462250,
+        "resolution_tier": "SD",
+        "existing_title": "BACKROOMCASTINGCOUCH.COM",
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301246.7329793
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 58007535,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[amia] Backroom Casting Couch [AV1].mkv",
+          "file_size": 58007535,
+          "hash_signature": "vid_fp_34029",
+          "hamming_distance": 0,
+          "original_mtime": 1788297739.4706678
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35469",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Hard\\Indian Hottie [480p AV1].mkv",
+      "master_record": {
+        "id": 35469,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Hard\\Indian Hottie [480p AV1].mkv",
+        "file_size": 148965971,
+        "width": 640,
+        "height": 480,
+        "duration": 1072.49,
+        "bitrate": 1111175,
+        "resolution_tier": "480p",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788305196.2306485
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 148965901,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Extreme & Kinky & Stories\\India Big Tits [480p AV1].mkv",
+          "file_size": 148965901,
+          "hash_signature": "vid_fp_35288",
+          "hamming_distance": 0,
+          "original_mtime": 1788302601.4807913
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35172",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Amateur\\[Hannah] Hotel Threesome [AV1].mkv",
+      "master_record": {
+        "id": 35172,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Amateur\\[Hannah] Hotel Threesome [AV1].mkv",
+        "file_size": 40576985,
+        "width": 320,
+        "height": 240,
+        "duration": 1170.8,
+        "bitrate": 277259,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788300217.3045855
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 40576985,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Hard\\[Hannah] Hotel Threesome [AV1].mkv",
+          "file_size": 40576985,
+          "hash_signature": "vid_fp_35444",
+          "hamming_distance": 0,
+          "original_mtime": 1788305003.2577324
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_34712",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 32 [720p H264].mp4",
+      "master_record": {
+        "id": 34712,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 32 [720p H264].mp4",
+        "file_size": 186325933,
+        "width": 1280,
+        "height": 720,
+        "duration": 1227.22,
+        "bitrate": 1214624,
+        "resolution_tier": "720p",
+        "existing_title": "Onf Izzygreen 32",
+        "studio": null,
+        "mtime": 1706825001.8764672
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 185786994,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Onf Izzygreen 33 [720p H264].mp4",
+          "file_size": 185786994,
+          "hash_signature": "vid_fp_34698",
+          "hamming_distance": 2,
+          "original_mtime": 1706824555.3859117
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35230",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Anime\\Night Shift Nurses\\Night Shift Nurses 4 [MPEG4].mp4",
+      "master_record": {
+        "id": 35230,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Anime\\Night Shift Nurses\\Night Shift Nurses 4 [MPEG4].mp4",
+        "file_size": 143670420,
+        "width": 576,
+        "height": 432,
+        "duration": 1876.91,
+        "bitrate": 612370,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1296656076.6323833
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 75557139,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Anime\\Nightshiftnurses4hq [AV1].mkv",
+          "file_size": 75557139,
+          "hash_signature": "vid_fp_35194",
+          "hamming_distance": 3,
+          "original_mtime": 1788300513.315265
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35138",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\Clips\\Lori's Audition [AV1].mkv",
+      "master_record": {
+        "id": 35138,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\Clips\\Lori's Audition [AV1].mkv",
+        "file_size": 74029061,
+        "width": 320,
+        "height": 240,
+        "duration": 1950.66,
+        "bitrate": 303606,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788299831.1141644
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 74029061,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Pov\\Lori's Audition [AV1].mkv",
+          "file_size": 74029061,
+          "hash_signature": "vid_fp_35536",
+          "hamming_distance": 0,
+          "original_mtime": 1788306341.3163016
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35655",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Kyler Quinn [720p H264] (2).mp4",
+      "master_record": {
+        "id": 35655,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Kyler Quinn [720p H264] (2).mp4",
+        "file_size": 384072346,
+        "width": 1280,
+        "height": 720,
+        "duration": 2053.42,
+        "bitrate": 1496324,
+        "resolution_tier": "720p",
+        "existing_title": "Kyler Quinn",
+        "studio": "Vixen",
+        "mtime": 1580754214.4175317
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 384072346,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Kyler Quinn [720p H264].mp4",
+          "file_size": 384072346,
+          "hash_signature": "vid_fp_35034",
+          "hamming_distance": 0,
+          "original_mtime": 1580754216.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_33676",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Collections & Siterips\\L & S Erotica\\\u03a0\u03c9\u03c2 \u039d\u03b1 \u0391\u03bd\u03c4\u03ad\u03c7\u03b5\u03c4\u03b5 \u03a0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03bf [MPEG2VIDEO].mp4",
+      "master_record": {
+        "id": 33676,
+        "file_path": "F:\\Aloha\\Collections & Siterips\\L & S Erotica\\\u03a0\u03c9\u03c2 \u039d\u03b1 \u0391\u03bd\u03c4\u03ad\u03c7\u03b5\u03c4\u03b5 \u03a0\u03b5\u03c1\u03b9\u03c3\u03c3\u03cc\u03c4\u03b5\u03c1\u03bf [MPEG2VIDEO].mp4",
+        "file_size": 166438232,
+        "width": 480,
+        "height": 360,
+        "duration": 2242.01,
+        "bitrate": 593889,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1232714580.0
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 140310865,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Collections & Siterips\\Educative\\[BetterSex] You Can Last Longer [AV1].mkv",
+          "file_size": 140310865,
+          "hash_signature": "vid_fp_35279",
+          "hamming_distance": 1,
+          "original_mtime": 1788302462.9674878
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35269",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Ktr Bcc E195 Hanna [AV1] (2).mkv",
+      "master_record": {
+        "id": 35269,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Ktr Bcc E195 Hanna [AV1] (2).mkv",
+        "file_size": 169309462,
+        "width": 640,
+        "height": 360,
+        "duration": 2352.62,
+        "bitrate": 575730,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301683.8773026
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 169309462,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Ktr Bcc E195 Hanna [AV1].mkv",
+          "file_size": 169309462,
+          "hash_signature": "vid_fp_35264",
+          "hamming_distance": 0,
+          "original_mtime": 1788301638.144845
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35654",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] [2019-12-25] Emily Willis Little Caprice and Apolonia Lapiedra [480p H264] (2).mp4",
+      "master_record": {
+        "id": 35654,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] [2019-12-25] Emily Willis Little Caprice and Apolonia Lapiedra [480p H264] (2).mp4",
+        "file_size": 297786119,
+        "width": 854,
+        "height": 480,
+        "duration": 2439.68,
+        "bitrate": 976475,
+        "resolution_tier": "480p",
+        "existing_title": "Emily Willis Little Caprice and Apolonia Lapiedra",
+        "studio": "Vixen",
+        "mtime": 1580752484.068808
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 297786119,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] [2019-12-25] Emily Willis Little Caprice and Apolonia Lapiedra [480p H264].mp4",
+          "file_size": 297786119,
+          "hash_signature": "vid_fp_35066",
+          "hamming_distance": 0,
+          "original_mtime": 1580752486.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35651",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Gabbie Carter - Take a Chance [480p H264] (2).mp4",
+      "master_record": {
+        "id": 35651,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Gabbie Carter - Take a Chance [480p H264] (2).mp4",
+        "file_size": 293800978,
+        "width": 854,
+        "height": 480,
+        "duration": 2506.37,
+        "bitrate": 937774,
+        "resolution_tier": "480p",
+        "existing_title": "Take a Chance",
+        "studio": "Vixen",
+        "mtime": 1580752503.9585655
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 293800978,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Gabbie Carter - Take a Chance [480p H264].mp4",
+          "file_size": 293800978,
+          "hash_signature": "vid_fp_35099",
+          "hamming_distance": 0,
+          "original_mtime": 1580752504.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35265",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Kendall Brcc [AV1] (2).mkv",
+      "master_record": {
+        "id": 35265,
+        "file_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Kendall Brcc [AV1] (2).mkv",
+        "file_size": 168016071,
+        "width": 640,
+        "height": 360,
+        "duration": 2553.62,
+        "bitrate": 526362,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": "Backroom Casting Couch",
+        "mtime": 1788301819.105725
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 168016071,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Backroom Casting Couch\\[Backroom Casting Couch] Kendall Brcc [AV1].mkv",
+          "file_size": 168016071,
+          "hash_signature": "vid_fp_35263",
+          "hamming_distance": 0,
+          "original_mtime": 1788301767.811011
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35530",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\FuckedHard18\\Teen Fucked [480p AV1] (2).mkv",
+      "master_record": {
+        "id": 35530,
+        "file_path": "F:\\Aloha\\Studios\\FuckedHard18\\Teen Fucked [480p AV1] (2).mkv",
+        "file_size": 341021229,
+        "width": 640,
+        "height": 480,
+        "duration": 3349.91,
+        "bitrate": 814400,
+        "resolution_tier": "480p",
+        "existing_title": null,
+        "studio": "FuckedHard18",
+        "mtime": 1788305812.790946
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 341021229,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\FuckedHard18\\Teen Fucked [480p AV1].mkv",
+          "file_size": 341021229,
+          "hash_signature": "vid_fp_35142",
+          "hamming_distance": 0,
+          "original_mtime": 1788300043.618352
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_35642",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Ellie Eilish - Treat Me Right [480p H264] (2).mp4",
+      "master_record": {
+        "id": 35642,
+        "file_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Ellie Eilish - Treat Me Right [480p H264] (2).mp4",
+        "file_size": 476998062,
+        "width": 854,
+        "height": 480,
+        "duration": 4030.31,
+        "bitrate": 946820,
+        "resolution_tier": "480p",
+        "existing_title": "Treat Me Right",
+        "studio": "Vixen",
+        "mtime": 1580752505.6952715
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 476998062,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Studios\\Vixen\\[Vixen] Ellie Eilish - Treat Me Right [480p H264].mp4",
+          "file_size": 476998062,
+          "hash_signature": "vid_fp_35032",
+          "hamming_distance": 0,
+          "original_mtime": 1580752506.0
+        }
+      ]
+    }
+  ]
+}
