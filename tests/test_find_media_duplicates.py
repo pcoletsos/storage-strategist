@@ -28,6 +28,7 @@ from find_media_duplicates import (
     execute_quarantine,
     execute_rollback,
     find_exact_duplicates,
+    find_video_duplicates,
 )
 
 
@@ -302,4 +303,68 @@ def test_quarantine_from_preview_json(tmp_path):
     assert quar_dest.exists()
 
     conn.close()
+
+
+def test_find_video_duplicates_threaded(tmp_path, monkeypatch):
+    """Verifies multi-threaded video duplicate discovery with duration collision window."""
+    db_path = tmp_path / "test_media.db"
+    conn = sqlite3.connect(str(db_path))
+    conn.execute("""
+        CREATE TABLE media_files (
+            id INTEGER PRIMARY KEY,
+            file_path TEXT UNIQUE,
+            file_size INTEGER,
+            width INTEGER,
+            height INTEGER,
+            duration REAL,
+            bitrate INTEGER,
+            resolution_tier TEXT,
+            existing_title TEXT,
+            studio TEXT,
+            mtime REAL,
+            media_type TEXT
+        )
+    """)
+    records = [
+        (1, r"F:\Aloha\Celebrities\Star\vid1.mp4", 50000000, 1920, 1080, 60.0, 5000000, "1080p", "Scene 1", "Studio A", 1000.0, "video"),
+        (2, r"F:\Aloha\Celebrities\Star\vid2.mp4", 20000000, 1280, 720, 60.5, 2000000, "720p", "Scene 1 (720p)", "Studio A", 1000.0, "video"),
+        (3, r"F:\Aloha\Celebrities\Star\vid3.mp4", 40000000, 1920, 1080, 120.0, 4000000, "1080p", "Scene 2", "Studio A", 1000.0, "video"),
+    ]
+    conn.executemany("""
+        INSERT INTO media_files (id, file_path, file_size, width, height, duration, bitrate, resolution_tier, existing_title, studio, mtime, media_type)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, records)
+    conn.commit()
+    conn.close()
+
+    # Mock compute_video_fingerprint
+    # vid1 and vid2 return identical fingerprints; vid3 differs
+    mock_fps = {
+        r"F:\Aloha\Celebrities\Star\vid1.mp4": [0x1111, 0x2222, 0x3333],
+        r"F:\Aloha\Celebrities\Star\vid2.mp4": [0x1111, 0x2222, 0x3333],
+        r"F:\Aloha\Celebrities\Star\vid3.mp4": [0xAAAA, 0xBBBB, 0xCCCC],
+    }
+
+    def dummy_compute(path, dur):
+        return mock_fps.get(path, [0, 0, 0])
+
+    monkeypatch.setattr("find_media_duplicates.compute_video_fingerprint", dummy_compute)
+
+    # Test with workers=4
+    clusters = find_video_duplicates(
+        db_path=str(db_path),
+        target_dir=r"F:\Aloha",
+        pools=["Celebrities"],
+        duration_tolerance=2.0,
+        threshold=4,
+        workers=4,
+    )
+
+    assert len(clusters) == 1
+    c = clusters[0]
+    assert c["master_path"] == r"F:\Aloha\Celebrities\Star\vid1.mp4"
+    assert c["duplicate_count"] == 1
+    assert c["duplicates"][0]["original_path"] == r"F:\Aloha\Celebrities\Star\vid2.mp4"
+    assert c["potential_savings_bytes"] == 20000000
+
 
