@@ -111,3 +111,31 @@ All synchronization and refresh phases have completed with production verificati
 - **Synchronization Report**: Live execution metrics recorded in `media_inventory_refresh_report.json`.
 - **Quality Assurance & Verification**: All 33 pytest unit tests passed, all 47 cargo tests passed, and `check_compliance.py` passed with 0 violations.
 
+---
+
+## 6. Post-Quarantine Deduplication Reconciliation (Completed)
+
+Following the staging of duplicate media assets into `F:\Aloha\.quarantine_duplicates` via `scripts/find_media_duplicates.py` (Issue #43), `media_inventory.db` was reconciled to purge stale records and ensure complete alignment with live disk assets.
+
+### Key Enhancements & Implementation
+1. **Quarantine Directory Isolation**:
+   - Updated `scripts/refresh_media_inventory.py` and `scripts/media_inventory_scanner.py` to prune directories matching `.quarantine_duplicates` or starting with `.` during `os.walk`.
+   - Quarantined assets are excluded from physical media accounting and untracked asset discovery.
+2. **Fast Reconciliation Mode (`--reconcile-only`)**:
+   - Added `--reconcile-only` CLI parameter to execute schema validation, filesystem reconciliation, stale record purge, and validation queries while bypassing expensive full-tree container tag re-probing.
+3. **Execution Results**:
+   - **Pre-Reconciliation Records**: 35,656
+   - **Physical Media Files on Disk**: 35,532 (12,161 video, 23,371 image)
+   - **Stale Records Purged**: 124 (3 exact byte duplicates, 98 image duplicates, 23 video duplicates)
+   - **Untracked Discovered**: 0
+   - **Post-Reconciliation Records**: 35,532 (100% disk alignment, 0 missing files, 0 quarantine references)
+   - **Safety Snapshot**: Created `media_inventory_pre_quarantine_reconcile.bak` prior to live execution.
+4. **Updated Canonical Root Distribution**:
+   - `Games`: 29,253 assets (36.95 GB)
+   - `Photos & Sets`: 2,684 assets (0.55 GB)
+   - `Celebrities`: 1,483 assets (34.92 GB)
+   - `Collections & Siterips`: 873 assets (63.13 GB)
+   - `Studios`: 679 assets (196.98 GB)
+   - `Movies`: 289 assets (51.57 GB)
+   - `Magazines & Docs`: 271 assets (0.05 GB)
+

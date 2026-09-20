@@ -327,8 +327,12 @@ def scan_target(target_dir: str, db_path: str, max_workers: int = 24, incrementa
 
     print(f"[*] Walking filesystem at '{target_dir}'...")
     t0 = time.time()
-    all_files = []
-    for root, _, files in os.walk(target_dir):
+    for root, dirs, files in os.walk(target_dir):
+        # Exclude hidden directories and quarantine staging areas
+        dirs[:] = [d for d in dirs if not d.startswith(".") and d != ".quarantine_duplicates"]
+        if ".quarantine_duplicates" in root.replace("/", "\\"):
+            continue
+
         for f in files:
             if f.startswith("._tmp_") or f == "Thumbs.db":
                 continue

@@ -431,8 +431,15 @@ def reconcile_filesystem_and_purge(
     ffprobe_bin = get_ffprobe_path()
     untracked_files = []
 
-    for root, _, files in os.walk(target_root):
+    for root, dirs, files in os.walk(target_root):
+        # Exclude hidden directories and quarantine staging areas
+        dirs[:] = [d for d in dirs if not d.startswith(".") and d != ".quarantine_duplicates"]
+        if ".quarantine_duplicates" in root.replace("/", "\\"):
+            continue
+
         for f in files:
+            if f.startswith("._tmp_") or f == "Thumbs.db":
+                continue
             ext = os.path.splitext(f)[1].lower()
             if ext in VIDEO_EXTS:
                 stats["fs_videos"] += 1
@@ -542,6 +549,7 @@ def refresh_media_inventory(
     workers: int = 16,
     dry_run: bool = False,
     force_purge: bool = False,
+    reconcile_only: bool = False,
     report_path: str = "media_inventory_refresh_report.json"
 ) -> Dict[str, Any]:
     """Orchestrates the 5-step media inventory refresh and synchronization."""
@@ -555,6 +563,7 @@ def refresh_media_inventory(
     print(f"Dir Restructure Ledger:{dir_undo_ledger_path}")
     print(f"Visual Cache DB:       {visual_cache_path}")
     print(f"Dry Run:               {dry_run}")
+    print(f"Reconcile Only:        {reconcile_only}")
     print("=" * 70)
 
     active_db_path = db_path
@@ -584,33 +593,39 @@ def refresh_media_inventory(
         print("[+] Schema verified. All base, tag, and additive columns present.")
 
     # Step 2: Transactional Path Alignment via Ledgers
-    print("\n[*] Step 2: Chained Ledger Path Realignment...")
-    undo_map, dir_map = load_undo_ledgers(undo_ledger_path, dir_undo_ledger_path)
-    print(f"[+] Loaded {len(undo_map):,} file-rename and {len(dir_map):,} dir-move mappings.")
+    if not reconcile_only:
+        print("\n[*] Step 2: Chained Ledger Path Realignment...")
+        undo_map, dir_map = load_undo_ledgers(undo_ledger_path, dir_undo_ledger_path)
+        print(f"[+] Loaded {len(undo_map):,} file-rename and {len(dir_map):,} dir-move mappings.")
 
-    path_stats = remap_database_paths(conn, undo_map, dir_map, dry_run=False)
-    print(f"[+] Path Realignment Results ({path_stats['total']:,} total records):")
-    print(f"    - Direct disk matches:    {path_stats['direct']:>6,}")
-    print(f"    - Via file rename:        {path_stats['undo']:>6,}")
-    print(f"    - Via rename + dir move:  {path_stats['undo+dir']:>6,}")
-    print(f"    - Via direct dir move:    {path_stats['dir']:>6,}")
-    print(f"    - Unresolved:             {path_stats['unresolved']:>6,}")
-    print(f"    - Total database updates: {path_stats['updated']:>6,}")
+        path_stats = remap_database_paths(conn, undo_map, dir_map, dry_run=False)
+        print(f"[+] Path Realignment Results ({path_stats['total']:,} total records):")
+        print(f"    - Direct disk matches:    {path_stats['direct']:>6,}")
+        print(f"    - Via file rename:        {path_stats['undo']:>6,}")
+        print(f"    - Via rename + dir move:  {path_stats['undo+dir']:>6,}")
+        print(f"    - Via direct dir move:    {path_stats['dir']:>6,}")
+        print(f"    - Unresolved:             {path_stats['unresolved']:>6,}")
+        print(f"    - Total database updates: {path_stats['updated']:>6,}")
 
-    # Step 3: Container Tag and Visual Metadata Sync
-    print("\n[*] Step 3: Container Tag and Visual Metadata Sync...")
-    visual_stats = sync_visual_cache(conn, visual_cache_path, undo_map, dir_map, dry_run=False)
-    print(f"[+] Visual Cache Ingestion:")
-    print(f"    - Entries processed:      {visual_stats['total_cache_entries']:>6,}")
-    print(f"    - Assets matched in DB:   {visual_stats['matched_assets']:>6,}")
-    print(f"    - Studio values updated:  {visual_stats['studio_updated']:>6,}")
-    print(f"    - Metadata fields synced: {visual_stats['metadata_updated']:>6,}")
+        # Step 3: Container Tag and Visual Metadata Sync
+        print("\n[*] Step 3: Container Tag and Visual Metadata Sync...")
+        visual_stats = sync_visual_cache(conn, visual_cache_path, undo_map, dir_map, dry_run=False)
+        print(f"[+] Visual Cache Ingestion:")
+        print(f"    - Entries processed:      {visual_stats['total_cache_entries']:>6,}")
+        print(f"    - Assets matched in DB:   {visual_stats['matched_assets']:>6,}")
+        print(f"    - Studio values updated:  {visual_stats['studio_updated']:>6,}")
+        print(f"    - Metadata fields synced: {visual_stats['metadata_updated']:>6,}")
 
-    tag_stats = sync_container_tags(conn, target_root, max_workers=workers, dry_run=False)
-    print(f"[+] MP4 Container Tag Synchronization:")
-    print(f"    - Containers checked:     {tag_stats['mp4_files_scanned']:>6,}")
-    print(f"    - Tagged containers found:{tag_stats['tagged_files_found']:>6,}")
-    print(f"    - DB records enriched:    {tag_stats['database_records_updated']:>6,}")
+        tag_stats = sync_container_tags(conn, target_root, max_workers=workers, dry_run=False)
+        print(f"[+] MP4 Container Tag Synchronization:")
+        print(f"    - Containers checked:     {tag_stats['mp4_files_scanned']:>6,}")
+        print(f"    - Tagged containers found:{tag_stats['tagged_files_found']:>6,}")
+        print(f"    - DB records enriched:    {tag_stats['database_records_updated']:>6,}")
+    else:
+        print("\n[*] Skipping Steps 2 and 3 (--reconcile-only mode active)")
+        path_stats = {"total": 0, "direct": 0, "undo": 0, "undo+dir": 0, "dir": 0, "unresolved": 0, "updated": 0}
+        visual_stats = {"total_cache_entries": 0, "matched_assets": 0, "studio_updated": 0, "metadata_updated": 0}
+        tag_stats = {"mp4_files_scanned": 0, "tagged_files_found": 0, "database_records_updated": 0}
 
     # Step 4: Filesystem Scan for Untracked Assets and Stale Record Purge
     print("\n[*] Step 4: Filesystem Reconciliation and Audit...")
@@ -679,6 +694,7 @@ def main():
     parser.add_argument("--workers", type=int, default=16, help="Worker threads for container tagging/scanning")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without modifying DB")
     parser.add_argument("--force-purge", action="store_true", help="Purge confirmed stale records")
+    parser.add_argument("--reconcile-only", action="store_true", help="Execute only filesystem reconciliation and stale record purge")
     parser.add_argument("--report", default="media_inventory_refresh_report.json", help="Path for output JSON report")
     args = parser.parse_args()
 
@@ -692,6 +708,7 @@ def main():
         workers=args.workers,
         dry_run=args.dry_run,
         force_purge=args.force_purge,
+        reconcile_only=args.reconcile_only,
         report_path=args.report
     )
 
