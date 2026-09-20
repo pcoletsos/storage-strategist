@@ -433,8 +433,8 @@ def reconcile_filesystem_and_purge(
 
     for root, dirs, files in os.walk(target_root):
         # Exclude hidden directories and quarantine staging areas
-        dirs[:] = [d for d in dirs if not d.startswith(".") and d != ".quarantine_duplicates"]
-        if ".quarantine_duplicates" in root.replace("/", "\\"):
+        dirs[:] = [d for d in dirs if not d.startswith(".") and not d.startswith(".quarantine_")]
+        if ".quarantine_" in root.replace("/", "\\"):
             continue
 
         for f in files:
