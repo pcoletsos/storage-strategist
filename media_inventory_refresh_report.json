@@ -1,5 +1,5 @@
 {
-  "execution_time_seconds": 3.44,
+  "execution_time_seconds": 3.31,
   "target_directory": "F:\\Aloha",
   "database_path": "media_inventory.db",
   "dry_run": false,
@@ -24,18 +24,18 @@
     "database_records_updated": 0
   },
   "filesystem_reconciliation": {
-    "total_db_records": 35656,
-    "fs_videos": 12161,
+    "total_db_records": 35532,
+    "fs_videos": 12137,
     "fs_images": 23371,
-    "fs_total_media": 35532,
+    "fs_total_media": 35508,
     "untracked_discovered": 0,
-    "stale_records_found": 124,
-    "stale_records_purged": 124
+    "stale_records_found": 24,
+    "stale_records_purged": 24
   },
   "validation": {
-    "total_records": 35532,
+    "total_records": 35508,
     "legacy_path_records": 0,
-    "studio_enriched_records": 392,
+    "studio_enriched_records": 390,
     "tagged_mp4_records": 6609,
     "root_distribution": [
       {
@@ -55,18 +55,18 @@
       },
       {
         "root_folder": "Collections & Siterips",
-        "asset_count": 873,
-        "size_gb": 63.13
+        "asset_count": 856,
+        "size_gb": 52.36
       },
       {
         "root_folder": "Studios",
-        "asset_count": 679,
-        "size_gb": 196.98
+        "asset_count": 677,
+        "size_gb": 195.61
       },
       {
         "root_folder": "Movies",
-        "asset_count": 289,
-        "size_gb": 51.57
+        "asset_count": 284,
+        "size_gb": 51.18
       },
       {
         "root_folder": "Magazines & Docs",

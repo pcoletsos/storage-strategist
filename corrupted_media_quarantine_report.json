@@ -1,0 +1,15 @@
+{
+  "execution_time_seconds": 0.38,
+  "target_directory": "F:\\Aloha",
+  "database_path": "media_inventory.db",
+  "ledger_path": "corrupted_media_ledger.db",
+  "quarantine_dir": "F:\\Aloha\\.quarantine_corrupted",
+  "mode": "quarantine",
+  "dry_run": false,
+  "total_corrupted_files": 1,
+  "total_corrupted_bytes": 239939053,
+  "error_classification": {
+    "invalid_container_data": 1
+  },
+  "quarantined_files_count": 1
+}
