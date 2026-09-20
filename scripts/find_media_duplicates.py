@@ -18,6 +18,7 @@ import hashlib
 import sqlite3
 import argparse
 from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, Any, List, Optional, Tuple, Set
 
 # Reconfigure console output for Windows UTF-8
@@ -565,6 +566,7 @@ def find_video_duplicates(
     duration_tolerance: float = 2.0,
     threshold: int = 6,
     limit: Optional[int] = None,
+    workers: int = 8,
 ) -> List[Dict[str, Any]]:
     """Identifies perceptual video duplicates by duration bucketing and keyframe fingerprinting."""
     clusters: List[Dict[str, Any]] = []
@@ -620,18 +622,41 @@ def find_video_duplicates(
         i += 1
 
     print(f"[INFO] Found {len(duration_clusters)} duration collision candidate groups")
+
+    # Collect unique videos needing keyframe fingerprints
+    unique_candidates: Dict[str, float] = {}
+    for group in duration_clusters:
+        for v in group:
+            unique_candidates[v["file_path"]] = v["duration"]
+
+    print(f"[INFO] Unique video assets requiring keyframe fingerprinting: {len(unique_candidates)}")
+
     video_fingerprints: Dict[str, List[int]] = {}
+    items = list(unique_candidates.items())
+
+    def _fingerprint_worker(item: Tuple[str, float]) -> Tuple[str, Optional[List[int]]]:
+        fpath, dur = item
+        return fpath, compute_video_fingerprint(fpath, dur)
+
+    if workers > 1 and len(items) > 1:
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            for idx, (fpath, fps) in enumerate(executor.map(_fingerprint_worker, items), 1):
+                if fps:
+                    video_fingerprints[fpath] = fps
+                if idx % 100 == 0 or idx == len(items):
+                    print(f"[PROGRESS] Fingerprinted {idx}/{len(items)} videos ({idx * 100.0 / len(items):.1f}%)")
+    else:
+        for idx, (fpath, dur) in enumerate(items, 1):
+            fps = compute_video_fingerprint(fpath, dur)
+            if fps:
+                video_fingerprints[fpath] = fps
+            if idx % 100 == 0 or idx == len(items):
+                print(f"[PROGRESS] Fingerprinted {idx}/{len(items)} videos ({idx * 100.0 / len(items):.1f}%)")
+
     dset = DisjointSet()
     matched_pairs: Dict[Tuple[str, str], int] = {}
 
     for grp_idx, group in enumerate(duration_clusters, 1):
-        for v in group:
-            v_path = v["file_path"]
-            if v_path not in video_fingerprints:
-                fps = compute_video_fingerprint(v_path, v["duration"])
-                if fps:
-                    video_fingerprints[v_path] = fps
-
         for idx_a in range(len(group)):
             for idx_b in range(idx_a + 1, len(group)):
                 v_a = group[idx_a]["file_path"]
@@ -849,6 +874,12 @@ def main() -> None:
         help="Hamming distance threshold for perceptual matches (default: 4)",
     )
     parser.add_argument(
+        "--workers",
+        type=int,
+        default=8,
+        help="Number of worker threads for parallel video fingerprinting (default: 8)",
+    )
+    parser.add_argument(
         "--min-size",
         type=int,
         default=1048576,
@@ -950,6 +981,7 @@ def main() -> None:
                 pools=pools,
                 threshold=args.threshold,
                 limit=args.limit,
+                workers=args.workers,
             )
             all_clusters.extend(vid_clusters)
             print(f"Tier 3 identified {len(vid_clusters)} perceptual video duplicate clusters.")

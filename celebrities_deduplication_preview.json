@@ -1,0 +1,616 @@
+{
+  "generated_at": "2026-09-20T23:28:12.335444",
+  "mode": "all",
+  "target_dir": "F:\\Aloha",
+  "pools": [
+    "Celebrities"
+  ],
+  "threshold": 4,
+  "total_clusters": 21,
+  "total_duplicates": 21,
+  "potential_savings_bytes": 252783097,
+  "potential_savings_mb": 241.07,
+  "potential_savings_gb": 0.24,
+  "clusters": [
+    {
+      "cluster_id": "cluster_img_ea9d86669d6a3348",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Fox Transformers Promo Photoshoot - Megan Fox 20090514 06.jpg",
+      "master_record": {
+        "id": 102,
+        "file_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Fox Transformers Promo Photoshoot - Megan Fox 20090514 06.jpg",
+        "file_size": 52885,
+        "width": 1000,
+        "height": 751,
+        "mtime": 1263491520.0,
+        "p_hash": 16905816351504479048,
+        "d_hash": 9486109940500977
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 50533,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Fox Transformers Promo Photoshoot - Megan Fox 20090514 07.jpg",
+          "file_size": 50533,
+          "hash_signature": "ea9d95669d4a3348",
+          "hamming_distance": 4,
+          "original_mtime": 1263491520.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_8ed4606bfb909467",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Fox New - Katzbabes 18171.jpg",
+      "master_record": {
+        "id": 172,
+        "file_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Fox New - Katzbabes 18171.jpg",
+        "file_size": 84426,
+        "width": 1120,
+        "height": 629,
+        "mtime": 1260900370.0,
+        "p_hash": 10291957065346749543,
+        "d_hash": 11175918594806037
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 84426,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Fox New - Katzbabes 18171(2).jpg",
+          "file_size": 84426,
+          "hash_signature": "8ed4606bfb909467",
+          "hamming_distance": 0,
+          "original_mtime": 1260905058.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_img_a824f6d20b39d5cb",
+      "detection_type": "perceptual_image",
+      "master_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Mtv Movie Awards 2008 - Katzbabes 2074.jpg",
+      "master_record": {
+        "id": 260,
+        "file_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Mtv Movie Awards 2008 - Katzbabes 2074.jpg",
+        "file_size": 187514,
+        "width": 928,
+        "height": 1384,
+        "mtime": 1246795276.0,
+        "p_hash": 12116080279525381579,
+        "d_hash": 9774700237527194973
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 180495,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Megan Fox\\Megan Mtv Movie Awards 2008 - Katzbabes 2079.jpg",
+          "file_size": 180495,
+          "hash_signature": "a824f6d20b39d5cb",
+          "hamming_distance": 0,
+          "original_mtime": 1246797074.0
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_813",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\Diane Lane Her Career in Nude Scenes Playlist [H264].MP4",
+      "master_record": {
+        "id": 813,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\Diane Lane Her Career in Nude Scenes Playlist [H264].MP4",
+        "file_size": 2354292,
+        "width": 640,
+        "height": 360,
+        "duration": 24.12,
+        "bitrate": 780758,
+        "resolution_tier": "SD",
+        "existing_title": "Diane Lane Her Career in Nude Scenes Playlist",
+        "studio": null,
+        "mtime": 1509477334.261945
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 2354292,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update8\\[2013] The Hottest Babes of 2013 Summer Blockbusters Playlist 6 [H264].mp4",
+          "file_size": 2354292,
+          "hash_signature": "vid_fp_1299",
+          "hamming_distance": 0,
+          "original_mtime": 1509477660.7442029
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_910",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\The L Word Every Nude Scene Playlist 12 [H264].MP4",
+      "master_record": {
+        "id": 910,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\The L Word Every Nude Scene Playlist 12 [H264].MP4",
+        "file_size": 3841394,
+        "width": 640,
+        "height": 360,
+        "duration": 40.07,
+        "bitrate": 766897,
+        "resolution_tier": "SD",
+        "existing_title": "The L Word Every Nude Scene Playlist 12",
+        "studio": null,
+        "mtime": 1509481130.735644
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 3841394,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Caught in the Act Playlist 5 [H264].MP4",
+          "file_size": 3841394,
+          "hash_signature": "vid_fp_1051",
+          "hamming_distance": 0,
+          "original_mtime": 1509481130.7166195
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1108",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Hottest Naked Onscreen Hookers Playlist 2 [H264].MP4",
+      "master_record": {
+        "id": 1108,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Hottest Naked Onscreen Hookers Playlist 2 [H264].MP4",
+        "file_size": 5686133,
+        "width": 640,
+        "height": 360,
+        "duration": 52.39,
+        "bitrate": 868359,
+        "resolution_tier": "SD",
+        "existing_title": "Hottest Naked Onscreen Hookers Playlist 2",
+        "studio": null,
+        "mtime": 1509481264.0867877
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 3476594,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\From Movies\\80s Teen Sex Comedies Playlist 4 [H264].mp4",
+          "file_size": 3476594,
+          "hash_signature": "vid_fp_54",
+          "hamming_distance": 1,
+          "original_mtime": 1509575459.6155665
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_958",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\Weeds Every Nude Scene Playlist 2 [H264].MP4",
+      "master_record": {
+        "id": 958,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\Weeds Every Nude Scene Playlist 2 [H264].MP4",
+        "file_size": 5212286,
+        "width": 640,
+        "height": 360,
+        "duration": 53.62,
+        "bitrate": 777678,
+        "resolution_tier": "SD",
+        "existing_title": "Weeds Every Nude Scene Playlist 2",
+        "studio": null,
+        "mtime": 1509478985.105623
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 3452272,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\From Movies\\All of the Hottest Mary Louise Parker Scenes from Weeds Playlist [H264].mp4",
+          "file_size": 3452272,
+          "hash_signature": "vid_fp_72",
+          "hamming_distance": 2,
+          "original_mtime": 1509573131.2190592
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1010",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update2\\Top 10 Nude Celebs of 2013 5 [H264].MP4",
+      "master_record": {
+        "id": 1010,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update2\\Top 10 Nude Celebs of 2013 5 [H264].MP4",
+        "file_size": 8487703,
+        "width": 640,
+        "height": 360,
+        "duration": 64.17,
+        "bitrate": 1058141,
+        "resolution_tier": "SD",
+        "existing_title": "Top 10 Nude Celebs of 2013 5",
+        "studio": null,
+        "mtime": 1509401556.8235903
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 8487703,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update8\\Ban Pil Milicevic 1 Hd Hi [H264].mp4",
+          "file_size": 8487703,
+          "hash_signature": "vid_fp_1204",
+          "hamming_distance": 0,
+          "original_mtime": 1509401556.551632
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1056",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Dirty Kaylynn1 Hi 2 [H264].mp4",
+      "master_record": {
+        "id": 1056,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Dirty Kaylynn1 Hi 2 [H264].mp4",
+        "file_size": 6604176,
+        "width": 480,
+        "height": 360,
+        "duration": 66.26,
+        "bitrate": 797352,
+        "resolution_tier": "SD",
+        "existing_title": "Dirty Kaylynn1 Hi 2",
+        "studio": null,
+        "mtime": 1509479281.4007294
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 6604176,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Dirty Kaylynn1 Hi [H264].mp4",
+          "file_size": 6604176,
+          "hash_signature": "vid_fp_1055",
+          "hamming_distance": 0,
+          "original_mtime": 1509479457.7574914
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_931",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\The Naked Babes of Batman Playlist 2 [H264].MP4",
+      "master_record": {
+        "id": 931,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update1\\The Naked Babes of Batman Playlist 2 [H264].MP4",
+        "file_size": 6734066,
+        "width": 640,
+        "height": 360,
+        "duration": 68.22,
+        "bitrate": 789641,
+        "resolution_tier": "SD",
+        "existing_title": "The Naked Babes of Batman Playlist 2",
+        "studio": null,
+        "mtime": 1509480547.8326647
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 6734066,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update8\\Marion Cotillard Every Nude Scene from the Dark Knight Rises Hottie Playlist [H264].mp4",
+          "file_size": 6734066,
+          "hash_signature": "vid_fp_1237",
+          "hamming_distance": 0,
+          "original_mtime": 1509480361.1317654
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1107",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Kikuchi Babel4 Hd Hi [H264].mp4",
+      "master_record": {
+        "id": 1107,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Kikuchi Babel4 Hd Hi [H264].mp4",
+        "file_size": 7617943,
+        "width": 640,
+        "height": 360,
+        "duration": 75.94,
+        "bitrate": 802501,
+        "resolution_tier": "SD",
+        "existing_title": "Kikuchi Babel4 Hd Hi",
+        "studio": null,
+        "mtime": 1509481302.3920224
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 7617943,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update8\\[2013] The Hottest Babes of 2013 Summer Blockbusters Playlist 16 [H264].mp4",
+          "file_size": 7617943,
+          "hash_signature": "vid_fp_1284",
+          "hamming_distance": 0,
+          "original_mtime": 1509480049.716357
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1018",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\191704 Hi 2 [H264].mp4",
+      "master_record": {
+        "id": 1018,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\191704 Hi 2 [H264].mp4",
+        "file_size": 10074232,
+        "width": 480,
+        "height": 360,
+        "duration": 77.16,
+        "bitrate": 1044466,
+        "resolution_tier": "SD",
+        "existing_title": "191704 Hi 2",
+        "studio": null,
+        "mtime": 1509481522.864587
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 10074232,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\191704 Hi [H264].mp4",
+          "file_size": 10074232,
+          "hash_signature": "vid_fp_1022",
+          "hamming_distance": 0,
+          "original_mtime": 1509481723.7232075
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1145",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Pleasurewoman72 Digard 3 Hi 2 [H264].mp4",
+      "master_record": {
+        "id": 1145,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Pleasurewoman72 Digard 3 Hi 2 [H264].mp4",
+        "file_size": 7910027,
+        "width": 480,
+        "height": 360,
+        "duration": 79.11,
+        "bitrate": 799951,
+        "resolution_tier": "SD",
+        "existing_title": "Pleasurewoman72 Digard 3 Hi 2",
+        "studio": null,
+        "mtime": 1509479786.914684
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 7910027,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Pleasurewoman72 Digard 3 Hi [H264].mp4",
+          "file_size": 7910027,
+          "hash_signature": "vid_fp_1149",
+          "hamming_distance": 0,
+          "original_mtime": 1509481359.0249145
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1005",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update3\\Naked Babes of Comic Con Playlist 3 [H264].MP4",
+      "master_record": {
+        "id": 1005,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update3\\Naked Babes of Comic Con Playlist 3 [H264].MP4",
+        "file_size": 8791345,
+        "width": 640,
+        "height": 360,
+        "duration": 86.99,
+        "bitrate": 808529,
+        "resolution_tier": "SD",
+        "existing_title": "Naked Babes of Comic Con Playlist 3",
+        "studio": null,
+        "mtime": 1509401888.1545062
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 8791345,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update8\\The Naked Babes of Game of Thrones Playlist [H264].MP4",
+          "file_size": 8791345,
+          "hash_signature": "vid_fp_1292",
+          "hamming_distance": 0,
+          "original_mtime": 1509401853.3335285
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_379",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Old\\Magnificent Mams You May Have Missed Playlist [H264].MP4",
+      "master_record": {
+        "id": 379,
+        "file_path": "F:\\Aloha\\Celebrities\\Old\\Magnificent Mams You May Have Missed Playlist [H264].MP4",
+        "file_size": 8961431,
+        "width": 640,
+        "height": 360,
+        "duration": 87.72,
+        "bitrate": 817275,
+        "resolution_tier": "SD",
+        "existing_title": "Magnificent Mams You May Have Missed Playlist",
+        "studio": null,
+        "mtime": 1509481979.3445916
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 8961431,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Magnificent Mams You May Have Missed Playlist [H264].MP4",
+          "file_size": 8961431,
+          "hash_signature": "vid_fp_1128",
+          "hamming_distance": 0,
+          "original_mtime": 1509481937.7247956
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_986",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update2\\Top 10 Nude Celebs of 2013 3 [H264].MP4",
+      "master_record": {
+        "id": 986,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update2\\Top 10 Nude Celebs of 2013 3 [H264].MP4",
+        "file_size": 12153484,
+        "width": 640,
+        "height": 360,
+        "duration": 91.76,
+        "bitrate": 1059608,
+        "resolution_tier": "SD",
+        "existing_title": "Top 10 Nude Celebs of 2013 3",
+        "studio": null,
+        "mtime": 1509479421.5632265
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 12153484,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update8\\Ms Orangeisthenewblack E01 Prepon Hd 01 Hi [H264].mp4",
+          "file_size": 12153484,
+          "hash_signature": "vid_fp_1303",
+          "hamming_distance": 0,
+          "original_mtime": 1509479421.290385
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1023",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\210275 Hi 2 [H264].mp4",
+      "master_record": {
+        "id": 1023,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\210275 Hi 2 [H264].mp4",
+        "file_size": 14976471,
+        "width": 480,
+        "height": 360,
+        "duration": 113.28,
+        "bitrate": 1057660,
+        "resolution_tier": "SD",
+        "existing_title": "210275 Hi 2",
+        "studio": null,
+        "mtime": 1509475228.2587273
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 14976471,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\210275 Hi [H264].mp4",
+          "file_size": 14976471,
+          "hash_signature": "vid_fp_1030",
+          "hamming_distance": 0,
+          "original_mtime": 1509481124.1557958
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_1193",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\[2013] The Top 10 Racks of 2013 Playlist [H264].MP4",
+      "master_record": {
+        "id": 1193,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\[2013] The Top 10 Racks of 2013 Playlist [H264].MP4",
+        "file_size": 15256510,
+        "width": 640,
+        "height": 360,
+        "duration": 116.12,
+        "bitrate": 1051109,
+        "resolution_tier": "SD",
+        "existing_title": "The Top 10 Racks of 2013 Playlist",
+        "studio": null,
+        "mtime": 1509480963.5291476
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 15256510,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\[The Peepers Choice] Mr Skin's 15th Annual Anatomy Awards 8 [H264].mp4",
+          "file_size": 15256510,
+          "hash_signature": "vid_fp_1171",
+          "hamming_distance": 0,
+          "original_mtime": 1509482187.0283058
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_991",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Updates\\Update3\\Did I Just See a Butthole Playlist 2 [H264].MP4",
+      "master_record": {
+        "id": 991,
+        "file_path": "F:\\Aloha\\Celebrities\\Updates\\Update3\\Did I Just See a Butthole Playlist 2 [H264].MP4",
+        "file_size": 19471278,
+        "width": 480,
+        "height": 360,
+        "duration": 149.12,
+        "bitrate": 1044596,
+        "resolution_tier": "SD",
+        "existing_title": "Did I Just See a Butthole Playlist 2",
+        "studio": null,
+        "mtime": 1509478462.9453673
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 19471278,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Updates\\Update4,5,6,7\\Top Naked and Blindfolded Playlist 4 [H264].MP4",
+          "file_size": 19471278,
+          "hash_signature": "vid_fp_1194",
+          "hamming_distance": 0,
+          "original_mtime": 1509482095.755253
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_33871",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Sasha Grey\\Sasha Grey Head Case 2 [AV1].mkv",
+      "master_record": {
+        "id": 33871,
+        "file_path": "F:\\Aloha\\Celebrities\\Sasha Grey\\Sasha Grey Head Case 2 [AV1].mkv",
+        "file_size": 65894844,
+        "width": 592,
+        "height": 320,
+        "duration": 791.46,
+        "bitrate": 666060,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788294730.0735822
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 38717557,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Sasha Grey\\Sasha Grey Loves to Fuck [H264].mp4",
+          "file_size": 38717557,
+          "hash_signature": "vid_fp_35487",
+          "hamming_distance": 1,
+          "original_mtime": 1295221510.4864016
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_33861",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Celebrities\\Sasha Grey\\Sasha Grey Black Cock Addiction 2 [AV1].mkv",
+      "master_record": {
+        "id": 33861,
+        "file_path": "F:\\Aloha\\Celebrities\\Sasha Grey\\Sasha Grey Black Cock Addiction 2 [AV1].mkv",
+        "file_size": 80559394,
+        "width": 512,
+        "height": 384,
+        "duration": 945.84,
+        "bitrate": 681378,
+        "resolution_tier": "SD",
+        "existing_title": null,
+        "studio": null,
+        "mtime": 1788293204.3730857
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 73586868,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Celebrities\\Sasha Grey\\Sasha Grey Take 2 Black Cocks [AV1].mkv",
+          "file_size": 73586868,
+          "hash_signature": "vid_fp_35560",
+          "hamming_distance": 2,
+          "original_mtime": 1788306836.3788953
+        }
+      ]
+    }
+  ]
+}
