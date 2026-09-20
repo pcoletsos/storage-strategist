@@ -1,11 +1,11 @@
 {
-  "execution_time_seconds": 126.2,
+  "execution_time_seconds": 3.44,
   "target_directory": "F:\\Aloha",
   "database_path": "media_inventory.db",
   "dry_run": false,
   "path_realignment": {
-    "total": 35656,
-    "direct": 35656,
+    "total": 0,
+    "direct": 0,
     "undo": 0,
     "undo+dir": 0,
     "dir": 0,
@@ -13,30 +13,30 @@
     "updated": 0
   },
   "visual_enrichment": {
-    "total_cache_entries": 903,
-    "matched_assets": 801,
-    "studio_updated": 207,
-    "metadata_updated": 76
+    "total_cache_entries": 0,
+    "matched_assets": 0,
+    "studio_updated": 0,
+    "metadata_updated": 0
   },
   "container_tags": {
-    "mp4_files_scanned": 6737,
-    "tagged_files_found": 6623,
-    "database_records_updated": 6623
+    "mp4_files_scanned": 0,
+    "tagged_files_found": 0,
+    "database_records_updated": 0
   },
   "filesystem_reconciliation": {
     "total_db_records": 35656,
-    "fs_videos": 12187,
-    "fs_images": 23469,
-    "fs_total_media": 35656,
+    "fs_videos": 12161,
+    "fs_images": 23371,
+    "fs_total_media": 35532,
     "untracked_discovered": 0,
-    "stale_records_found": 0,
-    "stale_records_purged": 0
+    "stale_records_found": 124,
+    "stale_records_purged": 124
   },
   "validation": {
-    "total_records": 35656,
+    "total_records": 35532,
     "legacy_path_records": 0,
-    "studio_enriched_records": 263,
-    "tagged_mp4_records": 6623,
+    "studio_enriched_records": 392,
+    "tagged_mp4_records": 6609,
     "root_distribution": [
       {
         "root_folder": "Games",
@@ -45,23 +45,23 @@
       },
       {
         "root_folder": "Photos & Sets",
-        "asset_count": 2782,
-        "size_gb": 0.59
+        "asset_count": 2684,
+        "size_gb": 0.55
       },
       {
         "root_folder": "Celebrities",
-        "asset_count": 1484,
+        "asset_count": 1483,
         "size_gb": 34.92
       },
       {
         "root_folder": "Collections & Siterips",
-        "asset_count": 889,
-        "size_gb": 64.7
+        "asset_count": 873,
+        "size_gb": 63.13
       },
       {
         "root_folder": "Studios",
-        "asset_count": 688,
-        "size_gb": 199.04
+        "asset_count": 679,
+        "size_gb": 196.98
       },
       {
         "root_folder": "Movies",

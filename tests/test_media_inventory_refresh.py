@@ -18,6 +18,7 @@ from refresh_media_inventory import (
     sync_visual_cache,
     reconcile_filesystem_and_purge,
     run_validation_queries,
+    refresh_media_inventory,
     CANONICAL_ROOTS
 )
 
@@ -298,4 +299,90 @@ def test_reconcile_filesystem_and_purge(temp_env):
     # Total should be: 2 (1 existing kept + 1 untracked inserted, 1 stale deleted)
     assert cur.fetchone()[0] == 2
     conn.close()
+
+
+def test_reconcile_skips_quarantine_directory(temp_env):
+    conn = sqlite3.connect(temp_env["db"])
+    verify_and_patch_schema(conn)
+
+    # Active file exists on disk
+    f_active = os.path.join(temp_env["dir"], "active.mp4")
+    with open(f_active, "wb") as f:
+        f.write(b"active video")
+
+    # Staged file inside .quarantine_duplicates
+    quar_dir = os.path.join(temp_env["dir"], ".quarantine_duplicates", "cluster_001")
+    os.makedirs(quar_dir, exist_ok=True)
+    f_quar = os.path.join(quar_dir, "duplicate.mp4")
+    with open(f_quar, "wb") as f:
+        f.write(b"quarantined video")
+
+    # DB record for stale original path
+    stale_path = os.path.join(temp_env["dir"], "old_location", "duplicate.mp4")
+
+    conn.execute(
+        "INSERT INTO media_files (file_path, directory, filename) VALUES (?, ?, ?), (?, ?, ?)",
+        (f_active, temp_env["dir"], "active.mp4", stale_path, os.path.join(temp_env["dir"], "old_location"), "duplicate.mp4")
+    )
+    conn.commit()
+
+    stats = reconcile_filesystem_and_purge(
+        conn, temp_env["dir"], max_workers=2, force_purge=True, dry_run=False
+    )
+
+    assert stats["stale_records_found"] == 1
+    assert stats["stale_records_purged"] == 1
+    # The file in .quarantine_duplicates must be completely ignored
+    assert stats["untracked_discovered"] == 0
+
+    cur = conn.cursor()
+    cur.execute("SELECT file_path FROM media_files")
+    paths = [r[0] for r in cur.fetchall()]
+    assert len(paths) == 1
+    assert paths[0] == f_active
+    conn.close()
+
+
+def test_refresh_media_inventory_reconcile_only(temp_env):
+    report_file = os.path.join(temp_env["dir"], "test_report.json")
+    backup_file = os.path.join(temp_env["dir"], "test_backup.bak")
+
+    # Put an active file
+    f_active = os.path.join(temp_env["dir"], "active.mp4")
+    with open(f_active, "wb") as f:
+        f.write(b"active video")
+
+    # Put a stale entry in db
+    conn = sqlite3.connect(temp_env["db"])
+    verify_and_patch_schema(conn)
+    stale_path = os.path.join(temp_env["dir"], "gone.mp4")
+    conn.execute(
+        "INSERT INTO media_files (file_path, directory, filename) VALUES (?, ?, ?)",
+        (stale_path, temp_env["dir"], "gone.mp4")
+    )
+    conn.commit()
+    conn.close()
+
+    report = refresh_media_inventory(
+        db_path=temp_env["db"],
+        target_root=temp_env["dir"],
+        undo_ledger_path=temp_env["undo"],
+        dir_undo_ledger_path=temp_env["dir_undo"],
+        visual_cache_path=temp_env["visual"],
+        backup_path=backup_file,
+        workers=2,
+        dry_run=False,
+        force_purge=True,
+        reconcile_only=True,
+        report_path=report_file
+    )
+
+    assert os.path.exists(report_file)
+    assert report["filesystem_reconciliation"]["stale_records_purged"] == 1
+    assert report["filesystem_reconciliation"]["untracked_discovered"] == 1
+    # Ledgers and container tags should have been skipped
+    assert report["path_realignment"]["total"] == 0
+    assert report["container_tags"]["mp4_files_scanned"] == 0
+
+
 
