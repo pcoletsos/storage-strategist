@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-09-22T00:54:29.934348",
+  "mode": "videos",
+  "target_dir": "F:\\Aloha",
+  "pools": [
+    "Studios",
+    "Collections & Siterips",
+    "Movies",
+    "Celebrities"
+  ],
+  "threshold": 4,
+  "total_clusters": 2,
+  "total_duplicates": 2,
+  "potential_savings_bytes": 384702950,
+  "potential_savings_mb": 366.88,
+  "potential_savings_gb": 0.36,
+  "clusters": [
+    {
+      "cluster_id": "cluster_vid_33724",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Movies\\Greek\\Tzoulia\\Julia New 2 [480p H264].mp4",
+      "master_record": {
+        "id": 33724,
+        "file_path": "F:\\Aloha\\Movies\\Greek\\Tzoulia\\Julia New 2 [480p H264].mp4",
+        "file_size": 172767248,
+        "width": 640,
+        "height": 480,
+        "duration": 1563.76,
+        "bitrate": 883855,
+        "resolution_tier": "480p",
+        "existing_title": "Julia New 2",
+        "studio": "Sirina Productions",
+        "mtime": 1267624471.9014788
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 69967949,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Movies\\Greek\\Tzoulia\\Julia New 2 Mout [AV1].mkv",
+          "file_size": 69967949,
+          "hash_signature": "vid_fp_33725",
+          "hamming_distance": 2,
+          "original_mtime": 1788289077.8388777
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_vid_33773",
+      "detection_type": "video_keyframe",
+      "master_path": "F:\\Aloha\\Movies\\Performers of the year\\Performers of the Year 2010 Disc1 Xvid Pornolation Cd2 [AV1].mkv",
+      "master_record": {
+        "id": 33773,
+        "file_path": "F:\\Aloha\\Movies\\Performers of the year\\Performers of the Year 2010 Disc1 Xvid Pornolation Cd2 [AV1].mkv",
+        "file_size": 314735001,
+        "width": 576,
+        "height": 320,
+        "duration": 4135.22,
+        "bitrate": 608886,
+        "resolution_tier": "SD",
+        "existing_title": "Performers of the Year 2010 Disc 1 CD2",
+        "studio": "Pornolation",
+        "mtime": 1788291092.1205685
+      },
+      "duplicate_count": 1,
+      "potential_savings_bytes": 314735001,
+      "duplicates": [
+        {
+          "original_path": "F:\\Aloha\\Movies\\Performers of the year\\[2010] Performers of the Year 2010 Disc1c Cd2 [AV1].mkv",
+          "file_size": 314735001,
+          "hash_signature": "vid_fp_33765",
+          "hamming_distance": 0,
+          "original_mtime": 1788290920.1629722
+        }
+      ]
+    }
+  ]
+}
