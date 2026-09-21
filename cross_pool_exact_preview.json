@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-22T00:35:39.480594",
+  "mode": "exact",
+  "target_dir": "F:\\Aloha",
+  "pools": [
+    "Studios",
+    "Collections & Siterips",
+    "Movies",
+    "Celebrities"
+  ],
+  "threshold": 4,
+  "total_clusters": 0,
+  "total_duplicates": 0,
+  "potential_savings_bytes": 0,
+  "potential_savings_mb": 0.0,
+  "potential_savings_gb": 0.0,
+  "clusters": []
+}

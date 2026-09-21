@@ -1,0 +1,2719 @@
+{
+  "total_evaluated": 271,
+  "attributed_artists": 69,
+  "compilations": 202,
+  "with_dates": 168,
+  "dry_run": false,
+  "results": [
+    {
+      "id": 30918,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 092.png",
+      "filename": "Greek Periodika - 092.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 092",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30923,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 100.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 100.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 100",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30924,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 096.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 096.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 096",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30925,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 095.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 095.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 095",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30926,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 103.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 103.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 103",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30927,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 098.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 098.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 098",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30929,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 107.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 107.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 107",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30930,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 1021.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 1021.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 1021",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30931,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 11663.jpg",
+      "filename": "Greek Periodika - 11663.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 11663",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30933,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 089.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 089.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 089",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30934,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 092.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 092.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 092",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30935,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 123.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 123.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 123",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30937,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 104.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 104.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 104",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30938,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 097.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 097.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 097",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30941,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 125.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 125.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 125",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30942,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - 4 1 Aaau.jpg",
+      "filename": "[2010-01-04] Greek Periodika - 4 1 Aaau.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika 4 1 Aaau",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30943,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2007-08-20] Greek Periodika - Album Pic 5php.jpg",
+      "filename": "[2007-08-20] Greek Periodika - Album Pic 5php.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2007-08-20",
+      "title": "Greek Periodika Album Pic 5php",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30944,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - 4 1 Aaas.jpg",
+      "filename": "[2010-01-04] Greek Periodika - 4 1 Aaas.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika 4 1 Aaas",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30946,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 081.png",
+      "filename": "Greek Periodika - 081.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 081",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30947,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2007-08-20] Greek Periodika - Album Pic Php.jpg",
+      "filename": "[2007-08-20] Greek Periodika - Album Pic Php.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2007-08-20",
+      "title": "Greek Periodika Album Pic Php",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30948,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 2.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 2.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 2",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30949,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 094.png",
+      "filename": "Greek Periodika - 094.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 094",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30950,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 082.png",
+      "filename": "Greek Periodika - 082.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 082",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30951,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - 4 1 Aaat.jpg",
+      "filename": "[2010-01-04] Greek Periodika - 4 1 Aaat.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika 4 1 Aaat",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30952,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Ceadcebbceb5cebdceb1 Cf80ceb1cf80ceb1cf81ceafceb6cebfcf85 5.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Ceadcebbceb5cebdceb1 Cf80ceb1cf80ceb1cf81ceafceb6cebfcf85 5.jpg",
+      "artist": "Elena Paparizou",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Elena Paparizou Magazine Scan",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30953,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 7.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 7.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 7",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30954,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 5.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 5.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 5",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30955,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 11.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 11.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 11",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30956,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Elisavet Kazopoulou 2.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Elisavet Kazopoulou 2.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Elisavet Kazopoulou 2",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30957,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Elisavet Kazopoulou 5.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Elisavet Kazopoulou 5.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Elisavet Kazopoulou 5",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30958,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - 4 1 Aaap.jpg",
+      "filename": "[2010-01-04] Greek Periodika - 4 1 Aaap.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika 4 1 Aaap",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30959,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 6.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 6.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 6",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30960,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Elisavet Kazopoulou 6.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Elisavet Kazopoulou 6.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Elisavet Kazopoulou 6",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30961,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 4.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 4.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 4",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30962,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 084.png",
+      "filename": "Greek Periodika - 084.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 084",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30963,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs06.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs06.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs06",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30964,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs04.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs04.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs04",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30965,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs07.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs07.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs07",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30966,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 8.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 8.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 8",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30967,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs10.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs10.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs10",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30968,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs08.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs08.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs08",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30969,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Elisavet Kazopoulou 3.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Elisavet Kazopoulou 3.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Elisavet Kazopoulou 3",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30970,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs05.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs05.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs05",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30971,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Ceadcebbceb5cebdceb1 Cf80ceb1cf80ceb1cf81ceafceb6cebfcf85 6.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Ceadcebbceb5cebdceb1 Cf80ceb1cf80ceb1cf81ceafceb6cebfcf85 6.jpg",
+      "artist": "Elena Paparizou",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Elena Paparizou Magazine Scan",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30972,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Ceadcebbceb5cebdceb1 Cf80ceb1cf80ceb1cf81ceafceb6cebfcf85 4.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Ceadcebbceb5cebdceb1 Cf80ceb1cf80ceb1cf81ceafceb6cebfcf85 4.jpg",
+      "artist": "Elena Paparizou",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Elena Paparizou Magazine Scan",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30973,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Elisavet Kazopoulou 1.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Elisavet Kazopoulou 1.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Elisavet Kazopoulou 1",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30974,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Dimitra Alexandraki 3.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Dimitra Alexandraki 3.jpg",
+      "artist": "Dimitra Alexandraki",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Dimitra Alexandraki 3",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30975,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs09.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs09.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs09",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30976,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2007-08-20] Greek Periodika - Album 44pic Php.jpg",
+      "filename": "[2007-08-20] Greek Periodika - Album 44pic Php.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2007-08-20",
+      "title": "Greek Periodika Album 44pic Php",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30978,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 109.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 109.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 109",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30979,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-13] Greek Periodika - Gs11.jpg",
+      "filename": "[2010-01-13] Greek Periodika - Gs11.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-13",
+      "title": "Greek Periodika Gs11",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30980,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-22] Greek Periodika - 122.jpg",
+      "filename": "[2009-12-22] Greek Periodika - 122.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-22",
+      "title": "Greek Periodika 122",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30981,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc09.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc09.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc09",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30982,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-13] Greek Periodika - Gs13.jpg",
+      "filename": "[2010-01-13] Greek Periodika - Gs13.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-13",
+      "title": "Greek Periodika Gs13",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30983,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs12.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs12.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs12",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30984,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs17.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs17.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs17",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30985,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc10.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc10.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc10",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30986,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc08.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc08.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc08",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30987,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs15.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs15.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs15",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30988,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs14.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs14.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs14",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30989,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Elisavet Kazopoulou 4.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Elisavet Kazopoulou 4.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Elisavet Kazopoulou 4",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30990,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia004.jpg",
+      "filename": "Greek Periodika - Julia004.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia004",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30991,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia003.jpg",
+      "filename": "Greek Periodika - Julia003.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia003",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 30992,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc11.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc11.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc11",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30993,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Guc12.jpg",
+      "filename": "Greek Periodika - Guc12.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Guc12",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30994,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc04.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc04.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc04",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30995,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc02.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc02.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc02",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30996,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc06.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc06.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc06",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30997,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc01.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc01.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc01",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30998,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc07.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc07.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc07",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 30999,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc03.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc03.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc03",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31000,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2004-03-28] Greek Periodika - Guc05.jpg",
+      "filename": "[2004-03-28] Greek Periodika - Guc05.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2004-03-28",
+      "title": "Greek Periodika Guc05",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31001,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs18.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs18.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs18",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31002,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia007.jpg",
+      "filename": "Greek Periodika - Julia007.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia007",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31003,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia008.jpg",
+      "filename": "Greek Periodika - Julia008.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia008",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31004,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-13] Greek Periodika - Julia011.jpg",
+      "filename": "[2010-01-13] Greek Periodika - Julia011.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": "2010-01-13",
+      "title": "Greek Periodika Julia011",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31005,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia009.jpg",
+      "filename": "Greek Periodika - Julia009.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia009",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31006,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia006.jpg",
+      "filename": "Greek Periodika - Julia006.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia006",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31007,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia005.jpg",
+      "filename": "Greek Periodika - Julia005.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia005",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31008,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-13] Greek Periodika - Julia001.jpg",
+      "filename": "[2010-01-13] Greek Periodika - Julia001.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": "2010-01-13",
+      "title": "Greek Periodika Julia001",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31009,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-13] Greek Periodika - Julia014.jpg",
+      "filename": "[2010-01-13] Greek Periodika - Julia014.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": "2010-01-13",
+      "title": "Greek Periodika Julia014",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31010,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Papoytsaki.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Papoytsaki.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Greek Periodika Papoytsaki",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31011,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Kokkinoy.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Kokkinoy.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Greek Periodika Kokkinoy",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31012,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Korinthioy.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Korinthioy.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Greek Periodika Korinthioy",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31013,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula0.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula0.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula0",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31014,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia012.jpg",
+      "filename": "Greek Periodika - Julia012.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia012",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31015,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula11.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula11.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula11",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31016,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula4.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula4.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula4",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31017,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Julia010.jpg",
+      "filename": "Greek Periodika - Julia010.jpg",
+      "artist": "Julia Alexandratou",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Julia010",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31018,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula3.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula3.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula3",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31019,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula10.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula10.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula10",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31020,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula1.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula1.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula1",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31021,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - Playboymarch20091009.jpg",
+      "filename": "[2009-02-28] Greek Periodika - Playboymarch20091009.jpg",
+      "artist": "Compilation",
+      "studio": "Playboy",
+      "date": "2009-02-28",
+      "title": "Greek Periodika Playboymarch20091009",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31022,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2003-11-01] Greek Periodika - Gs16.jpg",
+      "filename": "[2003-11-01] Greek Periodika - Gs16.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2003-11-01",
+      "title": "Greek Periodika Gs16",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31023,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - Playboymarch20091006.jpg",
+      "filename": "[2009-02-28] Greek Periodika - Playboymarch20091006.jpg",
+      "artist": "Compilation",
+      "studio": "Playboy",
+      "date": "2009-02-28",
+      "title": "Greek Periodika Playboymarch20091006",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31024,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula5.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula5.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula5",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31025,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula7.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula7.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula7",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31026,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - Playboymarch20091005.jpg",
+      "filename": "[2009-02-28] Greek Periodika - Playboymarch20091005.jpg",
+      "artist": "Compilation",
+      "studio": "Playboy",
+      "date": "2009-02-28",
+      "title": "Greek Periodika Playboymarch20091005",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31027,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa008.jpg",
+      "filename": "Greek Periodika - Sasa008.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa008",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31028,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa004.jpg",
+      "filename": "Greek Periodika - Sasa004.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa004",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31029,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa002.jpg",
+      "filename": "Greek Periodika - Sasa002.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa002",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31030,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - Playboymarch20091003.jpg",
+      "filename": "[2009-02-28] Greek Periodika - Playboymarch20091003.jpg",
+      "artist": "Compilation",
+      "studio": "Playboy",
+      "date": "2009-02-28",
+      "title": "Greek Periodika Playboymarch20091003",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31031,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - Playboymarch20091004.jpg",
+      "filename": "[2009-02-28] Greek Periodika - Playboymarch20091004.jpg",
+      "artist": "Compilation",
+      "studio": "Playboy",
+      "date": "2009-02-28",
+      "title": "Greek Periodika Playboymarch20091004",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31032,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa001.jpg",
+      "filename": "Greek Periodika - Sasa001.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa001",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31033,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula9.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula9.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula9",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31034,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - Playboymarch20091002.jpg",
+      "filename": "[2009-02-28] Greek Periodika - Playboymarch20091002.jpg",
+      "artist": "Compilation",
+      "studio": "Playboy",
+      "date": "2009-02-28",
+      "title": "Greek Periodika Playboymarch20091002",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31035,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Vasialoi.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Vasialoi.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Greek Periodika Vasialoi",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31036,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa009.jpg",
+      "filename": "Greek Periodika - Sasa009.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa009",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31037,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula2.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula2.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula2",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31038,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-13] Greek Periodika - Xristina Moustaka 1.jpg",
+      "filename": "[2009-02-13] Greek Periodika - Xristina Moustaka 1.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": "2009-02-13",
+      "title": "Greek Periodika Xristina Moustaka 1",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31039,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Prwth Medium.jpg",
+      "filename": "Greek Periodika - Prwth Medium.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Prwth Medium",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31040,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Viki Karanikola 5.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Viki Karanikola 5.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Viki Karanikola 5",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31041,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Viki Karanikola 2.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Viki Karanikola 2.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Viki Karanikola 2",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31042,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa013.jpg",
+      "filename": "Greek Periodika - Sasa013.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa013",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31043,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Viki Karanikola 3.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Viki Karanikola 3.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Viki Karanikola 3",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31044,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa011.jpg",
+      "filename": "Greek Periodika - Sasa011.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa011",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31045,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-13] Greek Periodika - Xristina Moustaka 3.jpg",
+      "filename": "[2009-02-13] Greek Periodika - Xristina Moustaka 3.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": "2009-02-13",
+      "title": "Greek Periodika Xristina Moustaka 3",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31046,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula6.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula6.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula6",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31047,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Sasa014.jpg",
+      "filename": "Greek Periodika - Sasa014.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Sasa014",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31048,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Viki Karanikola 1.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Viki Karanikola 1.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Viki Karanikola 1",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31049,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Ioanna Ntenti.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Ioanna Ntenti.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Ioanna Ntenti",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31050,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Xristina Moustaka 12.jpg",
+      "filename": "Greek Periodika - Xristina Moustaka 12.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Xristina Moustaka 12",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31051,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Xristina Moustaka 9.jpg",
+      "filename": "Greek Periodika - Xristina Moustaka 9.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Xristina Moustaka 9",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31052,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Xristina Moustaka 8.jpg",
+      "filename": "Greek Periodika - Xristina Moustaka 8.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Xristina Moustaka 8",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31053,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-13] Greek Periodika - Xristina Moustaka 5.jpg",
+      "filename": "[2009-02-13] Greek Periodika - Xristina Moustaka 5.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": "2009-02-13",
+      "title": "Greek Periodika Xristina Moustaka 5",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31054,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-13] Greek Periodika - Xristina Moustaka 10.jpg",
+      "filename": "[2009-02-13] Greek Periodika - Xristina Moustaka 10.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": "2009-02-13",
+      "title": "Greek Periodika Xristina Moustaka 10",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31055,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Yiasmina Ilits 3.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Yiasmina Ilits 3.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Yiasmina Ilits 3",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31056,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Yiasmina Ilits 4.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Yiasmina Ilits 4.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Yiasmina Ilits 4",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31057,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Yiasmina Ilits 2.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Yiasmina Ilits 2.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Yiasmina Ilits 2",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31058,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Yiasmina Ilits 1.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Yiasmina Ilits 1.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Yiasmina Ilits 1",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31059,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b72.jpg",
+      "filename": "Greek Periodika - \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b72.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b72",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31060,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-23] Greek Periodika - Viki Karanikola 4.jpg",
+      "filename": "[2010-01-23] Greek Periodika - Viki Karanikola 4.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-23",
+      "title": "Greek Periodika Viki Karanikola 4",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31061,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-05-03] Greek Periodika - \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b71.jpg",
+      "filename": "[2010-05-03] Greek Periodika - \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b71.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-05-03",
+      "title": "Greek Periodika \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b71",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31062,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b719.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b719.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b719",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31063,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b715.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b715.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b715",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31064,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - 4 1 Aaav.jpg",
+      "filename": "[2010-01-04] Greek Periodika - 4 1 Aaav.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika 4 1 Aaav",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31065,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2008-12-05] Greek Periodika - Petroula8.jpg",
+      "filename": "[2008-12-05] Greek Periodika - Petroula8.jpg",
+      "artist": "Petroula Kostidou",
+      "studio": "Greek Periodika",
+      "date": "2008-12-05",
+      "title": "Greek Periodika Petroula8",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31066,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b716.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b716.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b716",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31067,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b721.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b721.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b721",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31068,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b718.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b718.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b718",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31069,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b720.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b720.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b720",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31070,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b71.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b71.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b71",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31071,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b713.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b713.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b713",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31072,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b712.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b712.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b712",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31073,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b72.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b72.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b72",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31074,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b717.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b717.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b717",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31075,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b711.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b711.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b711",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31076,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b73.jpg",
+      "filename": "Greek Periodika - \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b73.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0391\u03b8\u03b7\u03bd\u03ac \u039c\u03bf\u03cd\u03c3\u03ba\u03bf\u03c5\u03c1\u03b73",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31077,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b710.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b710.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b710",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31078,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b714.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b714.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b714",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31079,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b722.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b722.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b722",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31080,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 093.png",
+      "filename": "Greek Periodika - 093.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 093",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31081,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b730.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b730.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b730",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31082,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b731.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b731.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b731",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31083,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b734.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b734.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b734",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31084,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 080.png",
+      "filename": "Greek Periodika - 080.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 080",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31085,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b736.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b736.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b736",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31086,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b738.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b738.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b738",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31087,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b733.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b733.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b733",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31088,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b732.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b732.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b732",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31089,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b737.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b737.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b737",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31090,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b735.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b735.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b735",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31091,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b739.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b739.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b739",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31092,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Kuriakou6 Large.jpg",
+      "filename": "Greek Periodika - Kuriakou6 Large.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Kuriakou6 Large",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31093,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - Xalkia1 Large.jpg",
+      "filename": "Greek Periodika - Xalkia1 Large.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika Xalkia1 Large",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31094,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b73.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b73.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b73",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31095,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-21] Greek Periodika - Farmaki.jpg",
+      "filename": "[2009-12-21] Greek Periodika - Farmaki.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-12-21",
+      "title": "Greek Periodika Farmaki",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31096,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-13] Greek Periodika - Xristina Moustaka 4.jpg",
+      "filename": "[2009-02-13] Greek Periodika - Xristina Moustaka 4.jpg",
+      "artist": "Christina Moustaka",
+      "studio": "Greek Periodika",
+      "date": "2009-02-13",
+      "title": "Greek Periodika Xristina Moustaka 4",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31097,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b725.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b725.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b725",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31098,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b727.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b727.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b727",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31099,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b726.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b726.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b726",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31100,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b729.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b729.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b729",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31101,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b724.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b724.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b724",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31102,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b728.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b728.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b728",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31103,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b74.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b74.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b74",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31104,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-12-18] Greek Periodika - Nomikoy.jpg",
+      "filename": "[2009-12-18] Greek Periodika - Nomikoy.jpg",
+      "artist": "Doukissa Nomikou",
+      "studio": "Greek Periodika",
+      "date": "2009-12-18",
+      "title": "Greek Periodika Nomikoy",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31105,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 083.png",
+      "filename": "Greek Periodika - 083.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 083",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31106,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b746.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b746.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b746",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31107,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b747.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b747.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b747",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31108,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b745.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b745.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b745",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31109,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b742.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b742.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b742",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31110,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b744.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b744.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b744",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31111,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b723.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b723.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b723",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31112,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b757.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b757.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b757",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31113,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b758.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b758.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b758",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31114,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b751.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b751.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b751",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31115,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b755.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b755.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b755",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31116,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b759.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b759.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b759",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31117,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b756.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b756.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b756",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31118,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b76.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b76.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b76",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31119,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b750.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b750.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b750",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31120,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b753.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b753.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b753",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31121,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b754.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b754.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b754",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31122,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b749.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b749.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b749",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31123,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b743.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b743.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b743",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31124,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b741.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b741.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b741",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31125,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b763.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b763.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b763",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31126,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b762.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b762.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b762",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31127,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b752.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b752.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b752",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31128,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b71.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b71.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b71",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31129,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b761.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b761.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b761",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31130,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b75.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b75.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b75",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31131,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b748.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b748.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b748",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31132,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b764.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b764.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b764",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31133,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b740.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b740.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b740",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31134,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b79.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b79.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b79",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31135,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b78.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b78.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b78",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31136,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b760.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b760.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b760",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31137,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b77.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b77.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b77",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31138,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c513.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c513.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c513",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31139,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c511.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c511.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c511",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31140,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c512.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c512.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c512",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31141,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b76.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b76.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b76",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31142,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b75.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b75.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b75",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31143,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b765.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b765.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b765",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31144,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b73.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b73.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b73",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31145,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b72.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b72.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b72",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31146,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b77.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b77.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b77",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31147,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b711.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b711.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b711",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31148,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c56.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c56.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c56",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31149,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b74.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b74.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b74",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31150,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b766.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b766.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b766",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31151,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b78.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b78.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b78",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31152,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c54.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c54.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c54",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31153,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b710.jpg",
+      "filename": "[2009-02-28] Greek Periodika - \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b710.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2009-02-28",
+      "title": "Greek Periodika \u039c\u03b1\u03c1\u03b9\u03ac\u03bd\u03bd\u03b1 \u039d\u03c4\u03bf\u03cd\u03b2\u03bb\u03b710",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31154,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b79.jpg",
+      "filename": "Greek Periodika - \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b79.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika \u0398\u03b5\u03bf\u03c6\u03b1\u03bd\u03af\u03b1 \u039a\u03b1\u03bb\u03bf\u03b3\u03b9\u03ac\u03bd\u03bd\u03b79",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31155,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c52.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c52.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c52",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31156,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c53.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c53.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c53",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31157,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c57.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c57.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c57",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31158,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c510.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c510.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c510",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31159,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c59.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c59.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c59",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31160,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c55.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c55.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c55",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31161,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c58.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c58.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c58",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31162,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c51.jpg",
+      "filename": "[2010-01-04] Greek Periodika - \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c51.jpg",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": "2010-01-04",
+      "title": "Greek Periodika \u03a4\u03b6\u03bf\u03c5\u03bb\u03b9\u03b1 \u0391\u03bb\u03b5\u03be\u03b1\u03bd\u03b4\u03c1\u03b1\u03c4\u03bf\u03c51",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31163,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 091.png",
+      "filename": "Greek Periodika - 091.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 091",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31164,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 003.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 003.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 003",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31165,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 004.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 004.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 004",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31166,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 002.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 002.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 002",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31167,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 001.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 001.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 001",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31168,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33753 Nikoletarali5 123 105lo.jpg",
+      "filename": "Maxjune2010 - 33753 Nikoletarali5 123 105lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33753 Nikoletarali5 123 105lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31169,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33899 Nikoletarali10 123 419lo.jpg",
+      "filename": "Maxjune2010 - 33899 Nikoletarali10 123 419lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33899 Nikoletarali10 123 419lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31170,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33125 Septimiu29 Olgafarmaki Playboynetherlands March20103 123 449lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33125 Septimiu29 Olgafarmaki Playboynetherlands March20103 123 449lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33125 Septimiu29 Olgafarmaki Playboynetherlands March20103 123 449lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31171,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33813 Nikoletarali7 123 3lo.jpg",
+      "filename": "Maxjune2010 - 33813 Nikoletarali7 123 3lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33813 Nikoletarali7 123 3lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31172,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33682 Nikoletarali1 123 102lo.jpg",
+      "filename": "Maxjune2010 - 33682 Nikoletarali1 123 102lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33682 Nikoletarali1 123 102lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31173,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33728 Nikoletarali4 123 376lo.jpg",
+      "filename": "Maxjune2010 - 33728 Nikoletarali4 123 376lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33728 Nikoletarali4 123 376lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31174,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33128 Septimiu29 Olgafarmaki Playboynetherlands March20105 123 641lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33128 Septimiu29 Olgafarmaki Playboynetherlands March20105 123 641lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33128 Septimiu29 Olgafarmaki Playboynetherlands March20105 123 641lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31175,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33133 Septimiu29 Olgafarmaki Playboynetherlands March20107 123 138lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33133 Septimiu29 Olgafarmaki Playboynetherlands March20107 123 138lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33133 Septimiu29 Olgafarmaki Playboynetherlands March20107 123 138lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31176,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33794 Nikoletarali6 123 1028lo.jpg",
+      "filename": "Maxjune2010 - 33794 Nikoletarali6 123 1028lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33794 Nikoletarali6 123 1028lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31177,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33694 Nikoletarali2 123 551lo.jpg",
+      "filename": "Maxjune2010 - 33694 Nikoletarali2 123 551lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33694 Nikoletarali2 123 551lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31178,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33128 Septimiu29 Olgafarmaki Playboynetherlands March20106 123 364lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33128 Septimiu29 Olgafarmaki Playboynetherlands March20106 123 364lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33128 Septimiu29 Olgafarmaki Playboynetherlands March20106 123 364lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31179,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33138 Septimiu29 Olgafarmaki Playboynetherlands March201010 123 114lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33138 Septimiu29 Olgafarmaki Playboynetherlands March201010 123 114lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33138 Septimiu29 Olgafarmaki Playboynetherlands March201010 123 114lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31180,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33131 Septimiu29 Olgafarmaki Playboynetherlands March20108 123 583lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33131 Septimiu29 Olgafarmaki Playboynetherlands March20108 123 583lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33131 Septimiu29 Olgafarmaki Playboynetherlands March20108 123 583lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31183,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33137 Septimiu29 Olgafarmaki Playboynetherlands March20109 123 247lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33137 Septimiu29 Olgafarmaki Playboynetherlands March20109 123 247lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33137 Septimiu29 Olgafarmaki Playboynetherlands March20109 123 247lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31185,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33141 Septimiu29 Olgafarmaki Playboynetherlands March201011 123 355lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33141 Septimiu29 Olgafarmaki Playboynetherlands March201011 123 355lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33141 Septimiu29 Olgafarmaki Playboynetherlands March201011 123 355lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31194,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33841 Nikoletarali8 123 532lo.jpg",
+      "filename": "Maxjune2010 - 33841 Nikoletarali8 123 532lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33841 Nikoletarali8 123 532lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31195,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33095 Septimiu29 Olgafarmaki Playboynetherlands March20101 123 142lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33095 Septimiu29 Olgafarmaki Playboynetherlands March20101 123 142lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33095 Septimiu29 Olgafarmaki Playboynetherlands March20101 123 142lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31197,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33118 Septimiu29 Olgafarmaki Playboynetherlands March20102 123 868lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33118 Septimiu29 Olgafarmaki Playboynetherlands March20102 123 868lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33118 Septimiu29 Olgafarmaki Playboynetherlands March20102 123 868lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31198,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33712 Nikoletarali3 123 580lo.jpg",
+      "filename": "Maxjune2010 - 33712 Nikoletarali3 123 580lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33712 Nikoletarali3 123 580lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31201,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33098 Septimiu29 Olgafarmaki Playboynetherlands March2010 123 60lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33098 Septimiu29 Olgafarmaki Playboynetherlands March2010 123 60lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33098 Septimiu29 Olgafarmaki Playboynetherlands March2010 123 60lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31204,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 007.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 007.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 007",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31206,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 008.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 008.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 008",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31207,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 006.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 006.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 006",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31208,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - Cover.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - Cover.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 Cover",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31209,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33122 Septimiu29 Olgafarmaki Playboynetherlands March20104 123 586lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33122 Septimiu29 Olgafarmaki Playboynetherlands March20104 123 586lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33122 Septimiu29 Olgafarmaki Playboynetherlands March20104 123 586lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31225,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Maxjune2010 - 33868 Nikoletarali9 123 553lo.jpg",
+      "filename": "Maxjune2010 - 33868 Nikoletarali9 123 553lo.jpg",
+      "artist": "Compilation",
+      "studio": "Max Magazine",
+      "date": "2010-06",
+      "title": "Maxjune2010 33868 Nikoletarali9 123 553lo",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31231,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Olga Farmaki Ollandiko Playboy - 33162 Septimiu29 Olgafarmaki Playboynetherlands March201012 123 371lo.jpg",
+      "filename": "Olga Farmaki Ollandiko Playboy - 33162 Septimiu29 Olgafarmaki Playboynetherlands March201012 123 371lo.jpg",
+      "artist": "Olga Farmaki",
+      "studio": "Playboy",
+      "date": "2010-03",
+      "title": "Olga Farmaki Ollandiko Playboy 33162 Septimiu29 Olgafarmaki Playboynetherlands March201012 123 371lo",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31258,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Greek Periodika - 090.png",
+      "filename": "Greek Periodika - 090.png",
+      "artist": "Compilation",
+      "studio": "Greek Periodika",
+      "date": null,
+      "title": "Greek Periodika 090",
+      "confidence_score": 0.85
+    },
+    {
+      "id": 31259,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 005.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 005.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 005",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31342,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 011.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 011.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 011",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31425,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 009.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 009.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 009",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 31471,
+      "file_path": "F:\\Aloha\\Magazines & Docs\\Katerina Stikoudi Nitro Oktovriou 2010 - 010.png",
+      "filename": "Katerina Stikoudi Nitro Oktovriou 2010 - 010.png",
+      "artist": "Katerina Stikoudi",
+      "studio": "Nitro Magazine",
+      "date": "2010-10",
+      "title": "Katerina Stikoudi Nitro Oktovriou 2010 010",
+      "confidence_score": 0.95
+    }
+  ]
+}

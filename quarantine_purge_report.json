@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-09-22T00:39:48.390689",
+  "dry_run": false,
+  "purged_duplicate_files": 145,
+  "purged_duplicate_bytes": 4198940171,
+  "purged_corrupted_files": 24,
+  "purged_corrupted_bytes": 13448646844,
+  "total_files_purged": 169,
+  "total_bytes_reclaimed": 17647587015,
+  "total_mb_reclaimed": 16830.05,
+  "total_gb_reclaimed": 16.44,
+  "pruned_directories": 168
+}
