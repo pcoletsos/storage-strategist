@@ -1,0 +1,10 @@
+{
+  "audit_timestamp": "2026-09-21T08:04:11.549046",
+  "target_pool": "Photos & Sets",
+  "target_dir": "F:\\Aloha\\Photos & Sets",
+  "total_assets_scanned": 2684,
+  "unique_sha256_digests": 2684,
+  "exact_duplicate_clusters": 0,
+  "perceptual_hash_clusters": 0,
+  "status": "CERTIFIED_CLEAN"
+}
