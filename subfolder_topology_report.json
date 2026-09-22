@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-09-22T09:51:42.650143",
+  "dry_run": false,
+  "total_planned": 1379,
+  "total_reorganized": 1360,
+  "total_quarantined": 19,
+  "pruned_empty_directories": 12,
+  "destination_breakdown": {
+    "F:\\Aloha\\Celebrities\\Clips": 66,
+    "F:\\Aloha\\Celebrities\\Barbara Niven": 2,
+    "F:\\Aloha\\Celebrities\\Blake Lively": 2,
+    "F:\\Aloha\\Celebrities\\Mr Skin Updates\\Update 1": 177,
+    "F:\\Aloha\\Celebrities\\Mr Skin Updates\\Update 2": 27,
+    "F:\\Aloha\\Celebrities\\Mr Skin Updates\\Update 3": 17,
+    "F:\\Aloha\\Celebrities\\Mr Skin Updates\\Update 4-7": 174,
+    "F:\\Aloha\\Celebrities\\Mr Skin Updates\\Update 8": 123,
+    "F:\\Aloha\\Magazines & Docs\\Greek Periodika": 230,
+    "F:\\Aloha\\Magazines & Docs\\Playboy": 19,
+    "F:\\Aloha\\Magazines & Docs\\Nitro": 12,
+    "F:\\Aloha\\Magazines & Docs\\Max": 10,
+    "F:\\Aloha\\Photos & Sets\\Miscellaneous Sets\\Album 1": 191,
+    "F:\\Aloha\\Photos & Sets\\Miscellaneous Sets\\Album 2": 22,
+    "F:\\Aloha\\.quarantine_flagged\\new_folder3": 19,
+    "F:\\Aloha\\Movies\\Digital Playground": 17,
+    "F:\\Aloha\\Collections & Siterips\\Izzy Green (OnlyFans)\\Izzy Green Pack\\Screenshots": 271
+  }
+}
