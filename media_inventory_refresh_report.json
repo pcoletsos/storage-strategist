@@ -1,5 +1,5 @@
 {
-  "execution_time_seconds": 13.29,
+  "execution_time_seconds": 4.95,
   "target_directory": "F:\\Aloha",
   "database_path": "media_inventory.db",
   "dry_run": false,
@@ -24,18 +24,18 @@
     "database_records_updated": 0
   },
   "filesystem_reconciliation": {
-    "total_db_records": 35487,
+    "total_db_records": 35466,
     "fs_videos": 12117,
-    "fs_images": 23368,
-    "fs_total_media": 35485,
+    "fs_images": 23349,
+    "fs_total_media": 35466,
     "untracked_discovered": 0,
-    "stale_records_found": 2,
-    "stale_records_purged": 2
+    "stale_records_found": 0,
+    "stale_records_purged": 0
   },
   "validation": {
-    "total_records": 35485,
+    "total_records": 35466,
     "legacy_path_records": 0,
-    "studio_enriched_records": 5179,
+    "studio_enriched_records": 5160,
     "tagged_mp4_records": 6685,
     "root_distribution": [
       {
@@ -45,7 +45,7 @@
       },
       {
         "root_folder": "Photos & Sets",
-        "asset_count": 2684,
+        "asset_count": 2665,
         "size_gb": 0.55
       },
       {
