@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-09-29T18:45:23Z",
+  "scan_id": "c3ccab00-8042-41fe-95d9-571222462601",
+  "assumptions": [
+    "Read-only what-if simulation: no file operations are performed.",
+    "Projected space saving sums estimated_impact.space_saving_bytes for included recommendations.",
+    "Recommendations without explicit byte estimates are treated as zero-byte impact."
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "conservative",
+      "title": "Conservative",
+      "strategy": "conservative",
+      "recommendation_ids": [
+        "cloud-backed-target-exclusion"
+      ],
+      "recommendation_count": 1,
+      "projected_space_saving_bytes": 0,
+      "risk_mix": {
+        "low": 1,
+        "medium": 0,
+        "high": 0
+      },
+      "blocked_recommendation_count": 1,
+      "notes": [
+        "1 recommendation(s) were blocked by policy and are excluded."
+      ]
+    },
+    {
+      "scenario_id": "balanced",
+      "title": "Balanced",
+      "strategy": "balanced",
+      "recommendation_ids": [
+        "cloud-backed-target-exclusion"
+      ],
+      "recommendation_count": 1,
+      "projected_space_saving_bytes": 0,
+      "risk_mix": {
+        "low": 1,
+        "medium": 0,
+        "high": 0
+      },
+      "blocked_recommendation_count": 1,
+      "notes": [
+        "1 recommendation(s) were blocked by policy and are excluded."
+      ]
+    },
+    {
+      "scenario_id": "aggressive",
+      "title": "Aggressive",
+      "strategy": "aggressive",
+      "recommendation_ids": [
+        "risky-disk-H--",
+        "cloud-backed-target-exclusion"
+      ],
+      "recommendation_count": 2,
+      "projected_space_saving_bytes": 0,
+      "risk_mix": {
+        "low": 1,
+        "medium": 0,
+        "high": 1
+      },
+      "blocked_recommendation_count": 1,
+      "notes": [
+        "1 recommendation(s) were blocked by policy and are excluded."
+      ]
+    }
+  ]
+}
