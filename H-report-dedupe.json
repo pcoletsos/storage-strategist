@@ -1,0 +1,2728 @@
+{
+  "report_version": "1.3.0",
+  "generated_at": "2026-09-29T18:53:52Z",
+  "scan_id": "25d00573-1c7d-44ae-a930-788ea9a01328",
+  "scan": {
+    "roots": [
+      "H:\\"
+    ],
+    "max_depth": null,
+    "excludes": [],
+    "dedupe": true,
+    "dedupe_min_size": 10485760,
+    "dry_run": true,
+    "backend": "native",
+    "progress": true,
+    "min_ratio": null,
+    "emit_progress_events": false,
+    "progress_interval_ms": 250
+  },
+  "scan_metrics": {
+    "backend": "native",
+    "elapsed_ms": 476457,
+    "scanned_roots": 1,
+    "scanned_files": 60112,
+    "scanned_directories": 8345,
+    "scanned_bytes": 922667367872,
+    "permission_denied_warnings": 0,
+    "contradiction_count": 0
+  },
+  "scan_progress_summary": {
+    "total_events": 8,
+    "phase_counts": [
+      {
+        "phase": "categorizing",
+        "events": 1
+      },
+      {
+        "phase": "enumerating_disks",
+        "events": 1
+      },
+      {
+        "phase": "dedupe",
+        "events": 1
+      },
+      {
+        "phase": "analyzing",
+        "events": 1
+      },
+      {
+        "phase": "done",
+        "events": 1
+      },
+      {
+        "phase": "recommending",
+        "events": 1
+      },
+      {
+        "phase": "walking_files",
+        "events": 2
+      }
+    ],
+    "completed": true
+  },
+  "backend_parity": null,
+  "disks": [
+    {
+      "name": "",
+      "mount_point": "C:\\",
+      "total_space_bytes": 1999230726144,
+      "free_space_bytes": 1602814382080,
+      "disk_kind": "ssd",
+      "file_system": "NTFS",
+      "storage_type": "ssd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": true,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "Samsung SSD 990 PRO 2TB",
+      "interface": "sata",
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "fast",
+      "performance_confidence": 0.8,
+      "performance_rationale": "SSD classification indicates fast local access characteristics.",
+      "eligible_for_local_target": false,
+      "ineligible_reasons": [
+        "OS/system drive is excluded from optimization targets by default."
+      ],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as SSD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk name is empty; vendor/model unavailable.",
+        "OS provider (windows_wmi) supplied interface hint 'sata' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "unknown",
+        "confidence": 0.0,
+        "evidence": []
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "media_library",
+        "archive",
+        "backup_target",
+        "mixed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "Big Games",
+      "mount_point": "D:\\",
+      "total_space_bytes": 2000263573504,
+      "free_space_bytes": 763285946368,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "ST2000DX002-2DV164",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "games_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:games conf:0.85",
+          "category:work conf:0.35",
+          "label:games_or_apps"
+        ]
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "mixed"
+      ]
+    },
+    {
+      "name": "Takis",
+      "mount_point": "E:\\",
+      "total_space_bytes": 2000397791232,
+      "free_space_bytes": 361974607872,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD2003FYYS-02W0B1",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "unknown",
+        "confidence": 0.0,
+        "evidence": []
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "media_library",
+        "archive",
+        "backup_target",
+        "mixed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "Backup",
+      "mount_point": "F:\\",
+      "total_space_bytes": 2000396742656,
+      "free_space_bytes": 743516327936,
+      "disk_kind": "unknown",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD20EARS-00S8B1",
+      "interface": null,
+      "rotational": true,
+      "hybrid": null,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "OS provider inferred rotational media; classified as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "backup_target",
+        "confidence": 1.0,
+        "evidence": [
+          "category:backup conf:0.90",
+          "label:backup"
+        ]
+      },
+      "target_role_eligibility": [
+        "backup_target",
+        "archive"
+      ]
+    },
+    {
+      "name": "RED (Photos)",
+      "mount_point": "G:\\",
+      "total_space_bytes": 4000768323584,
+      "free_space_bytes": 744406876160,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD40EFRX-68N32N0",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "media_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:media conf:0.82",
+          "label:media_or_photos"
+        ]
+      },
+      "target_role_eligibility": [
+        "media_library",
+        "archive",
+        "backup_target"
+      ]
+    },
+    {
+      "name": "Black Rider (Games and Apps)",
+      "mount_point": "H:\\",
+      "total_space_bytes": 1000202039296,
+      "free_space_bytes": 84690452480,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD1003FZEX-00MK2A0",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "games_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:games conf:0.85",
+          "category:work conf:0.35",
+          "category:work conf:0.52",
+          "category:work conf:0.70",
+          "label:games_or_apps"
+        ]
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "mixed"
+      ]
+    },
+    {
+      "name": "WD BOX (External Photos)",
+      "mount_point": "I:\\",
+      "total_space_bytes": 8001560768512,
+      "free_space_bytes": 3915770007552,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "cloud_backed",
+      "locality_class": "cloud_backed",
+      "locality_confidence": 0.95,
+      "locality_rationale": "Cloud-provider indicators detected in disk name/mount/file system.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WD My Book 25EE USB Device",
+      "interface": "usb",
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.65,
+      "performance_rationale": "Network/cloud-backed storage is typically latency sensitive for active workloads.",
+      "eligible_for_local_target": false,
+      "ineligible_reasons": [
+        "Cloud-backed drive is excluded as a local placement target.",
+        "Storage type is non-local for optimization purposes."
+      ],
+      "metadata_notes": [
+        "Cloud-provider indicators detected in disk name/mount/file system.",
+        "Classified as cloud-backed because locality indicates non-local storage.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Vendor/model inferred from disk name string.",
+        "OS provider (windows_wmi) supplied interface hint 'usb' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "media_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:media conf:0.82",
+          "category:work conf:0.75",
+          "label:media_or_photos"
+        ]
+      },
+      "target_role_eligibility": [
+        "media_library",
+        "archive",
+        "backup_target"
+      ]
+    },
+    {
+      "name": "WD Elements (Torrents & Greek)",
+      "mount_point": "J:\\",
+      "total_space_bytes": 12000102969344,
+      "free_space_bytes": 4493105983488,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "usb",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WD Elements 25A3 USB Device",
+      "interface": "usb",
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "balanced",
+      "performance_confidence": 0.55,
+      "performance_rationale": "USB devices vary widely; conservative balanced performance estimate applied.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "Removable/USB indicators detected for this disk.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Vendor/model inferred from disk name string.",
+        "OS provider (windows_wmi) supplied interface hint 'usb' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "active_workload",
+        "confidence": 1.0,
+        "evidence": [
+          "category:work conf:0.75"
+        ]
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "mixed"
+      ]
+    },
+    {
+      "name": "TOSHIBA EXT-drive (BackupPhotos)",
+      "mount_point": "K:\\",
+      "total_space_bytes": 4000650883072,
+      "free_space_bytes": 353491902464,
+      "disk_kind": "unknown",
+      "file_system": "NTFS",
+      "storage_type": "usb",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "TOSHIBA External USB 3.0 USB Device",
+      "interface": "usb",
+      "rotational": true,
+      "hybrid": null,
+      "performance_class": "balanced",
+      "performance_confidence": 0.55,
+      "performance_rationale": "USB devices vary widely; conservative balanced performance estimate applied.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "Removable/USB indicators detected for this disk.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Vendor/model inferred from disk name string.",
+        "OS provider (windows_wmi) supplied interface hint 'usb' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "backup_target",
+        "confidence": 1.0,
+        "evidence": [
+          "category:backup conf:0.90",
+          "category:media conf:0.82",
+          "category:work conf:0.75",
+          "label:backup",
+          "label:media_or_photos"
+        ]
+      },
+      "target_role_eligibility": [
+        "backup_target",
+        "archive"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "root_path": "H:\\",
+      "disk_mount": "H:\\",
+      "total_size_bytes": 922667367872,
+      "file_count": 60112,
+      "directory_count": 8345,
+      "largest_files": {
+        "entries": [
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Devil May Cry 5\\re_chunk_000.pak",
+            "size_bytes": 33451416458,
+            "modified": "2026-02-12T19:33:43Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-31B-it-GGUF\\gemma-4-31B-it-Q8_0.gguf",
+            "size_bytes": 32635674272,
+            "modified": "2026-04-13T19:57:17Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\content\\content0\\texture.cache",
+            "size_bytes": 31255704789,
+            "modified": "2026-09-29T11:23:35Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q8_0.gguf",
+            "size_bytes": 29047084256,
+            "modified": "2026-09-02T20:33:53Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\Qwen3.6-35B-A3B-GGUF\\Qwen3.6-35B-A3B-Q6_K.gguf",
+            "size_bytes": 28514152288,
+            "modified": "2026-06-11T12:52:48Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-26B-A4B-it-GGUF\\gemma-4-26B-A4B-it-Q8_0.gguf",
+            "size_bytes": 26859853952,
+            "modified": "2026-04-08T19:46:00Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\RESIDENT EVIL 2  BIOHAZARD RE2\\re_chunk_000.pak",
+            "size_bytes": 23710519225,
+            "modified": "2026-02-12T19:44:15Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\ep1\\ep1_2_gamedata.archive",
+            "size_bytes": 15517347840,
+            "modified": "2026-02-11T08:17:35Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\Localization\\Voice.pak",
+            "size_bytes": 14997414385,
+            "modified": "2025-10-19T18:25:36Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\basegame_5_video.archive",
+            "size_bytes": 13895094272,
+            "modified": "2026-02-11T08:04:35Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\Gustav.pak",
+            "size_bytes": 13186753328,
+            "modified": "2026-07-23T11:42:32Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-12B-it-GGUF\\gemma-4-12B-it-Q8_0.gguf",
+            "size_bytes": 12669648544,
+            "modified": "2026-06-11T12:46:33Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\basegame_3_nightcity_gi.archive",
+            "size_bytes": 11865198592,
+            "modified": "2026-02-11T07:51:30Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\SharedSounds.pak",
+            "size_bytes": 10859554561,
+            "modified": "2025-10-19T18:25:36Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\basegame_3_nightcity.archive",
+            "size_bytes": 8988114944,
+            "modified": "2026-02-11T07:45:56Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\Models.pak",
+            "size_bytes": 8929633868,
+            "modified": "2025-10-19T18:25:36Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\audio_2_soundbanks.archive",
+            "size_bytes": 8828301312,
+            "modified": "2026-02-11T07:40:52Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-E4B-it-GGUF\\gemma-4-E4B-it-Q8_0.gguf",
+            "size_bytes": 8031240000,
+            "modified": "2026-04-13T20:27:34Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\content\\content0\\bundles\\movies.bundle",
+            "size_bytes": 7680309920,
+            "modified": "2026-09-29T11:23:35Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\content\\content0\\bundles\\buffers.bundle",
+            "size_bytes": 7640452656,
+            "modified": "2026-09-29T11:23:35Z"
+          }
+        ]
+      },
+      "largest_directories": [
+        {
+          "path": "H:\\SteamLibrary",
+          "size_bytes": 413800543467
+        },
+        {
+          "path": "H:\\LLM Models",
+          "size_bytes": 159952069536
+        },
+        {
+          "path": "H:\\XboxGames",
+          "size_bytes": 142979623124
+        },
+        {
+          "path": "H:\\Games",
+          "size_bytes": 131638898615
+        },
+        {
+          "path": "H:\\Tools",
+          "size_bytes": 38880231947
+        },
+        {
+          "path": "H:\\Raider",
+          "size_bytes": 12485403450
+        },
+        {
+          "path": "H:\\Vortex Mods",
+          "size_bytes": 7772412583
+        },
+        {
+          "path": "H:\\Games and Mods",
+          "size_bytes": 6695027849
+        },
+        {
+          "path": "H:\\Projects",
+          "size_bytes": 4493333123
+        },
+        {
+          "path": "H:\\repos",
+          "size_bytes": 1916095396
+        }
+      ],
+      "file_type_summary": {
+        "top_extensions": [
+          {
+            "extension": "pak",
+            "files": 749,
+            "bytes": 314056704383
+          },
+          {
+            "extension": "ba2",
+            "files": 244,
+            "bytes": 187475304239
+          },
+          {
+            "extension": "gguf",
+            "files": 17,
+            "bytes": 159952069536
+          },
+          {
+            "extension": "archive",
+            "files": 57,
+            "bytes": 89723940864
+          },
+          {
+            "extension": "csv",
+            "files": 1047,
+            "bytes": 39171701037
+          },
+          {
+            "extension": "cache",
+            "files": 18,
+            "bytes": 38881318480
+          },
+          {
+            "extension": "bundle",
+            "files": 43,
+            "bytes": 21086538028
+          },
+          {
+            "extension": "bsa",
+            "files": 23,
+            "bytes": 15669364886
+          },
+          {
+            "extension": "mp4",
+            "files": 2395,
+            "bytes": 9412078877
+          },
+          {
+            "extension": "bk2",
+            "files": 50,
+            "bytes": 5922596996
+          },
+          {
+            "extension": "zip",
+            "files": 24,
+            "bytes": 4389480173
+          },
+          {
+            "extension": "w3speech",
+            "files": 1,
+            "bytes": 4242959095
+          }
+        ],
+        "other_files": 55444,
+        "other_bytes": 32683311278,
+        "total_files": 60112,
+        "total_bytes": 922667367872
+      },
+      "activity": {
+        "recent_files": 1915,
+        "stale_files": 31271,
+        "unknown_modified_files": 0
+      }
+    }
+  ],
+  "categories": [
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "work",
+      "confidence": 0.7,
+      "rationale": "Signals: Folder naming indicates active work/project content.",
+      "evidence": [
+        "Folder naming indicates active work/project content."
+      ]
+    },
+    {
+      "target": "F:\\",
+      "disk_mount": "F:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Signals: Disk label/model indicates backup retention usage.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Signals: Disk label/model indicates backup retention usage.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Signals: Disk label/model indicates games or application library usage.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Signals: Disk label/model indicates games or application library usage.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "G:\\",
+      "disk_mount": "G:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Signals: Disk label/model indicates media/photo usage.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Signals: Disk label/model indicates media/photo usage.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Signals: Disk label/model indicates media/photo usage.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Signals: Disk label/model indicates work/project usage.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "J:\\",
+      "disk_mount": "J:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Signals: Disk label/model indicates work/project usage.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Signals: Disk label/model indicates work/project usage.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "work",
+      "confidence": 0.35,
+      "rationale": "Signals: Application-oriented disk labels suggest active workload usage.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "work",
+      "confidence": 0.35,
+      "rationale": "Signals: Application-oriented disk labels suggest active workload usage.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage."
+      ]
+    },
+    {
+      "target": "F:\\",
+      "disk_mount": "F:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "G:\\",
+      "disk_mount": "G:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "J:\\",
+      "disk_mount": "J:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "work",
+      "confidence": 0.525,
+      "rationale": "Aggregated from 2 path-level signal(s) on this disk.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage.",
+        "Folder naming indicates active work/project content."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "work",
+      "confidence": 0.35,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage."
+      ]
+    }
+  ],
+  "duplicates": [
+    {
+      "size_bytes": 4412544440,
+      "hash": "fc5b96e3a415c4f5584f3a372ef0e9bbf036a465ee3ad5590476ce4ebce8727b",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\Enhanced Vanilla Armor and Clothing - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-08-05T17:29:58Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Enhanced Vanilla Armor and Clothing-72546-1-2-1691294552\\Enhanced Vanilla Armor and Clothing - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-08-05T17:29:58Z"
+        }
+      ],
+      "total_wasted_bytes": 4412544440,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 2043413878,
+      "hash": "afd04452c4755e6a62eb15ccf2185e1bbaa21d43cef43b5ea32a007d7137ac6a",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\RPD - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2022-10-06T02:15:11Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\RPD Main - 4k-64875-1-0-1665026882\\RPD - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2022-10-06T02:15:11Z"
+        }
+      ],
+      "total_wasted_bytes": 2043413878,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 255343902,
+      "hash": "7285c53102236c889bd20cc4d7158418ca87bc403a5773df42754f9e856ab1c9",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\XR92_Rifle - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T20:46:34Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Lore Friendly 5.56 Collection 1.3-62347-1-3-1699222548\\XR92_Rifle - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T20:46:34Z"
+        }
+      ],
+      "total_wasted_bytes": 255343902,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 245598331,
+      "hash": "301ee4eb6001931c7c3b3fe0b52a95571091620f0894929aa37a7a63f5d4e730",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\TerrainUndersides - Main.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2022-09-12T03:00:00Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Terrain Undersides-50837-5-0-1662977532\\TerrainUndersides - Main.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2022-09-12T03:00:00Z"
+        }
+      ],
+      "total_wasted_bytes": 245598331,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 222666373,
+      "hash": "0b4bcae320e76713e0f9cded4342a28cd0ae5e204c6017c663bf15cc4aaa286e",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\AttachPack - Textures.BA2",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-19T10:35:14Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Attachment Pack-76924-1-0-6-1705693615\\AttachPack - Textures.BA2",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-19T10:35:14Z"
+        }
+      ],
+      "total_wasted_bytes": 222666373,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 46312778,
+      "hash": "23119af3559f2961da2be66bb7bc55de0887bed0565672906181318d82e49553",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\389\\Archives of search\\389_FTO search for CB's ingredients (vs. existing 'Balance' soap).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-22T09:01:52Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\389\\Archives of search\\389_FTO search for CB's ingredients (vs. existing 'Balance' soap).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-22T09:01:52Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\389\\Archives of search\\389_FTO search for CB's ingredients (vs. existing 'Balance' soap).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-22T09:01:52Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\389\\Archives of search\\389_FTO search for CB's ingredients (vs. existing 'Balance' soap).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-22T09:01:52Z"
+        }
+      ],
+      "total_wasted_bytes": 138938334,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 131612134,
+      "hash": "9ab2bae18b2a271b80a31b8c8da008f70500922c04733c80e9fe85df9ba8e1ea",
+      "files": [
+        {
+          "path": "H:\\Games and Mods\\Mods\\Dragon Age Origins\\DAO-Modmanager_1_9d-277\\mods\\dazip\\QUDAO Fixpack v3.5-4689-3-5-1550475932\\QUDAO Fixpack v3_5.dazip",
+          "disk_mount": "H:\\",
+          "modified": "2019-02-18T06:29:16Z"
+        },
+        {
+          "path": "H:\\Games and Mods\\Mods\\Dragon Age Origins\\DAO-Modmanager_1_9d-277\\mods\\dazip\\QUDAO Fixpack v3_5.dazip",
+          "disk_mount": "H:\\",
+          "modified": "2019-02-18T06:29:16Z"
+        }
+      ],
+      "total_wasted_bytes": 131612134,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 113719350,
+      "hash": "7fde265966e338c62e14599b58fd01e4fe9f298846fab1a1b8e651a4c366ec92",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\VanBuren_223 - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T20:56:50Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Lore Friendly 5.56 Collection 1.3-62347-1-3-1699222548\\VanBuren_223 - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T20:56:50Z"
+        }
+      ],
+      "total_wasted_bytes": 113719350,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 109372919,
+      "hash": "36a729c3807d55170575a14976d0783c2504dec1ae12e78062d1cc0a270b50e2",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\NV_LMG - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T21:17:19Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Lore Friendly 5.56 Collection 1.3-62347-1-3-1699222548\\NV_LMG - Textures.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T21:17:19Z"
+        }
+      ],
+      "total_wasted_bytes": 109372919,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 33651673,
+      "hash": "d3eb18ff79435afc53d3073c4a0d56526ec6e759678d0767d32a8438070cc0a6",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\493 (rec. 19-017)\\19-017_Search on antibacterial technology for shavers & stationery.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:02:44Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\493 (rec. 19-017)\\19-017_Search on antibacterial technology for shavers & stationery.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:02:44Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\493 (rec. 19-017)\\19-017_Search on antibacterial technology for shavers & stationery.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:02:44Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\493 (rec. 19-017)\\19-017_Search on antibacterial technology for shavers & stationery.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:02:44Z"
+        }
+      ],
+      "total_wasted_bytes": 100955019,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 31818674,
+      "hash": "3be62772429d3680bb759eb02522f41a883dd2ea7f31a480b5ab9b2cedc9db1d",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\BSC Personal Care line - Grooming\\Search results for BSC formulations.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-10-08T14:26:06Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\BSC Personal Care line - Grooming\\Search results for BSC formulations.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-10-08T14:26:06Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\BSC Personal Care line - Grooming\\Search results for BSC formulations.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-10-08T14:26:06Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\BSC Personal Care line - Grooming\\Search results for BSC formulations.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-10-08T14:26:06Z"
+        }
+      ],
+      "total_wasted_bytes": 95456022,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 28807585,
+      "hash": "7eaca52ce13c4c4496ff3e36cd0ee93b87957de0588cd220c1113cde2b2e37e4",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR18-165\\Search results for PCR18-165.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-07-06T14:58:02Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR18-165\\Search results for PCR18-165.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-07-06T14:58:02Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR18-165\\Search results for PCR18-165.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-07-06T14:58:02Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR18-165\\Search results for PCR18-165.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-07-06T14:58:02Z"
+        }
+      ],
+      "total_wasted_bytes": 86422755,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 26606257,
+      "hash": "a3ce8c9a28fe021c11a44f15788a755f32c415069b609c27a8f129a1f29deec1",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\389\\External FTOs\\External FTO Search Report for 'UPDATED Cationic Soap composition'\\updated FTO search by iquerious for EP, US_October 2023\\Pdfs_References_For_FTO_Ref. No. FTO-23-13_updated Cationic soap formula.zip",
+          "disk_mount": "H:\\",
+          "modified": "2023-10-31T07:24:50Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\389\\External FTOs\\External FTO Search Report for 'UPDATED Cationic Soap composition'\\updated FTO search by iquerious for EP, US_October 2023\\Pdfs_References_For_FTO_Ref. No. FTO-23-13_updated Cationic soap formula.zip",
+          "disk_mount": "H:\\",
+          "modified": "2023-10-31T07:24:50Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\389\\External FTOs\\External FTO Search Report for 'UPDATED Cationic Soap composition'\\updated FTO search by iquerious for EP, US_October 2023\\Pdfs_References_For_FTO_Ref. No. FTO-23-13_updated Cationic soap formula.zip",
+          "disk_mount": "H:\\",
+          "modified": "2023-10-31T07:24:50Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\389\\External FTOs\\External FTO Search Report for 'UPDATED Cationic Soap composition'\\updated FTO search by iquerious for EP, US_October 2023\\Pdfs_References_For_FTO_Ref. No. FTO-23-13_updated Cationic soap formula.zip",
+          "disk_mount": "H:\\",
+          "modified": "2023-10-31T07:24:50Z"
+        }
+      ],
+      "total_wasted_bytes": 79818771,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 77795704,
+      "hash": "e8162cd6fa810cb09bd9b54827ed692a097ce35f618e7f65c006493bd8e7140f",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\No Man's Sky\\Binaries\\libxess.dll",
+          "disk_mount": "H:\\",
+          "modified": "2026-01-17T14:00:40Z"
+        },
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\bin\\x64_dx12\\libxess.dll",
+          "disk_mount": "H:\\",
+          "modified": "2026-09-29T11:23:35Z"
+        }
+      ],
+      "total_wasted_bytes": 77795704,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 77771112,
+      "hash": "ea7c76d2b5fff278b1b23b3a3f2336dccf27a39cc7171c3ce412435ad895fd72",
+      "files": [
+        {
+          "path": "H:\\Games\\GOG\\Cyberpunk 2077\\bin\\x64\\libxess.dll",
+          "disk_mount": "H:\\",
+          "modified": "2026-02-11T08:06:57Z"
+        },
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\bin\\libxess.dll",
+          "disk_mount": "H:\\",
+          "modified": "2025-10-19T18:25:36Z"
+        }
+      ],
+      "total_wasted_bytes": 77771112,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 25732815,
+      "hash": "d702b0fe1d7befb139951f4653b76628cf926f869534f9a34b88c26cd95d0870",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\PAA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T13:04:16Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\PAA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T13:04:16Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\PAA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T13:04:16Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\PAA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T13:04:16Z"
+        }
+      ],
+      "total_wasted_bytes": 77198445,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 25017087,
+      "hash": "11a89d57281b1e0dcfa4f51d9afba1938f33d47576eba631626a1b2ba82136a9",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\Patent landscape on PAA, PHEMA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-16T10:02:46Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\Patent landscape on PAA, PHEMA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-16T10:02:46Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\Patent landscape on PAA, PHEMA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-16T10:02:46Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on PEBAX_FTO search (13-04-20)\\Patent landscape on PAA, PHEMA combined with PEBAX as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-16T10:02:46Z"
+        }
+      ],
+      "total_wasted_bytes": 75051261,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 23791250,
+      "hash": "356fd8fc76f768d37968efd79cb209a74f1a49db9139293fff7d417fb783dc56",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\18-247\\Search Results for 18-247 of lubra colors by Melcoplast.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-07-24T08:10:18Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\18-247\\Search Results for 18-247 of lubra colors by Melcoplast.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-07-24T08:10:18Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\18-247\\Search Results for 18-247 of lubra colors by Melcoplast.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-07-24T08:10:18Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\18-247\\Search Results for 18-247 of lubra colors by Melcoplast.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2019-07-24T08:10:18Z"
+        }
+      ],
+      "total_wasted_bytes": 71373750,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 20264972,
+      "hash": "7296238fd2f431b2a564b43eb00e4b23133b4ff04fd8c6ddcb24cc6e97071022",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR18-015\\Search for GLS 484-086.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-09-24T05:52:06Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR18-015\\Search for GLS 484-086.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-09-24T05:52:06Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR18-015\\Search for GLS 484-086.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-09-24T05:52:06Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR18-015\\Search for GLS 484-086.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-09-24T05:52:06Z"
+        }
+      ],
+      "total_wasted_bytes": 60794916,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 19726474,
+      "hash": "83fbac79737427133174312ab69af499849d2ed1f1a2322f157e79b32051422c",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\389\\Archives of search\\389_3rd stage FTO (25-Nov-19).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-30T14:52:04Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\389\\Archives of search\\389_3rd stage FTO (25-Nov-19).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-30T14:52:04Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\389\\Archives of search\\389_3rd stage FTO (25-Nov-19).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-30T14:52:04Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\389\\Archives of search\\389_3rd stage FTO (25-Nov-19).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-30T14:52:04Z"
+        }
+      ],
+      "total_wasted_bytes": 59179422,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 57003218,
+      "hash": "1a0889900c8c96d59854cf7eda03257ecae778c24d57b217614868e522fac491",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\RPD - Main.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2022-10-06T02:16:21Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\RPD Main - 4k-64875-1-0-1665026882\\RPD - Main.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2022-10-06T02:16:21Z"
+        }
+      ],
+      "total_wasted_bytes": 57003218,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 18539817,
+      "hash": "d3e2b302c85bff6cf7749fba7326be7d74c42cecc8344bf4d5b5c2d90d884883",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\19-016\\Search results for 19-016.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-17T10:32:10Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-016\\Search results for 19-016.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-17T10:32:10Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\19-016\\Search results for 19-016.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-17T10:32:10Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-016\\Search results for 19-016.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-17T10:32:10Z"
+        }
+      ],
+      "total_wasted_bytes": 55619451,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 17394516,
+      "hash": "28ef13d0b93a2a291a8658f775d36a155cbafd7688ef1a816c93367db0f0c6b3",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\19-025 (ex S18-190)\\CA Sustainability.pptx",
+          "disk_mount": "H:\\",
+          "modified": "2019-02-04T14:34:28Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-025 (ex S18-190)\\CA Sustainability.pptx",
+          "disk_mount": "H:\\",
+          "modified": "2019-02-04T14:34:28Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\19-025 (ex S18-190)\\CA Sustainability.pptx",
+          "disk_mount": "H:\\",
+          "modified": "2019-02-04T14:34:28Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-025 (ex S18-190)\\CA Sustainability.pptx",
+          "disk_mount": "H:\\",
+          "modified": "2019-02-04T14:34:28Z"
+        }
+      ],
+      "total_wasted_bytes": 52183548,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 17389000,
+      "hash": "fd7845db225c0ff1c57cd6c7480056e8f197b6e82bde483de7ab8fe4d4f51cc1",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-019\\20-019_Search for lubra and MWs.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-25T12:22:56Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-019\\20-019_Search for lubra and MWs.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-25T12:22:56Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-019\\20-019_Search for lubra and MWs.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-25T12:22:56Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-019\\20-019_Search for lubra and MWs.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-25T12:22:56Z"
+        }
+      ],
+      "total_wasted_bytes": 52167000,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 51965497,
+      "hash": "c7006c69267e2a3e88371cfe5bde042bed99bc7e06773b5a652687de260fca59",
+      "files": [
+        {
+          "path": "H:\\Games\\Steam\\steamapps\\common\\Fallout 4\\Fallout4Downgrader\\patch_fo4_steam_diff.vcdiff",
+          "disk_mount": "H:\\",
+          "modified": "2024-05-13T15:50:29Z"
+        },
+        {
+          "path": "H:\\Games\\Steam\\steamapps\\common\\Fallout 4\\patch_fo4_steam_diff.vcdiff",
+          "disk_mount": "H:\\",
+          "modified": "2024-05-13T15:50:29Z"
+        }
+      ],
+      "total_wasted_bytes": 51965497,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 17170034,
+      "hash": "bb032261311a659078139f9147767ee16286e376afa6f5c76cccb8832e9d6050",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR17-091\\Search for PCR17-091.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-08-31T10:31:00Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR17-091\\Search for PCR17-091.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-08-31T10:31:00Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR17-091\\Search for PCR17-091.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-08-31T10:31:00Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR17-091\\Search for PCR17-091.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-08-31T10:31:00Z"
+        }
+      ],
+      "total_wasted_bytes": 51510102,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 16775168,
+      "hash": "61e87f8511c94dac17e4e4256fd8b97ba347345294f422a580d4c191f0359ebd",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\240\\Technical Descriptions\\240_Fixed Gel Bars (either with head with Clips or head with Retainers)Technical Description Update.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-08T12:28:42Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\240\\Technical Descriptions\\240_Fixed Gel Bars (either with head with Clips or head with Retainers)Technical Description Update.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-08T12:28:42Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\240\\Technical Descriptions\\240_Fixed Gel Bars (either with head with Clips or head with Retainers)Technical Description Update.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-08T12:28:42Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\240\\Technical Descriptions\\240_Fixed Gel Bars (either with head with Clips or head with Retainers)Technical Description Update.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-08T12:28:42Z"
+        }
+      ],
+      "total_wasted_bytes": 50325504,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 16396478,
+      "hash": "94ca82aff22e8d458f7c87aaec25492538aa4bce3161404d2d27cb96853ffdba",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-006, 20-007\\UV-cured PAA (on MABS or ABS substrate)\\Refined searches\\UV-cured PAA technology_Report 5.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2022-02-10T13:03:42Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-006, 20-007\\UV-cured PAA (on MABS or ABS substrate)\\Refined searches\\UV-cured PAA technology_Report 5.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2022-02-10T13:03:42Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-006, 20-007\\UV-cured PAA (on MABS or ABS substrate)\\Refined searches\\UV-cured PAA technology_Report 5.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2022-02-10T13:03:42Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-006, 20-007\\UV-cured PAA (on MABS or ABS substrate)\\Refined searches\\UV-cured PAA technology_Report 5.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2022-02-10T13:03:42Z"
+        }
+      ],
+      "total_wasted_bytes": 49189434,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 15625253,
+      "hash": "7308f0601587e3d4d303e0b4abcccbe64963dcaf35fef68c02ba68a5c47c95a2",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\19-156\\19-156_Search on two color compositions.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:41:30Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-156\\19-156_Search on two color compositions.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:41:30Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\19-156\\19-156_Search on two color compositions.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:41:30Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-156\\19-156_Search on two color compositions.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:41:30Z"
+        }
+      ],
+      "total_wasted_bytes": 46875759,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 15458428,
+      "hash": "ab331900cdbb6eacdb9e6a50a407bf5973c30183a3336d5fc0e23e017ef2c1c2",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Patent landscape on PAA, PHEMA combined with Texin as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T12:24:16Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Patent landscape on PAA, PHEMA combined with Texin as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T12:24:16Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Patent landscape on PAA, PHEMA combined with Texin as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T12:24:16Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Patent landscape on PAA, PHEMA combined with Texin as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-06T12:24:16Z"
+        }
+      ],
+      "total_wasted_bytes": 46375284,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 15096851,
+      "hash": "08cb5de6a9c45ed1b91994daef568e1960585a8323fc21afdc3e2374df0c2cce",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Search on PAA combined with Texin as substrate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-14T20:53:50Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Search on PAA combined with Texin as substrate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-14T20:53:50Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Search on PAA combined with Texin as substrate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-14T20:53:50Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on Texin_FTO search (19-10-20)\\Search on PAA combined with Texin as substrate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-10-14T20:53:50Z"
+        }
+      ],
+      "total_wasted_bytes": 45290553,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 14793367,
+      "hash": "9d5875444ed4a97eb9e4d2a2f2afdbc7f2458fddedb7bff8f9726bf4385fe342",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on ABS_FTO search (26-10-20)\\PAA combined with ABS as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-22T09:45:18Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on ABS_FTO search (26-10-20)\\PAA combined with ABS as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-22T09:45:18Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on ABS_FTO search (26-10-20)\\PAA combined with ABS as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-22T09:45:18Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-006, 20-007\\PAA, PHEMA on substrates\\PAA, PHEMA on ABS_FTO search (26-10-20)\\PAA combined with ABS as substate.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-22T09:45:18Z"
+        }
+      ],
+      "total_wasted_bytes": 44380101,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 14649856,
+      "hash": "3820eccf7beb99f11fd0d7b44b7253c8031cb2b5fb807786b94d5226c4b352a7",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\240\\Technical Descriptions\\240-Soap Bars Production Process Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-08T14:17:30Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\240\\Technical Descriptions\\240-Soap Bars Production Process Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-08T14:17:30Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\240\\Technical Descriptions\\240-Soap Bars Production Process Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-08T14:17:30Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\240\\Technical Descriptions\\240-Soap Bars Production Process Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-08T14:17:30Z"
+        }
+      ],
+      "total_wasted_bytes": 43949568,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 14342621,
+      "hash": "a267a50f4ac6c724d948a18e0272dc94cbeea1d1e40f6c01fb8b6d68e0b6ad41",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR19-188 (lubra colors)\\Search results.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-18T12:45:28Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR19-188 (lubra colors)\\Search results.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-18T12:45:28Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR19-188 (lubra colors)\\Search results.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-18T12:45:28Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR19-188 (lubra colors)\\Search results.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-18T12:45:28Z"
+        }
+      ],
+      "total_wasted_bytes": 43027863,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 13569375,
+      "hash": "af9e486e4810e9b6003dd4f43ecc2fe5e4acb344df93b68c50b00989216a620b",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR20-021 (affect also PCR20-019, PCR20-020, PCR20-016)\\Search on Alternative Suppliers_(Lotte OR Ineos Styrolution) AND (MABS OR ABS OR SAN).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-12-17T11:42:22Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR20-021 (affect also PCR20-019, PCR20-020, PCR20-016)\\Search on Alternative Suppliers_(Lotte OR Ineos Styrolution) AND (MABS OR ABS OR SAN).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-12-17T11:42:22Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR20-021 (affect also PCR20-019, PCR20-020, PCR20-016)\\Search on Alternative Suppliers_(Lotte OR Ineos Styrolution) AND (MABS OR ABS OR SAN).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-12-17T11:42:22Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR20-021 (affect also PCR20-019, PCR20-020, PCR20-016)\\Search on Alternative Suppliers_(Lotte OR Ineos Styrolution) AND (MABS OR ABS OR SAN).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-12-17T11:42:22Z"
+        }
+      ],
+      "total_wasted_bytes": 40708125,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 13278357,
+      "hash": "48a902fbfedb9470dd35bb3f711cc448f1773e6ca3fae832be63ad4a34954af7",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-001, 20-002\\Search results for black, orange, green of 20-001.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-26T07:19:40Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-001, 20-002\\Search results for black, orange, green of 20-001.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-26T07:19:40Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-001, 20-002\\Search results for black, orange, green of 20-001.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-26T07:19:40Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-001, 20-002\\Search results for black, orange, green of 20-001.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-26T07:19:40Z"
+        }
+      ],
+      "total_wasted_bytes": 39835071,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 13129016,
+      "hash": "9f49f650ea80ae1984fb8d201cde6bcaf1f03397b3c9eb3c4b97a1d1aa721e6a",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-178 - Helsinki\\Search results for 20-178.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-02-03T18:18:18Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-178 - Helsinki\\Search results for 20-178.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-02-03T18:18:18Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-178 - Helsinki\\Search results for 20-178.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-02-03T18:18:18Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-178 - Helsinki\\Search results for 20-178.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-02-03T18:18:18Z"
+        }
+      ],
+      "total_wasted_bytes": 39387048,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 12947968,
+      "hash": "c99090899e2635e78b9931d48cc48e4d08e2020a766989dba9821a8d42eeba19",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\240\\Instructions for PROMOTION files\\package 068783-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-04-10T13:30:30Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\240\\Instructions for PROMOTION files\\package 068783-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-04-10T13:30:30Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\240\\Instructions for PROMOTION files\\package 068783-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-04-10T13:30:30Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\240\\Instructions for PROMOTION files\\package 068783-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-04-10T13:30:30Z"
+        }
+      ],
+      "total_wasted_bytes": 38843904,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 12946432,
+      "hash": "17e6283030c67014355d5065795b53586a31c91e44ee46bc9d121b7994f5dea9",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\240\\Instructions for PROMOTION files\\package 074483-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-09T12:37:52Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\240\\Instructions for PROMOTION files\\package 074483-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-09T12:37:52Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\240\\Instructions for PROMOTION files\\package 074483-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-09T12:37:52Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\240\\Instructions for PROMOTION files\\package 074483-Instructions.doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-06-09T12:37:52Z"
+        }
+      ],
+      "total_wasted_bytes": 38839296,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 12830720,
+      "hash": "2c2f50df2c71f7929aab9761f157ffdea58c323fc7a00a445b928929488180ab",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\240\\Technical Descriptions\\240_Fixed Gel Bars Technical Description Update (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T12:50:44Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\240\\Technical Descriptions\\240_Fixed Gel Bars Technical Description Update (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T12:50:44Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\240\\Technical Descriptions\\240_Fixed Gel Bars Technical Description Update (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T12:50:44Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\240\\Technical Descriptions\\240_Fixed Gel Bars Technical Description Update (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T12:50:44Z"
+        }
+      ],
+      "total_wasted_bytes": 38492160,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 12767885,
+      "hash": "1d5891bd60bb8a076613ceeb4e37e8ff55f745dae6ced64684dd3bf300e4684e",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\20-001, 20-002\\Search results for light blue, pink of 20-002.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-29T09:42:14Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-001, 20-002\\Search results for light blue, pink of 20-002.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-29T09:42:14Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\20-001, 20-002\\Search results for light blue, pink of 20-002.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-29T09:42:14Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-001, 20-002\\Search results for light blue, pink of 20-002.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-05-29T09:42:14Z"
+        }
+      ],
+      "total_wasted_bytes": 38303655,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 12764160,
+      "hash": "bcd1a0a045069da9396e3242158c0a5d335e78b63654d9de34ddb83aa36cd724",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\240\\Technical Descriptions\\240-Soap Bars Composition Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T10:40:28Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\240\\Technical Descriptions\\240-Soap Bars Composition Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T10:40:28Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\240\\Technical Descriptions\\240-Soap Bars Composition Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T10:40:28Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\240\\Technical Descriptions\\240-Soap Bars Composition Technical Description (Mar-17).doc",
+          "disk_mount": "H:\\",
+          "modified": "2017-03-24T10:40:28Z"
+        }
+      ],
+      "total_wasted_bytes": 38292480,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 12609534,
+      "hash": "479a68ab1c36c2aaaa6f75ae2b21fd02e75a91d6349b87ea1ee2939735f69b6e",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-234\\General.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T10:11:00Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-235\\General.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T10:11:00Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-234\\General.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T10:11:00Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-235\\General.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T10:11:00Z"
+        }
+      ],
+      "total_wasted_bytes": 37828602,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 11668176,
+      "hash": "d6255c4acdbd2b3b0dfee2b5049e8745933a71c0b2f38e0ce7196cb954c2f8f5",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR15-009\\UPDATE Mar-20\\Updated Search for 5325 & 2457 and 5167 & 5168 & 5258_general_q1 & q2.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-31T17:12:06Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR15-009\\UPDATE Mar-20\\Updated Search for 5325 & 2457 and 5167 & 5168 & 5258_general_q1 & q2.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-31T17:12:06Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR15-009\\UPDATE Mar-20\\Updated Search for 5325 & 2457 and 5167 & 5168 & 5258_general_q1 & q2.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-31T17:12:06Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR15-009\\UPDATE Mar-20\\Updated Search for 5325 & 2457 and 5167 & 5168 & 5258_general_q1 & q2.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-31T17:12:06Z"
+        }
+      ],
+      "total_wasted_bytes": 35004528,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 11631024,
+      "hash": "475129f0ad01e3c09519773f34e42d8dc658b8f948be67abfe992d33a8bae005",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_masterbatch project []\\PCRs\\PCR17-082\\PCR17-082 - Color masterbatch composition.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-02-05T15:31:24Z"
+        },
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\PCRs\\PCR17-082\\PCR17-082 - Color masterbatch composition.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-02-05T15:31:24Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_masterbatch project [all files]\\PCRs\\PCR17-082\\PCR17-082 - Color masterbatch composition.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-02-05T15:31:24Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\PCRs\\PCR17-082\\PCR17-082 - Color masterbatch composition.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2018-02-05T15:31:24Z"
+        }
+      ],
+      "total_wasted_bytes": 34893072,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 32869090,
+      "hash": "bb389b7401b089f5d3e793321d4df9fd2e29377a294c90312ec0a69b4dfb1970",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\XR92_Rifle - Main.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T20:45:44Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Lore Friendly 5.56 Collection 1.3-62347-1-3-1699222548\\XR92_Rifle - Main.ba2",
+          "disk_mount": "H:\\",
+          "modified": "2023-11-05T20:45:44Z"
+        }
+      ],
+      "total_wasted_bytes": 32869090,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 32022643,
+      "hash": "c5885510b46bec5b9e7de52a1c994e379e55d3c1dafe9feaed06e46e4ef24888",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-234\\ABS.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T12:38:22Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-234\\ABS.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T12:38:22Z"
+        }
+      ],
+      "total_wasted_bytes": 32022643,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 29416388,
+      "hash": "568055ab88527226158be8f0ae4bd352d4bfd383ce3758d48b5e9e9f8094393b",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\Transylvania\\Search for 'Transylvania' program.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:05:46Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\Transylvania\\Search for 'Transylvania' program.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-04-21T19:05:46Z"
+        }
+      ],
+      "total_wasted_bytes": 29416388,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 28406788,
+      "hash": "1f91b7fcd93d699ba88cd9a912cb54e530b25d399954fb6e9fb50f12dac49f44",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\AttachPack - Main.BA2",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-19T10:34:22Z"
+        },
+        {
+          "path": "H:\\Vortex Mods\\fallout4\\Attachment Pack-76924-1-0-6-1705693615\\AttachPack - Main.BA2",
+          "disk_mount": "H:\\",
+          "modified": "2024-01-19T10:34:22Z"
+        }
+      ],
+      "total_wasted_bytes": 28406788,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 19289389,
+      "hash": "13184e81403369b644fbf42a69612805557bb5d70db60196621999e10b71bc34",
+      "files": [
+        {
+          "path": "H:\\repos\\references\\forks\\gmail-cleaner\\docs\\media\\demo.mp4",
+          "disk_mount": "H:\\",
+          "modified": "2026-04-25T23:16:01Z"
+        },
+        {
+          "path": "H:\\repos\\references\\forks\\gmail-cleaner\\media\\demo.mp4",
+          "disk_mount": "H:\\",
+          "modified": "2026-04-25T23:16:01Z"
+        }
+      ],
+      "total_wasted_bytes": 19289389,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 17864034,
+      "hash": "55a433d16598d623c38950276eca4aa33290159f5afd6069d9675a31efa7bd9a",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\20-095\\20-095_Search results for graphite (limited to NAM, EP, LAM & filing date after Jan-18).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-08T09:51:04Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\20-095\\20-095_Search results for graphite (limited to NAM, EP, LAM & filing date after Jan-18).xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-01-08T09:51:04Z"
+        }
+      ],
+      "total_wasted_bytes": 17864034,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 16626176,
+      "hash": "cb8fc4759a6213df1e4938545bbb3316ce0e3b74e17583b0528e22351c9cee4a",
+      "files": [
+        {
+          "path": "H:\\Raider\\Raider.Portable.1.6.0\\vk_swiftshader.dll",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-23T19:19:00Z"
+        },
+        {
+          "path": "H:\\Raider\\Raider.Portable.1.6.2\\vk_swiftshader.dll",
+          "disk_mount": "H:\\",
+          "modified": "2021-06-24T22:20:10Z"
+        }
+      ],
+      "total_wasted_bytes": 16626176,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 13556224,
+      "hash": "4ba834103584a95f9b0316a9f5eff582b1e2e6b70787260acffc5a029d056a50",
+      "files": [
+        {
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Stardew Valley\\Galaxy64.dll",
+          "disk_mount": "H:\\",
+          "modified": "2023-09-19T08:10:33Z"
+        },
+        {
+          "path": "H:\\XboxGames\\Inkulinati\\Content\\Inkulinati_Data\\Plugins\\x86_64\\Galaxy64.dll",
+          "disk_mount": "H:\\",
+          "modified": "2024-03-27T22:57:58Z"
+        }
+      ],
+      "total_wasted_bytes": 13556224,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 11292179,
+      "hash": "c6d062304538f8ff240cf7940cf26d3af5eb822380a69e9eae78f311c7d130b3",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\19-235\\PET.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T12:13:16Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\19-235\\PET.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2020-03-23T12:13:16Z"
+        }
+      ],
+      "total_wasted_bytes": 11292179,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 10611006,
+      "hash": "51ccdd5fb44dc53e20b6fd2a451d1589a0cb03526dffd07990e949398be88738",
+      "files": [
+        {
+          "path": "H:\\Projects\\1_Aliki_material project\\21-S-0004\\Search results for recycled plastics on stationery.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-03-16T17:56:58Z"
+        },
+        {
+          "path": "H:\\Projects\\3_Aliki_material project [all files]\\21-S-0004\\Search results for recycled plastics on stationery.xlsx",
+          "disk_mount": "H:\\",
+          "modified": "2021-03-16T17:56:58Z"
+        }
+      ],
+      "total_wasted_bytes": 10611006,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    },
+    {
+      "size_bytes": 10505952,
+      "hash": "d7870d19f6cc2e72cef043cf74dc300907930cc89dc28960ce9490084e6081f0",
+      "files": [
+        {
+          "path": "H:\\Raider\\Raider.Portable.1.6.0\\icudtl.dat",
+          "disk_mount": "H:\\",
+          "modified": "2020-11-23T19:19:00Z"
+        },
+        {
+          "path": "H:\\Raider\\Raider.Portable.1.6.2\\icudtl.dat",
+          "disk_mount": "H:\\",
+          "modified": "2021-06-24T22:20:10Z"
+        }
+      ],
+      "total_wasted_bytes": 10505952,
+      "intent": {
+        "label": "likely_redundant",
+        "rationale": "No backup or mirror indicators found for this duplicate set."
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "risky-disk-H--",
+      "title": "Review low-free-space risk on H:\\",
+      "rationale": "Disk H:\\ is low on free space (8.5% free) and appears to contain important active categories without clear backup indicators. Verify backup coverage and growth headroom.",
+      "confidence": 0.82,
+      "target_mount": null,
+      "policy_safe": true,
+      "policy_rules_applied": [
+        "safe_target_policy",
+        "safe_target_policy"
+      ],
+      "policy_rules_blocked": [],
+      "evidence": [
+        {
+          "kind": "warning",
+          "label": "Scan warning",
+          "detail": "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+          "path": null,
+          "mount_point": null,
+          "duplicate_hash": null
+        }
+      ],
+      "next_steps": [
+        "Review the linked evidence before taking action.",
+        "Export diagnostics if you want to compare or share the recommendation context."
+      ],
+      "estimated_impact": {
+        "space_saving_bytes": null,
+        "performance": "Low free-space conditions can degrade reliability and performance.",
+        "risk_notes": "Prioritize backup verification before any cleanup decisions."
+      },
+      "risk_level": "high"
+    },
+    {
+      "id": "duplicate-cleanup-candidate",
+      "title": "Review duplicate cleanup candidates",
+      "rationale": "18 redundant duplicate group(s) account for about 7.8 GB of potential reclaimable space. Review each set before manual cleanup.",
+      "confidence": 0.7,
+      "target_mount": null,
+      "policy_safe": true,
+      "policy_rules_applied": [
+        "safe_target_policy",
+        "safe_target_policy"
+      ],
+      "policy_rules_blocked": [],
+      "evidence": [
+        {
+          "kind": "duplicate_group",
+          "label": "Largest redundant duplicate group",
+          "detail": "2 file(s), wasted 4412544440 bytes",
+          "path": "H:\\SteamLibrary\\steamapps\\common\\Fallout 4_DELETE\\Data\\Enhanced Vanilla Armor and Clothing - Textures.ba2",
+          "mount_point": "H:\\",
+          "duplicate_hash": "fc5b96e3a415c4f5584f3a372ef0e9bbf036a465ee3ad5590476ce4ebce8727b"
+        },
+        {
+          "kind": "warning",
+          "label": "Scan warning",
+          "detail": "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+          "path": null,
+          "mount_point": null,
+          "duplicate_hash": null
+        }
+      ],
+      "next_steps": [
+        "Inspect the duplicate group and keep the authoritative copy first.",
+        "Use the diagnostics bundle if you need to review the full context before cleanup."
+      ],
+      "estimated_impact": {
+        "space_saving_bytes": 8415052500,
+        "performance": "Potential capacity relief and reduced indexing load.",
+        "risk_notes": "Validate ownership and backup expectations before removal."
+      },
+      "risk_level": "medium"
+    },
+    {
+      "id": "cloud-backed-target-exclusion",
+      "title": "Cloud-backed drives excluded from local placement targets",
+      "rationale": "Detected cloud-backed drive(s): WD BOX (External Photos) (I:\\). These are analyzed for visibility but excluded as local target destinations in optimization recommendations.",
+      "confidence": 0.95,
+      "target_mount": null,
+      "policy_safe": true,
+      "policy_rules_applied": [
+        "safe_target_policy",
+        "safe_target_policy"
+      ],
+      "policy_rules_blocked": [],
+      "evidence": [
+        {
+          "kind": "disk",
+          "label": "Excluded destination",
+          "detail": "OS/system drive is excluded from optimization targets by default.",
+          "path": null,
+          "mount_point": "C:\\",
+          "duplicate_hash": null
+        },
+        {
+          "kind": "disk",
+          "label": "Excluded destination",
+          "detail": "Cloud-backed drive is excluded as a local placement target. | Storage type is non-local for optimization purposes.",
+          "path": null,
+          "mount_point": "I:\\",
+          "duplicate_hash": null
+        },
+        {
+          "kind": "warning",
+          "label": "Scan warning",
+          "detail": "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+          "path": null,
+          "mount_point": null,
+          "duplicate_hash": null
+        }
+      ],
+      "next_steps": [
+        "Review the linked evidence before taking action.",
+        "Export diagnostics if you want to compare or share the recommendation context."
+      ],
+      "estimated_impact": {
+        "space_saving_bytes": null,
+        "performance": null,
+        "risk_notes": "Exclusion avoids misleading local-performance recommendations for virtual/cloud mounts."
+      },
+      "risk_level": "low"
+    }
+  ],
+  "policy_decisions": [
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "active-workload-placement",
+      "action": "allowed",
+      "rationale": "Target mount passed local placement eligibility checks."
+    },
+    {
+      "policy_id": "role_aware_target_policy",
+      "recommendation_id": "active-workload-placement",
+      "action": "blocked",
+      "rationale": "Target mount K:\\ role BackupTarget is reserved for colder/backup data; blocked active workload placement recommendation."
+    },
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "risky-disk-H--",
+      "action": "allowed",
+      "rationale": "Recommendation does not target a mount and passed eligibility checks."
+    },
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "duplicate-cleanup-candidate",
+      "action": "allowed",
+      "rationale": "Recommendation does not target a mount and passed eligibility checks."
+    },
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "cloud-backed-target-exclusion",
+      "action": "allowed",
+      "rationale": "Recommendation does not target a mount and passed eligibility checks."
+    }
+  ],
+  "rule_traces": [
+    {
+      "rule_id": "active_workload_placement",
+      "status": "emitted",
+      "detail": "Rule produced one recommendation.",
+      "recommendation_id": "active-workload-placement",
+      "confidence": 0.92
+    },
+    {
+      "rule_id": "consolidation_opportunity",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "risky_disk",
+      "status": "emitted",
+      "detail": "Rule produced 1 recommendation(s): risky-disk-H--",
+      "recommendation_id": null,
+      "confidence": 0.82
+    },
+    {
+      "rule_id": "backup_gap",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "duplicate_cleanup",
+      "status": "emitted",
+      "detail": "Rule produced one recommendation.",
+      "recommendation_id": "duplicate-cleanup-candidate",
+      "confidence": 0.7
+    },
+    {
+      "rule_id": "os_headroom",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "cloud_exclusion_notice",
+      "status": "emitted",
+      "detail": "Rule produced one recommendation.",
+      "recommendation_id": "cloud-backed-target-exclusion",
+      "confidence": 0.95
+    },
+    {
+      "rule_id": "dev_artifacts",
+      "status": "skipped",
+      "detail": "No significant development artifacts found.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "system_caches",
+      "status": "skipped",
+      "detail": "No significant system caches found in scanned paths.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "trend_analyzer",
+      "status": "skipped",
+      "detail": "Not enough historical data to analyze trends.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "role_aware_target_policy",
+      "status": "rejected",
+      "detail": "Target mount K:\\ role BackupTarget is reserved for colder/backup data; blocked active workload placement recommendation.",
+      "recommendation_id": "active-workload-placement",
+      "confidence": null
+    }
+  ],
+  "warnings": [
+    "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+    "walk error under H:\\: IO error for operation on H:\\Recovery: Access is denied. (os error 5)",
+    "walk error under H:\\: IO error for operation on H:\\System Volume Information: Access is denied. (os error 5)",
+    "walk error under H:\\: IO error for operation on H:\\WindowsApps: Access is denied. (os error 5)"
+  ]
+}
