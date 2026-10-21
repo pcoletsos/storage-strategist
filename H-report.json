@@ -1,0 +1,1174 @@
+{
+  "report_version": "1.3.0",
+  "generated_at": "2026-09-29T18:45:01Z",
+  "scan_id": "c3ccab00-8042-41fe-95d9-571222462601",
+  "scan": {
+    "roots": [
+      "H:\\"
+    ],
+    "max_depth": null,
+    "excludes": [],
+    "dedupe": false,
+    "dedupe_min_size": 1048576,
+    "dry_run": true,
+    "backend": "native",
+    "progress": true,
+    "min_ratio": null,
+    "emit_progress_events": false,
+    "progress_interval_ms": 250
+  },
+  "scan_metrics": {
+    "backend": "native",
+    "elapsed_ms": 6438,
+    "scanned_roots": 1,
+    "scanned_files": 60112,
+    "scanned_directories": 8345,
+    "scanned_bytes": 922667367872,
+    "permission_denied_warnings": 0,
+    "contradiction_count": 0
+  },
+  "scan_progress_summary": {
+    "total_events": 8,
+    "phase_counts": [
+      {
+        "phase": "enumerating_disks",
+        "events": 1
+      },
+      {
+        "phase": "walking_files",
+        "events": 2
+      },
+      {
+        "phase": "dedupe",
+        "events": 1
+      },
+      {
+        "phase": "recommending",
+        "events": 1
+      },
+      {
+        "phase": "done",
+        "events": 1
+      },
+      {
+        "phase": "analyzing",
+        "events": 1
+      },
+      {
+        "phase": "categorizing",
+        "events": 1
+      }
+    ],
+    "completed": true
+  },
+  "backend_parity": null,
+  "disks": [
+    {
+      "name": "",
+      "mount_point": "C:\\",
+      "total_space_bytes": 1999230726144,
+      "free_space_bytes": 1602817687552,
+      "disk_kind": "ssd",
+      "file_system": "NTFS",
+      "storage_type": "ssd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": true,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "Samsung SSD 990 PRO 2TB",
+      "interface": "sata",
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "fast",
+      "performance_confidence": 0.8,
+      "performance_rationale": "SSD classification indicates fast local access characteristics.",
+      "eligible_for_local_target": false,
+      "ineligible_reasons": [
+        "OS/system drive is excluded from optimization targets by default."
+      ],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as SSD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk name is empty; vendor/model unavailable.",
+        "OS provider (windows_wmi) supplied interface hint 'sata' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "unknown",
+        "confidence": 0.0,
+        "evidence": []
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "media_library",
+        "archive",
+        "backup_target",
+        "mixed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "Big Games",
+      "mount_point": "D:\\",
+      "total_space_bytes": 2000263573504,
+      "free_space_bytes": 763285946368,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "ST2000DX002-2DV164",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "games_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:games conf:0.85",
+          "category:work conf:0.35",
+          "label:games_or_apps"
+        ]
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "mixed"
+      ]
+    },
+    {
+      "name": "Takis",
+      "mount_point": "E:\\",
+      "total_space_bytes": 2000397791232,
+      "free_space_bytes": 362038591488,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD2003FYYS-02W0B1",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "unknown",
+        "confidence": 0.0,
+        "evidence": []
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "media_library",
+        "archive",
+        "backup_target",
+        "mixed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "Backup",
+      "mount_point": "F:\\",
+      "total_space_bytes": 2000396742656,
+      "free_space_bytes": 743516327936,
+      "disk_kind": "unknown",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD20EARS-00S8B1",
+      "interface": null,
+      "rotational": true,
+      "hybrid": null,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "OS provider inferred rotational media; classified as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "backup_target",
+        "confidence": 1.0,
+        "evidence": [
+          "category:backup conf:0.90",
+          "label:backup"
+        ]
+      },
+      "target_role_eligibility": [
+        "backup_target",
+        "archive"
+      ]
+    },
+    {
+      "name": "RED (Photos)",
+      "mount_point": "G:\\",
+      "total_space_bytes": 4000768323584,
+      "free_space_bytes": 744406876160,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD40EFRX-68N32N0",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "media_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:media conf:0.82",
+          "label:media_or_photos"
+        ]
+      },
+      "target_role_eligibility": [
+        "media_library",
+        "archive",
+        "backup_target"
+      ]
+    },
+    {
+      "name": "Black Rider (Games and Apps)",
+      "mount_point": "H:\\",
+      "total_space_bytes": 1000202039296,
+      "free_space_bytes": 84690452480,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "hdd",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WDC WD1003FZEX-00MK2A0",
+      "interface": null,
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.75,
+      "performance_rationale": "HDD classification indicates higher latency than solid-state media.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "sysinfo reported this disk as HDD.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Disk label is available but vendor could not be inferred reliably.",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.84).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.84)."
+      ],
+      "role_hint": {
+        "role": "games_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:games conf:0.85",
+          "category:work conf:0.35",
+          "category:work conf:0.52",
+          "category:work conf:0.70",
+          "label:games_or_apps"
+        ]
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "mixed"
+      ]
+    },
+    {
+      "name": "WD BOX (External Photos)",
+      "mount_point": "I:\\",
+      "total_space_bytes": 8001560768512,
+      "free_space_bytes": 3915770007552,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "cloud_backed",
+      "locality_class": "cloud_backed",
+      "locality_confidence": 0.95,
+      "locality_rationale": "Cloud-provider indicators detected in disk name/mount/file system.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WD My Book 25EE USB Device",
+      "interface": "usb",
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "slow",
+      "performance_confidence": 0.65,
+      "performance_rationale": "Network/cloud-backed storage is typically latency sensitive for active workloads.",
+      "eligible_for_local_target": false,
+      "ineligible_reasons": [
+        "Cloud-backed drive is excluded as a local placement target.",
+        "Storage type is non-local for optimization purposes."
+      ],
+      "metadata_notes": [
+        "Cloud-provider indicators detected in disk name/mount/file system.",
+        "Classified as cloud-backed because locality indicates non-local storage.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Vendor/model inferred from disk name string.",
+        "OS provider (windows_wmi) supplied interface hint 'usb' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "media_library",
+        "confidence": 1.0,
+        "evidence": [
+          "category:media conf:0.82",
+          "category:work conf:0.75",
+          "label:media_or_photos"
+        ]
+      },
+      "target_role_eligibility": [
+        "media_library",
+        "archive",
+        "backup_target"
+      ]
+    },
+    {
+      "name": "WD Elements (Torrents & Greek)",
+      "mount_point": "J:\\",
+      "total_space_bytes": 12000102969344,
+      "free_space_bytes": 4493105983488,
+      "disk_kind": "hdd",
+      "file_system": "NTFS",
+      "storage_type": "usb",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "WD Elements 25A3 USB Device",
+      "interface": "usb",
+      "rotational": true,
+      "hybrid": false,
+      "performance_class": "balanced",
+      "performance_confidence": 0.55,
+      "performance_rationale": "USB devices vary widely; conservative balanced performance estimate applied.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "Removable/USB indicators detected for this disk.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Vendor/model inferred from disk name string.",
+        "OS provider (windows_wmi) supplied interface hint 'usb' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "active_workload",
+        "confidence": 1.0,
+        "evidence": [
+          "category:work conf:0.75"
+        ]
+      },
+      "target_role_eligibility": [
+        "active_workload",
+        "games_library",
+        "mixed"
+      ]
+    },
+    {
+      "name": "TOSHIBA EXT-drive (BackupPhotos)",
+      "mount_point": "K:\\",
+      "total_space_bytes": 4000650883072,
+      "free_space_bytes": 353491902464,
+      "disk_kind": "unknown",
+      "file_system": "NTFS",
+      "storage_type": "usb",
+      "locality_class": "local_physical",
+      "locality_confidence": 0.7,
+      "locality_rationale": "No cloud/network/virtual indicators detected for this mount.",
+      "is_os_drive": false,
+      "is_removable": false,
+      "vendor": "(Standard disk drives)",
+      "model": "TOSHIBA External USB 3.0 USB Device",
+      "interface": "usb",
+      "rotational": true,
+      "hybrid": null,
+      "performance_class": "balanced",
+      "performance_confidence": 0.55,
+      "performance_rationale": "USB devices vary widely; conservative balanced performance estimate applied.",
+      "eligible_for_local_target": true,
+      "ineligible_reasons": [],
+      "metadata_notes": [
+        "No cloud/network/virtual indicators detected for this mount.",
+        "Removable/USB indicators detected for this disk.",
+        "Interface unavailable from cross-platform runtime signals.",
+        "Vendor/model inferred from disk name string.",
+        "OS provider (windows_wmi) supplied interface hint 'usb' (confidence 0.90).",
+        "OS provider (windows_wmi) supplied vendor hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied model hint (confidence 0.90).",
+        "OS provider (windows_wmi) supplied rotational hint 'true' (confidence 0.90)."
+      ],
+      "role_hint": {
+        "role": "backup_target",
+        "confidence": 1.0,
+        "evidence": [
+          "category:backup conf:0.90",
+          "category:media conf:0.82",
+          "category:work conf:0.75",
+          "label:backup",
+          "label:media_or_photos"
+        ]
+      },
+      "target_role_eligibility": [
+        "backup_target",
+        "archive"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "root_path": "H:\\",
+      "disk_mount": "H:\\",
+      "total_size_bytes": 922667367872,
+      "file_count": 60112,
+      "directory_count": 8345,
+      "largest_files": {
+        "entries": [
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Devil May Cry 5\\re_chunk_000.pak",
+            "size_bytes": 33451416458,
+            "modified": "2026-02-12T19:33:43Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-31B-it-GGUF\\gemma-4-31B-it-Q8_0.gguf",
+            "size_bytes": 32635674272,
+            "modified": "2026-04-13T19:57:17Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\content\\content0\\texture.cache",
+            "size_bytes": 31255704789,
+            "modified": "2026-09-29T11:23:35Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\Qwen3.8-27B-GGUF\\Qwen3.8-27B-Q8_0.gguf",
+            "size_bytes": 29047084256,
+            "modified": "2026-09-02T20:33:53Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\Qwen3.6-35B-A3B-GGUF\\Qwen3.6-35B-A3B-Q6_K.gguf",
+            "size_bytes": 28514152288,
+            "modified": "2026-06-11T12:52:48Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-26B-A4B-it-GGUF\\gemma-4-26B-A4B-it-Q8_0.gguf",
+            "size_bytes": 26859853952,
+            "modified": "2026-04-08T19:46:00Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\RESIDENT EVIL 2  BIOHAZARD RE2\\re_chunk_000.pak",
+            "size_bytes": 23710519225,
+            "modified": "2026-02-12T19:44:15Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\ep1\\ep1_2_gamedata.archive",
+            "size_bytes": 15517347840,
+            "modified": "2026-02-11T08:17:35Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\Localization\\Voice.pak",
+            "size_bytes": 14997414385,
+            "modified": "2025-10-19T18:25:36Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\basegame_5_video.archive",
+            "size_bytes": 13895094272,
+            "modified": "2026-02-11T08:04:35Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\Gustav.pak",
+            "size_bytes": 13186753328,
+            "modified": "2026-07-23T11:42:32Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-12B-it-GGUF\\gemma-4-12B-it-Q8_0.gguf",
+            "size_bytes": 12669648544,
+            "modified": "2026-06-11T12:46:33Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\basegame_3_nightcity_gi.archive",
+            "size_bytes": 11865198592,
+            "modified": "2026-02-11T07:51:30Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\SharedSounds.pak",
+            "size_bytes": 10859554561,
+            "modified": "2025-10-19T18:25:36Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\basegame_3_nightcity.archive",
+            "size_bytes": 8988114944,
+            "modified": "2026-02-11T07:45:56Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\Baldurs Gate 3\\Data\\Models.pak",
+            "size_bytes": 8929633868,
+            "modified": "2025-10-19T18:25:36Z"
+          },
+          {
+            "path": "H:\\Games\\GOG\\Cyberpunk 2077\\archive\\pc\\content\\audio_2_soundbanks.archive",
+            "size_bytes": 8828301312,
+            "modified": "2026-02-11T07:40:52Z"
+          },
+          {
+            "path": "H:\\LLM Models\\lm-studio\\models\\lmstudio-community\\gemma-4-E4B-it-GGUF\\gemma-4-E4B-it-Q8_0.gguf",
+            "size_bytes": 8031240000,
+            "modified": "2026-04-13T20:27:34Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\content\\content0\\bundles\\movies.bundle",
+            "size_bytes": 7680309920,
+            "modified": "2026-09-29T11:23:35Z"
+          },
+          {
+            "path": "H:\\SteamLibrary\\steamapps\\common\\The Witcher 3\\content\\content0\\bundles\\buffers.bundle",
+            "size_bytes": 7640452656,
+            "modified": "2026-09-29T11:23:35Z"
+          }
+        ]
+      },
+      "largest_directories": [
+        {
+          "path": "H:\\SteamLibrary",
+          "size_bytes": 413800543467
+        },
+        {
+          "path": "H:\\LLM Models",
+          "size_bytes": 159952069536
+        },
+        {
+          "path": "H:\\XboxGames",
+          "size_bytes": 142979623124
+        },
+        {
+          "path": "H:\\Games",
+          "size_bytes": 131638898615
+        },
+        {
+          "path": "H:\\Tools",
+          "size_bytes": 38880231947
+        },
+        {
+          "path": "H:\\Raider",
+          "size_bytes": 12485403450
+        },
+        {
+          "path": "H:\\Vortex Mods",
+          "size_bytes": 7772412583
+        },
+        {
+          "path": "H:\\Games and Mods",
+          "size_bytes": 6695027849
+        },
+        {
+          "path": "H:\\Projects",
+          "size_bytes": 4493333123
+        },
+        {
+          "path": "H:\\repos",
+          "size_bytes": 1916095396
+        }
+      ],
+      "file_type_summary": {
+        "top_extensions": [
+          {
+            "extension": "pak",
+            "files": 749,
+            "bytes": 314056704383
+          },
+          {
+            "extension": "ba2",
+            "files": 244,
+            "bytes": 187475304239
+          },
+          {
+            "extension": "gguf",
+            "files": 17,
+            "bytes": 159952069536
+          },
+          {
+            "extension": "archive",
+            "files": 57,
+            "bytes": 89723940864
+          },
+          {
+            "extension": "csv",
+            "files": 1047,
+            "bytes": 39171701037
+          },
+          {
+            "extension": "cache",
+            "files": 18,
+            "bytes": 38881318480
+          },
+          {
+            "extension": "bundle",
+            "files": 43,
+            "bytes": 21086538028
+          },
+          {
+            "extension": "bsa",
+            "files": 23,
+            "bytes": 15669364886
+          },
+          {
+            "extension": "mp4",
+            "files": 2395,
+            "bytes": 9412078877
+          },
+          {
+            "extension": "bk2",
+            "files": 50,
+            "bytes": 5922596996
+          },
+          {
+            "extension": "zip",
+            "files": 24,
+            "bytes": 4389480173
+          },
+          {
+            "extension": "w3speech",
+            "files": 1,
+            "bytes": 4242959095
+          }
+        ],
+        "other_files": 55444,
+        "other_bytes": 32683311278,
+        "total_files": 60112,
+        "total_bytes": 922667367872
+      },
+      "activity": {
+        "recent_files": 1915,
+        "stale_files": 31271,
+        "unknown_modified_files": 0
+      }
+    }
+  ],
+  "categories": [
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "work",
+      "confidence": 0.7,
+      "rationale": "Signals: Folder naming indicates active work/project content.",
+      "evidence": [
+        "Folder naming indicates active work/project content."
+      ]
+    },
+    {
+      "target": "F:\\",
+      "disk_mount": "F:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Signals: Disk label/model indicates backup retention usage.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Signals: Disk label/model indicates backup retention usage.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Signals: Disk label/model indicates games or application library usage.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Signals: Disk label/model indicates games or application library usage.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "G:\\",
+      "disk_mount": "G:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Signals: Disk label/model indicates media/photo usage.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Signals: Disk label/model indicates media/photo usage.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Signals: Disk label/model indicates media/photo usage.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Signals: Disk label/model indicates work/project usage.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "J:\\",
+      "disk_mount": "J:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Signals: Disk label/model indicates work/project usage.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Signals: Disk label/model indicates work/project usage.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "work",
+      "confidence": 0.35,
+      "rationale": "Signals: Application-oriented disk labels suggest active workload usage.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "work",
+      "confidence": 0.35,
+      "rationale": "Signals: Application-oriented disk labels suggest active workload usage.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage."
+      ]
+    },
+    {
+      "target": "F:\\",
+      "disk_mount": "F:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "backup",
+      "confidence": 0.9,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates backup retention usage."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "games",
+      "confidence": 0.85,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates games or application library usage."
+      ]
+    },
+    {
+      "target": "G:\\",
+      "disk_mount": "G:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "media",
+      "confidence": 0.82,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates media/photo usage."
+      ]
+    },
+    {
+      "target": "I:\\",
+      "disk_mount": "I:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "J:\\",
+      "disk_mount": "J:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "K:\\",
+      "disk_mount": "K:\\",
+      "category": "work",
+      "confidence": 0.75,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Disk label/model indicates work/project usage."
+      ]
+    },
+    {
+      "target": "H:\\",
+      "disk_mount": "H:\\",
+      "category": "work",
+      "confidence": 0.525,
+      "rationale": "Aggregated from 2 path-level signal(s) on this disk.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage.",
+        "Folder naming indicates active work/project content."
+      ]
+    },
+    {
+      "target": "D:\\",
+      "disk_mount": "D:\\",
+      "category": "work",
+      "confidence": 0.35,
+      "rationale": "Aggregated from 1 path-level signal(s) on this disk.",
+      "evidence": [
+        "Application-oriented disk labels suggest active workload usage."
+      ]
+    }
+  ],
+  "duplicates": [],
+  "recommendations": [
+    {
+      "id": "risky-disk-H--",
+      "title": "Review low-free-space risk on H:\\",
+      "rationale": "Disk H:\\ is low on free space (8.5% free) and appears to contain important active categories without clear backup indicators. Verify backup coverage and growth headroom.",
+      "confidence": 0.82,
+      "target_mount": null,
+      "policy_safe": true,
+      "policy_rules_applied": [
+        "safe_target_policy",
+        "safe_target_policy"
+      ],
+      "policy_rules_blocked": [],
+      "evidence": [
+        {
+          "kind": "warning",
+          "label": "Scan warning",
+          "detail": "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+          "path": null,
+          "mount_point": null,
+          "duplicate_hash": null
+        }
+      ],
+      "next_steps": [
+        "Review the linked evidence before taking action.",
+        "Export diagnostics if you want to compare or share the recommendation context."
+      ],
+      "estimated_impact": {
+        "space_saving_bytes": null,
+        "performance": "Low free-space conditions can degrade reliability and performance.",
+        "risk_notes": "Prioritize backup verification before any cleanup decisions."
+      },
+      "risk_level": "high"
+    },
+    {
+      "id": "cloud-backed-target-exclusion",
+      "title": "Cloud-backed drives excluded from local placement targets",
+      "rationale": "Detected cloud-backed drive(s): WD BOX (External Photos) (I:\\). These are analyzed for visibility but excluded as local target destinations in optimization recommendations.",
+      "confidence": 0.95,
+      "target_mount": null,
+      "policy_safe": true,
+      "policy_rules_applied": [
+        "safe_target_policy",
+        "safe_target_policy"
+      ],
+      "policy_rules_blocked": [],
+      "evidence": [
+        {
+          "kind": "disk",
+          "label": "Excluded destination",
+          "detail": "OS/system drive is excluded from optimization targets by default.",
+          "path": null,
+          "mount_point": "C:\\",
+          "duplicate_hash": null
+        },
+        {
+          "kind": "disk",
+          "label": "Excluded destination",
+          "detail": "Cloud-backed drive is excluded as a local placement target. | Storage type is non-local for optimization purposes.",
+          "path": null,
+          "mount_point": "I:\\",
+          "duplicate_hash": null
+        },
+        {
+          "kind": "warning",
+          "label": "Scan warning",
+          "detail": "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+          "path": null,
+          "mount_point": null,
+          "duplicate_hash": null
+        }
+      ],
+      "next_steps": [
+        "Review the linked evidence before taking action.",
+        "Export diagnostics if you want to compare or share the recommendation context."
+      ],
+      "estimated_impact": {
+        "space_saving_bytes": null,
+        "performance": null,
+        "risk_notes": "Exclusion avoids misleading local-performance recommendations for virtual/cloud mounts."
+      },
+      "risk_level": "low"
+    }
+  ],
+  "policy_decisions": [
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "active-workload-placement",
+      "action": "allowed",
+      "rationale": "Target mount passed local placement eligibility checks."
+    },
+    {
+      "policy_id": "role_aware_target_policy",
+      "recommendation_id": "active-workload-placement",
+      "action": "blocked",
+      "rationale": "Target mount K:\\ role BackupTarget is reserved for colder/backup data; blocked active workload placement recommendation."
+    },
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "risky-disk-H--",
+      "action": "allowed",
+      "rationale": "Recommendation does not target a mount and passed eligibility checks."
+    },
+    {
+      "policy_id": "safe_target_policy",
+      "recommendation_id": "cloud-backed-target-exclusion",
+      "action": "allowed",
+      "rationale": "Recommendation does not target a mount and passed eligibility checks."
+    }
+  ],
+  "rule_traces": [
+    {
+      "rule_id": "active_workload_placement",
+      "status": "emitted",
+      "detail": "Rule produced one recommendation.",
+      "recommendation_id": "active-workload-placement",
+      "confidence": 0.92
+    },
+    {
+      "rule_id": "consolidation_opportunity",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "risky_disk",
+      "status": "emitted",
+      "detail": "Rule produced 1 recommendation(s): risky-disk-H--",
+      "recommendation_id": null,
+      "confidence": 0.82
+    },
+    {
+      "rule_id": "backup_gap",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "duplicate_cleanup",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "os_headroom",
+      "status": "skipped",
+      "detail": "Rule conditions were not met.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "cloud_exclusion_notice",
+      "status": "emitted",
+      "detail": "Rule produced one recommendation.",
+      "recommendation_id": "cloud-backed-target-exclusion",
+      "confidence": 0.95
+    },
+    {
+      "rule_id": "dev_artifacts",
+      "status": "skipped",
+      "detail": "No significant development artifacts found.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "system_caches",
+      "status": "skipped",
+      "detail": "No significant system caches found in scanned paths.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "trend_analyzer",
+      "status": "skipped",
+      "detail": "Not enough historical data to analyze trends.",
+      "recommendation_id": null,
+      "confidence": null
+    },
+    {
+      "rule_id": "role_aware_target_policy",
+      "status": "rejected",
+      "detail": "Target mount K:\\ role BackupTarget is reserved for colder/backup data; blocked active workload placement recommendation.",
+      "recommendation_id": "active-workload-placement",
+      "confidence": null
+    }
+  ],
+  "warnings": [
+    "walk error under H:\\: IO error for operation on H:\\$RECYCLE.BIN\\S-1-5-21-4021233726-745866793-3061493366-1001: Access is denied. (os error 5)",
+    "walk error under H:\\: IO error for operation on H:\\Recovery: Access is denied. (os error 5)",
+    "walk error under H:\\: IO error for operation on H:\\System Volume Information: Access is denied. (os error 5)",
+    "walk error under H:\\: IO error for operation on H:\\WindowsApps: Access is denied. (os error 5)"
+  ]
+}
