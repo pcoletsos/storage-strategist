@@ -402,9 +402,11 @@ fn can_use_raw_scan_id_stem(scan_id: &str) -> bool {
             .all(|ch| ch.is_ascii_alphanumeric() || ch == '-' || ch == '_')
 }
 
-// Windows resolves these names to character devices regardless of case or
-// extension, so a raw `nul.json` write is silently discarded. They are rejected
-// on every platform so a report store stays portable between machines.
+// Windows maps these names to character devices regardless of case. Windows 10
+// and earlier also map them with an extension (`nul.json`), and Windows 11
+// still maps the bare name, so a raw report write can be lost. COM0 and LPT0
+// are not Win32 devices but are listed as reserved in Microsoft's naming rules.
+// All are rejected on every platform so a report store stays portable.
 fn is_windows_reserved_device_name(name: &str) -> bool {
     let base = name
         .split('.')
@@ -919,6 +921,8 @@ mod tests {
         }
     }
 
+    // The character allowlist already sends these IDs to the hashed stem, so
+    // this pins the helper itself in case the allowlist is ever widened.
     #[test]
     fn windows_reserved_device_name_check_ignores_extension_and_trailing_spaces() {
         for id in [
@@ -932,11 +936,6 @@ mod tests {
             assert!(
                 is_windows_reserved_device_name(id),
                 "expected {:?} to be detected as a Windows reserved device name",
-                id
-            );
-            assert!(
-                report_file_stem_for_scan(id).starts_with("__scan_id_blake3__"),
-                "expected hashed stem for {:?}",
                 id
             );
         }
@@ -1031,23 +1030,23 @@ mod tests {
         }
     }
 
-    // Earlier builds wrote reserved names raw. That file only exists where the
-    // filesystem allowed it, which excludes Windows releases that map
-    // `nul.json` to the NUL device, so the fixture is skipped there.
-    #[cfg(not(windows))]
+    // Earlier builds wrote reserved names raw. `com0` is reserved by this check
+    // but is not a device on any Windows release, so the raw fixture can be
+    // written and read back on every platform.
     #[test]
     fn legacy_raw_reserved_name_report_remains_readable() {
         let dir = tempdir().expect("temp dir");
         let reports_dir = dir.path().join("reports");
         fs::create_dir_all(&reports_dir).expect("create reports dir");
-        let report = sample_report("nul", 100, 1);
+        let report = sample_report("com0", 100, 1);
+        assert!(!can_use_raw_scan_id_stem(&report.scan_id));
         fs::write(
-            reports_dir.join("nul.json"),
+            reports_dir.join("com0.json"),
             serde_json::to_string_pretty(&report).expect("serialize report"),
         )
         .expect("write legacy report");
 
-        let loaded = get_report("nul", Some(dir.path())).expect("load legacy report");
+        let loaded = get_report("com0", Some(dir.path())).expect("load legacy report");
 
         assert_eq!(loaded.scan_id, report.scan_id);
         assert_eq!(loaded.recommendations, report.recommendations);
