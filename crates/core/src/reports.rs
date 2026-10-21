@@ -396,9 +396,34 @@ fn can_use_raw_scan_id_stem(scan_id: &str) -> bool {
         && scan_id != "."
         && scan_id != ".."
         && !scan_id.starts_with(HASHED_SCAN_ID_PREFIX)
+        && !is_windows_reserved_device_name(scan_id)
         && scan_id
             .chars()
             .all(|ch| ch.is_ascii_alphanumeric() || ch == '-' || ch == '_')
+}
+
+// Windows maps these names to character devices regardless of case. Windows 10
+// and earlier also map them with an extension (`nul.json`), and Windows 11
+// still maps the bare name, so a raw report write can be lost. COM0 and LPT0
+// are not Win32 devices but are listed as reserved in Microsoft's naming rules.
+// All are rejected on every platform so a report store stays portable.
+fn is_windows_reserved_device_name(name: &str) -> bool {
+    let base = name
+        .split('.')
+        .next()
+        .unwrap_or_default()
+        .trim_end_matches(' ');
+    if ["CON", "PRN", "AUX", "NUL"]
+        .iter()
+        .any(|reserved| base.eq_ignore_ascii_case(reserved))
+    {
+        return true;
+    }
+
+    let bytes = base.as_bytes();
+    bytes.len() == 4
+        && bytes[3].is_ascii_digit()
+        && (bytes[..3].eq_ignore_ascii_case(b"COM") || bytes[..3].eq_ignore_ascii_case(b"LPT"))
 }
 
 fn legacy_report_path_for_scan(scan_id: &str, custom_dir: Option<&Path>) -> PathBuf {
@@ -567,8 +592,8 @@ mod tests {
     use std::fs;
 
     use super::{
-        build_report_diff, can_use_raw_scan_id_stem, get_report, import_report, list_reports,
-        report_file_stem_for_scan, store_report,
+        build_report_diff, can_use_raw_scan_id_stem, get_report, import_report,
+        is_windows_reserved_device_name, list_reports, report_file_stem_for_scan, store_report,
     };
     use crate::model::{
         EstimatedImpact, Recommendation, RecommendationEvidence, RecommendationEvidenceKind,
@@ -849,6 +874,180 @@ mod tests {
         // Loading the report by the original traversal scan_id must succeed
         // because the store function mapped it to a safe hashed filename.
         let loaded = get_report(&report.scan_id, Some(dir.path())).expect("load stored report");
+        assert_eq!(loaded.scan_id, report.scan_id);
+        assert_eq!(loaded.recommendations, report.recommendations);
+    }
+
+    #[test]
+    fn report_file_stem_hashes_windows_reserved_device_names() {
+        let mut reserved_ids: Vec<String> = ["CON", "PRN", "AUX", "NUL"]
+            .iter()
+            .map(|name| name.to_string())
+            .collect();
+        for prefix in ["COM", "LPT"] {
+            for digit in 0..=9 {
+                reserved_ids.push(format!("{prefix}{digit}"));
+            }
+        }
+        let cased_variants: Vec<String> = reserved_ids
+            .iter()
+            .flat_map(|id| {
+                let mut chars = id.chars();
+                let first = chars.next().expect("non-empty reserved name");
+                let mixed = format!("{first}{}", chars.as_str().to_ascii_lowercase());
+                [id.clone(), id.to_ascii_lowercase(), mixed]
+            })
+            .chain(["nul", "NUL", "Com1", "lpt9", "cOn", "pRn", "aUx"].map(String::from))
+            .collect();
+
+        for id in &cased_variants {
+            assert!(
+                is_windows_reserved_device_name(id),
+                "expected {:?} to be detected as a Windows reserved device name",
+                id
+            );
+            assert!(
+                !can_use_raw_scan_id_stem(id),
+                "expected can_use_raw_scan_id_stem to reject {:?}",
+                id
+            );
+            let stem = report_file_stem_for_scan(id);
+            assert!(
+                stem.starts_with("__scan_id_blake3__"),
+                "expected hashed stem for {:?}, got {:?}",
+                id,
+                stem
+            );
+        }
+    }
+
+    // The character allowlist already sends these IDs to the hashed stem, so
+    // this pins the helper itself in case the allowlist is ever widened.
+    #[test]
+    fn windows_reserved_device_name_check_ignores_extension_and_trailing_spaces() {
+        for id in [
+            "nul.json",
+            "Nul.JSON",
+            "CON.txt",
+            "com1.tar.gz",
+            "nul ",
+            "LPT9 .log",
+        ] {
+            assert!(
+                is_windows_reserved_device_name(id),
+                "expected {:?} to be detected as a Windows reserved device name",
+                id
+            );
+        }
+    }
+
+    #[test]
+    fn ordinary_ids_resembling_device_names_keep_raw_stem() {
+        for id in [
+            "console",
+            "com10",
+            "lpt10",
+            "COM",
+            "lpt",
+            "comA",
+            "nul1",
+            "auxiliary",
+            "con-scan",
+            "prn_report",
+            "scan-nul",
+        ] {
+            assert!(
+                !is_windows_reserved_device_name(id),
+                "expected {:?} not to be treated as a reserved device name",
+                id
+            );
+            assert!(
+                can_use_raw_scan_id_stem(id),
+                "expected can_use_raw_scan_id_stem to accept {:?}",
+                id
+            );
+            assert_eq!(report_file_stem_for_scan(id), id);
+        }
+    }
+
+    #[test]
+    fn reserved_device_name_scan_ids_round_trip_through_store() {
+        let dir = tempdir().expect("temp dir");
+        let reserved_ids = ["nul", "NUL", "Com1", "lpt9", "con", "Prn", "AUX"];
+
+        for id in reserved_ids {
+            let report = sample_report(id, 100, 1);
+            let summary =
+                store_report(&report, Some(dir.path()), None, false).expect("store report");
+            let stored_path = fs::canonicalize(&summary.stored_report_path)
+                .expect("canonicalize stored report path");
+            let reports_dir =
+                fs::canonicalize(dir.path().join("reports")).expect("canonicalize reports dir");
+
+            assert!(
+                stored_path.starts_with(&reports_dir),
+                "stored path {:?} should be inside {:?}",
+                stored_path,
+                reports_dir
+            );
+            let file_name = stored_path
+                .file_name()
+                .and_then(|name| name.to_str())
+                .expect("stored report file name");
+            assert!(
+                file_name.starts_with("__scan_id_blake3__"),
+                "expected hashed file name for {:?}, got {:?}",
+                id,
+                file_name
+            );
+
+            let loaded = get_report(id, Some(dir.path())).expect("load stored report");
+            assert_eq!(loaded.scan_id, id);
+            assert_eq!(loaded.recommendations, report.recommendations);
+        }
+
+        let stored_ids: Vec<String> = list_reports(Some(dir.path()))
+            .expect("list reports")
+            .into_iter()
+            .map(|summary| summary.scan_id)
+            .collect();
+        for id in reserved_ids {
+            assert!(
+                stored_ids.iter().any(|stored| stored == id),
+                "expected {:?} in listed reports {:?}",
+                id,
+                stored_ids
+            );
+        }
+
+        for entry in fs::read_dir(dir.path().join("reports")).expect("read reports dir") {
+            let name = entry.expect("reports dir entry").file_name();
+            assert!(
+                name.to_string_lossy().starts_with("__scan_id_blake3__"),
+                "unexpected raw report file {:?}",
+                name
+            );
+        }
+    }
+
+    // Earlier builds wrote reserved names raw. `com0` is reserved by this check
+    // but is not a device on any Windows release, so the raw fixture can be
+    // written and read back on every platform.
+    #[test]
+    fn legacy_raw_reserved_name_report_remains_readable() {
+        let dir = tempdir().expect("temp dir");
+        let reports_dir = dir.path().join("reports");
+        fs::create_dir_all(&reports_dir).expect("create reports dir");
+        let report = sample_report("com0", 100, 1);
+        assert!(!can_use_raw_scan_id_stem(&report.scan_id));
+        fs::write(
+            reports_dir.join("com0.json"),
+            serde_json::to_string_pretty(&report).expect("serialize report"),
+        )
+        .expect("write legacy report");
+
+        let loaded = get_report("com0", Some(dir.path())).expect("load legacy report");
+
         assert_eq!(loaded.scan_id, report.scan_id);
         assert_eq!(loaded.recommendations, report.recommendations);
     }
