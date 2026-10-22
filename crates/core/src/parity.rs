@@ -19,9 +19,15 @@ use serde::{Deserialize, Serialize};
 use crate::model::BackendParity;
 use crate::scan::{compare_backends, ScanOptions};
 
-/// Schema version for the emitted parity artifact. Bump when the artifact shape
-/// changes in a way that breaks `scripts/check_parity_thresholds.py`.
-pub const PARITY_SUITE_SCHEMA_VERSION: u32 = 1;
+/// Schema version for the emitted parity artifact. Bump when a field is removed
+/// or changes meaning, so a reader can tell which shape an artifact carries, and
+/// update `SUPPORTED_SCHEMA_VERSION` in `scripts/check_parity_thresholds.py` to
+/// match. Adding a field does not need a bump.
+///
+/// Version 2 dropped the per-shape `tolerance_ratio` and `within_tolerance`
+/// fields, a raw-delta check that could read `true` on a shape whose `passed`
+/// was `false`. `passed` is the only verdict a shape carries.
+pub const PARITY_SUITE_SCHEMA_VERSION: u32 = 2;
 
 /// Number of shapes the catalogue is expected to produce on this platform.
 ///
@@ -83,6 +89,8 @@ pub struct ParityShapeSpec {
 pub struct ParityShapeReport {
     pub name: String,
     pub description: String,
+    /// The shape's verdict against the suite tolerances, and the only one it
+    /// carries. The flattened `parity` fields are measurements, not verdicts.
     pub passed: bool,
     pub failures: Vec<String>,
     #[serde(flatten)]
@@ -478,7 +486,24 @@ mod tests {
         let workspace = tempdir().expect("tempdir");
         let shapes = materialize_parity_shapes(workspace.path()).expect("materialize");
 
-        assert!(shapes.len() >= 7, "expected the full shape catalogue");
+        // The catalogue size is already enforced by `materialize_parity_shapes`
+        // itself, so this checks what it does not: that no shape appears twice.
+        let mut names = shapes
+            .iter()
+            .map(|shape| shape.name.as_str())
+            .collect::<Vec<_>>();
+        names.sort_unstable();
+        names.dedup();
+        assert_eq!(names.len(), shapes.len(), "shape names must be unique");
+
+        let mut roots = shapes
+            .iter()
+            .map(|shape| shape.root.as_path())
+            .collect::<Vec<_>>();
+        roots.sort_unstable();
+        roots.dedup();
+        assert_eq!(roots.len(), shapes.len(), "shape roots must be distinct");
+
         for shape in &shapes {
             assert!(shape.root.is_dir(), "shape {} has no root", shape.name);
             assert!(
@@ -590,6 +615,92 @@ mod tests {
 
         let restored: ParitySuiteReport = serde_json::from_value(payload).expect("deserialize");
         assert_eq!(restored, report);
+    }
+
+    fn sample_report() -> ParitySuiteReport {
+        ParitySuiteReport {
+            schema_version: PARITY_SUITE_SCHEMA_VERSION,
+            generated_at: String::new(),
+            platform: String::new(),
+            pdu_backend_feature_enabled: true,
+            tolerances: ParityTolerances::default(),
+            total_shapes: 1,
+            passed_shapes: 0,
+            failed_shapes: 1,
+            passed: false,
+            shapes: vec![ParityShapeReport {
+                name: "sample".to_string(),
+                description: "sample shape".to_string(),
+                passed: false,
+                failures: vec!["sample failure".to_string()],
+                parity: BackendParity::default(),
+            }],
+        }
+    }
+
+    /// Issue #25: a shape once serialized `within_tolerance: true` beside
+    /// `passed: false`, because the raw-delta check behind it was looser than
+    /// the gate. `passed` must stay the only verdict in the artifact.
+    #[test]
+    fn artifact_carries_a_single_verdict_per_shape() {
+        let payload = serde_json::to_value(sample_report()).expect("serialize");
+        let shape = payload["shapes"][0].as_object().expect("shape object");
+
+        for retired in ["within_tolerance", "tolerance_ratio"] {
+            assert!(
+                !shape.contains_key(retired),
+                "shape still serializes the retired verdict field {retired}"
+            );
+        }
+        assert_eq!(shape.get("passed"), Some(&serde_json::Value::Bool(false)));
+    }
+
+    #[test]
+    fn parity_payload_with_retired_fields_still_loads() {
+        let legacy = serde_json::json!({
+            "scanned_files_delta": 0,
+            "scanned_bytes_delta": 4096,
+            "tolerance_ratio": 0.05,
+            "within_tolerance": true,
+            "normalized_scanned_bytes_delta": 4096,
+        });
+
+        let parity: BackendParity = serde_json::from_value(legacy).expect("legacy payload");
+        assert_eq!(parity.normalized_scanned_bytes_delta, 4096);
+    }
+
+    /// The checkpoint is what a triager reads beside a failing artifact, so every
+    /// field the artifact serializes has to be explained there.
+    #[test]
+    fn checkpoint_documents_every_artifact_field() {
+        let checkpoint = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("..")
+            .join("..")
+            .join("docs")
+            .join("backend-promotion-checkpoint.md");
+        let doc = fs::read_to_string(&checkpoint).expect("read checkpoint doc");
+
+        let payload = serde_json::to_value(sample_report()).expect("serialize");
+        let sections = [
+            ("artifact", &payload),
+            ("tolerances", &payload["tolerances"]),
+            ("shape", &payload["shapes"][0]),
+        ];
+
+        let mut undocumented = Vec::new();
+        for (section, value) in sections {
+            for key in value.as_object().expect("object").keys() {
+                if !doc.contains(&format!("`{key}`")) {
+                    undocumented.push(format!("{section}.{key}"));
+                }
+            }
+        }
+        assert!(
+            undocumented.is_empty(),
+            "{} does not document artifact field(s): {}",
+            checkpoint.display(),
+            undocumented.join(", ")
+        );
     }
 
     #[test]

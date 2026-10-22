@@ -95,5 +95,16 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
   shape fails the suite instead of sliding under the CI minimum.
 - `compare_backends` forces the incremental cache off, so a parity verdict cannot
   be drawn from cached reports compared against a freshly walked tree.
+- Parity artifact carries one verdict per shape. `BackendParity` no longer
+  serializes `tolerance_ratio` and `within_tolerance`, a raw byte-delta check
+  against a fixed 5% that could read `true` beside `passed: false`.
+  `PARITY_SUITE_SCHEMA_VERSION` is now `2`, and `parity --paths` prints the
+  residual and `pdu_summary_applied` instead. `Report.backend_parity` has never
+  been populated, so `report_version` is unchanged; older payloads that carry the
+  two fields still load.
+- Parity threshold script defaults `--min-shapes` to the full catalogue for the
+  artifact's platform (9 on Unix, 8 on Windows) instead of 7, requires
+  `total_shapes`, and is covered by `tests/test_check_parity_thresholds.py`,
+  which the backend parity CI job runs.
 - Recommendation dedup/contradiction handling now blocks duplicate recommendation IDs.
 - Cloud-backed target safety enforcement is now explicit in policy decisions.

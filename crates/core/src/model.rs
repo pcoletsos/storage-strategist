@@ -124,6 +124,14 @@ pub enum ScanPhase {
     Done,
 }
 
+/// Measurements from running both scan backends over the same roots.
+///
+/// This carries no verdict. Whether the measurements are acceptable depends on
+/// the tolerances applied, so the pass/fail decision lives with whoever applies
+/// them: `ParityShapeReport.passed` in the parity suite. Earlier builds also
+/// serialized `tolerance_ratio` and `within_tolerance`, a raw-delta check that
+/// could disagree with the gate; payloads that still carry them load fine,
+/// because serde ignores the unknown fields.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Default)]
 pub struct BackendParity {
     #[serde(default)]
@@ -134,10 +142,6 @@ pub struct BackendParity {
     pub scanned_files_delta: i64,
     #[serde(default)]
     pub scanned_bytes_delta: i64,
-    #[serde(default)]
-    pub tolerance_ratio: f32,
-    #[serde(default)]
-    pub within_tolerance: bool,
     /// Absolute counters behind the deltas, kept so parity artifacts can be
     /// triaged without re-running the comparison locally.
     #[serde(default)]

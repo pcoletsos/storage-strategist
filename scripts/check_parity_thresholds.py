@@ -16,7 +16,19 @@ import json
 import sys
 from pathlib import Path
 
-SUPPORTED_SCHEMA_VERSION = 1
+SUPPORTED_SCHEMA_VERSION = 2
+
+# Mirrors `EXPECTED_SHAPE_COUNT` in `crates/core/src/parity.rs`: the catalogue
+# carries a symlink shape only on Unix. These are the `--min-shapes` default, so
+# a hand-run without the flag holds an artifact to its full catalogue instead of
+# accepting one that shrank. tests/test_check_parity_thresholds.py fails when
+# they drift from the Rust constants.
+EXPECTED_SHAPES_UNIX = 9
+EXPECTED_SHAPES_NON_UNIX = 8
+
+# `std::env::consts::OS` values the suite reports for targets where `cfg(unix)`
+# is false.
+NON_UNIX_PLATFORMS = frozenset({"windows"})
 
 # Every per-shape metric the gate reads. These are required rather than
 # defaulted: a missing field would otherwise read as perfect parity and the gate
@@ -33,7 +45,19 @@ REQUIRED_SHAPE_FIELDS = (
 )
 
 
-def parse_args() -> argparse.Namespace:
+def default_min_shapes(platform: str) -> int:
+    """Return the full catalogue size for the platform an artifact declares.
+
+    This is keyed on the artifact rather than the host running the script, so a
+    Linux artifact checked on Windows is still held to the Linux catalogue. An
+    unrecognized platform gets the larger count.
+    """
+    if platform in NON_UNIX_PLATFORMS:
+        return EXPECTED_SHAPES_NON_UNIX
+    return EXPECTED_SHAPES_UNIX
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate backend parity tolerances")
     parser.add_argument(
         "--input",
@@ -65,15 +89,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--min-shapes",
         type=int,
-        default=7,
-        help="Minimum number of shapes the suite must have run (default: 7)",
+        default=None,
+        help=(
+            "Minimum number of shapes the suite must have run (default: the full "
+            f"catalogue for the artifact's platform, {EXPECTED_SHAPES_UNIX} on Unix "
+            f"or {EXPECTED_SHAPES_NON_UNIX} on Windows)"
+        ),
     )
     parser.add_argument(
         "--require-pdu-backend",
         action="store_true",
         help="Fail when the artifact was produced without the pdu-backend feature",
     )
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def load_json(path: Path) -> dict:
@@ -90,8 +118,8 @@ def load_json(path: Path) -> dict:
         raise
 
 
-def main() -> int:
-    args = parse_args()
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
     payload = load_json(args.input)
 
     failures: list[str] = []
@@ -110,10 +138,19 @@ def main() -> int:
         print("ERROR: parity artifact has no 'shapes' list", file=sys.stderr)
         return 1
 
+    # Required for the same reason as the per-shape fields: without it a
+    # truncated shapes list has nothing to be compared against.
     declared_total = payload.get("total_shapes")
-    if declared_total is not None and int(declared_total) != len(shapes):
+    if declared_total is None:
         print(
-            f"ERROR: artifact declares {declared_total} shape(s) but carries "
+            "ERROR: parity artifact has no 'total_shapes', so a truncated shapes "
+            "list cannot be detected",
+            file=sys.stderr,
+        )
+        return 1
+    if not isinstance(declared_total, int) or declared_total != len(shapes):
+        print(
+            f"ERROR: artifact declares {declared_total!r} shape(s) but carries "
             f"{len(shapes)}; it is truncated or malformed",
             file=sys.stderr,
         )
@@ -121,8 +158,12 @@ def main() -> int:
 
     platform = payload.get("platform", "unknown")
     pdu_enabled = bool(payload.get("pdu_backend_feature_enabled", False))
+    min_shapes = (
+        args.min_shapes if args.min_shapes is not None else default_min_shapes(platform)
+    )
     print(
         f"Backend parity: platform={platform} shapes={len(shapes)} "
+        f"min_shapes={min_shapes} "
         f"pdu_backend_feature={'on' if pdu_enabled else 'off'}"
     )
 
@@ -132,9 +173,9 @@ def main() -> int:
             "comparison did not exercise parallel-disk-usage"
         )
 
-    if len(shapes) < args.min_shapes:
+    if len(shapes) < min_shapes:
         failures.append(
-            f"suite ran {len(shapes)} shape(s), below the minimum {args.min_shapes}"
+            f"suite ran {len(shapes)} shape(s), below the minimum {min_shapes}"
         )
 
     for index, shape in enumerate(shapes):

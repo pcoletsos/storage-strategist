@@ -182,6 +182,13 @@ OS-specific enrichment providers:
   - `pdu_summary_applied`
   - `directory_entry_bytes`, `symlink_entry_bytes`
   - `normalized_scanned_bytes_delta`
+- `BackendParity` carries measurements only. `tolerance_ratio` and
+  `within_tolerance` were removed because they formed a second, looser verdict
+  than the parity gate's. `Report.backend_parity` is never populated, so no
+  produced report changed and `report_version` stays `1.3.0`; payloads that
+  still carry the two fields load, since serde ignores unknown fields. The
+  parity artifact versions itself separately (`PARITY_SUITE_SCHEMA_VERSION`, now
+  `2`).
 
 ## UI Architecture (Read-Only)
 

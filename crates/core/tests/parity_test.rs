@@ -231,7 +231,11 @@ fn backends_match_exactly_on_checked_in_fixtures() -> Result<()> {
     assert_eq!(parity.scanned_files_delta, 0, "file count mismatch");
     assert_eq!(parity.scanned_bytes_delta, 0, "byte count mismatch");
     assert_eq!(parity.directory_entry_bytes, 0, "fixtures should be flat");
-    assert!(parity.within_tolerance, "parity outside tolerance");
+    assert_eq!(parity.symlink_entry_bytes, 0, "fixtures carry no symlinks");
+    assert_eq!(
+        parity.normalized_scanned_bytes_delta, 0,
+        "residual byte delta"
+    );
 
     Ok(())
 }
