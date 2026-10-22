@@ -550,13 +550,17 @@ fn run_parity_command(args: ParityArgs) -> Result<()> {
         ..ScanOptions::default()
     };
 
+    // A single comparison reports measurements only. The pass/fail verdict
+    // belongs to `--suite`, which applies the agreed tolerances.
     let parity = compare_backends(&options)?;
     println!(
-        "Parity: within_tolerance={} tolerance={:.3} scanned_files_delta={} scanned_bytes_delta={}",
-        parity.within_tolerance,
-        parity.tolerance_ratio,
+        "Parity: files delta {} | bytes delta {} (dirs {}, symlinks {}, residual {}) | pdu summary applied {}",
         parity.scanned_files_delta,
-        parity.scanned_bytes_delta
+        parity.scanned_bytes_delta,
+        parity.directory_entry_bytes,
+        parity.symlink_entry_bytes,
+        parity.normalized_scanned_bytes_delta,
+        parity.pdu_summary_applied
     );
     println!(
         "Elapsed native={}ms pdu_library={}ms",

@@ -93,6 +93,11 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
+      # The threshold script is the last line of this gate, so its own rules
+      # are tested before it is trusted with the artifact.
+      - name: Test parity threshold script
+        run: python3 -m unittest discover -s tests -p "test_check_parity_thresholds.py" -v
+
       - name: Run backend parity tests
         run: cargo test --test parity_test -- --nocapture
 
