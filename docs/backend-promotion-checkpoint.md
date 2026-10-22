@@ -283,7 +283,7 @@ default.
 | `largest_directories` rollup membership | Open | Issue #23. Different entries and different sizes per backend; not covered by the gate |
 | `max_depth` does not bound the pdu total | Resolved | Issue #18. Bound applied to the built tree; guarded by the `depth-limited` shape |
 | Exclude-pattern support in `pdu_library` | Open | Currently falls back to `native` |
-| Parity on the full OS matrix | Open | CI runs Linux only today; build coverage tracked as issue #24 |
+| Parity on the full OS matrix | Open | The `backend parity` job runs on Linux only. Since issue #24, clippy and `cargo test --workspace` (including `parity_test`) also run on Windows and macOS, but the suite and its thresholds do not |
 | Multi-run performance baseline | Open | Tracked as ROADMAP P3 item 14 |
 | Threshold tightening to 10% | Open | Blocked on the variance baseline |
 

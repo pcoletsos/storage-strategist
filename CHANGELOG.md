@@ -70,6 +70,12 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - CLI backend naming standardized to `pdu_library` (`pdu` alias supported).
 - Desktop packaging workflow expanded to Windows/macOS/Linux matrix with optional signing env wiring.
 - Tauri bundle config enabled for packaging builds.
+- CI runs `clippy` (`-D warnings`) and `test` on Windows and macOS as well as
+  Linux on every push and pull request. The new platforms report as
+  `clippy (<os>)` and `test (<os>)` and are not required checks yet.
+- CI checks formatting and clippy (`-D warnings`) for `apps/desktop/src-tauri` on
+  Windows in a new `desktop rust (windows-latest)` job, also not required yet.
+  The crate is outside the workspace, so no job compiled it before.
 
 ### Fixed
 - `pdu_library` no longer reports the size of the whole tree for a depth-limited

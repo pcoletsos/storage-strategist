@@ -254,7 +254,7 @@ Architectural safeguards governing corpus optimization (`optimize_av1_corpus.py`
 
 - `CONTRIBUTING.md`: canonical issue-first branch/PR/merge contract
 - `.github/workflows/contribution-guardrails.yml`: PR guardrail check for branch naming, Conventional Commit titles, linked issues, and milestone-backed issues
-- `.github/workflows/ci.yml`: `Contribution guardrails` + fmt + clippy (`-D warnings`) + tests + compliance checks + desktop smoke tests
+- `.github/workflows/ci.yml`: `Contribution guardrails` + fmt + clippy (`-D warnings`) + tests + compliance checks + desktop smoke tests; clippy and tests run on Linux, Windows, and macOS, and `desktop rust` checks fmt + clippy for the excluded `apps/desktop/src-tauri` crate on Windows
 - `.github/workflows/bench.yml`: benchmark run + regression threshold check (15%)
 - `.github/workflows/desktop-package.yml`: manual desktop packaging matrix (Windows/macOS/Linux) with optional signing env support
 - Evaluation KPI definitions (`crates/core/src/eval.rs`):
