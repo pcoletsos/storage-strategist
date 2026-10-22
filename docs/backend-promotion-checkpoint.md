@@ -36,12 +36,15 @@ when it did not.
 ## Measured signals
 
 `compare_backends(options)` runs both backends over the same roots and returns
-`BackendParity`:
+`BackendParity`. It holds measurements only. Whether they are acceptable depends
+on the tolerances applied, so the verdict lives in the suite, not here.
 
 | Field | Meaning |
 |---|---|
+| `native_scanned_files`, `pdu_library_scanned_files` | file count per backend |
+| `native_scanned_bytes`, `pdu_library_scanned_bytes` | byte total per backend |
 | `scanned_files_delta` | `pdu_library` file count minus `native` file count |
-| `scanned_bytes_delta` | raw byte total difference |
+| `scanned_bytes_delta` | raw byte total difference, `pdu_library` minus `native` |
 | `directory_entry_bytes` | apparent size of non-root directory entries |
 | `symlink_entry_bytes` | apparent size of symlink entries |
 | `normalized_scanned_bytes_delta` | `scanned_bytes_delta` minus both accounting terms |
@@ -50,6 +53,9 @@ when it did not.
 
 `normalized_scanned_bytes_delta` is the number that matters. It is the portion
 of the difference that no known accounting rule explains.
+
+`parity --paths` prints these measurements for a single comparison and gives no
+verdict. Use `parity --suite` for a pass or fail.
 
 ## Known accounting differences
 
@@ -168,18 +174,54 @@ Tolerances enforced in CI (`backend parity` job) and by
 | `--max-files-delta` | `0` | Both backends walk the same tree with the same walker. Any file-count difference is a defect. |
 | `--max-normalized-bytes-delta` | `0` | On synthetic fixtures every byte must be explained. |
 | `--max-residual-bytes-delta-ratio` | `0.005` | Proportional companion for large or live trees where an exact match is unrealistic. |
-| `--min-shapes` | `9` on Unix | Backstop against the catalogue silently shrinking. The primary guard is `EXPECTED_SHAPE_COUNT`, which fails the suite at the source when a shape is added or dropped. |
+| `--min-shapes` | `9` on Unix | Backstop against the catalogue silently shrinking. The primary guard is `EXPECTED_SHAPE_COUNT`, which fails the suite at the source when a shape is added or dropped. When the flag is omitted, the script uses the full catalogue for the artifact's `platform`: 9 on Unix, 8 on Windows. |
 | `--require-pdu-backend` | on | A run without the feature proves nothing. |
 | `pdu_summary_applied` | must be true per shape | Catches a silent fallback to `native`. |
 
 The job uploads `parity-result.json` with `if: always()`, so a failing run can be
 triaged from the artifact without reproducing the tree locally. The artifact
 carries absolute counters, both accounting terms, and per-shape failure text.
+The same job runs `tests/test_check_parity_thresholds.py` first, so the script's
+own rules are tested before it judges the artifact.
+
+### Artifact layout
+
+`parity-result.json` at schema version 2. Every field it serializes is listed
+here, and a unit test in `crates/core/src/parity.rs` fails if one is added
+without being documented.
+
+| Field | Meaning |
+|---|---|
+| `schema_version` | Artifact layout version, currently `2`. Bumped when a field is removed or changes meaning. The script rejects any other version. |
+| `generated_at` | RFC 3339 timestamp of the run |
+| `platform` | `std::env::consts::OS` of the run. Also selects the script's default `--min-shapes`. |
+| `pdu_backend_feature_enabled` | whether the binary was built with the `pdu-backend` feature |
+| `tolerances` | the tolerances the suite applied: `max_scanned_files_delta`, `max_normalized_bytes_delta`, `max_residual_bytes_delta_ratio`, `require_pdu_summary` |
+| `total_shapes` | number of shapes run. Must equal the length of `shapes`; the script treats a mismatch, or a missing value, as a truncated artifact. |
+| `passed_shapes`, `failed_shapes` | shape counts by verdict |
+| `passed` | suite verdict: `true` only when every shape passed |
+| `shapes` | one object per shape, described below |
+
+Each object in `shapes`:
+
+| Field | Meaning |
+|---|---|
+| `name`, `description` | the shape and the property it exercises |
+| `passed` | the shape's verdict against `tolerances`, and the only verdict it carries |
+| `failures` | one line per tolerance the shape broke; empty when `passed` is `true` |
+| [Measured signals](#measured-signals) | every `BackendParity` field, flattened into the shape object |
+
+Schema version 1 also put `tolerance_ratio` and `within_tolerance` on every
+shape. They compared the raw `scanned_bytes_delta` against a fixed 5% instead of
+the residual against the suite tolerances, so a shape could carry
+`within_tolerance: true` beside `passed: false`. Version 2 removed them (issue
+#25). If an old artifact still has them, ignore them and read `passed`.
 
 ### Reading a failure
 
 1. Download the `backend-parity-result` artifact from the failing job.
-2. Find the shapes with `passed: false` and read their `failures` list.
+2. Find the shapes with `passed: false` and read their `failures` list. `passed`
+   is the verdict; every other per-shape field is a measurement.
 3. If `pdu_summary_applied` is `false`, the `pdu_library` path did not run. Check
    for the `pdu-backend` feature and for exclude patterns before looking at
    deltas.

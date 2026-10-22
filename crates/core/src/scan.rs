@@ -733,10 +733,6 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
     let scanned_bytes_delta = pdu_report.scan_metrics.scanned_bytes as i64
         - native_report.scan_metrics.scanned_bytes as i64;
 
-    let denom = native_report.scan_metrics.scanned_bytes.max(1) as f64;
-    let ratio = (scanned_bytes_delta.unsigned_abs() as f64 / denom) as f32;
-    let tolerance_ratio = 0.05;
-
     let pdu_summary_applied = !pdu_report.warnings.iter().any(|warning| {
         warning.contains(PDU_BACKEND_FALLBACK_MARKER)
             || warning.contains(PDU_SUMMARY_FALLBACK_MARKER)
@@ -757,8 +753,6 @@ pub fn compare_backends(options: &ScanOptions) -> Result<BackendParity> {
         pdu_library_elapsed_ms: pdu_report.scan_metrics.elapsed_ms,
         scanned_files_delta,
         scanned_bytes_delta,
-        tolerance_ratio,
-        within_tolerance: ratio <= tolerance_ratio,
         native_scanned_files: native_report.scan_metrics.scanned_files,
         native_scanned_bytes: native_report.scan_metrics.scanned_bytes,
         pdu_library_scanned_files: pdu_report.scan_metrics.scanned_files,
