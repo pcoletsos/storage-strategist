@@ -219,7 +219,6 @@ pub fn materialize_parity_shapes(workspace: &Path) -> Result<Vec<ParityShapeSpec
     ensure_empty_workspace(workspace)?;
 
     // `mut` is only used on Unix, where the symlink shape is available.
-    #[allow(unused_mut)]
     let mut shapes = vec![
         build_flat_files(workspace)?,
         build_deep_chain(workspace)?,

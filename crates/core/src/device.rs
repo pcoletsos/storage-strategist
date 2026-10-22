@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-#[cfg(any(target_os = "windows", target_os = "linux"))]
 use std::process::Command;
 
 use crate::model::{DiskInfo, DiskKind, DiskStorageType, LocalityClass, PerformanceClass};
