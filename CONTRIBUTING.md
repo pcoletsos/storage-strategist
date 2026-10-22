@@ -195,6 +195,14 @@ The branch protection baseline is:
 - `compliance checks`
 - `desktop smoke`
 
+`clippy` and `test` also run on Windows and macOS, reported as
+`clippy (windows-latest)`, `clippy (macos-latest)`, `test (windows-latest)`,
+and `test (macos-latest)`. `desktop rust (windows-latest)` checks formatting
+and clippy for `apps/desktop/src-tauri`, which the workspace excludes. These
+run on every pull request but are not required yet, so a flaky runner cannot
+block merges while the coverage is proven. Making them required is a separate
+branch-protection change, and this list should be updated with it.
+
 ## Maintainer override boundaries
 
 Maintainer overrides are reserved for:

@@ -13,7 +13,8 @@ use storage_strategist_service::{
     export_report_diff as service_export_report_diff, generate_recommendations_from_report,
     get_report as service_get_report, get_scan_session as service_get_scan_session,
     import_report as service_import_report, list_reports as service_list_reports,
-    load_report as service_load_report, plan_scenarios_from_report as service_plan_scenarios_from_report,
+    load_report as service_load_report,
+    plan_scenarios_from_report as service_plan_scenarios_from_report,
     poll_scan_events as service_poll_scan_events, start_scan as service_start_scan,
     CancelScanResponse, ScanRequest, ScanSessionSnapshot,
 };
@@ -79,12 +80,8 @@ fn export_diagnostics_bundle(
     output_path: String,
     source_report_path: Option<String>,
 ) -> Result<DiagnosticsBundle, String> {
-    service_export_diagnostics_bundle(
-        &report,
-        output_path,
-        source_report_path.map(PathBuf::from),
-    )
-    .map_err(|err| err.to_string())
+    service_export_diagnostics_bundle(&report, output_path, source_report_path.map(PathBuf::from))
+        .map_err(|err| err.to_string())
 }
 
 #[tauri::command]

@@ -21,9 +21,17 @@ jobs:
       - name: Cargo fmt
         run: cargo fmt --all -- --check
 
+  # fmt stays Linux-only: rustfmt ignores cfg gates, so its result does not
+  # depend on the host. clippy and test compile cfg-gated code, so they run on
+  # every platform. Linux keeps the bare check name that branch protection
+  # requires; Windows and macOS report as `<job> (<os>)`.
   clippy:
-    name: clippy
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os == 'ubuntu-latest' && 'clippy' || format('clippy ({0})', matrix.os) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -37,8 +45,12 @@ jobs:
         run: cargo clippy --workspace --all-targets -- -D warnings
 
   test:
-    name: test
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os == 'ubuntu-latest' && 'test' || format('test ({0})', matrix.os) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -82,6 +94,30 @@ jobs:
 
       - name: Run desktop UI smoke tests
         run: npm run test:e2e
+
+  # apps/desktop/src-tauri is excluded from the workspace, so no other job
+  # compiles it. Windows is the desktop app's primary target, and unlike Linux
+  # it needs no extra system packages to build Tauri.
+  desktop_rust:
+    name: desktop rust (windows-latest)
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: apps/desktop/src-tauri
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cargo fmt
+        run: cargo fmt -- --check
+
+      - name: Cargo clippy
+        run: cargo clippy --all-targets --locked -- -D warnings
 
   backend_parity:
     name: backend parity
